@@ -4,7 +4,7 @@ Automated Amazon affiliate content for Instagram [@daily_tech_drops](https://www
 Each Sunday, Claude researches the week's best-selling, well-reviewed tech products and writes every reel
 and carousel into one file in `weeks/`, opened as a pull request. GitHub renders the whole week and comments
 a preview. **Merging the pull request approves the week** (works from the GitHub phone app). Each product
-then posts at its scheduled time, and anyone who comments **LINK** gets the affiliate link by DM.
+then posts at its scheduled time, and anyone who comments **SHOP** gets the affiliate link by DM.
 
 ## How a week runs
 

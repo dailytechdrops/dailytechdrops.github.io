@@ -35,8 +35,8 @@
       - on_screen: "Tip: point it at the corner"
         voiceover: Quick tip. Aim it where the wall meets the ceiling and the effect wraps around the room.
         broll_query: person relaxing bed night
-      - on_screen: Comment LINK for the link
-        voiceover: Comment LINK and I will send you the link.
+      - on_screen: Comment SHOP for the link
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: night sky stars
     carousel:
       - title: Northern lights at home
@@ -47,7 +47,7 @@
         body: Bedroom, game room, movie night, kids' room.
       - title: Pro tip
         body: Aim it where the wall meets the ceiling so the light wraps the room.
-      - title: Comment LINK
+      - title: Comment SHOP
         body: I will DM you the Amazon link.
     caption: |-
       Imagine falling asleep under this. ✨
@@ -56,6 +56,6 @@
 
       Tip: aim it where the wall meets the ceiling so the light wraps around the room.
 
-      Comment LINK and I will DM you the Amazon link.
+      Comment SHOP and I will DM you the Amazon link.
     hashtags: [galaxyprojector, roomdecor, coolgadgets, amazonfinds, northernlights, bedroomdecor, techgadgets, gamingroom]
     dm_message: "Here is the aurora galaxy projector: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Enjoy the light show!"
