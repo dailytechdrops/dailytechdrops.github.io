@@ -12,6 +12,10 @@ from .media_sources import duration, stock_clip, tts
 from .writer import DropContent
 
 
+# Evens out voices so Piper, Kokoro and ElevenLabs all come out at the same loudness.
+LOUDNORM = "loudnorm=I=-16:TP=-1.5:LRA=11"
+
+
 def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
     workdir.mkdir(parents=True, exist_ok=True)
     rc = cfg["reel"]
@@ -41,12 +45,12 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
         track = random.Random(content.caption).choice(music)
         _ffmpeg([
             "-i", str(joined), "-stream_loop", "-1", "-i", str(track),
-            "-filter_complex", f"[1:a]volume={rc['music_volume']}[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]",
+            "-filter_complex", f"[1:a]volume={rc['music_volume']}[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,{LOUDNORM}[a]",
             "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
             "-movflags", "+faststart", str(final),
         ])
     else:
-        _ffmpeg(["-i", str(joined), "-c", "copy", "-movflags", "+faststart", str(final)])
+        _ffmpeg(["-i", str(joined), "-af", LOUDNORM, "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(final)])
     return final
 
 
