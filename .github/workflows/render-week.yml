@@ -64,30 +64,6 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install kokoro soundfile
 
-      - name: Cache background music
-        uses: actions/cache@v4
-        with:
-          path: assets/music
-          key: freepd-music-v2
-
-      - name: Fetch free background music if none is committed
-        continue-on-error: true   # music is a nice-to-have; never block a render
-        # FreePD tracks are public domain (CC0), so no credit or fee is needed.
-        run: |
-          ls assets/music/*.mp3 >/dev/null 2>&1 && { echo "::notice::Music: using cached tracks"; exit 0; }
-          mkdir -p assets/music
-          for page in upbeat electronic; do
-            html=$(curl -sL -A "Mozilla/5.0" "https://freepd.com/$page.php" || true)
-            links=$(printf '%s' "$html" | grep -oiE '[^"'"'"' >]+\.mp3' | sort -u | head -3 || true)
-            echo "::notice::Music page $page: $(printf '%s' "$html" | head -c 300 | tr '\n' ' ') | links: $(echo $links | head -c 300)"
-            for path in $links; do
-              case "$path" in http*) url="$path" ;; /*) url="https://freepd.com$path" ;; *) url="https://freepd.com/$path" ;; esac
-              name=$(basename "$path" | sed 's/%20/_/g; s/[^A-Za-z0-9._-]/_/g')
-              curl -sfL -A "Mozilla/5.0" -o "assets/music/$name" "${url// /%20}" || echo "::notice::Music download failed: $url"
-            done
-          done
-          echo "::notice::Music files: $(ls assets/music | tr '\n' ' ')"
-
       - name: Find week files to render
         id: weeks
         run: |
