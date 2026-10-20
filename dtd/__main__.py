@@ -15,6 +15,7 @@ import re
 import shutil
 import subprocess
 import sys
+import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -26,6 +27,8 @@ from .writer import full_caption, write_content
 
 # A post whose time passed longer ago than this is skipped rather than posted late.
 STALE_AFTER = timedelta(hours=6)
+# A link DM that keeps failing (for example, the person blocks messages) is dropped after this many tries.
+MAX_DM_ATTEMPTS = 3
 
 
 def render(cfg: dict, week: Path) -> int:
@@ -125,30 +128,57 @@ def reply(cfg: dict) -> int:
         # Runs every 30 minutes; stay quiet until Instagram is connected.
         print("Instagram secrets not set yet; skipping.")
         return 0
-    keyword = cfg["instagram"]["comment_keyword"].lower()
+    ig = cfg["instagram"]
+    words = [ig["comment_keyword"], *ig.get("comment_aliases", [])]
+    wanted = re.compile(r"\b(" + "|".join(re.escape(w) for w in words) + r")\b", re.IGNORECASE)
     handle = cfg["brand"]["handle"].lower()
     by_media = {m: h for h in read_state("history", []) for m in h.get("media_ids", [])}
     replied = set(read_state("replied", []))
+    failures = read_state("reply_failures", {})
     sent = 0
     for media in instagram.recent_media(days=7):
         post = by_media.get(media["id"])
         if not post:
             continue
         for c in instagram.comments(media["id"]):
-            if c["id"] in replied or c.get("username", "").lower() == handle:
+            user = c.get("username", "")
+            if c["id"] in replied or user.lower() == handle or not wanted.search(c.get("text", "")):
                 continue
-            if re.search(rf"\b{re.escape(keyword)}\b", c.get("text", "").lower()):
-                try:
-                    instagram.private_reply(c["id"], post["dm_message"])
-                    instagram.public_reply(c["id"], "Sent! Check your DMs.")
-                    sent += 1
-                except instagram.InstagramError as e:
-                    print(f"Reply to {c['id']} failed: {e}", file=sys.stderr)
-                    continue
-                replied.add(c["id"])
+            try:
+                instagram.private_reply(c["id"], _dm_text(cfg, post, user))
+            except instagram.InstagramError as e:
+                failures[c["id"]] = failures.get(c["id"], 0) + 1
+                print(f"DM for comment {c['id']} failed (attempt {failures[c['id']]}): {e}", file=sys.stderr)
+                if failures[c["id"]] >= MAX_DM_ATTEMPTS:
+                    replied.add(c["id"])  # give up rather than retry every run for a week
+                continue
+            # The DM went out, so never send it again even if the public reply fails.
+            replied.add(c["id"])
+            failures.pop(c["id"], None)
+            sent += 1
+            try:
+                instagram.public_reply(c["id"], _public_reply_text(cfg, c["id"], user))
+            except instagram.InstagramError as e:
+                print(f"Public reply to {c['id']} failed: {e}", file=sys.stderr)
     write_state("replied", sorted(replied))
+    write_state("reply_failures", {k: v for k, v in failures.items() if k not in replied})
     print(f"Sent {sent} link DMs")
     return 0
+
+
+def _dm_text(cfg: dict, post: dict, user: str) -> str:
+    template = cfg["instagram"].get("dm_template")
+    if not template:
+        return post["dm_message"]
+    greeting = f"@{user}" if user else "there"
+    return template.format(user=greeting, name=post["name"], link=post["link"]).strip()
+
+
+def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
+    # Rotating the wording keeps identical replies from looking like spam to Instagram.
+    options = cfg["instagram"].get("public_replies") or ["Sent! Check your DMs."]
+    text = options[zlib.crc32(comment_id.encode()) % len(options)]
+    return text.format(user=f"@{user}" if user else "").replace("  ", " ").strip()
 
 
 def main() -> int:

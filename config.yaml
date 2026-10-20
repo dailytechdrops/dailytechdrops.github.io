@@ -18,8 +18,24 @@ amazon:
 
 instagram:
   comment_keyword: SHOP          # Viewers comment this word to get the link by DM
+  comment_aliases: [LINK]        # Also answered, since people guess these
   hashtags_per_post: 8
   disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
+  # The link DM. {user} is @their_name, {name} the product, {link} the affiliate link.
+  dm_template: |-
+    Hey {user}! 👋 Here's the {name} you asked about:
+    {link}
+
+    Prices change often, so check Amazon for today's price.
+    New finds drop twice a day at @daily_tech_drops 📦
+
+    #ad As an Amazon Associate I earn from qualifying purchases.
+  # Public comment replies, rotated so they don't look like spam. {user} is @their_name.
+  public_replies:
+    - "Sent! Check your DMs {user} 📩"
+    - "Just sent you the link {user} 🙌"
+    - "Check your inbox {user}, it's on the way 📬"
+    - "Done {user}! Link is in your DMs ✅"
 
 schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
