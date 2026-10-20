@@ -1,0 +1,42 @@
+name: Auto-approve weeks
+
+# Merging a weekly pull request approves its posts. This merges it for you once it has sat
+# for AUTO_APPROVE_HOURS (default 24) with its render passing, unless you stop it:
+#   - add the "hold" label to the pull request, or
+#   - comment "stop" on it.
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HOURS: ${{ vars.AUTO_APPROVE_HOURS || '24' }}
+      REPO: ${{ github.repository }}
+      OWNER: ${{ github.repository_owner }}
+    steps:
+      - name: Merge weekly pull requests that have waited long enough
+        run: |
+          now=$(date +%s)
+          gh api "repos/$REPO/pulls?state=open&per_page=50" --jq '.[] | select(.head.ref | startswith("claude/week-")) | .number' | while read -r n; do
+            pr=$(gh api "repos/$REPO/pulls/$n")
+            sha=$(echo "$pr" | jq -r .head.sha)
+            committed=$(gh api "repos/$REPO/commits/$sha" --jq .commit.committer.date)
+            age_h=$(( (now - $(date -d "$committed" +%s)) / 3600 ))
+            if [ "$age_h" -lt "$HOURS" ]; then echo "#$n: only $age_h h old, waiting"; continue; fi
+            if echo "$pr" | jq -e '[.labels[].name] | index("hold")' >/dev/null; then echo "#$n: on hold"; continue; fi
+            if gh api "repos/$REPO/issues/$n/comments" --jq '.[] | select(.user.login == env.OWNER) | .body' | grep -qiw stop; then echo "#$n: stopped by a comment"; continue; fi
+            bad=$(gh api "repos/$REPO/commits/$sha/check-runs" --jq '[.check_runs[] | select(.conclusion != "success" and .conclusion != "skipped")] | length')
+            if [ "$bad" != "0" ]; then echo "#$n: checks not green"; continue; fi
+            echo "#$n: approving after $age_h h"
+            gh api -X PUT "repos/$REPO/pulls/$n/merge" -f merge_method=squash -f sha="$sha" >/dev/null
+          done
