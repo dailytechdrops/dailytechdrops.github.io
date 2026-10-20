@@ -88,14 +88,15 @@ def build(days: int = 7) -> tuple[str, str]:
     md.append("| --- | ---: | ---: | ---: | ---: |")
     lane_rows = sorted(by_lane.items(), key=lambda kv: (sum(r["dms"] for r in kv[1]), _avg(kv[1], "reach")), reverse=True)
     for lane, items in lane_rows:
-        md.append(f"| {lane} | {len(items)} | {_avg(items, 'reach'):,.0f} | {_avg(items, 'eng'):.1%} | {sum(r['dms'] for r in items)} |")
+        md.append(f"| {lane} | {len(items)} | {_avg(items, 'reach'):,.0f} | {_rate(items):.1%} | {sum(r['dms'] for r in items)} |")
 
     best, worst = ranked[0], ranked[-1]
     md.append("\n### For next week's picks\n")
     md.append(f"- Best post: **{best['name']}** ({best['lane']}).")
     if len(ranked) > 1:
         md.append(f"- Weakest post: **{worst['name']}** ({worst['lane']}).")
-    md.append(f"- Strongest lane: **{lane_rows[0][0]}**. Lean into it next week while keeping the mix varied.")
+    if lane_rows[0][0] != "other":
+        md.append(f"- Strongest lane: **{lane_rows[0][0]}**. Lean into it next week while keeping the mix varied.")
     return title, "\n".join(md) + "\n"
 
 
@@ -110,6 +111,12 @@ def run() -> str:
 
 def _avg(items: list[dict], key: str) -> float:
     return sum(i[key] for i in items) / len(items) if items else 0
+
+
+def _rate(items: list[dict]) -> float:
+    """Engagement over the lane's total reach, so a post seen by 3 people cannot skew it."""
+    reach = sum(i["reach"] for i in items)
+    return sum(i["interactions"] for i in items) / reach if reach else 0
 
 
 def _snippet(caption: str) -> str:
