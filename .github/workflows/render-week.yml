@@ -11,6 +11,10 @@ on:
       week:
         description: "Week file to render, e.g. weeks/2026-10-26.yaml"
         required: true
+      voices:
+        description: "Extra free Piper voices to compare, e.g. en_US-lessac-high en_US-amy-medium"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -45,10 +49,31 @@ jobs:
           path: voices
           key: piper-voices-v1
 
-      - name: Download the Piper voice if missing
+      - name: Download the Piper voices if missing
         run: |
           VOICE=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['voice']['piper_voice'])")
-          [ -f "voices/$VOICE.onnx" ] || python -m piper.download_voices "$VOICE" --data-dir voices
+          for v in $VOICE ${{ inputs.voices }}; do
+            [ -f "voices/$v.onnx" ] || python -m piper.download_voices "$v" --data-dir voices
+          done
+
+      - name: Cache background music
+        uses: actions/cache@v4
+        with:
+          path: assets/music
+          key: freepd-music-v1
+
+      - name: Fetch free background music if none is committed
+        continue-on-error: true   # music is a nice-to-have; never block a render
+        # FreePD tracks are public domain (CC0), so no credit or fee is needed.
+        run: |
+          ls assets/music/*.mp3 >/dev/null 2>&1 && exit 0
+          mkdir -p assets/music
+          for page in upbeat electronic; do
+            curl -sfL "https://freepd.com/$page.php" | grep -oE 'music/[^"'"'"']+\.mp3' | sort -u | head -3
+          done | while read -r path; do
+            curl -sfL -o "assets/music/$(basename "$path" | tr -c 'A-Za-z0-9.\n' '_')" "https://freepd.com/${path// /%20}" || true
+          done
+          ls -la assets/music || true
 
       - name: Find week files to render
         id: weeks
@@ -67,6 +92,7 @@ jobs:
           AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          EXTRA_VOICES: ${{ inputs.voices }}
         run: for f in ${{ steps.weeks.outputs.files }}; do python -m dtd render --week "$f"; done
 
       - name: Store media on the media branch

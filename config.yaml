@@ -52,11 +52,10 @@ writer:
   model: claude-opus-5-5
   effort: medium
 
-# Niche lanes rotated so the feed stays varied.
+# Niche lanes rotated so the feed stays varied, best performers first.
+# Lighting and room decor was dropped in Oct 2026: it drew the fewest views.
 lanes:
-  - smart lighting and room decor (lamps, LED panels, smart mirrors)
-  - clocks and desk gadgets
-  - robots and fun tech
+  - desk and productivity setup (stands, monitor bars, cable management)
   - phone, travel and charging gadgets
-  - smart home and kitchen tech
-  - gaming and desk setup
+  - home security and safety gadgets (trackers, detectors, locks)
+  - robots, clocks and fun tech

@@ -31,21 +31,20 @@ def tts(cfg: dict, text: str, out: Path) -> Path | None:
     return out
 
 
-_piper_voice = None
+_piper_voices: dict = {}
 
 
 def _piper(cfg: dict, text: str, out: Path) -> Path | None:
-    global _piper_voice
     model = ROOT / "voices" / f"{cfg['voice']['piper_voice']}.onnx"
     if not model.exists():
         print(f"Piper voice not found at {model}; rendering without voiceover")
         return None
     from piper import PiperVoice, SynthesisConfig
 
-    if _piper_voice is None:
-        _piper_voice = PiperVoice.load(model)
+    if model not in _piper_voices:
+        _piper_voices[model] = PiperVoice.load(model)
     with wave.open(str(out), "wb") as wav:
-        _piper_voice.synthesize_wav(text, wav, syn_config=SynthesisConfig(length_scale=cfg["voice"]["piper_speed"]))
+        _piper_voices[model].synthesize_wav(text, wav, syn_config=SynthesisConfig(length_scale=cfg["voice"]["piper_speed"]))
     return out
 
 

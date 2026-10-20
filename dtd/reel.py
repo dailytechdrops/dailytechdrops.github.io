@@ -37,7 +37,8 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
     final = workdir / "reel.mp4"
     music = sorted((ROOT / "assets" / "music").glob("*.mp3"))
     if music:
-        track = random.choice(music)
+        # Seeded by the product so voice variants of one reel share a track.
+        track = random.Random(content.caption).choice(music)
         _ffmpeg([
             "-i", str(joined), "-stream_loop", "-1", "-i", str(track),
             "-filter_complex", f"[1:a]volume={rc['music_volume']}[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]",
