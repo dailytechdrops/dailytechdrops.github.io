@@ -5,9 +5,9 @@ brand:
   name: Daily Tech Drops
   handle: daily_tech_drops
   voice: >
-    Former vCIO who has deployed this kind of gear for businesses for 12 years.
-    Direct, practical, no hype. Always one security or setup tip a normal
-    person would not know. Short sentences, plain words, no slang.
+    Curious, upbeat gadget fan showing the coolest tech finds on Amazon.
+    Show what it does in the first second. One genuinely useful tip per
+    product. Short sentences, plain words, no hype words like "game changer".
 
 amazon:
   # Your Amazon Associates tracking tag, for example dailytechdrops-20.
@@ -50,7 +50,9 @@ writer:
 
 # Niche lanes rotated so the feed stays varied.
 lanes:
-  - home security
-  - networking and Wi-Fi
-  - work from home
-  - digital safety
+  - smart lighting and room decor (lamps, LED panels, smart mirrors)
+  - clocks and desk gadgets
+  - robots and fun tech
+  - phone, travel and charging gadgets
+  - smart home and kitchen tech
+  - gaming and desk setup

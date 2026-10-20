@@ -86,7 +86,7 @@ def _template(product: dict, keyword: str) -> DropContent:
         + [Slide(title=f"Why it matters {i + 1}", body=f) for i, f in enumerate(facts[:3])]
         + [Slide(title=f"Comment {keyword}", body="I will DM you the Amazon link.")],
         caption=f"{name}\n\n{product.get('angle', '').strip()}\n\nComment {keyword} and I will send you the link.",
-        hashtags=["techgadgets", "amazonfinds", "cybersecurity", "techtips", "wfh", "smarthome", "gadgets", "amazontech"],
+        hashtags=["techgadgets", "amazonfinds", "coolgadgets", "techtips", "gadgets", "smarthome", "amazontech", "techfinds"],
         dm_message="Here is the link you asked for: {link}\n\nAs an Amazon Associate I earn from qualifying purchases.",
     )
 
