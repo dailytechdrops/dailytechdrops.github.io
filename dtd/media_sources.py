@@ -83,22 +83,23 @@ def stock_clip(query: str, out: Path, used: set[int]) -> Path | None:
 def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     r = requests.get(
         "https://pixabay.com/api/videos/",
-        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 20, "safesearch": "true"},
+        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 20, "safesearch": "true", "video_type": "film"},
         timeout=60,
     )
     r.raise_for_status()
     hits = [h for h in r.json().get("hits", []) if h["id"] not in used]
-    # Most Pixabay clips are landscape; prefer tall ones, then the sharpest.
+    # Results come most relevant first. Take the first tall clip among the top few,
+    # otherwise the most relevant sharp one (most Pixabay clips are landscape).
     candidates = []
     for h in hits:
         for size in ("large", "medium"):
             v = h.get("videos", {}).get(size) or {}
             if v.get("url") and v.get("height", 0) >= 720:
-                candidates.append((v["height"] > v["width"], v["height"], h["id"], v["url"]))
+                candidates.append((v["height"] > v["width"], h["id"], v["url"]))
                 break
     if not candidates:
         return None
-    _, _, vid, url = max(candidates)
+    _, vid, url = next((c for c in candidates[:5] if c[0]), candidates[0])
     data = requests.get(url, timeout=180)
     data.raise_for_status()
     out.write_bytes(data.content)

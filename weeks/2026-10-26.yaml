@@ -23,22 +23,22 @@
     beats:
       - on_screen: Never sleep in a hotel without this
         voiceover: This is the tiny thing frequent travelers never leave home without.
-        broll_query: hotel hallway
+        broll_query: hotel corridor
       - on_screen: A lock you carry with you
         voiceover: It's a portable door lock. It fits in your pocket and goes on in seconds, no tools.
-        broll_query: hotel room door
+        broll_query: hotel room
       - on_screen: The door stays shut from outside
         voiceover: Slide it into the door frame, close the door, and it can't be pushed open from the outside.
-        broll_query: door lock closeup
+        broll_query: door handle
       - on_screen: Hotels, rentals, dorms
         voiceover: Perfect for hotels, rentals, dorms, or anywhere you want a little extra peace of mind.
-        broll_query: traveler suitcase hotel
+        broll_query: suitcase travel
       - on_screen: "Tip: check the door swings in"
         voiceover: Quick tip. It works on doors that open into the room, which is most hotel doors.
         broll_query: woman sleeping hotel bed
       - on_screen: Comment SHOP for the link
         voiceover: Comment SHOP and I'll send you the link. It comes in a two-pack, so grab one for a friend.
-        broll_query: airport travel walking
+        broll_query: airport
     carousel:
       - title: Never sleep in a hotel without this
         body: A pocket-size lock that keeps your door shut from the outside.
