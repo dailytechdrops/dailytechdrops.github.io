@@ -4,6 +4,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+from .media_sources import stock_photo
 from .reel import _font, _rgba, _wrap
 from .writer import DropContent
 
@@ -19,6 +20,7 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
     muted = _rgba(rc.get("muted_color", "#7A6A5D"), 255)[:3]
     total = len(content.carousel)
     paths = []
+    photo = stock_photo(content.photo_query, workdir / "photo.jpg") if content.photo_query else None
 
     for i, slide in enumerate(content.carousel):
         first, last = i == 0, i == total - 1
@@ -31,9 +33,21 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
         counter = f"{i + 1}/{total}"
         draw.text((W - 80 - draw.textlength(counter, font=small), H - 110), counter, font=small, fill=muted)
 
-        title_font = _font(rc["font"], 104 if first else 86)
+        shot = first and photo is not None
+        title_font = _font(rc["font"], 80 if shot else 104 if first else 86)
         title_lines = _wrap(draw, slide.title.upper() if (first or last) else slide.title, title_font, W - 160)
-        y = 300 if first else 260
+        y = 580 if shot else 300 if first else 260
+        if shot:
+            pic = Image.open(photo).convert("RGB")
+            bw, bh = W - 160, 470
+            scale = max(bw / pic.width, bh / pic.height)
+            pic = pic.resize((int(pic.width * scale), int(pic.height * scale)))
+            left, top = (pic.width - bw) // 2, (pic.height - bh) // 2
+            mask = Image.new("L", (bw, bh), 0)
+            ImageDraw.Draw(mask).rounded_rectangle([0, 0, bw, bh], radius=36, fill=255)
+            img.paste(pic.crop((left, top, left + bw, top + bh)), (80, 60), mask)
+            tiny = _font(rc["body_font"], 26)
+            draw.text((W - 80 - draw.textlength("Stock photo", font=tiny) - 14, 60 + bh - 40), "Stock photo", font=tiny, fill=(255, 255, 255))
         if last:
             box_h = len(title_lines) * 112 + 60
             draw.rounded_rectangle([60, y - 40, W - 60, y - 40 + box_h], radius=36, fill=accent)

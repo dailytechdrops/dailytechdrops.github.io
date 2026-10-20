@@ -109,6 +109,26 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     return out
 
 
+def stock_photo(query: str, out: Path) -> Path | None:
+    """A tall, sharp stock photo of the product type (Pixabay, free), or None."""
+    if not (query and env("PIXABAY_API_KEY")):
+        return None
+    r = requests.get(
+        "https://pixabay.com/api/",
+        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "image_type": "photo", "orientation": "vertical",
+                "safesearch": "true", "min_height": 1200, "per_page": 10},
+        timeout=60,
+    )
+    r.raise_for_status()
+    hits = r.json().get("hits", [])
+    if not hits:
+        return None
+    data = requests.get(hits[0].get("largeImageURL") or hits[0]["webformatURL"], timeout=120)
+    data.raise_for_status()
+    out.write_bytes(data.content)
+    return out
+
+
 def _pexels(query: str, out: Path, used: set[int]) -> Path | None:
     key = env("PEXELS_API_KEY")
     r = requests.get(
