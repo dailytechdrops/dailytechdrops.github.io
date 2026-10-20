@@ -1,0 +1,51 @@
+# Daily Tech Drops: brand and pipeline settings.
+# Secrets (API keys, tokens) never go here. They live in GitHub Actions secrets.
+
+brand:
+  name: Daily Tech Drops
+  handle: daily_tech_drops
+  voice: >
+    Former vCIO who has deployed this kind of gear for businesses for 12 years.
+    Direct, practical, no hype. Always one security or setup tip a normal
+    person would not know. Short sentences, plain words, no slang.
+
+amazon:
+  # Your Amazon Associates tracking tag, for example dailytechdrops-20.
+  # Read from the AMAZON_TAG secret if set; this value is the fallback.
+  tag: ""
+  marketplace: www.amazon.com
+
+instagram:
+  comment_keyword: LINK          # Viewers comment this word to get the link by DM
+  hashtags_per_post: 8
+  disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
+
+reel:
+  width: 1080
+  height: 1920
+  fps: 30
+  seconds_per_beat_without_voice: 2.8
+  music_volume: 0.12             # background music level under the voiceover
+  font: assets/fonts/Inter-ExtraBold.otf
+  body_font: assets/fonts/Inter-Medium.otf
+  accent_color: "#E8792B"       # matches the orange D logo
+
+voice:
+  provider: piper                # piper (free, runs on GitHub) | elevenlabs (paid) | none
+  piper_voice: en_US-ryan-high   # free Piper voice; samples at rhasspy.github.io/piper-samples
+  piper_speed: 0.9               # below 1 speaks faster
+  voice_id: "pNInz6obpgDQGcFmaJgB"   # ElevenLabs only
+  model_id: eleven_multilingual_v2   # ElevenLabs only
+
+writer:
+  # Used only when a product in products.yaml has no pre-written content
+  # and the ANTHROPIC_API_KEY secret is set (paid). Otherwise a template is used.
+  model: claude-opus-5-5
+  effort: medium
+
+# Niche lanes rotated so the feed stays varied.
+lanes:
+  - home security
+  - networking and Wi-Fi
+  - work from home
+  - digital safety
