@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for u in https://freepd.com/ https://freepd.com/music/ https://freepd.com/upbeat.php https://freepd.com/music/Upbeat%20Party.mp3; do
-            echo "== $u -> $(curl -sL -o /tmp/p -w '%{http_code} %{content_type} %{size_download}' -A 'Mozilla/5.0' "$u")"
+          for u in https://freepd.com/ https://freepd.com/music/ https://freepd.com/upbeat.php "https://freepd.com/music/Upbeat%20Party.mp3"; do
+            echo "::notice::probe $u -> $(curl -sL -o /tmp/p -w '%{http_code} %{content_type} %{size_download}' -A 'Mozilla/5.0' "$u")"
           done
           curl -sL -A 'Mozilla/5.0' https://freepd.com/ -o /tmp/home.html
-          grep -oiE 'href="[^"]+"' /tmp/home.html | head -40
-          grep -oiE '[^"'"'"' >]+\.mp3' /tmp/home.html | head -10
+          echo "::notice::hrefs: $(grep -oiE 'href="[^"]+"' /tmp/home.html | head -30 | tr '\n' ' ')"
+          echo "::notice::mp3: $(grep -oiE '[^"'"'"' >]+\.mp3' /tmp/home.html | head -8 | tr '\n' ' ')"
