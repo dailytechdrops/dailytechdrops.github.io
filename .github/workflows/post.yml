@@ -1,11 +1,11 @@
 name: Post and reply
 
-# Every 30 minutes: post the next approved product whose time has come,
+# Every 10 minutes: post the next approved product whose time has come,
 # then DM the link to anyone who commented the keyword.
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # GitHub may start it a few minutes late
+    - cron: "*/10 * * * *"   # GitHub skips and delays scheduled runs on quiet repos, so ask often
   workflow_dispatch:
 
 permissions:
