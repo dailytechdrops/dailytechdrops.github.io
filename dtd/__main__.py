@@ -57,8 +57,10 @@ def preview(cfg: dict, week: Path, base: str) -> int:
     print("Merging this pull request approves every post below.\n")
     for item in load_week(week):
         raw = f"{base}/{item['id']}"
+        # GitHub's raw links download instead of playing on phones; jsDelivr streams the same file.
+        phone = f"https://cdn.jsdelivr.net/gh/{os.environ.get('GITHUB_REPOSITORY', '')}@media/{item['id']}/reel.mp4"
         print(f"**{item['when']:%a %b %d, %-I:%M %p} ET: {item['name']}**  ")
-        print(f"[Watch the reel]({raw}/reel.mp4) · [Amazon](https://www.amazon.com/dp/{item['asin']})\n")
+        print(f"[Watch on phone]({phone}) · [Reel file]({raw}/reel.mp4) · [Amazon](https://www.amazon.com/dp/{item['asin']})\n")
         print(f'<img src="{raw}/slide_1.jpg" width="200"> <img src="{raw}/slide_2.jpg" width="200">\n')
     return 0
 
