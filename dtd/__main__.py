@@ -149,11 +149,14 @@ def reply(cfg: dict) -> int:
     replied = set(read_state("replied", []))
     failures = read_state("reply_failures", {})
     sent = 0
-    for media in instagram.recent_media(days=7):
+    recent = instagram.recent_media(days=7)
+    seen = []
+    for media in recent:
         post = by_media.get(media["id"])
         if not post:
             continue
         for c in instagram.comments(media["id"]):
+            seen.append(f"{c.get('username')}:{c.get('text', '')[:20]!r}")
             user = c.get("username", "")
             if c["id"] in replied or user.lower() == handle or not wanted.search(c.get("text", "")):
                 continue
@@ -175,6 +178,7 @@ def reply(cfg: dict) -> int:
                 print(f"Public reply to {c['id']} failed: {e}", file=sys.stderr)
     write_state("replied", sorted(replied))
     write_state("reply_failures", {k: v for k, v in failures.items() if k not in replied})
+    print(f"::notice title=Reply scan::{len(recent)} recent posts, {len(by_media)} tracked, comments seen: {seen[:10]}")
     print(f"Sent {sent} link DMs")
     return 0
 
