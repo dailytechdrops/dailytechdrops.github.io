@@ -5,8 +5,11 @@ anyone editing a link-in-bio page by hand."""
 import html
 import os
 from datetime import datetime
+from urllib.parse import quote_plus
 
-from .config import ROOT, env
+import yaml
+
+from .config import ROOT, affiliate_link, env
 
 
 def build(cfg: dict, history: list) -> None:
@@ -21,6 +24,20 @@ def build(cfg: dict, history: list) -> None:
             f'<span class="meta"><span class="date">{when}</span>'
             f'<strong>{html.escape(h["name"])}</strong><span class="cta">See it on Amazon</span></span></a>'
         )
+    earlier = []
+    archive = ROOT / "shop_archive.yaml"
+    for e in (yaml.safe_load(archive.read_text()) or []) if archive.exists() else []:
+        if e.get("asin"):
+            link = affiliate_link(cfg, e["asin"])
+        else:
+            link = f"https://{cfg['amazon']['marketplace']}/s?k={quote_plus(e['search'])}" + (f"&tag={cfg['amazon']['tag']}" if cfg["amazon"]["tag"] else "")
+        earlier.append(
+            f'<a class="card" href="{html.escape(link)}" rel="sponsored noopener">'
+            f'<span class="meta"><strong>{html.escape(e["name"])}</strong>'
+            f'<span class="date">{html.escape(e.get("tagline", ""))}</span>'
+            f'<span class="cta">See it on Amazon</span></span></a>'
+        )
+    earlier_html = ("<h2>Earlier picks</h2>\n" + "\n".join(earlier)) if earlier else ""
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,11 +53,13 @@ p.sub {{ color:var(--muted); margin:0 0 20px; }}
 .meta {{ display:flex; flex-direction:column; gap:4px; }}
 .date {{ color:var(--muted); font-size:13px; }}
 .cta {{ color:var(--accent); font-weight:600; font-size:14px; }}
+h2 {{ font:600 18px/1.3 Poppins, system-ui, sans-serif; margin:28px 0 12px; }}
 footer {{ color:var(--muted); font-size:13px; margin-top:24px; }}
 </style></head><body><main>
 <h1>Daily Tech Drops</h1>
 <p class="sub">Every gadget from @{html.escape(handle)}, newest first.</p>
 {chr(10).join(cards) or "<p>Our first drop is coming soon.</p>"}
+{earlier_html}
 <footer>As an Amazon Associate we earn from qualifying purchases.</footer>
 </main></body></html>
 """
