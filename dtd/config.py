@@ -1,14 +1,18 @@
-"""Loads config.yaml, the product queue, and the small JSON state files."""
+"""Loads config.yaml, the weekly product files, and the small JSON state files."""
 
 import json
 import os
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_DIR = ROOT / "state"
 OUTPUT_DIR = ROOT / "output"
+WEEKS_DIR = ROOT / "weeks"
+EASTERN = ZoneInfo("America/New_York")
 
 
 def load_config() -> dict:
@@ -18,8 +22,18 @@ def load_config() -> dict:
     return cfg
 
 
-def load_products() -> list[dict]:
-    return yaml.safe_load((ROOT / "products.yaml").read_text()) or []
+def load_week(path: Path) -> list[dict]:
+    """One week's products, each with an id and a timezone-aware posting time."""
+    items = yaml.safe_load(path.read_text()) or []
+    for item in items:
+        when = datetime.strptime(str(item["slot"]), "%Y-%m-%d %H:%M").replace(tzinfo=EASTERN)
+        item["when"] = when
+        item["id"] = f"{when:%Y-%m-%d-%H%M}-{item['asin']}"
+    return items
+
+
+def load_all_weeks() -> list[dict]:
+    return [item for path in sorted(WEEKS_DIR.glob("*.yaml")) for item in load_week(path)]
 
 
 def read_state(name: str, default):

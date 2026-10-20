@@ -1,5 +1,5 @@
-"""Voiceover (Piper, free, or ElevenLabs) and stock footage (Pexels, free).
-Without a voice or a Pexels key the reel uses silent beats over branded
+"""Voiceover (Piper, free, or ElevenLabs) and stock footage (Pexels or
+Pixabay, both free). Without a voice or a footage key the reel uses silent beats over branded
 gradient backgrounds."""
 
 import json
@@ -50,9 +50,41 @@ def _piper(cfg: dict, text: str, out: Path) -> Path | None:
 
 
 def stock_clip(query: str, out: Path, used: set[int]) -> Path | None:
-    key = env("PEXELS_API_KEY")
-    if not key:
+    if env("PEXELS_API_KEY"):
+        return _pexels(query, out, used)
+    if env("PIXABAY_API_KEY"):
+        return _pixabay(query, out, used)
+    return None
+
+
+def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
+    r = requests.get(
+        "https://pixabay.com/api/videos/",
+        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 20, "safesearch": "true"},
+        timeout=60,
+    )
+    r.raise_for_status()
+    hits = [h for h in r.json().get("hits", []) if h["id"] not in used]
+    # Most Pixabay clips are landscape; prefer tall ones, then the sharpest.
+    candidates = []
+    for h in hits:
+        for size in ("large", "medium"):
+            v = h.get("videos", {}).get(size) or {}
+            if v.get("url") and v.get("height", 0) >= 720:
+                candidates.append((v["height"] > v["width"], v["height"], h["id"], v["url"]))
+                break
+    if not candidates:
         return None
+    _, _, vid, url = max(candidates)
+    data = requests.get(url, timeout=180)
+    data.raise_for_status()
+    out.write_bytes(data.content)
+    used.add(vid)
+    return out
+
+
+def _pexels(query: str, out: Path, used: set[int]) -> Path | None:
+    key = env("PEXELS_API_KEY")
     r = requests.get(
         "https://api.pexels.com/videos/search",
         params={"query": query, "orientation": "portrait", "per_page": 10, "size": "medium"},

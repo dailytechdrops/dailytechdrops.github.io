@@ -1,8 +1,11 @@
-name: Comment link DMs
+name: Post and reply
+
+# Every 30 minutes: post the next approved product whose time has come,
+# then DM the link to anyone who commented the keyword.
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes; GitHub may run it a few minutes late
+    - cron: "*/30 * * * *"   # GitHub may start it a few minutes late
   workflow_dispatch:
 
 permissions:
@@ -13,9 +16,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  reply:
+  post:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -26,19 +29,29 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - run: git fetch origin media || true
+
+      - name: Post anything due
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+        run: python -m dtd post-due
+
       - name: Send link DMs
-        if: ${{ vars.KEYWORD_DMS != 'off' }}
+        if: ${{ always() && vars.KEYWORD_DMS != 'off' }}
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python -m dtd reply
 
-      - name: Save replied comments
+      - name: Save state
+        if: always()
         run: |
           git config user.name "daily-tech-drops-bot"
           git config user.email "actions@users.noreply.github.com"
           git add state/
           git diff --cached --quiet && exit 0
-          git commit -m "Record link DMs"
+          git commit -m "Update post history"
           git pull --rebase origin "${{ github.ref_name }}"
           git push

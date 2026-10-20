@@ -1,0 +1,98 @@
+name: Render week
+
+# Runs on the weekly pull request: renders every reel and carousel in the
+# changed week files and comments a preview. Merging the pull request approves the week.
+
+on:
+  pull_request:
+    paths: ["weeks/**"]
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Week file to render, e.g. weeks/2026-10-26.yaml"
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: render-${{ github.head_ref || inputs.week }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install ffmpeg and Python packages
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -r requirements.txt
+
+      - name: Cache the free Piper voice
+        uses: actions/cache@v4
+        with:
+          path: voices
+          key: piper-voices-v1
+
+      - name: Download the Piper voice if missing
+        run: |
+          VOICE=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['voice']['piper_voice'])")
+          [ -f "voices/$VOICE.onnx" ] || python -m piper.download_voices "$VOICE" --data-dir voices
+
+      - name: Find week files to render
+        id: weeks
+        run: |
+          if [ -n "${{ inputs.week }}" ]; then
+            FILES="${{ inputs.week }}"
+          else
+            FILES=$(git diff --name-only --diff-filter=AM "origin/${{ github.base_ref }}...HEAD" -- 'weeks/*.yaml' | tr '\n' ' ')
+          fi
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Render
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: for f in ${{ steps.weeks.outputs.files }}; do python -m dtd render --week "$f"; done
+
+      - name: Store media on the media branch
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git rev-parse --verify origin/media >/dev/null 2>&1; then
+            git worktree add /tmp/media origin/media
+            git -C /tmp/media switch -c media
+          else
+            git worktree add --orphan -b media /tmp/media
+          fi
+          for d in output/*/; do
+            ID=$(basename "$d")
+            rm -rf "/tmp/media/$ID" && cp -r "$d" "/tmp/media/$ID"
+          done
+          git -C /tmp/media add -A
+          git -C /tmp/media diff --cached --quiet || git -C /tmp/media commit -m "Media for ${{ steps.weeks.outputs.files }}"
+          git -C /tmp/media push origin media
+
+      - name: Comment the preview
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BASE="https://github.com/${{ github.repository }}/raw/media"
+          for f in ${{ steps.weeks.outputs.files }}; do python -m dtd preview --week "$f" --base "$BASE"; done > /tmp/preview.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/preview.md --edit-last \
+            || gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/preview.md

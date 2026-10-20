@@ -1,20 +1,23 @@
 # Daily Tech Drops
 
 Automated Amazon affiliate content for Instagram [@daily_tech_drops](https://www.instagram.com/daily_tech_drops/).
-Every morning GitHub Actions picks the next product, uses its pre-written script and caption, renders a reel
-and a photo carousel, and opens an approval issue. Add the **approved** label (works from the GitHub phone app)
-and it posts. Anyone who comments **LINK** gets the affiliate link by DM.
+Each Sunday, Claude researches the week's best-selling, well-reviewed tech products and writes every reel
+and carousel into one file in `weeks/`, opened as a pull request. GitHub renders the whole week and comments
+a preview. **Merging the pull request approves the week** (works from the GitHub phone app). Each product
+then posts at its scheduled time, and anyone who comments **LINK** gets the affiliate link by DM.
 
-## How a day runs
+## How a week runs
 
-| Time (Eastern) | Workflow | What happens |
+| When | Workflow | What happens |
 | --- | --- | --- |
-| 7:00 a.m. | `Daily drop` | Picks a product from `products.yaml`, writes content, renders `reel.mp4` + 5 slides, opens an issue |
-| When you approve | `Publish drop` | Posts the reel and carousel, records the post, closes the issue |
-| Every 30 min | `Comment link DMs` | DMs the link to anyone who commented the keyword, replies "Sent! Check your DMs." |
+| Sunday | Claude project routine | Researches products, writes `weeks/<monday>.yaml`, opens a pull request |
+| On that pull request | `Render week` | Renders every reel and carousel, stores them on the `media` branch, comments a preview |
+| You merge | | The week is approved |
+| Every 30 min | `Post and reply` | Posts the next product whose time has come; DMs the link to keyword comments |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |
 
-Set the repository variable `AUTO_PUBLISH` to `true` to skip approval and post as soon as the draft is ready.
+A post more than 6 hours late (for example, a week merged on Tuesday) is skipped rather than posted late.
+To pull one product, delete it from the week file before its time.
 
 ## One-time setup
 
@@ -26,14 +29,14 @@ Settings > Secrets and variables > Actions.
 | `AMAZON_TAG` | Amazon Associates > tracking ID, e.g. `dailytechdrops-20` | Yes |
 | `IG_USER_ID` | From the Meta app setup below | Yes |
 | `IG_ACCESS_TOKEN` | From the Meta app setup below (long-lived token) | Yes |
-| `PEXELS_API_KEY` | pexels.com/api (free) | Recommended (plain branded backgrounds without it) |
+| `PIXABAY_API_KEY` | pixabay.com/api/docs (free account; the key is shown on that page once logged in) | Recommended (plain branded backgrounds without a footage key) |
+| `PEXELS_API_KEY` | pexels.com/api (free, but new keys were paused when we tried in Oct 2026) | Optional alternative to Pixabay |
 | `ANTHROPIC_API_KEY` | console.anthropic.com (paid) | No. Only for products without pre-written content |
 | `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
 | `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
 
 | Variable | Value |
 | --- | --- |
-| `AUTO_PUBLISH` | `true` to post without approval (leave unset at first) |
 | `MEDIA_BASE_URL` | Only if the carousel images are hosted somewhere other than this repo's `media` branch |
 | `KEYWORD_DMS` | `off` if you use Instagram's built-in keyword auto-reply instead |
 
@@ -59,19 +62,20 @@ Use tracks you have the rights to (for example YouTube Audio Library or a Pixaba
 ## Cost
 
 Everything in the default setup is free: GitHub Actions (unlimited on a public repo), the Instagram API,
-Pexels footage, and the Piper voice, which runs on GitHub's machines. Scripts are pre-written in
-`products.yaml` from the Claude project, so no paid AI API is needed. ElevenLabs voices and the Claude API
+Pixabay or Pexels footage, and the Piper voice, which runs on GitHub's machines. Scripts are pre-written in
+the week files from the Claude project, so no paid AI API is needed. ElevenLabs voices and the Claude API
 are optional upgrades.
 
-## Adding products
-Add entries to `products.yaml`. Each needs the ASIN (from `amazon.com/dp/<ASIN>`), a name, a lane, an angle,
-a few verified facts and stock footage ideas, plus a `content` block with the beats, slides, caption,
-hashtags and DM text (see the first product for the shape). Posts never state prices because prices change daily.
+## Week files
+Each entry in `weeks/<monday>.yaml` has a `slot` ("YYYY-MM-DD HH:MM", Eastern), the ASIN (from
+`amazon.com/dp/<ASIN>`), name, lane, angle, verified facts, stock footage ideas, and a `content` block with
+the beats, slides, caption, hashtags and DM text. See `weeks/2026-10-26.yaml` for the shape.
+Posts never state prices because prices change daily.
 
 ## Running locally
 ```bash
 pip install -r requirements.txt   # plus ffmpeg on your PATH
-python -m dtd generate --date 2026-10-21   # writes output/2026-10-21/
+python -m dtd render --week weeks/2026-10-26.yaml   # writes output/<id>/ per product
 ```
 With no API keys set it still renders a full draft using the template, which is a free way to test changes.
 

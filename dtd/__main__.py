@@ -1,80 +1,112 @@
 """Command line entry point.
 
-  python -m dtd generate [--date YYYY-MM-DD]   research pick, script, reel, carousel -> output/<date>/
-  python -m dtd publish  --date YYYY-MM-DD     post the reel and carousel for that date
-  python -m dtd reply                          DM the link to anyone who commented the keyword
-  python -m dtd refresh-token                  print a refreshed Instagram token
+  python -m dtd render  --week weeks/2026-10-26.yaml   render every product in a week -> output/<id>/
+  python -m dtd preview --week weeks/2026-10-26.yaml   print a markdown preview of the week
+  python -m dtd post-due                               post the next product whose time has come
+  python -m dtd reply                                  DM the link to anyone who commented the keyword
+  python -m dtd refresh-token                          print a refreshed Instagram token
 """
 
 import argparse
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
-from datetime import date
+from datetime import datetime, timedelta
+from pathlib import Path
 
 from . import instagram
 from .carousel import render_carousel
-from .config import OUTPUT_DIR, affiliate_link, env, load_config, read_state, write_state
-from .products import next_product
+from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
 from .writer import full_caption, write_content
 
+# A post whose time passed longer ago than this is skipped rather than posted late.
+STALE_AFTER = timedelta(hours=6)
 
-def generate(cfg: dict, day: str) -> int:
-    product = next_product(cfg)
-    if not product:
-        print("Product queue is empty. Add products to products.yaml.", file=sys.stderr)
-        return 2
-    out = OUTPUT_DIR / day
-    content = write_content(cfg, product)
-    reel = render_reel(cfg, content, out / "work")
-    reel.rename(out / "reel.mp4")
-    slides = render_carousel(cfg, content, out)
-    link = affiliate_link(cfg, product["asin"])
-    draft = {
-        "date": day,
-        "product": product,
-        "link": link,
-        "caption": full_caption(cfg, content),
-        "dm_message": content.dm_message.replace("{link}", link),
-        "beats": [b.model_dump() for b in content.beats],
-        "slides": [p.name for p in slides],
-    }
-    (out / "draft.json").write_text(json.dumps(draft, indent=2))
-    for f in (out / "work").iterdir():
-        f.unlink()
-    (out / "work").rmdir()
-    print(f"Draft ready: {out} ({product['name']})")
-    _gh_output("product", product["name"])
+
+def render(cfg: dict, week: Path) -> int:
+    for item in load_week(week):
+        out = OUTPUT_DIR / item["id"]
+        content = write_content(cfg, item)
+        reel = render_reel(cfg, content, out / "work")
+        reel.rename(out / "reel.mp4")
+        slides = render_carousel(cfg, content, out)
+        link = affiliate_link(cfg, item["asin"])
+        draft = {
+            "id": item["id"],
+            "slot": item["when"].isoformat(),
+            "name": item["name"],
+            "asin": item["asin"],
+            "lane": item.get("lane"),
+            "link": link,
+            "caption": full_caption(cfg, content),
+            "dm_message": content.dm_message.replace("{link}", link),
+            "slides": [p.name for p in slides],
+        }
+        (out / "draft.json").write_text(json.dumps(draft, indent=2))
+        shutil.rmtree(out / "work")
+        print(f"Rendered {item['id']}: {item['name']}")
     return 0
 
 
-def publish(cfg: dict, day: str) -> int:
-    out = OUTPUT_DIR / day
-    draft = json.loads((out / "draft.json").read_text())
-    history = read_state("history", [])
-    if any(h["date"] == day for h in history):
-        print(f"{day} already published; skipping.")
-        return 0
+def preview(cfg: dict, week: Path, base: str) -> int:
+    print(f"### Week of {week.stem}\n")
+    print("Merging this pull request approves every post below.\n")
+    for item in load_week(week):
+        raw = f"{base}/{item['id']}"
+        # GitHub's raw links download instead of playing on phones; jsDelivr streams the same file.
+        phone = f"https://cdn.jsdelivr.net/gh/{os.environ.get('GITHUB_REPOSITORY', '')}@media/{item['id']}/reel.mp4"
+        print(f"**{item['when']:%a %b %d, %-I:%M %p} ET: {item['name']}**  ")
+        print(f"[Watch on phone]({phone}) · [Reel file]({raw}/reel.mp4) · [Amazon](https://www.amazon.com/dp/{item['asin']})\n")
+        print(f'<img src="{raw}/slide_1.jpg" width="200"> <img src="{raw}/slide_2.jpg" width="200">\n')
+    return 0
 
+
+def post_due(cfg: dict) -> int:
+    if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
+        print("Instagram secrets not set yet; skipping.")
+        return 0
+    now = datetime.now(EASTERN)
+    history = read_state("history", [])
+    posted = {h["id"] for h in history}
+    due = sorted((i for i in load_all_weeks() if i["id"] not in posted and i["when"] <= now), key=lambda i: i["when"])
+    for item in due:
+        if now - item["when"] > STALE_AFTER:
+            print(f"Skipping {item['id']}: its time passed more than {STALE_AFTER} ago")
+            history.append({"id": item["id"], "skipped": True})
+            continue
+        _publish(item["id"], history)
+        break  # one product per run keeps posts spaced out if several are due
+    else:
+        print("Nothing due.")
+    write_state("history", history)
+    return 0
+
+
+def _publish(item_id: str, history: list) -> None:
+    out = OUTPUT_DIR / item_id
+    if not out.exists():
+        # Rendered media lives on the media branch; pull just this product's folder.
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
+        subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
+    draft = json.loads((out / "draft.json").read_text())
     reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"])
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
     carousel_id = None
     try:
-        carousel_id = instagram.publish_carousel([f"{base}/{day}/{s}" for s in draft["slides"]], draft["caption"])
+        carousel_id = instagram.publish_carousel([f"{base}/{item_id}/{s}" for s in draft["slides"]], draft["caption"])
     except instagram.InstagramError as e:
         # The reel is the main post; a failed carousel should not undo it.
         print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
-
     history.append({
-        "date": day, "asin": draft["product"]["asin"], "lane": draft["product"].get("lane"),
-        "name": draft["product"]["name"], "link": draft["link"], "dm_message": draft["dm_message"],
-        "media_ids": [m for m in (reel_id, carousel_id) if m],
+        "id": item_id, "asin": draft["asin"], "name": draft["name"], "link": draft["link"],
+        "dm_message": draft["dm_message"], "media_ids": [m for m in (reel_id, carousel_id) if m],
     })
-    write_state("history", history)
-    print(f"Published {day}: reel {reel_id}, carousel {carousel_id}")
-    return 0 if carousel_id else 1
+    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}")
 
 
 def reply(cfg: dict) -> int:
@@ -84,7 +116,7 @@ def reply(cfg: dict) -> int:
         return 0
     keyword = cfg["instagram"]["comment_keyword"].lower()
     handle = cfg["brand"]["handle"].lower()
-    by_media = {m: h for h in read_state("history", []) for m in h["media_ids"]}
+    by_media = {m: h for h in read_state("history", []) for m in h.get("media_ids", [])}
     replied = set(read_state("replied", []))
     sent = 0
     for media in instagram.recent_media(days=7):
@@ -108,23 +140,19 @@ def reply(cfg: dict) -> int:
     return 0
 
 
-def _gh_output(key: str, value: str) -> None:
-    path = os.environ.get("GITHUB_OUTPUT")
-    if path:
-        with open(path, "a") as f:
-            f.write(f"{key}={value}\n")
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["generate", "publish", "reply", "refresh-token"])
-    parser.add_argument("--date", default=date.today().isoformat())
+    parser.add_argument("command", choices=["render", "preview", "post-due", "reply", "refresh-token"])
+    parser.add_argument("--week", type=Path)
+    parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
     cfg = load_config()
-    if args.command == "generate":
-        return generate(cfg, args.date)
-    if args.command == "publish":
-        return publish(cfg, args.date)
+    if args.command == "render":
+        return render(cfg, args.week)
+    if args.command == "preview":
+        return preview(cfg, args.week, args.base)
+    if args.command == "post-due":
+        return post_due(cfg)
     if args.command == "reply":
         return reply(cfg)
     print(instagram.refresh_token())
