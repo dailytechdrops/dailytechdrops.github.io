@@ -109,7 +109,7 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     return out
 
 
-def stock_photo(query: str, out: Path) -> Path | None:
+def stock_photo(query: str, out: Path, n: int = 0) -> Path | None:
     """A tall, sharp stock photo of the product type (Pixabay, free), or None."""
     if not (query and env("PIXABAY_API_KEY")):
         return None
@@ -123,7 +123,8 @@ def stock_photo(query: str, out: Path) -> Path | None:
     hits = r.json().get("hits", [])
     if not hits:
         return None
-    data = requests.get(hits[0].get("largeImageURL") or hits[0]["webformatURL"], timeout=120)
+    hit = hits[n % len(hits)]
+    data = requests.get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
     data.raise_for_status()
     out.write_bytes(data.content)
     return out

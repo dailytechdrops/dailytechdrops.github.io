@@ -24,6 +24,12 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
 
     for i, slide in enumerate(content.carousel):
         first, last = i == 0, i == total - 1
+        if photo:
+            shot = stock_photo(content.photo_query, workdir / f"photo_{i}.jpg", i) or photo
+            path = workdir / f"slide_{i + 1}.jpg"
+            _photo_slide(rc, cfg["brand"]["handle"], slide, shot, i, total, path)
+            paths.append(path)
+            continue
         img = Image.new("RGB", (W, H), bg)
         draw = ImageDraw.Draw(img)
         # Accent bar and footer give every slide the same frame.
@@ -72,3 +78,47 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
         img.save(path, quality=92)
         paths.append(path)
     return paths
+
+
+def _photo_slide(rc: dict, handle: str, slide, photo: Path, i: int, total: int, out: Path) -> None:
+    """Full-bleed stock photo with the headline on a light card, so slides read as photos, not text."""
+    accent = _rgba(rc["accent_color"], 255)
+    ink = _rgba(rc.get("ink_color", "#3B2F27"), 255)[:3]
+    muted = _rgba(rc.get("muted_color", "#7A6A5D"), 255)[:3]
+    first, last = i == 0, i == total - 1
+    pic = Image.open(photo).convert("RGB")
+    scale = max(W / pic.width, H / pic.height)
+    pic = pic.resize((int(pic.width * scale) + 1, int(pic.height * scale) + 1))
+    left, top = (pic.width - W) // 2, (pic.height - H) // 2
+    img = pic.crop((left, top, left + W, top + H)).convert("RGBA")
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+
+    title_font = _font(rc["font"], 78 if first else 68)
+    body_font = _font(rc["body_font"], 42)
+    title_lines = _wrap(d, slide.title.upper() if (first or last) else slide.title, title_font, W - 220)
+    body_lines = _wrap(d, slide.body, body_font, W - 220)
+    t_h, b_h = int(title_font.size * 1.15) * len(title_lines), 58 * len(body_lines)
+    card_h = 60 + t_h + 30 + b_h + 50
+    y0 = H - 150 - card_h
+    fill = accent if last else (251, 246, 238, 238)
+    d.rounded_rectangle([60, y0, W - 60, y0 + card_h], radius=40, fill=fill)
+    y = y0 + 60
+    for line in title_lines:
+        d.text((100, y), line, font=title_font, fill=(255, 255, 255, 255) if last else ink)
+        y += int(title_font.size * 1.15)
+    y += 30
+    for line in body_lines:
+        d.text((100, y), line, font=body_font, fill=(255, 255, 255, 255) if last else muted)
+        y += 58
+
+    small = _font(rc["body_font"], 32)
+    d.rounded_rectangle([60, 56, 60 + d.textlength("@" + handle, font=small) + 48, 112], radius=28, fill=(255, 255, 255, 225))
+    d.text((84, 64), "@" + handle, font=small, fill=ink)
+    counter = f"{i + 1}/{total}"
+    d.text((W - 80 - d.textlength(counter, font=small), 64), counter, font=small, fill=(255, 255, 255, 255))
+    if first:
+        tiny = _font(rc["body_font"], 24)
+        d.text((W - 60 - d.textlength("Stock photo", font=tiny), y0 - 36), "Stock photo", font=tiny, fill=(255, 255, 255, 255))
+    img.alpha_composite(layer)
+    img.convert("RGB").save(out, quality=92)
