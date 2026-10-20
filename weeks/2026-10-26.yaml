@@ -169,7 +169,7 @@
     - phone on stand video
     - hand holding smartphone
   content:
-    photo_query: power bank phone charging
+    photo_query: portable charger smartphone
     beats:
       - on_screen: "It snaps onto your phone"
         voiceover: "Watch this. A power bank that just snaps onto the back of your iPhone and starts charging."
@@ -243,7 +243,7 @@
     - doorbell press
     - smartphone notification
   content:
-    photo_query: video doorbell
+    photo_query: front door security camera
     beats:
       - on_screen: "See who is at the door"
         voiceover: "Imagine seeing who is at your front door from anywhere, with no wiring at all."
@@ -392,7 +392,7 @@
     - person typing laptop
     - video editing desk
   content:
-    photo_query: wireless computer mouse
+    photo_query: computer mouse desk
     beats:
       - on_screen: "Scroll 1000 lines in one second"
         voiceover: "This scroll wheel can fly through a thousand lines in a single second, and then stop on a dime."
@@ -756,7 +756,7 @@
     - hand holding power bank
     - backpack travel
   content:
-    photo_query: power bank
+    photo_query: portable charger smartphone
     beats:
       - on_screen: "The cable is built in"
         voiceover: "Here is a power bank where the cable is already built in."
@@ -1046,7 +1046,7 @@
     - phone charging cafe
     - hand holding power bank
   content:
-    photo_query: power bank usb c
+    photo_query: portable charger smartphone
     beats:
       - on_screen: "The cable pulls out and snaps back"
         voiceover: "Watch this cable pull out, and then snap right back in."

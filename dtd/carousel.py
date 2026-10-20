@@ -20,12 +20,14 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
     muted = _rgba(rc.get("muted_color", "#7A6A5D"), 255)[:3]
     total = len(content.carousel)
     paths = []
-    photo = stock_photo(content.photo_query, workdir / "photo.jpg") if content.photo_query else None
+    scratch = workdir / "work"
+    scratch.mkdir(parents=True, exist_ok=True)
+    photo = stock_photo(content.photo_query, scratch / "photo.jpg") if content.photo_query else None
 
     for i, slide in enumerate(content.carousel):
         first, last = i == 0, i == total - 1
         if photo:
-            shot = stock_photo(content.photo_query, workdir / f"photo_{i}.jpg", i) or photo
+            shot = stock_photo(content.photo_query, scratch / f"photo_{i}.jpg", i) or photo
             path = workdir / f"slide_{i + 1}.jpg"
             _photo_slide(rc, cfg["brand"]["handle"], slide, shot, i, total, path)
             paths.append(path)
