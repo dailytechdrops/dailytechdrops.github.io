@@ -78,6 +78,10 @@ def publish(cfg: dict, day: str) -> int:
 
 
 def reply(cfg: dict) -> int:
+    if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
+        # Runs every 30 minutes; stay quiet until Instagram is connected.
+        print("Instagram secrets not set yet; skipping.")
+        return 0
     keyword = cfg["instagram"]["comment_keyword"].lower()
     handle = cfg["brand"]["handle"].lower()
     by_media = {m: h for h in read_state("history", []) for m in h["media_ids"]}
