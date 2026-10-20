@@ -1,0 +1,20 @@
+# Product queue. The daily run takes the next product not yet posted.
+# asin: the 10-character code in the Amazon URL (amazon.com/dp/<ASIN>).
+# angle: the one thing that makes this worth a post. The writer builds on it.
+# Verify price and rating on Amazon before adding; prices are never stated in posts.
+
+- asin: B0BPSGJN7T
+  name: GL.iNet Beryl AX (GL-MT3000) travel router
+  lane: networking and Wi-Fi
+  angle: >
+    Hotel and airport Wi-Fi is shared with strangers. This pocket router puts
+    your own private, encrypted network between you and theirs, with VPN built in.
+  key_facts:
+    - Wi-Fi 6, fits in a pocket, powered by USB-C
+    - Built-in WireGuard and OpenVPN client
+    - Every device you own connects once and stays on your own network
+  broll:
+    - hotel room laptop
+    - airport lounge working
+    - person typing on laptop cafe
+    - wifi router lights close up
