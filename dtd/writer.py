@@ -1,7 +1,8 @@
-"""Writes the reel script, carousel copy, caption and DM text with Claude.
+"""Gets the reel script, carousel copy, caption and DM text for a product.
 
-Without ANTHROPIC_API_KEY it falls back to a plain template, so the rest of
-the pipeline can be tested for free.
+In order: content pre-written in products.yaml (free; researched and written
+in the Claude project), then the Claude API if ANTHROPIC_API_KEY is set
+(paid), then a plain template.
 """
 
 from pydantic import BaseModel, Field
@@ -41,6 +42,8 @@ Rules:
 
 def write_content(cfg: dict, product: dict) -> DropContent:
     keyword = cfg["instagram"]["comment_keyword"]
+    if product.get("content"):
+        return DropContent.model_validate(product["content"])
     if not env("ANTHROPIC_API_KEY"):
         return _template(product, keyword)
 

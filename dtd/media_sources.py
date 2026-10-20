@@ -1,18 +1,23 @@
-"""Voiceover (ElevenLabs) and stock footage (Pexels). Both are optional:
-without keys the reel uses silent beats over branded gradient backgrounds."""
+"""Voiceover (Piper, free, or ElevenLabs) and stock footage (Pexels, free).
+Without a voice or a Pexels key the reel uses silent beats over branded
+gradient backgrounds."""
 
 import json
 import subprocess
+import wave
 from pathlib import Path
 
 import requests
 
-from .config import env
+from .config import ROOT, env
 
 
 def tts(cfg: dict, text: str, out: Path) -> Path | None:
+    provider = cfg["voice"]["provider"]
+    if provider == "piper":
+        return _piper(cfg, text, out.with_suffix(".wav"))
     key = env("ELEVENLABS_API_KEY")
-    if cfg["voice"]["provider"] != "elevenlabs" or not key:
+    if provider != "elevenlabs" or not key:
         return None
     r = requests.post(
         f"https://api.elevenlabs.io/v1/text-to-speech/{cfg['voice']['voice_id']}",
@@ -23,6 +28,24 @@ def tts(cfg: dict, text: str, out: Path) -> Path | None:
     )
     r.raise_for_status()
     out.write_bytes(r.content)
+    return out
+
+
+_piper_voice = None
+
+
+def _piper(cfg: dict, text: str, out: Path) -> Path | None:
+    global _piper_voice
+    model = ROOT / "voices" / f"{cfg['voice']['piper_voice']}.onnx"
+    if not model.exists():
+        print(f"Piper voice not found at {model}; rendering without voiceover")
+        return None
+    from piper import PiperVoice, SynthesisConfig
+
+    if _piper_voice is None:
+        _piper_voice = PiperVoice.load(model)
+    with wave.open(str(out), "wb") as wav:
+        _piper_voice.synthesize_wav(text, wav, syn_config=SynthesisConfig(length_scale=cfg["voice"]["piper_speed"]))
     return out
 
 

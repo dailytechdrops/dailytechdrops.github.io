@@ -1,7 +1,7 @@
 # Daily Tech Drops
 
 Automated Amazon affiliate content for Instagram [@daily_tech_drops](https://www.instagram.com/daily_tech_drops/).
-Every morning GitHub Actions picks the next product, writes the script and caption with Claude, renders a reel
+Every morning GitHub Actions picks the next product, uses its pre-written script and caption, renders a reel
 and a photo carousel, and opens an approval issue. Add the **approved** label (works from the GitHub phone app)
 and it posts. Anyone who comments **LINK** gets the affiliate link by DM.
 
@@ -26,9 +26,9 @@ Settings > Secrets and variables > Actions.
 | `AMAZON_TAG` | Amazon Associates > tracking ID, e.g. `dailytechdrops-20` | Yes |
 | `IG_USER_ID` | From the Meta app setup below | Yes |
 | `IG_ACCESS_TOKEN` | From the Meta app setup below (long-lived token) | Yes |
-| `ANTHROPIC_API_KEY` | console.anthropic.com > API keys | Yes, for good scripts (template fallback without it) |
-| `ELEVENLABS_API_KEY` | elevenlabs.io > profile > API keys | Recommended (silent reels without it) |
 | `PEXELS_API_KEY` | pexels.com/api (free) | Recommended (plain branded backgrounds without it) |
+| `ANTHROPIC_API_KEY` | console.anthropic.com (paid) | No. Only for products without pre-written content |
+| `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
 | `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
 
 | Variable | Value |
@@ -56,9 +56,17 @@ If the repo stays private, set `MEDIA_BASE_URL` to another public host, or the c
 Drop royalty-free `.mp3` files in `assets/music/`. One is picked at random per reel and mixed under the voice.
 Use tracks you have the rights to (for example YouTube Audio Library or a Pixabay music download).
 
+## Cost
+
+Everything in the default setup is free: GitHub Actions (unlimited on a public repo), the Instagram API,
+Pexels footage, and the Piper voice, which runs on GitHub's machines. Scripts are pre-written in
+`products.yaml` from the Claude project, so no paid AI API is needed. ElevenLabs voices and the Claude API
+are optional upgrades.
+
 ## Adding products
 Add entries to `products.yaml`. Each needs the ASIN (from `amazon.com/dp/<ASIN>`), a name, a lane, an angle,
-a few verified facts and stock footage ideas. Posts never state prices because prices change daily.
+a few verified facts and stock footage ideas, plus a `content` block with the beats, slides, caption,
+hashtags and DM text (see the first product for the shape). Posts never state prices because prices change daily.
 
 ## Running locally
 ```bash

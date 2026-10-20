@@ -36,6 +36,17 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           pip install -r requirements.txt
 
+      - name: Cache the free Piper voice
+        uses: actions/cache@v4
+        with:
+          path: voices
+          key: piper-voices-v1
+
+      - name: Download the Piper voice if missing
+        run: |
+          VOICE=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['voice']['piper_voice'])")
+          [ -f "voices/$VOICE.onnx" ] || python -m piper.download_voices "$VOICE" --data-dir voices
+
       - name: Set date
         id: day
         run: |

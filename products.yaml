@@ -18,3 +18,48 @@
     - airport lounge working
     - person typing on laptop cafe
     - wifi router lights close up
+  # Pre-written content: used as-is, so no paid AI service is needed.
+  content:
+    beats:
+      - on_screen: Hotel Wi-Fi is not your friend
+        voiceover: Every hotel and airport Wi-Fi network is shared with strangers. I spent twelve years securing business networks, and I do not connect to them directly.
+        broll_query: hotel room laptop
+      - on_screen: Your own private network, anywhere
+        voiceover: This pocket router connects to the hotel Wi-Fi once, then gives your devices their own private network.
+        broll_query: airport lounge working
+      - on_screen: VPN built in
+        voiceover: It has a VPN client built in, so your traffic is encrypted before it ever touches their network.
+        broll_query: person typing on laptop cafe
+      - on_screen: Set up once, every device connects
+        voiceover: Your laptop, phone and tablet remember your network, so they connect automatically in every hotel.
+        broll_query: smartphone and laptop on desk
+      - on_screen: "Pro tip: change the admin password"
+        voiceover: Pro tip. Change the default admin password the day it arrives. Most people never do.
+        broll_query: wifi router lights close up
+      - on_screen: Comment LINK for the link
+        voiceover: Comment LINK and I will send you the link.
+        broll_query: suitcase travel hotel
+    carousel:
+      - title: Stop trusting hotel Wi-Fi
+        body: A former vCIO's pick for staying private on the road.
+      - title: Your own network
+        body: Connects to the hotel once. Your devices join your private network instead.
+      - title: VPN built in
+        body: WireGuard and OpenVPN client, so traffic is encrypted end to end.
+      - title: Pocket sized
+        body: Wi-Fi 6, powered by USB-C, fits next to your charger.
+      - title: Comment LINK
+        body: I will DM you the Amazon link.
+    caption: >-
+      Hotel and airport Wi-Fi is shared with every stranger in the building.
+      After 12 years securing business networks, this is what I would pack:
+      the GL.iNet Beryl AX. It joins the hotel network once and puts your own
+      private, encrypted network between your devices and everyone else.
+
+
+      Pro tip: change the admin password the day it arrives.
+
+
+      Comment LINK and I will DM you the Amazon link.
+    hashtags: [travelrouter, cybersecurity, techtips, travelhacks, wifisecurity, vpn, amazonfinds, techgadgets]
+    dm_message: "Here is the GL.iNet Beryl AX travel router: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Safe travels!"
