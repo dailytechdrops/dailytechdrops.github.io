@@ -1,0 +1,27 @@
+# Earlier picks shown on the shop page under "Earlier picks". Add an `asin` for a direct
+# product link, or a `search` phrase for an Amazon search link until the ASIN is confirmed.
+# The Amazon tracking tag is added to every link automatically.
+- name: AirPods Pro 3
+  tagline: Noise cancelling plus live translation
+  asin: B0FQFB8FMG
+- name: Soundcore P20i Earbuds
+  tagline: Big bass and 30-hour battery on a budget
+  asin: B0BTYCRJSS
+- name: eufy SoloCam S220 Solar Camera
+  tagline: 2K outdoor security cam, no subscription
+  asin: B0BZ55JZ4S
+- name: 3-in-1 Wireless Charging Station
+  tagline: Phone, watch and earbuds on one stand
+  asin: B0F5PM85TQ
+- name: eufy Smart Lock C210
+  tagline: Keyless entry with a touchscreen keypad
+  asin: B0BCV3NBKY
+- name: Anker Prime Charger 100W (3 ports)
+  tagline: One small charger for your laptop, phone and tablet
+  search: Anker Prime Charger 100W 3 Ports GaN A2688
+- name: SwitchBot Curtain 3
+  tagline: Smart curtains that open on a schedule
+  search: SwitchBot Curtain 3
+- name: Govee RGBIC Gaming Light Bars
+  tagline: Color-changing light bars for your desk or TV
+  search: Govee RGBIC Wi-Fi Gaming Light Bars

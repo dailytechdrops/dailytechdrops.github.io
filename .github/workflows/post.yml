@@ -34,6 +34,7 @@ jobs:
       - name: Post anything due
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
