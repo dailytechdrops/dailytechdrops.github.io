@@ -21,7 +21,7 @@
   content:
     beats:
       - on_screen: Your ceiling, but make it the northern lights
-        voiceover: This is not a filter. This is my ceiling.
+        voiceover: Imagine looking up at this every night, from your own bed.
         broll_query: northern lights sky
       - on_screen: Aurora plus stars, moving
         voiceover: This little projector throws a moving aurora and a sky full of stars across your whole room.
@@ -50,7 +50,7 @@
       - title: Comment LINK
         body: I will DM you the Amazon link.
     caption: |-
-      Not a filter. That is a ceiling. ✨
+      Imagine falling asleep under this. ✨
 
       This galaxy projector turns any room into the northern lights, with 33 light effects from sleepy to full party mode.
 
