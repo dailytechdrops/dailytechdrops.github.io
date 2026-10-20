@@ -1,61 +1,75 @@
 # Week of 2026-10-26. Merging this file's pull request approves the whole week.
 # slot: when it posts, Eastern time. Everything else is the product and its pre-written content.
-# Sample entry; the Sunday research fills the rest of the week.
+# Pilot entry, scheduled for a live end-to-end test on Oct 20; the Oct 26 week is added after.
 
-- slot: "2026-10-26 11:30"
-  asin: B0B4518KC2
-  name: Northern Galaxy Light Aurora Projector
-  lane: smart lighting and room decor
+- slot: "2026-10-20 17:30"
+  asin: B002L6BZXC
+  name: Addalock Portable Door Lock (2-pack)
+  lane: home security and safety gadgets
   angle: >
-    Turns any ceiling into a moving aurora and starry sky. Instant
-    "where did you get that" room upgrade.
+    A tiny lock you carry in your bag that stops a hotel or rental door from
+    being opened from the outside. Simple, cheap, and an easy gift to send.
   key_facts:
-    - Projects aurora and star effects onto ceilings and walls
-    - 33 light effects
-    - Rated about 4.4 stars on Amazon
+    - Installs in seconds with no tools
+    - Works on doors that swing inward into the room
+    - Comes as a 2-pack
+    - Rated about 4.4 stars from 15,000+ ratings
   broll:
-    - northern lights sky
-    - starry night sky timelapse
-    - cozy bedroom night lights
-    - person relaxing bed night
+    - hotel hallway
+    - hotel room door
+    - traveler suitcase hotel
+    - woman sleeping hotel bed
   content:
     beats:
-      - on_screen: Your ceiling, but make it the northern lights
-        voiceover: Imagine looking up at this every night, from your own bed.
-        broll_query: northern lights sky
-      - on_screen: Aurora plus stars, moving
-        voiceover: This little projector throws a moving aurora and a sky full of stars across your whole room.
-        broll_query: starry night sky timelapse
-      - on_screen: 33 light effects
-        voiceover: Thirty-three light effects, so it can be calm for sleep or full party mode.
-        broll_query: cozy bedroom night lights
-      - on_screen: The room everyone asks about
-        voiceover: Bedrooms, game rooms, movie nights. It is the thing everyone asks about.
-        broll_query: friends watching movie night
-      - on_screen: "Tip: point it at the corner"
-        voiceover: Quick tip. Aim it where the wall meets the ceiling and the effect wraps around the room.
-        broll_query: person relaxing bed night
-      - on_screen: Comment LINK for the link
-        voiceover: Comment LINK and I will send you the link.
-        broll_query: night sky stars
+      - on_screen: Never sleep in a hotel without this
+        voiceover: This is the tiny thing frequent travelers never leave home without.
+        broll_query: hotel corridor
+      - on_screen: A lock you carry with you
+        voiceover: It's a portable door lock. It fits in your pocket and goes on in seconds, no tools.
+        broll_query: hotel room
+      - on_screen: The door stays shut from outside
+        voiceover: Slide it into the door frame, close the door, and it can't be pushed open from the outside.
+        broll_query: door handle
+      - on_screen: Hotels, rentals, dorms
+        voiceover: Perfect for hotels, rentals, dorms, or anywhere you want a little extra peace of mind.
+        broll_query: suitcase travel
+      - on_screen: "Tip: check the door swings in"
+        voiceover: Quick tip. It works on doors that open into the room, which is most hotel doors.
+        broll_query: woman sleeping hotel bed
+      - on_screen: Comment SHOP for the link
+        voiceover: Comment SHOP and I'll send you the link. It comes in a two-pack, so grab one for a friend.
+        broll_query: airport
     carousel:
-      - title: Northern lights at home
-        body: Your ceiling becomes a moving aurora and starry sky.
-      - title: 33 light effects
-        body: Slow and calm for sleep, or bright for a party.
-      - title: Every room
-        body: Bedroom, game room, movie night, kids' room.
-      - title: Pro tip
-        body: Aim it where the wall meets the ceiling so the light wraps the room.
-      - title: Comment LINK
-        body: I will DM you the Amazon link.
+      - title: Never sleep in a hotel without this
+        body: A pocket-size lock that keeps your door shut from the outside.
+      - title: Seconds to install
+        body: No tools. Slide it into the frame, close the door, done.
+      - title: Hotels, rentals, dorms
+        body: Anywhere you want a little extra peace of mind.
+      - title: "Tip: inward doors"
+        body: It works on doors that swing into the room, like most hotel doors.
+      - title: Comment SHOP
+        body: I will DM you the Amazon link. It comes as a 2-pack.
     caption: |-
-      Imagine falling asleep under this. ✨
+      Never sleep in a hotel without this. 🔒
 
-      This galaxy projector turns any room into the northern lights, with 33 light effects from sleepy to full party mode.
+      It's a portable door lock that fits in your pocket and goes on in seconds. Once it is in, the door stays shut from the outside.
 
-      Tip: aim it where the wall meets the ceiling so the light wraps around the room.
+      Tip: it works on doors that swing into the room, which is most hotel doors.
 
-      Comment LINK and I will DM you the Amazon link.
-    hashtags: [galaxyprojector, roomdecor, coolgadgets, amazonfinds, northernlights, bedroomdecor, techgadgets, gamingroom]
-    dm_message: "Here is the aurora galaxy projector: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Enjoy the light show!"
+      Comes as a 2-pack, so send one to the friend who travels the most.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+      - travelhacks
+      - travelsafety
+      - hotelhacks
+      - amazonfinds
+      - travelgadgets
+      - solotravel
+      - giftideas
+      - techgadgets
+    dm_message: |-
+      Here is the portable door lock: {link}
+
+      As an Amazon Associate I earn from qualifying purchases. Safe travels!
