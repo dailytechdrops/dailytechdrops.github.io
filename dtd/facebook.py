@@ -35,10 +35,21 @@ def caption_for_facebook(caption: str, link: str) -> str:
     return re.sub(r"^Comment \w+ and I will DM you the Amazon link\.$", f"Get it on Amazon: {link}", caption, flags=re.MULTILINE)
 
 
+def page_token(page: str, token: str) -> str:
+    """FB_PAGE_TOKEN may be a Page token or a long-lived user token of the Page's admin.
+    Facebook only lets a Page token post, so a user token is traded for the Page's own token
+    (which does not expire) on every run. If the lookup fails the saved token is used as is."""
+    try:
+        return _call("GET", f"{API}/{page}", params={"fields": "access_token", "access_token": token}).get("access_token") or token
+    except FacebookError:
+        return token
+
+
 def publish_reel(video: Path, caption: str) -> str:
-    page, token = env("FB_PAGE_ID"), env("FB_PAGE_TOKEN")
-    if not (page and token):
+    page = env("FB_PAGE_ID")
+    if not (page and env("FB_PAGE_TOKEN")):
         raise FacebookError("FB_PAGE_ID and FB_PAGE_TOKEN must be set")
+    token = page_token(page, env("FB_PAGE_TOKEN"))
     start = _call("POST", f"{API}/{page}/video_reels", data={"upload_phase": "start", "access_token": token})
     video_id = start["video_id"]
     _call("POST", start["upload_url"], headers={
