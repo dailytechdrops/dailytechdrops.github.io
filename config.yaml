@@ -17,7 +17,7 @@ amazon:
   marketplace: www.amazon.com
 
 instagram:
-  comment_keyword: LINK          # Viewers comment this word to get the link by DM
+  comment_keyword: SHOP          # Viewers comment this word to get the link by DM
   hashtags_per_post: 8
   disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
 
