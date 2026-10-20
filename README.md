@@ -17,6 +17,11 @@ then posts at its scheduled time, and anyone who comments **LINK** gets the affi
 | Sunday late morning | `Weekly report` | Measures the last 7 days per post and lane, saves `reports/latest.md` for the Sunday research, opens an issue with the report |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |
 
+**Sunday research, read this:** if `reports/latest.md` exists, it is last week's performance report. Weight the new
+week toward the lanes, product types and hooks that earned the most link DMs, saves and shares, and away from the
+weakest, while still rotating lanes. Open the week's pull request body with two or three lines on what the report
+showed and how it shaped the picks.
+
 A post more than 6 hours late (for example, a week merged on Tuesday) is skipped rather than posted late.
 To pull one product, delete it from the week file before its time.
 
