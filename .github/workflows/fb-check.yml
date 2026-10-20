@@ -18,3 +18,4 @@ jobs:
           echo "::notice::reels read: $r"
           r=$(curl -s -w ' HTTP %{http_code}' "https://graph.facebook.com/v23.0/debug_token?input_token=$FB_PAGE_TOKEN&access_token=$FB_PAGE_TOKEN" | head -c 600)
           echo "::notice::token: $r"
+# recheck 1792530313
