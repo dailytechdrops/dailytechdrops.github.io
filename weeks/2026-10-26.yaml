@@ -1,59 +1,61 @@
 # Week of 2026-10-26. Merging this file's pull request approves the whole week.
 # slot: when it posts, Eastern time. Everything else is the product and its pre-written content.
+# Sample entry; the Sunday research fills the rest of the week.
 
 - slot: "2026-10-26 11:30"
-  asin: B0BPSGJN7T
-  name: GL.iNet Beryl AX (GL-MT3000) travel router
-  lane: networking and Wi-Fi
+  asin: B0B4518KC2
+  name: Northern Galaxy Light Aurora Projector
+  lane: smart lighting and room decor
   angle: >
-    Hotel and airport Wi-Fi is shared with strangers. This pocket router puts
-    your own private, encrypted network between you and theirs, with VPN built in.
+    Turns any ceiling into a moving aurora and starry sky. Instant
+    "where did you get that" room upgrade.
   key_facts:
-    - Wi-Fi 6, fits in a pocket, powered by USB-C
-    - Built-in WireGuard and OpenVPN client
-    - Every device you own connects once and stays on your own network
+    - Projects aurora and star effects onto ceilings and walls
+    - 33 light effects
+    - Rated about 4.4 stars on Amazon
   broll:
-    - hotel room laptop
-    - airport lounge working
-    - person typing on laptop cafe
-    - wifi router lights close up
-  # Pre-written content: used as-is, so no paid AI service is needed.
+    - northern lights sky
+    - starry night sky timelapse
+    - cozy bedroom night lights
+    - person relaxing bed night
   content:
     beats:
-      - on_screen: Hotel Wi-Fi is not your friend
-        voiceover: Every hotel and airport Wi-Fi network is shared with strangers. This tiny gadget puts a wall between you and them.
-        broll_query: hotel room laptop
-      - on_screen: Your own private network, anywhere
-        voiceover: This pocket router connects to the hotel Wi-Fi once, then gives your devices their own private network.
-        broll_query: airport lounge working
-      - on_screen: VPN built in
-        voiceover: It has a VPN client built in, so your traffic is encrypted before it ever touches their network.
-        broll_query: person typing on laptop cafe
-      - on_screen: Set up once, every device connects
-        voiceover: Your laptop, phone and tablet remember your network, so they connect automatically in every hotel.
-        broll_query: smartphone and laptop on desk
-      - on_screen: "Pro tip: change the admin password"
-        voiceover: Pro tip. Change the default admin password the day it arrives. Most people never do.
-        broll_query: wifi router lights close up
+      - on_screen: Your ceiling, but make it the northern lights
+        voiceover: This is not a filter. This is my ceiling.
+        broll_query: northern lights sky
+      - on_screen: Aurora plus stars, moving
+        voiceover: This little projector throws a moving aurora and a sky full of stars across your whole room.
+        broll_query: starry night sky timelapse
+      - on_screen: 33 light effects
+        voiceover: Thirty-three light effects, so it can be calm for sleep or full party mode.
+        broll_query: cozy bedroom night lights
+      - on_screen: The room everyone asks about
+        voiceover: Bedrooms, game rooms, movie nights. It is the thing everyone asks about.
+        broll_query: friends watching movie night
+      - on_screen: "Tip: point it at the corner"
+        voiceover: Quick tip. Aim it where the wall meets the ceiling and the effect wraps around the room.
+        broll_query: person relaxing bed night
       - on_screen: Comment LINK for the link
         voiceover: Comment LINK and I will send you the link.
-        broll_query: suitcase travel hotel
+        broll_query: night sky stars
     carousel:
-      - title: Stop trusting hotel Wi-Fi
-        body: The pocket gadget that makes hotel Wi-Fi yours.
-      - title: Your own network
-        body: Connects to the hotel once. Your devices join your private network instead.
-      - title: VPN built in
-        body: WireGuard and OpenVPN client, so traffic is encrypted end to end.
-      - title: Pocket sized
-        body: Wi-Fi 6, powered by USB-C, fits next to your charger.
+      - title: Northern lights at home
+        body: Your ceiling becomes a moving aurora and starry sky.
+      - title: 33 light effects
+        body: Slow and calm for sleep, or bright for a party.
+      - title: Every room
+        body: Bedroom, game room, movie night, kids' room.
+      - title: Pro tip
+        body: Aim it where the wall meets the ceiling so the light wraps the room.
       - title: Comment LINK
         body: I will DM you the Amazon link.
     caption: |-
-      Hotel and airport Wi-Fi is shared with every stranger in the building. This pocket-sized gadget fixes that: the GL.iNet Beryl AX. It joins the hotel network once and puts your own private, encrypted network between your devices and everyone else.
+      Not a filter. That is a ceiling. ✨
 
-      Pro tip: change the admin password the day it arrives.
+      This galaxy projector turns any room into the northern lights, with 33 light effects from sleepy to full party mode.
+
+      Tip: aim it where the wall meets the ceiling so the light wraps around the room.
 
       Comment LINK and I will DM you the Amazon link.
-    hashtags: [travelrouter, techgadgets, techtips, travelhacks, wifisecurity, vpn, amazonfinds, gadgets]
-    dm_message: "Here is the GL.iNet Beryl AX travel router: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Safe travels!"
+    hashtags: [galaxyprojector, roomdecor, coolgadgets, amazonfinds, northernlights, bedroomdecor, techgadgets, gamingroom]
+    dm_message: "Here is the aurora galaxy projector: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Enjoy the light show!"
