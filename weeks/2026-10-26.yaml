@@ -73,3 +73,71 @@
       Here is the portable door lock: {link}
 
       As an Amazon Associate I earn from qualifying purchases. Safe travels!
+
+- slot: "2026-10-21 11:30"
+  asin: B07D74DT3B
+  name: Aluminum Laptop Stand Riser
+  lane: desk and productivity setup
+  angle: >
+    A sturdy aluminum riser that lifts a laptop to eye level, frees up desk space,
+    and fixes neck strain. Popular, cheap, and a safe gift for anyone who works at a desk.
+  key_facts:
+    - Aluminum riser that fits laptops from 10 to 15.6 inches
+    - Lifts the screen to eye level
+    - Rated about 4.8 stars from 50,000+ ratings
+  broll:
+    - laptop on desk
+    - home office desk
+    - typing on laptop
+    - woman working at desk
+  content:
+    beats:
+      - on_screen: Your neck hates your laptop
+        voiceover: If you work on a laptop all day, your neck is paying for it.
+        broll_query: laptop desk
+      - on_screen: Lift it to eye level
+        voiceover: This aluminum stand lifts the screen to eye level, so you stop hunching over.
+        broll_query: working laptop
+      - on_screen: Free up your desk
+        voiceover: It also opens up space underneath for a keyboard, notebook, or coffee.
+        broll_query: home office
+      - on_screen: Folds flat, fits 10 to 15 inch laptops
+        voiceover: It fits most laptops from ten to fifteen inches, and it is sturdy aluminum, not flimsy plastic.
+        broll_query: typing keyboard
+      - on_screen: Comment SHOP for the link
+        voiceover: Comment SHOP and I will send you the link. It makes a great gift for anyone who works from home.
+        broll_query: coffee desk
+    carousel:
+      - title: Your neck hates your laptop
+        body: Hunching over a screen all day adds up.
+      - title: Lift it to eye level
+        body: A sturdy aluminum riser raises the screen where it belongs.
+      - title: Free up your desk
+        body: Room underneath for a keyboard, notebook, or coffee.
+      - title: Fits 10 to 15.6 inch laptops
+        body: Aluminum, not flimsy plastic.
+      - title: Comment SHOP
+        body: I will DM you the Amazon link.
+    caption: |-
+      Your neck hates your laptop. 💻
+
+      This aluminum stand lifts the screen to eye level so you stop hunching, and it frees up desk space underneath.
+
+      It fits laptops from 10 to 15.6 inches.
+
+      A great gift for anyone who works from home.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+      - deskSetup
+      - wfh
+      - homeoffice
+      - amazonfinds
+      - productivity
+      - laptopstand
+      - giftideas
+      - techgadgets
+    dm_message: |-
+      Here is the laptop stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases. Enjoy!

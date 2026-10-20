@@ -47,6 +47,11 @@ def render(cfg: dict, week: Path) -> int:
                 alt["voice"]["provider"], alt["voice"]["piper_voice"] = "piper", voice
             voice = voice.replace(":", "-")
             render_reel(alt, content, out / "work" / voice).rename(out / f"reel-{voice}.mp4")
+        # Optional extra reels from other footage sources (pexels or pixabay), for comparing.
+        for source in os.environ.get("EXTRA_FOOTAGE", "").split():
+            os.environ["STOCK_SOURCE"] = source
+            render_reel(cfg, content, out / "work" / f"footage-{source}").rename(out / f"reel-{source}.mp4")
+        os.environ.pop("STOCK_SOURCE", None)
         slides = render_carousel(cfg, content, out)
         link = affiliate_link(cfg, item["asin"])
         draft = {

@@ -73,7 +73,9 @@ def _kokoro(cfg: dict, text: str, out: Path) -> Path | None:
 
 
 def stock_clip(query: str, out: Path, used: set[int]) -> Path | None:
-    if env("PEXELS_API_KEY"):
+    # STOCK_SOURCE forces one source, so the same reel can be rendered from each and compared.
+    source = env("STOCK_SOURCE")
+    if source == "pexels" or (not source and env("PEXELS_API_KEY")):
         return _pexels(query, out, used)
     if env("PIXABAY_API_KEY"):
         return _pixabay(query, out, used)

@@ -11,6 +11,10 @@ on:
       week:
         description: "Week file to render, e.g. weeks/2026-10-26.yaml"
         required: true
+      footage:
+        description: "Extra footage sources to compare: pexels, pixabay"
+        required: false
+        default: ""
       voices:
         description: "Extra free voices to compare: Piper names, or kokoro:<voice>, e.g. en_US-lessac-high kokoro:af_heart"
         required: false
@@ -83,6 +87,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           EXTRA_VOICES: ${{ inputs.voices }}
+          EXTRA_FOOTAGE: ${{ inputs.footage }}
         run: for f in ${{ steps.weeks.outputs.files }}; do python -m dtd render --week "$f"; done
 
       - name: Store media on the media branch
