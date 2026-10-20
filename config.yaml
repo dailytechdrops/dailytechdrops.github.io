@@ -35,6 +35,9 @@ reel:
   font: assets/fonts/Inter-ExtraBold.otf
   body_font: assets/fonts/Inter-Medium.otf
   accent_color: "#E8792B"       # matches the orange D logo
+  background_color: "#FBF6EE"   # warm cream: light and airy, never black
+  ink_color: "#3B2F27"          # warm dark brown for text
+  muted_color: "#7A6A5D"        # secondary text
 
 voice:
   provider: piper                # piper (free, runs on GitHub) | elevenlabs (paid) | none
