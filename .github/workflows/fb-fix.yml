@@ -1,0 +1,52 @@
+name: FB fix links
+on:
+  push:
+    branches: [claude/fb-fix]
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pyyaml pydantic pillow
+      - name: Replace dead muse.ai links in Page captions
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python - <<'PY'
+          import re, os, requests
+          from dtd import facebook
+          SHOP = "https://kevingalus.github.io/daily-tech-drops/"
+          page = os.environ["FB_PAGE_ID"]; tok = facebook.page_token(page, os.environ["FB_PAGE_TOKEN"])
+          def note(t, m): print(f"::notice title={t}::{m}")
+          seen = set()
+          for edge, field, fields in (("posts", "message", "id,message"), ("video_reels", "description", "id,description")):
+              url = f"https://graph.facebook.com/v23.0/{page}/{edge}"
+              params = {"fields": fields, "limit": 50, "access_token": tok}
+              while url:
+                  r = requests.get(url, params=params, timeout=60)
+                  if r.status_code != 200:
+                      note(edge, f"list {r.status_code} {r.text[:200]}"); break
+                  j = r.json()
+                  for p in j.get("data", []):
+                      text = p.get(field) or ""
+                      if "muse.ai" not in text or p["id"] in seen: continue
+                      seen.add(p["id"])
+                      new = re.sub(r"https?://\S*muse\.ai\S*", SHOP, text)
+                      attempts = [(p["id"], field)]
+                      if "_" in p["id"]:
+                          attempts.append((p["id"].split("_")[-1], "description"))
+                      ok, last = False, ""
+                      for t, f in attempts:
+                          u = requests.post(f"https://graph.facebook.com/v23.0/{t}", data={f: new, "access_token": tok}, timeout=60)
+                          if u.status_code == 200:
+                              note("fixed", f"{edge} ***{p['id'][-6:]} edited via {t[-6:]}"); ok = True; break
+                          last = u.text[:200]
+                      if not ok:
+                          note("refused", f"{edge} ***{p['id'][-6:]}: {last}")
+                  url, params = j.get("paging", {}).get("next"), None
+          note("done", f"{len(seen)} posts with muse.ai found")
+          PY
