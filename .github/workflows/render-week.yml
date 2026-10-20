@@ -57,12 +57,13 @@ jobs:
             [ -f "voices/$v.onnx" ] || python -m piper.download_voices "$v" --data-dir voices
           done
 
-      - name: Install Kokoro if a Kokoro voice was asked for
-        if: contains(inputs.voices, 'kokoro:')
+      - name: Install Kokoro when it is the voice or was asked for
         run: |
+          grep -q "provider: kokoro" config.yaml || echo "${{ inputs.voices }}" | grep -q "kokoro:" || exit 0
           sudo apt-get install -y -qq espeak-ng
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install kokoro soundfile
+          python -c "from kokoro import KPipeline; KPipeline(lang_code='a')"
 
       - name: Find week files to render
         id: weeks

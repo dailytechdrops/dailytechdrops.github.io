@@ -40,7 +40,9 @@ reel:
   muted_color: "#7A6A5D"        # secondary text
 
 voice:
-  provider: piper                # piper (free, runs on GitHub) | elevenlabs (paid) | none
+  provider: kokoro               # kokoro (free, most natural) | piper (free) | elevenlabs (paid) | none
+  kokoro_voice: af_heart         # chosen by Kevin 2026-10-20
+  kokoro_speed: 1.05
   piper_voice: en_US-ryan-high   # free Piper voice; samples at rhasspy.github.io/piper-samples
   piper_speed: 0.9               # below 1 speaks faster
   voice_id: "pNInz6obpgDQGcFmaJgB"   # ElevenLabs only

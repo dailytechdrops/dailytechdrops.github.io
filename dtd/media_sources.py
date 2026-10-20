@@ -62,8 +62,8 @@ def _kokoro(cfg: dict, text: str, out: Path) -> Path | None:
         import soundfile as sf
         from kokoro import KPipeline
     except ImportError:
-        print("Kokoro is not installed; rendering without voiceover")
-        return None
+        print("Kokoro is not installed; falling back to Piper")
+        return _piper(cfg, text, out)
     if _kokoro_pipeline is None:
         _kokoro_pipeline = KPipeline(lang_code="a")
     v = cfg["voice"]
