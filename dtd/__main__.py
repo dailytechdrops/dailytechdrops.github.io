@@ -19,7 +19,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import instagram
+from . import facebook, instagram
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -116,7 +116,15 @@ def _publish(item_id: str, history: list) -> None:
     except instagram.InstagramError as e:
         # The reel is the main post; a failed carousel should not undo it.
         print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
+    facebook_id = None
+    if facebook.configured():
+        try:
+            facebook_id = facebook.publish_reel(out / "reel.mp4", facebook.caption_for_facebook(draft["caption"], draft["link"]))
+        except facebook.FacebookError as e:
+            # Cross-posting is a bonus; never undo or block the Instagram post.
+            print(f"Facebook reel failed, Instagram is live: {e}", file=sys.stderr)
     history.append({
+        "facebook_id": facebook_id,
         "id": item_id, "asin": draft["asin"], "name": draft["name"], "link": draft["link"],
         "dm_message": draft["dm_message"], "media_ids": [m for m in (reel_id, carousel_id) if m],
     })
