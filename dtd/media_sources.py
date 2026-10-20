@@ -87,7 +87,9 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
         timeout=60,
     )
     r.raise_for_status()
-    hits = [h for h in r.json().get("hits", []) if h["id"] not in used]
+    # Skip chroma-key plates, silhouettes and CGI loops; they look off-brand.
+    junk = ("green screen", "greenscreen", "chroma", "alpha", "silhouette", "3d", "animation", "render", "background loop")
+    hits = [h for h in r.json().get("hits", []) if h["id"] not in used and not any(j in h.get("tags", "").lower() for j in junk)]
     # Results come most relevant first. Take the first tall clip among the top few,
     # otherwise the most relevant sharp one (most Pixabay clips are landscape).
     candidates = []

@@ -79,7 +79,7 @@ jobs:
           for page in upbeat electronic; do
             html=$(curl -sL -A "Mozilla/5.0" "https://freepd.com/$page.php" || true)
             links=$(printf '%s' "$html" | grep -oiE '[^"'"'"' >]+\.mp3' | sort -u | head -3 || true)
-            echo "::notice::Music page $page: $(printf '%s' "$html" | wc -c) bytes, links: $(echo $links | head -c 300)"
+            echo "::notice::Music page $page: $(printf '%s' "$html" | head -c 300 | tr '\n' ' ') | links: $(echo $links | head -c 300)"
             for path in $links; do
               case "$path" in http*) url="$path" ;; /*) url="https://freepd.com$path" ;; *) url="https://freepd.com/$path" ;; esac
               name=$(basename "$path" | sed 's/%20/_/g; s/[^A-Za-z0-9._-]/_/g')
