@@ -12,7 +12,7 @@ on:
         description: "Week file to render, e.g. weeks/2026-10-26.yaml"
         required: true
       voices:
-        description: "Extra free Piper voices to compare, e.g. en_US-lessac-high en_US-amy-medium"
+        description: "Extra free voices to compare: Piper names, or kokoro:<voice>, e.g. en_US-lessac-high kokoro:af_heart"
         required: false
         default: ""
 
@@ -53,8 +53,16 @@ jobs:
         run: |
           VOICE=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['voice']['piper_voice'])")
           for v in $VOICE ${{ inputs.voices }}; do
+            case "$v" in kokoro:*) continue ;; esac
             [ -f "voices/$v.onnx" ] || python -m piper.download_voices "$v" --data-dir voices
           done
+
+      - name: Install Kokoro if a Kokoro voice was asked for
+        if: contains(inputs.voices, 'kokoro:')
+        run: |
+          sudo apt-get install -y -qq espeak-ng
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install kokoro soundfile
 
       - name: Cache background music
         uses: actions/cache@v4

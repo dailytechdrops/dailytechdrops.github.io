@@ -35,9 +35,14 @@ def render(cfg: dict, week: Path) -> int:
         reel = render_reel(cfg, content, out / "work")
         reel.rename(out / "reel.mp4")
         # Optional extra reels in other free voices, for comparing before choosing one.
+        # Names are Piper voices, or kokoro:<voice> for Kokoro.
         for voice in os.environ.get("EXTRA_VOICES", "").split():
             alt = copy.deepcopy(cfg)
-            alt["voice"]["piper_voice"] = voice
+            if voice.startswith("kokoro:"):
+                alt["voice"]["provider"], alt["voice"]["kokoro_voice"] = "kokoro", voice.split(":", 1)[1]
+            else:
+                alt["voice"]["provider"], alt["voice"]["piper_voice"] = "piper", voice
+            voice = voice.replace(":", "-")
             render_reel(alt, content, out / "work" / voice).rename(out / f"reel-{voice}.mp4")
         slides = render_carousel(cfg, content, out)
         link = affiliate_link(cfg, item["asin"])

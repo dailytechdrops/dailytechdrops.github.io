@@ -1,4 +1,4 @@
-"""Voiceover (Piper, free, or ElevenLabs) and stock footage (Pexels or
+"""Voiceover (Piper or Kokoro, both free, or ElevenLabs) and stock footage (Pexels or
 Pixabay, both free). Without a voice or a footage key the reel uses silent beats over branded
 gradient backgrounds."""
 
@@ -16,6 +16,8 @@ def tts(cfg: dict, text: str, out: Path) -> Path | None:
     provider = cfg["voice"]["provider"]
     if provider == "piper":
         return _piper(cfg, text, out.with_suffix(".wav"))
+    if provider == "kokoro":
+        return _kokoro(cfg, text, out.with_suffix(".wav"))
     key = env("ELEVENLABS_API_KEY")
     if provider != "elevenlabs" or not key:
         return None
@@ -45,6 +47,28 @@ def _piper(cfg: dict, text: str, out: Path) -> Path | None:
         _piper_voices[model] = PiperVoice.load(model)
     with wave.open(str(out), "wb") as wav:
         _piper_voices[model].synthesize_wav(text, wav, syn_config=SynthesisConfig(length_scale=cfg["voice"]["piper_speed"]))
+    return out
+
+
+_kokoro_pipeline = None
+
+
+def _kokoro(cfg: dict, text: str, out: Path) -> Path | None:
+    # Kokoro is an open-source voice that sounds more natural than Piper. It needs
+    # the kokoro, soundfile and torch packages, installed only when it is used.
+    global _kokoro_pipeline
+    try:
+        import numpy as np
+        import soundfile as sf
+        from kokoro import KPipeline
+    except ImportError:
+        print("Kokoro is not installed; rendering without voiceover")
+        return None
+    if _kokoro_pipeline is None:
+        _kokoro_pipeline = KPipeline(lang_code="a")
+    v = cfg["voice"]
+    chunks = [audio for _, _, audio in _kokoro_pipeline(text, voice=v.get("kokoro_voice", "af_heart"), speed=v.get("kokoro_speed", 1.05))]
+    sf.write(str(out), np.concatenate(chunks), 24000)
     return out
 
 
