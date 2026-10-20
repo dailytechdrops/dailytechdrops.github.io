@@ -5,6 +5,7 @@ instagram_business_content_publish, instagram_business_manage_comments and
 instagram_business_manage_messages.
 """
 
+import sys
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -34,17 +35,27 @@ def _call(method: str, url: str, **kwargs) -> dict:
     return r.json()
 
 
-def publish_reel(video: Path, caption: str) -> str:
-    """Uploads the local file directly (resumable upload), so no public URL is needed."""
+def publish_reel(video: Path, caption: str, video_url: str | None = None) -> str:
+    """Uploads the local file directly (resumable upload); if Instagram refuses that,
+    falls back to letting it fetch the file from a public URL."""
     user, token = _creds()
-    container = _call("POST", f"{API}/{user}/media", params={
-        "media_type": "REELS", "upload_type": "resumable", "caption": caption,
-        "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
-    })
-    size = video.stat().st_size
-    _call("POST", container["uri"], headers={
-        "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
-    }, data=video.read_bytes())
+    try:
+        container = _call("POST", f"{API}/{user}/media", params={
+            "media_type": "REELS", "upload_type": "resumable", "caption": caption,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+        })
+        size = video.stat().st_size
+        _call("POST", container["uri"], headers={
+            "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+        }, data=video.read_bytes())
+    except InstagramError as e:
+        if not video_url:
+            raise
+        print(f"Resumable upload refused ({e}); using the public URL instead", file=sys.stderr)
+        container = _call("POST", f"{API}/{user}/media", params={
+            "media_type": "REELS", "video_url": video_url, "caption": caption,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+        })
     _wait_ready(container["id"], token)
     return _publish(user, token, container["id"])
 
