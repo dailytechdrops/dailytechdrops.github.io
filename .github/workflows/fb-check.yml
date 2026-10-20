@@ -10,18 +10,12 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
         run: |
-          [ -n "$FB_PAGE_ID" ] && echo "::notice::FB_PAGE_ID is set" || echo "::error::FB_PAGE_ID is missing"
-          [ -n "$FB_PAGE_TOKEN" ] && echo "::notice::FB_PAGE_TOKEN is set" || { echo "::error::FB_PAGE_TOKEN is missing"; exit 1; }
-          r=$(curl -s -w ' HTTP %{http_code}' "https://graph.facebook.com/v23.0/$FB_PAGE_ID?fields=name,fan_count&access_token=$FB_PAGE_TOKEN")
-          echo "::notice::page: $r"
-          r=$(curl -s -w ' HTTP %{http_code}' "https://graph.facebook.com/v23.0/$FB_PAGE_ID/video_reels?limit=1&access_token=$FB_PAGE_TOKEN" | head -c 300)
-          echo "::notice::reels read: $r"
-          r=$(curl -s -w ' HTTP %{http_code}' "https://graph.facebook.com/v23.0/me?fields=id,name&access_token=$FB_PAGE_TOKEN" | sed "s/$FB_PAGE_ID/<PAGE_ID>/g")
-          echo "::notice::me: $r"
-          r=$(curl -s "https://graph.facebook.com/v23.0/debug_token?input_token=$FB_PAGE_TOKEN&access_token=$FB_PAGE_TOKEN" | python3 -c "import sys,json;d=json.load(sys.stdin).get('data',{});print({k:d.get(k) for k in ('type','expires_at','is_valid','profile_id','user_id')})" | sed "s/$FB_PAGE_ID/<PAGE_ID>/g")
-          echo "::notice::debug: $r"
-          r=$(curl -s "https://graph.facebook.com/v23.0/me/accounts?fields=name,id&access_token=$FB_PAGE_TOKEN" | head -c 200 | sed "s/$FB_PAGE_ID/<PAGE_ID>/g")
-          echo "::notice::accounts: $r"
-          r=$(curl -s -X POST "https://graph.facebook.com/v23.0/$FB_PAGE_ID/video_reels" -d upload_phase=start -d access_token=$FB_PAGE_TOKEN | head -c 300 | sed -E 's#https?://[^"]*#<url>#g')
-          echo "::notice::reel upload start (nothing is posted): $r"
-# recheck
+          PT=$(curl -s "https://graph.facebook.com/v23.0/$FB_PAGE_ID?fields=access_token&access_token=$FB_PAGE_TOKEN" | python3 -c "import sys,json;print(json.load(sys.stdin).get('access_token',''))")
+          [ -n "$PT" ] && echo "::notice::derived a page token from the saved key" || echo "::error::could not derive a page token"
+          [ -n "$PT" ] || exit 0
+          echo "::add-mask::$PT"
+          d=$(curl -s "https://graph.facebook.com/v23.0/debug_token?input_token=$PT&access_token=$PT" | python3 -c "import sys,json;d=json.load(sys.stdin).get('data',{});print({k:d.get(k) for k in ('type','expires_at','is_valid','scopes')})")
+          echo "::notice::derived token: $d"
+          r=$(curl -s -X POST "https://graph.facebook.com/v23.0/$FB_PAGE_ID/video_reels" -d upload_phase=start -d access_token=$PT | head -c 300 | sed -E 's#https?://[^"]*#<url>#g')
+          echo "::notice::reel upload start with derived token (nothing is posted): $r"
+# recheck 2
