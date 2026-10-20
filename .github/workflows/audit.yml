@@ -1,0 +1,29 @@
+name: Social audit
+
+# Read-only: dumps Instagram and Facebook profile and post data and checks every link.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-o0en2u]
+    paths: [tools/audit.py, .github/workflows/audit.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: python tools/audit.py
