@@ -19,7 +19,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram
+from . import facebook, instagram, shop
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -102,6 +102,7 @@ def post_due(cfg: dict) -> int:
     else:
         print("Nothing due.")
     write_state("history", history)
+    shop.build(cfg, history)
     return 0
 
 

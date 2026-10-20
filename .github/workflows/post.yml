@@ -33,6 +33,7 @@ jobs:
 
       - name: Post anything due
         env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
@@ -52,7 +53,7 @@ jobs:
         run: |
           git config user.name "daily-tech-drops-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add state/
+          git add state/ docs/
           git diff --cached --quiet && exit 0
           git commit -m "Update post history"
           git pull --rebase origin "${{ github.ref_name }}"
