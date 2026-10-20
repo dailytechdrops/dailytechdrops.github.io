@@ -31,7 +31,7 @@ reel:
   height: 1920
   fps: 30
   seconds_per_beat_without_voice: 2.8
-  music_volume: 0.16             # background music level under the voiceover
+  music_volume: 0.32             # background music level under the voiceover
   font: assets/fonts/Inter-ExtraBold.otf
   body_font: assets/fonts/Inter-Medium.otf
   accent_color: "#E8792B"       # matches the orange D logo
