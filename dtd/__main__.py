@@ -92,7 +92,12 @@ def post_due(cfg: dict) -> int:
             print(f"Skipping {item['id']}: its time passed more than {STALE_AFTER} ago")
             history.append({"id": item["id"], "skipped": True})
             continue
-        _publish(item["id"], history)
+        try:
+            _publish(item["id"], history)
+        except Exception as e:
+            # Run logs are hard to read; an error annotation shows the cause on the run page.
+            print(f"::error title=Post failed::{item['id']}: {type(e).__name__}: {str(e)[:500]}")
+            raise
         break  # one product per run keeps posts spaced out if several are due
     else:
         print("Nothing due.")
