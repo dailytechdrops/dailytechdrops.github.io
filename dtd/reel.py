@@ -1,6 +1,7 @@
 """Renders the vertical reel: one segment per beat (footage or branded
 gradient, caption overlay, voiceover), then joins them and mixes in music."""
 
+import os
 import random
 import subprocess
 from pathlib import Path
@@ -30,7 +31,11 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
         overlay = workdir / f"overlay_{i}.png"
         caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta)
         seg = workdir / f"seg_{i}.mp4"
-        _segment(rc, clip, overlay, voice, seg_len, seg)
+        backdrop = None
+        if os.environ.get("STOCK_SOURCE") == "graphics":
+            backdrop = workdir / f"backdrop_{i}.png"
+            graphic_backdrop(rc, i, len(content.beats), backdrop)
+        _segment(rc, clip, overlay, voice, seg_len, seg, backdrop)
         segments.append(seg)
 
     joined = workdir / "joined.mp4"
@@ -54,10 +59,38 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
     return final
 
 
-def _segment(rc: dict, clip: Path | None, overlay: Path, voice: Path | None, seg_len: float, out: Path) -> None:
+def graphic_backdrop(rc: dict, i: int, n: int, out: Path) -> None:
+    """Footage-free background: soft cream-to-peach gradient with large orange circles
+    and a big step number, which the segment slowly pans across."""
+    w, h = rc["width"], rc["height"]
+    rnd = random.Random(i * 7919 + 13)
+    top, bottom = (251, 246, 238), (246, 217, 191)
+    img = Image.new("RGB", (w, h))
+    px = ImageDraw.Draw(img)
+    for y in range(h):
+        t = y / h
+        px.line([(0, y), (w, y)], fill=tuple(int(top[k] + (bottom[k] - top[k]) * t) for k in range(3)))
+    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    for _ in range(5):
+        r = rnd.randint(180, 420)
+        x, y = rnd.randint(-100, w + 100), rnd.randint(0, int(h * 0.55))
+        d.ellipse([x - r, y - r, x + r, y + r], fill=_rgba(rc["accent_color"], rnd.choice([40, 70, 110])))
+    if 0 < i < n - 1:
+        big = _font(rc["font"], 520)
+        label = str(i)
+        d.text(((w - d.textlength(label, font=big)) / 2, int(h * 0.12)), label, font=big, fill=_rgba(rc["accent_color"], 90))
+    img.paste(layer, (0, 0), layer)
+    img.save(out)
+
+
+def _segment(rc: dict, clip: Path | None, overlay: Path, voice: Path | None, seg_len: float, out: Path, backdrop: Path | None = None) -> None:
     w, h, fps = rc["width"], rc["height"], rc["fps"]
     args = []
-    if clip:
+    if backdrop:
+        args += ["-loop", "1", "-framerate", str(fps), "-i", str(backdrop)]
+        bg = f"[0:v]scale={int(w * 1.2)}:{int(h * 1.2)},crop={w}:{h}:x='(iw-{w})*t/{seg_len:.2f}':y='(ih-{h})/2',setsar=1,fps={fps}[bg]"
+    elif clip:
         args += ["-stream_loop", "-1", "-i", str(clip)]
         bg = f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps}[bg]"
     else:
