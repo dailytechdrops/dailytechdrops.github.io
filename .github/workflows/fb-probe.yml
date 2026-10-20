@@ -1,0 +1,31 @@
+name: FB probe
+on:
+  push:
+    branches: [claude/fb-probe]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pyyaml pydantic pillow
+      - name: List page posts
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python - <<'PY'
+          import requests, os, json
+          from dtd import facebook
+          page = os.environ["FB_PAGE_ID"]; tok = facebook.page_token(page, os.environ["FB_PAGE_TOKEN"])
+          def note(t, m): print(f"::notice title={t}::{m}")
+          for edge, fields in (("posts", "id,message,created_time,permalink_url,is_published,application{name}"), ("video_reels", "id,description,created_time,permalink_url")):
+              r = requests.get(f"https://graph.facebook.com/v23.0/{page}/{edge}", params={"fields": fields, "limit": 25, "access_token": tok}, timeout=60)
+              if r.status_code != 200:
+                  note(edge, f"{r.status_code} {r.text[:300]}"); continue
+              for p in r.json().get("data", []):
+                  m = (p.get("message") or p.get("description") or "").replace("\n", " ")
+                  note(edge, f"{p['id']} | {p.get('created_time')} | app={p.get('application')} | muse={'muse.ai' in m} | {m[:110]}")
+          PY
