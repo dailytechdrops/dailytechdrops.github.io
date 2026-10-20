@@ -1,6 +1,6 @@
 """Gets the reel script, carousel copy, caption and DM text for a product.
 
-In order: content pre-written in products.yaml (free; researched and written
+In order: content pre-written in the week file (free; researched and written
 in the Claude project), then the Claude API if ANTHROPIC_API_KEY is set
 (paid), then a plain template.
 """

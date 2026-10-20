@@ -1,9 +1,8 @@
-# Product queue. The daily run takes the next product not yet posted.
-# asin: the 10-character code in the Amazon URL (amazon.com/dp/<ASIN>).
-# angle: the one thing that makes this worth a post. The writer builds on it.
-# Verify price and rating on Amazon before adding; prices are never stated in posts.
+# Week of 2026-10-26. Merging this file's pull request approves the whole week.
+# slot: when it posts, Eastern time. Everything else is the product and its pre-written content.
 
-- asin: B0BPSGJN7T
+- slot: "2026-10-26 11:30"
+  asin: B0BPSGJN7T
   name: GL.iNet Beryl AX (GL-MT3000) travel router
   lane: networking and Wi-Fi
   angle: >
@@ -55,11 +54,7 @@
       After 12 years securing business networks, this is what I would pack:
       the GL.iNet Beryl AX. It joins the hotel network once and puts your own
       private, encrypted network between your devices and everyone else.
-
-
       Pro tip: change the admin password the day it arrives.
-
-
       Comment LINK and I will DM you the Amazon link.
     hashtags: [travelrouter, cybersecurity, techtips, travelhacks, wifisecurity, vpn, amazonfinds, techgadgets]
     dm_message: "Here is the GL.iNet Beryl AX travel router: {link}\n\nAs an Amazon Associate I earn from qualifying purchases. Safe travels!"

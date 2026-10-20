@@ -20,6 +20,11 @@ instagram:
   hashtags_per_post: 8
   disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
 
+schedule:
+  # Used when the Sunday research fills a week. Times are Eastern.
+  posts_per_day: 2
+  times: ["11:30", "19:00", "15:00", "21:00"]   # first posts_per_day of these are used
+
 reel:
   width: 1080
   height: 1920
@@ -38,7 +43,7 @@ voice:
   model_id: eleven_multilingual_v2   # ElevenLabs only
 
 writer:
-  # Used only when a product in products.yaml has no pre-written content
+  # Used only when a product in a week file has no pre-written content
   # and the ANTHROPIC_API_KEY secret is set (paid). Otherwise a template is used.
   model: claude-opus-5-5
   effort: medium
