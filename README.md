@@ -29,7 +29,8 @@ Settings > Secrets and variables > Actions.
 | `AMAZON_TAG` | Amazon Associates > tracking ID, e.g. `dailytechdrops-20` | Yes |
 | `IG_USER_ID` | From the Meta app setup below | Yes |
 | `IG_ACCESS_TOKEN` | From the Meta app setup below (long-lived token) | Yes |
-| `PEXELS_API_KEY` | pexels.com/api (free) | Recommended (plain branded backgrounds without it) |
+| `PIXABAY_API_KEY` | pixabay.com/api/docs (free account; the key is shown on that page once logged in) | Recommended (plain branded backgrounds without a footage key) |
+| `PEXELS_API_KEY` | pexels.com/api (free, but new keys were paused when we tried in Oct 2026) | Optional alternative to Pixabay |
 | `ANTHROPIC_API_KEY` | console.anthropic.com (paid) | No. Only for products without pre-written content |
 | `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
 | `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
@@ -61,7 +62,7 @@ Use tracks you have the rights to (for example YouTube Audio Library or a Pixaba
 ## Cost
 
 Everything in the default setup is free: GitHub Actions (unlimited on a public repo), the Instagram API,
-Pexels footage, and the Piper voice, which runs on GitHub's machines. Scripts are pre-written in
+Pixabay or Pexels footage, and the Piper voice, which runs on GitHub's machines. Scripts are pre-written in
 the week files from the Claude project, so no paid AI API is needed. ElevenLabs voices and the Claude API
 are optional upgrades.
 
