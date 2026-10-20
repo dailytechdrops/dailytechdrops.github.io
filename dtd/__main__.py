@@ -113,8 +113,8 @@ def _publish(item_id: str, history: list) -> None:
         archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
         subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
     draft = json.loads((out / "draft.json").read_text())
-    reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"])
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
+    reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None
     try:
         carousel_id = instagram.publish_carousel([f"{base}/{item_id}/{s}" for s in draft["slides"]], draft["caption"])
