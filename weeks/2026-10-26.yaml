@@ -243,7 +243,7 @@
     - doorbell press
     - smartphone notification
   content:
-    photo_query: front door security camera
+    photo_query: video doorbell front door smart home
     beats:
       - on_screen: "See who is at the door"
         voiceover: "Imagine seeing who is at your front door from anywhere, with no wiring at all."
@@ -392,7 +392,7 @@
     - person typing laptop
     - video editing desk
   content:
-    photo_query: computer mouse desk
+    photo_query: wireless mouse desk laptop
     beats:
       - on_screen: "Scroll 1000 lines in one second"
         voiceover: "This scroll wheel can fly through a thousand lines in a single second, and then stop on a dime."
