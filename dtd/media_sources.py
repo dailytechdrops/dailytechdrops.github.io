@@ -109,6 +109,43 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     return out
 
 
+# Pixabay tags that mean the picture shows a different brand, or an old or black and white look.
+_BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock", "car", "vehicle", "electric car", "charging station", "flower", "flowers", "mountain", "hiking", "bottle", "drink"}
+
+
+def stock_photo(query: str, out: Path, n: int = 0) -> Path | None:
+    """A tall, sharp stock photo of the product type (Pixabay, free), or None.
+
+    Pixabay's own order is loose, so the 40 best matches are re-ranked by how many query words
+    show up in their tags, and ones tagged with another brand or an old look are pushed down."""
+    if not (query and env("PIXABAY_API_KEY")):
+        return None
+    r = requests.get(
+        "https://pixabay.com/api/",
+        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "image_type": "photo", "orientation": "vertical",
+                "safesearch": "true", "min_height": 1200, "per_page": 40},
+        timeout=60,
+    )
+    r.raise_for_status()
+    hits = r.json().get("hits", [])
+    if not hits:
+        return None
+    words = [w for w in query.lower().split() if len(w) > 2]
+
+    def score(item: tuple[int, dict]) -> tuple[int, int]:
+        i, hit = item
+        tags = hit.get("tags", "").lower()
+        points = sum(w in tags for w in words) - 3 * sum(b in tags for b in _BAD_TAGS)
+        return (-points, i)
+
+    ranked = [h for _, h in sorted(enumerate(hits), key=score)]
+    hit = ranked[n % len(ranked)]
+    data = requests.get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
+    data.raise_for_status()
+    out.write_bytes(data.content)
+    return out
+
+
 def _pexels(query: str, out: Path, used: set[int]) -> Path | None:
     key = env("PEXELS_API_KEY")
     r = requests.get(
