@@ -94,7 +94,7 @@
     - home office desk setup
     - typing on keyboard
   content:
-    photo_query: desk lamp monitor workspace
+    photo_query: monitor desk lamp led office
     beats:
       - on_screen: "Your desk is lit wrong"
         voiceover: "Here is a desk fix that takes about ten seconds and makes your screen time easier on your eyes."
@@ -169,7 +169,7 @@
     - phone on stand video
     - hand holding smartphone
   content:
-    photo_query: power bank charging phone cable table
+    photo_query: smartphone usb cable charger hand
     beats:
       - on_screen: "It snaps onto your phone"
         voiceover: "Watch this. A power bank that just snaps onto the back of your iPhone and starts charging."
@@ -538,7 +538,7 @@
     - backpack travel
     - wallet pocket
   content:
-    photo_query: keys keychain hand
+    photo_query: keychain keys wallet
     beats:
       - on_screen: "Never lose your keys again"
         voiceover: "Stop tearing the house apart every morning looking for your keys."
@@ -612,7 +612,7 @@
     - smart speaker home
     - woman waking up bed
   content:
-    photo_query: smart speaker display kitchen counter
+    photo_query: smart display screen home
     beats:
       - on_screen: "A bedside clock that talks back"
         voiceover: "Your alarm clock could do a lot more than beep."
@@ -683,7 +683,7 @@
     - power strip cables
     - computer desk clean
   content:
-    photo_query: tidy desk cables wires workspace
+    photo_query: desk setup computer cables office
     beats:
       - on_screen: "Hide the cable mess"
         voiceover: "Look at the cable mess under this desk, and now look at it with two trays."
@@ -756,7 +756,7 @@
     - hand holding power bank
     - backpack travel
   content:
-    photo_query: phone charging cable outlet travel
+    photo_query: usb c cable laptop desk
     beats:
       - on_screen: "The cable is built in"
         voiceover: "Here is a power bank where the cable is already built in."
@@ -1046,7 +1046,7 @@
     - phone charging cafe
     - hand holding power bank
   content:
-    photo_query: portable charger backpack travel
+    photo_query: usb c cable travel bag
     beats:
       - on_screen: "The cable pulls out and snaps back"
         voiceover: "Watch this cable pull out, and then snap right back in."

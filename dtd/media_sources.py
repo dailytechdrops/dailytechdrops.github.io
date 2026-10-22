@@ -110,7 +110,7 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
 
 
 # Pixabay tags that mean the picture shows a different brand, or an old or black and white look.
-_BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock"}
+_BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock", "car", "vehicle", "electric car", "charging station", "flower", "flowers", "mountain", "hiking", "bottle", "drink"}
 
 
 def stock_photo(query: str, out: Path, n: int = 0) -> Path | None:
