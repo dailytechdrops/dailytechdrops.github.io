@@ -94,7 +94,7 @@
     - home office desk setup
     - typing on keyboard
   content:
-    photo_query: monitor light bar desk
+    photo_query: desk lamp monitor workspace
     beats:
       - on_screen: "Your desk is lit wrong"
         voiceover: "Here is a desk fix that takes about ten seconds and makes your screen time easier on your eyes."
@@ -169,7 +169,7 @@
     - phone on stand video
     - hand holding smartphone
   content:
-    photo_query: portable charger smartphone
+    photo_query: power bank charging phone cable table
     beats:
       - on_screen: "It snaps onto your phone"
         voiceover: "Watch this. A power bank that just snaps onto the back of your iPhone and starts charging."
@@ -243,7 +243,7 @@
     - doorbell press
     - smartphone notification
   content:
-    photo_query: video doorbell front door smart home
+    photo_query: front door porch
     beats:
       - on_screen: "See who is at the door"
         voiceover: "Imagine seeing who is at your front door from anywhere, with no wiring at all."
@@ -317,7 +317,7 @@
     - 8-bit video game
     - bluetooth speaker desk
   content:
-    photo_query: bluetooth speaker
+    photo_query: bluetooth speaker desk
     beats:
       - on_screen: "A tiny arcade on your desk"
         voiceover: "This little retro box is a speaker, a clock, and a pixel art screen all in one."
@@ -392,7 +392,7 @@
     - person typing laptop
     - video editing desk
   content:
-    photo_query: wireless mouse desk laptop
+    photo_query: ergonomic wireless mouse hand desk
     beats:
       - on_screen: "Scroll 1000 lines in one second"
         voiceover: "This scroll wheel can fly through a thousand lines in a single second, and then stop on a dime."
@@ -466,7 +466,7 @@
     - airpods case
     - packing suitcase travel
   content:
-    photo_query: wireless phone charger
+    photo_query: wireless charging pad phone desk
     beats:
       - on_screen: "Three devices, one tiny stand"
         voiceover: "One small stand charges your phone, your watch, and your earbuds all at once."
@@ -538,7 +538,7 @@
     - backpack travel
     - wallet pocket
   content:
-    photo_query: bluetooth tracker keys
+    photo_query: keys keychain hand
     beats:
       - on_screen: "Never lose your keys again"
         voiceover: "Stop tearing the house apart every morning looking for your keys."
@@ -612,7 +612,7 @@
     - smart speaker home
     - woman waking up bed
   content:
-    photo_query: smart display speaker
+    photo_query: smart speaker display kitchen counter
     beats:
       - on_screen: "A bedside clock that talks back"
         voiceover: "Your alarm clock could do a lot more than beep."
@@ -683,7 +683,7 @@
     - power strip cables
     - computer desk clean
   content:
-    photo_query: cable management desk
+    photo_query: tidy desk cables wires workspace
     beats:
       - on_screen: "Hide the cable mess"
         voiceover: "Look at the cable mess under this desk, and now look at it with two trays."
@@ -756,7 +756,7 @@
     - hand holding power bank
     - backpack travel
   content:
-    photo_query: portable charger smartphone
+    photo_query: phone charging cable outlet travel
     beats:
       - on_screen: "The cable is built in"
         voiceover: "Here is a power bank where the cable is already built in."
@@ -831,7 +831,7 @@
     - dog home alone
     - security camera
   content:
-    photo_query: indoor security camera
+    photo_query: home security camera outdoor wall
     beats:
       - on_screen: "See your house in the dark"
         voiceover: "Even in a dark hallway, this tiny camera can show you what is going on in color."
@@ -902,7 +902,7 @@
     - kitchen counter speaker
     - morning alarm
   content:
-    photo_query: smart speaker alarm clock
+    photo_query: alarm clock bedside table
     beats:
       - on_screen: "A clock that glows and listens"
         voiceover: "This little speaker doubles as a glowing clock."
@@ -975,7 +975,7 @@
     - office keyboard close up
     - home office desk
   content:
-    photo_query: wireless keyboard
+    photo_query: backlit keyboard desk night
     beats:
       - on_screen: "The keys light up as you reach"
         voiceover: "Watch the keys light up the moment your hands get close."
@@ -1046,7 +1046,7 @@
     - phone charging cafe
     - hand holding power bank
   content:
-    photo_query: portable charger smartphone
+    photo_query: portable charger backpack travel
     beats:
       - on_screen: "The cable pulls out and snaps back"
         voiceover: "Watch this cable pull out, and then snap right back in."
