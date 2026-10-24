@@ -4,21 +4,26 @@
 - name: AirPods Pro 3
   tagline: Noise cancelling plus live translation
   asin: B0FQFB8FMG
+  photo: wireless earbuds
 - name: Soundcore P20i Earbuds
   tagline: Big bass and 30-hour battery on a budget
   asin: B0BTYCRJSS
+  photo: wireless earbuds
 - name: eufy SoloCam S220 Solar Camera
   tagline: 2K outdoor security cam, no subscription
   asin: B0BZ55JZ4S
+  photo: outdoor security camera
 - name: 3-in-1 Wireless Charging Station
   tagline: Phone, watch and earbuds on one stand
   asin: B0F5PM85TQ
 - name: eufy Smart Lock C210
   tagline: Keyless entry with a touchscreen keypad
   asin: B0BCV3NBKY
+  photo: smart door lock keypad
 - name: Anker Prime Charger 100W (3 ports)
   tagline: One small charger for your laptop, phone and tablet
   search: Anker Prime Charger 100W 3 Ports GaN A2688
+  photo: usb c charger laptop
 - name: SwitchBot Curtain 3
   tagline: Smart curtains that open on a schedule
   search: SwitchBot Curtain 3
@@ -28,54 +33,69 @@
 - name: POCOCO Galaxy Projector
   tagline: Turn any room into a night sky
   search: POCOCO Galaxy Projector
+  photo: galaxy projector night sky room
 - name: Sunset Projection Lamp
   tagline: Golden-hour glow for your desk or shelf
   search: sunset projection lamp
+  photo: sunset lamp warm light room
 - name: Eilik Desktop Robot Pet
   tagline: A tiny companion robot for your desk
   search: Eilik desktop companion robot
+  photo: small robot toy desk
 - name: Smart Water Leak Sensor
   tagline: Get an alert before a small leak becomes a big one
   search: smart wifi water leak sensor
+  photo: water leak sink
 - name: USB TV Backlight Kit
   tagline: Bias lighting that makes any screen look bigger
   search: USB TV backlight LED kit
 - name: Under-Desk Wireless Charger
   tagline: Charge your phone through the desk, no cable on top
   search: under desk wireless charger
+  photo: wireless charger desk phone
 - name: Levitating Orb Bluetooth Speaker
   tagline: A speaker that floats and glows
   search: levitating floating orb bluetooth speaker
+  photo: bluetooth speaker glowing
 - name: Govee Floor Lamp
   tagline: Color-changing corner lamp for a cozy room
   search: Govee RGBICWW floor lamp
+  photo: floor lamp living room
 - name: Foldable Bluetooth Keyboard
   tagline: A full keyboard that fits in your pocket
   search: foldable bluetooth keyboard
 - name: Laptop Screen Extender
   tagline: A second screen that clips onto your laptop
   search: laptop screen extender dual monitor
+  photo: laptop second screen
 - name: Smart Plugs (4-Pack)
   tagline: Control any lamp or appliance from your phone
   search: smart plugs 4 pack wifi alexa
+  photo: smart plug outlet
 - name: Magnetic Phone Charger
   tagline: Snap-on charging that lines up every time
   search: magnetic wireless charger MagSafe
+  photo: phone wireless charger magnetic
 - name: Phone Tripod with Face Tracking
   tagline: A tripod that follows you while you film
   search: phone tripod auto face tracking
+  photo: phone tripod
 - name: Hidden Camera Detector
   tagline: Sweep a room for hidden cameras and bugs
   search: hidden camera detector
+  photo: security camera lens
 - name: Govee LED Strip Lights
   tagline: App-controlled color strips for any room
   search: Govee LED strip lights
+  photo: led strip lights room
 - name: Phone Screen Cleaner Spray
   tagline: A 2-in-1 spray and wipe for fingerprints
   search: 2-in-1 phone screen cleaner spray
 - name: Amazon Basics Smart Bulb
   tagline: A Wi-Fi color bulb that works with Alexa
   search: Amazon Basics smart bulb
+  photo: light bulb lamp
 - name: USB Mouse Jiggler
   tagline: Keeps your computer awake while you step away
   search: USB mouse jiggler
+  photo: computer mouse desk
