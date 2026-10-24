@@ -31,6 +31,26 @@ jobs:
 
       - run: git fetch origin media || true
 
+      - name: Put the next due product on the shop page first
+        id: site
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+        run: python -m dtd site-prep
+
+      - name: Publish the shop page, then give it time to go live
+        if: ${{ steps.site.outputs.due == '1' }}
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/
+          if ! git diff --cached --quiet; then
+            git commit -m "Shop page: add the next product before its reel posts"
+            git pull --rebase origin "${{ github.ref_name }}"
+            git push
+            sleep 120
+          fi
+
       - name: Post anything due
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}

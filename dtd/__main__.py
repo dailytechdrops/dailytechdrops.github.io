@@ -2,6 +2,7 @@
 
   python -m dtd render  --week weeks/2026-10-26.yaml   render every product in a week -> output/<id>/
   python -m dtd preview --week weeks/2026-10-26.yaml   print a markdown preview of the week
+  python -m dtd site-prep                              put the next due product on the shop page first
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
   python -m dtd refresh-token                          print a refreshed Instagram token
@@ -76,6 +77,24 @@ def preview(cfg: dict, week: Path, base: str) -> int:
         print(f"**{item['when']:%a %b %d, %-I:%M %p} ET: {item['name']}**  ")
         print(f"[Watch on phone]({phone}) · [Reel file]({raw}/reel.mp4) · [Amazon](https://www.amazon.com/dp/{item['asin']})\n")
         print(f'<img src="{raw}/slide_1.jpg" width="200"> <img src="{raw}/slide_2.jpg" width="200">\n')
+    return 0
+
+
+def site_prep(cfg: dict) -> int:
+    """Puts the next due product on the shop page before its reel is published.
+    Prints due=1 to the workflow when it did, so the page can go live first."""
+    now = datetime.now(EASTERN)
+    history = read_state("history", [])
+    posted = {h["id"] for h in history}
+    due = sorted((i for i in load_all_weeks() if i["id"] not in posted and i["when"] <= now and now - i["when"] <= STALE_AFTER), key=lambda i: i["when"])
+    if due:
+        item = due[0]
+        shop.build(cfg, history + [{"id": item["id"], "name": item["name"], "link": affiliate_link(cfg, item["asin"])}])
+        print(f"Shop page now lists {item['id']}")
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a") as f:
+            f.write(f"due={1 if due else 0}\n")
     return 0
 
 
@@ -207,7 +226,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "post-due", "reply", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "post-due", "reply", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -216,6 +235,8 @@ def main() -> int:
         return render(cfg, args.week)
     if args.command == "preview":
         return preview(cfg, args.week, args.base)
+    if args.command == "site-prep":
+        return site_prep(cfg)
     if args.command == "post-due":
         return post_due(cfg)
     if args.command == "reply":
