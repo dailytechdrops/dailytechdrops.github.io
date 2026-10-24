@@ -27,11 +27,13 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path) -> Path:
         is_hook, is_cta = i == 0, i == len(content.beats) - 1
         voice = tts(cfg, beat.voiceover, workdir / f"voice_{i}.mp3")
         seg_len = duration(voice) + 0.35 if voice else rc["seconds_per_beat_without_voice"]
-        clip = None if (is_hook and photo) else stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
+        # With a photo search set, the whole reel is a clean photo slideshow: a different photo per beat.
+        shot = (stock_photo(content.photo_query, workdir / f"photo_{i}.jpg", i) or photo) if photo else None
+        clip = None if shot else stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
         overlay = workdir / f"overlay_{i}.png"
         caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta)
         seg = workdir / f"seg_{i}.mp4"
-        _segment(rc, clip, overlay, voice, seg_len, seg, photo if is_hook else None)
+        _segment(rc, clip, overlay, voice, seg_len, seg, shot)
         segments.append(seg)
 
     joined = workdir / "joined.mp4"
@@ -59,7 +61,7 @@ def _segment(rc: dict, clip: Path | None, overlay: Path, voice: Path | None, seg
     w, h, fps = rc["width"], rc["height"], rc["fps"]
     args = []
     if photo:
-        # Slow push across the product photo, so the first second shows the product.
+        # Slow push across a still photo.
         args += ["-loop", "1", "-framerate", str(fps), "-i", str(photo)]
         bg = f"[0:v]scale={int(w * 1.2)}:{int(h * 1.2)}:force_original_aspect_ratio=increase,crop={w}:{h}:x='(iw-{w})*t/{seg_len:.2f}':y='(ih-{h})/2',setsar=1,fps={fps}[bg]"
     elif clip:
