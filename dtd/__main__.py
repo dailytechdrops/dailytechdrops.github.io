@@ -5,6 +5,7 @@
   python -m dtd site-prep                              put the next due product on the shop page first
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
+  python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd refresh-token                          print a refreshed Instagram token
 """
 
@@ -20,7 +21,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram, shop
+from . import facebook, instagram, shop, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -30,6 +31,8 @@ from .writer import full_caption, write_content
 STALE_AFTER = timedelta(hours=6)
 # A link DM that keeps failing (for example, the person blocks messages) is dropped after this many tries.
 MAX_DM_ATTEMPTS = 3
+# Only reels posted this recently go to YouTube, so connecting the channel does not flood it with old posts.
+YOUTUBE_WINDOW = timedelta(days=3)
 
 
 def render(cfg: dict, week: Path) -> int:
@@ -171,6 +174,37 @@ def _publish(item_id: str, history: list) -> None:
     print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}")
 
 
+def youtube_due(cfg: dict) -> int:
+    """Uploads reels already posted to Instagram as Shorts, one per run, newest first.
+    Runs on its own schedule so a YouTube problem can never hold up Instagram."""
+    if not youtube.configured():
+        print("YouTube secrets not set yet; skipping.")
+        return 0
+    uploaded = read_state("youtube", {})
+    cutoff = f"{datetime.now(EASTERN) - YOUTUBE_WINDOW:%Y-%m-%d-%H%M}"
+    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in uploaded and h["id"] >= cutoff]
+    if not todo:
+        print("No new reels for YouTube.")
+        return 0
+    item_id = max(todo, key=lambda h: h["id"])["id"]
+    out = OUTPUT_DIR / item_id
+    if not out.exists():
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
+        subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
+    draft = json.loads((out / "draft.json").read_text())
+    privacy = env("YOUTUBE_PRIVACY") or "private"
+    try:
+        video_id = youtube.upload_short(out / "reel.mp4", youtube.title_for(draft["name"]), youtube.description_for(cfg, draft), privacy)
+    except youtube.YouTubeError as e:
+        print(f"::error title=YouTube upload failed::{item_id}: {str(e)[:500]}")
+        raise
+    uploaded[item_id] = video_id
+    write_state("youtube", uploaded)
+    print(f"Uploaded {item_id} to YouTube as {privacy}: https://youtube.com/shorts/{video_id}")
+    return 0
+
+
 def reply(cfg: dict) -> int:
     if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
         # Runs every 30 minutes; stay quiet until Instagram is connected.
@@ -235,7 +269,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "reply", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "reply", "youtube-due", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -255,6 +289,8 @@ def main() -> int:
         return post_due(cfg)
     if args.command == "reply":
         return reply(cfg)
+    if args.command == "youtube-due":
+        return youtube_due(cfg)
     print(instagram.refresh_token())
     return 0
 
