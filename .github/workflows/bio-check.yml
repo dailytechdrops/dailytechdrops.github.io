@@ -1,0 +1,14 @@
+name: Bio check
+on:
+  push:
+    branches: [claude/bio-check]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the bio link
+        env:
+          T: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          r=$(curl -s "https://graph.instagram.com/v23.0/me?fields=username,website,biography&access_token=$T")
+          echo "$r" | jq -r '"::error title=BIO::" + (.username // "none") + " | " + (.website // "NO WEBSITE") + " | " + (.error.message // "")'
