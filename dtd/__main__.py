@@ -226,7 +226,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "post-due", "reply", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "reply", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -235,6 +235,9 @@ def main() -> int:
         return render(cfg, args.week)
     if args.command == "preview":
         return preview(cfg, args.week, args.base)
+    if args.command == "health":
+        from .health import main as health_main
+        return health_main()
     if args.command == "shop-images":
         return shop.fetch_images()
     if args.command == "site-prep":
