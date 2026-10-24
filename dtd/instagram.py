@@ -126,6 +126,12 @@ def private_reply(comment_id: str, text: str) -> None:
           json={"recipient": {"comment_id": comment_id}, "message": {"text": text}})
 
 
+def comment(media_id: str, text: str) -> str:
+    """A comment from our own account on our own post. The API has no way to pin it."""
+    _, token = _creds()
+    return _call("POST", f"{API}/{media_id}/comments", params={"message": text, "access_token": token})["id"]
+
+
 def public_reply(comment_id: str, text: str) -> None:
     _, token = _creds()
     _call("POST", f"{API}/{comment_id}/replies", params={"message": text, "access_token": token})

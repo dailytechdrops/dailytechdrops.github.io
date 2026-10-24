@@ -141,6 +141,15 @@ def _publish(item_id: str, history: list) -> None:
     except instagram.InstagramError as e:
         # The reel is the main post; a failed carousel should not undo it.
         print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
+    first_comment = "Every gadget we post is on the shop page, linked in our bio. Comment SHOP and we will send you the link too."
+    for media_id in (reel_id, carousel_id):
+        if not media_id:
+            continue
+        try:
+            instagram.comment(media_id, first_comment)
+        except Exception as e:
+            # A first comment is a bonus; never undo or block the posts.
+            print(f"First comment failed on {media_id}: {e}", file=sys.stderr)
     story_id = None
     try:
         story_id = instagram.publish_story(f"{base}/{item_id}/{draft['slides'][0]}")
