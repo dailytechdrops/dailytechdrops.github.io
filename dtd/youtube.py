@@ -1,7 +1,8 @@
 """YouTube Shorts uploads (YouTube Data API v3).
 
 Needs YT_CLIENT_ID, YT_CLIENT_SECRET and YT_REFRESH_TOKEN for the channel's Google account
-(scope youtube.upload). All three are optional: without them nothing is uploaded.
+(scopes youtube.upload and youtube.readonly; readonly lets us check which channel the token
+belongs to before uploading). All three are optional: without them nothing is uploaded.
 
 Google keeps every upload from an unaudited API project private. Until the project passes
 YouTube's compliance audit, set the YOUTUBE_PRIVACY variable to private (the default) and
@@ -17,6 +18,10 @@ from .config import env
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
+CHANNELS_URL = "https://www.googleapis.com/youtube/v3/channels"
+# The Daily Tech Drops channel. A token approved on the wrong Google identity would post to
+# Kevin's personal channel, so uploads stop unless the token belongs to this one.
+CHANNEL_ID = "UCy1Yy5FrwXYzNveAf-Pbnvg"
 SHOP_URL = "https://kevingalus.github.io/daily-tech-drops/"
 # YouTube rejects titles over 100 characters.
 MAX_TITLE = 100
@@ -61,8 +66,18 @@ def description_for(cfg: dict, draft: dict) -> str:
     ])
 
 
+def _check_channel(token: str) -> None:
+    r = requests.get(CHANNELS_URL, timeout=60, params={"part": "id", "mine": "true"}, headers={"Authorization": f"Bearer {token}"})
+    if r.status_code >= 400:
+        raise YouTubeError(f"Channel check failed {r.status_code} (token needs the youtube.readonly scope): {r.text[:300]}")
+    ids = [c["id"] for c in r.json().get("items", [])]
+    if CHANNEL_ID not in ids:
+        raise YouTubeError(f"Token belongs to channel {ids}, not Daily Tech Drops ({CHANNEL_ID}); refusing to upload")
+
+
 def upload_short(video: Path, title: str, description: str, privacy: str = "private") -> str:
     token = _access_token()
+    _check_channel(token)
     meta = {
         "snippet": {"title": title, "description": description, "categoryId": "28"},  # Science & Technology
         "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "containsSyntheticMedia": False},
