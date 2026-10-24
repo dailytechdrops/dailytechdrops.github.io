@@ -16,7 +16,6 @@
 - name: 3-in-1 Wireless Charging Station
   tagline: Phone, watch and earbuds on one stand
   asin: B0F5PM85TQ
-  photo: phone charger desk
 - name: eufy Smart Lock C210
   tagline: Keyless entry with a touchscreen keypad
   asin: B0BCV3NBKY
@@ -28,11 +27,9 @@
 - name: SwitchBot Curtain 3
   tagline: Smart curtains that open on a schedule
   search: SwitchBot Curtain 3
-  photo: curtains window
 - name: Govee RGBIC Gaming Light Bars
   tagline: Color-changing light bars for your desk or TV
   search: Govee RGBIC Wi-Fi Gaming Light Bars
-  photo: led light desk setup
 - name: POCOCO Galaxy Projector
   tagline: Turn any room into a night sky
   search: POCOCO Galaxy Projector
@@ -52,7 +49,6 @@
 - name: USB TV Backlight Kit
   tagline: Bias lighting that makes any screen look bigger
   search: USB TV backlight LED kit
-  photo: television led lighting
 - name: Under-Desk Wireless Charger
   tagline: Charge your phone through the desk, no cable on top
   search: under desk wireless charger
@@ -68,7 +64,6 @@
 - name: Foldable Bluetooth Keyboard
   tagline: A full keyboard that fits in your pocket
   search: foldable bluetooth keyboard
-  photo: bluetooth keyboard tablet
 - name: Laptop Screen Extender
   tagline: A second screen that clips onto your laptop
   search: laptop screen extender dual monitor
@@ -96,7 +91,6 @@
 - name: Phone Screen Cleaner Spray
   tagline: A 2-in-1 spray and wipe for fingerprints
   search: 2-in-1 phone screen cleaner spray
-  photo: smartphone screen hand
 - name: Amazon Basics Smart Bulb
   tagline: A Wi-Fi color bulb that works with Alexa
   search: Amazon Basics smart bulb

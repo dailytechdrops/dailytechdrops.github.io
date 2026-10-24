@@ -66,7 +66,7 @@ def build(cfg: dict, history: list) -> None:
         else:
             link = f"https://{cfg['amazon']['marketplace']}/s?k={quote_plus(e['search'])}" + (f"&tag={cfg['amazon']['tag']}" if cfg["amazon"]["tag"] else "")
         pic = IMG_DIR / f"{_slug(e['name'])}.jpg"
-        thumb = f'<img src="img/{pic.name}" alt="" loading="lazy">' if pic.exists() else ""
+        thumb = f'<img src="img/{pic.name}" alt="" loading="lazy">' if pic.exists() else f'<span class="tile">{html.escape(e["name"][0].upper())}</span>'
         earlier.append(
             f'<a class="card" href="{html.escape(link)}" rel="sponsored noopener">{thumb}'
             f'<span class="meta"><strong>{html.escape(e["name"])}</strong>'
@@ -88,6 +88,7 @@ p.sub {{ color:var(--muted); margin:0 0 20px; }}
 .card img {{ width:88px; height:110px; object-fit:cover; border-radius:10px; flex:none; }}
 .meta {{ display:flex; flex-direction:column; gap:4px; }}
 .date {{ color:var(--muted); font-size:13px; }}
+.tile {{ width:88px; height:110px; border-radius:10px; flex:none; display:flex; align-items:center; justify-content:center; background:#F6D9BF; color:var(--accent); font:700 34px Poppins, system-ui, sans-serif; }}
 .item {{ margin-bottom:12px; }}
 .item .card {{ margin-bottom:4px; }}
 .reel {{ display:block; text-align:right; padding:0 6px; color:var(--accent); font-size:13px; text-decoration:none; }}
