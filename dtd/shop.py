@@ -18,11 +18,13 @@ def build(cfg: dict, history: list) -> None:
     cards = []
     for h in reversed([h for h in history if h.get("link")]):
         when = datetime.strptime(h["id"][:10], "%Y-%m-%d").strftime("%b %d").replace(" 0", " ")
+        reel = f"https://cdn.jsdelivr.net/gh/{os.environ.get('GITHUB_REPOSITORY', '')}@media/{h['id']}/reel.mp4"
         cards.append(
-            f'<a class="card" href="{html.escape(h["link"])}" rel="sponsored noopener">'
+            f'<div class="item"><a class="card" href="{html.escape(h["link"])}" rel="sponsored noopener">'
             f'<img src="{base}/{h["id"]}/slide_1.jpg" alt="" loading="lazy">'
             f'<span class="meta"><span class="date">{when}</span>'
             f'<strong>{html.escape(h["name"])}</strong><span class="cta">See it on Amazon</span></span></a>'
+            f'<a class="reel" href="{reel}">Watch the reel</a></div>'
         )
     earlier = []
     archive = ROOT / "shop_archive.yaml"
@@ -52,6 +54,9 @@ p.sub {{ color:var(--muted); margin:0 0 20px; }}
 .card img {{ width:88px; height:110px; object-fit:cover; border-radius:10px; flex:none; }}
 .meta {{ display:flex; flex-direction:column; gap:4px; }}
 .date {{ color:var(--muted); font-size:13px; }}
+.item {{ margin-bottom:12px; }}
+.item .card {{ margin-bottom:4px; }}
+.reel {{ display:block; text-align:right; padding:0 6px; color:var(--accent); font-size:13px; text-decoration:none; }}
 .cta {{ color:var(--accent); font-weight:600; font-size:14px; }}
 h2 {{ font:600 18px/1.3 Poppins, system-ui, sans-serif; margin:28px 0 12px; }}
 footer {{ color:var(--muted); font-size:13px; margin-top:24px; }}
