@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
+    inputs:
+      item:
+        description: "Optional: id of one posted reel to upload, e.g. 2026-10-20-1730-B002L6BZXC"
+        required: false
 
 permissions:
   contents: write
@@ -38,6 +42,7 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           YOUTUBE_PRIVACY: ${{ vars.YOUTUBE_PRIVACY }}
+          YOUTUBE_ITEM: ${{ inputs.item }}
         run: python -m dtd youtube-due
 
       - name: Save state
