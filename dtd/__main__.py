@@ -182,7 +182,9 @@ def youtube_due(cfg: dict) -> int:
         return 0
     uploaded = read_state("youtube", {})
     cutoff = f"{datetime.now(EASTERN) - YOUTUBE_WINDOW:%Y-%m-%d-%H%M}"
-    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in uploaded and h["id"] >= cutoff]
+    # A manual run can name one posted reel to upload, for testing or to fill a gap.
+    forced = env("YOUTUBE_ITEM")
+    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in uploaded and (h["id"] == forced if forced else h["id"] >= cutoff)]
     if not todo:
         print("No new reels for YouTube.")
         return 0
