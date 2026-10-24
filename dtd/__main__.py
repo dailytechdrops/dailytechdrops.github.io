@@ -122,6 +122,12 @@ def _publish(item_id: str, history: list) -> None:
     except instagram.InstagramError as e:
         # The reel is the main post; a failed carousel should not undo it.
         print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
+    story_id = None
+    try:
+        story_id = instagram.publish_story(f"{base}/{item_id}/{draft['slides'][0]}")
+    except Exception as e:
+        # A Story is a bonus; never undo or block the feed posts.
+        print(f"Story failed, feed posts are live: {e}", file=sys.stderr)
     facebook_id = None
     if facebook.configured():
         try:
@@ -134,7 +140,7 @@ def _publish(item_id: str, history: list) -> None:
         "id": item_id, "asin": draft["asin"], "name": draft["name"], "link": draft["link"],
         "dm_message": draft["dm_message"], "media_ids": [m for m in (reel_id, carousel_id) if m],
     })
-    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}")
+    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}")
 
 
 def reply(cfg: dict) -> int:

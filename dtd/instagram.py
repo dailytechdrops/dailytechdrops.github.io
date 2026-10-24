@@ -78,6 +78,16 @@ def publish_carousel(image_urls: list[str], caption: str) -> str:
     return _publish(user, token, parent["id"])
 
 
+def publish_story(image_url: str) -> str:
+    """A Story from one public image. The API cannot add link stickers, so this is for reach only."""
+    user, token = _creds()
+    container = _call("POST", f"{API}/{user}/media", params={
+        "media_type": "STORIES", "image_url": image_url, "access_token": token,
+    })
+    _wait_ready(container["id"], token)
+    return _publish(user, token, container["id"])
+
+
 def _wait_ready(container_id: str, token: str, timeout_s: int = 600) -> None:
     deadline = time.time() + timeout_s
     while time.time() < deadline:
