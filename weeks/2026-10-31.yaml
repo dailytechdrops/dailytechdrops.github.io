@@ -1,0 +1,797 @@
+# Weekly picks Oct 31 to Nov 6 2026. Researched Oct 25 2026. Reels are 3 beats (about 30 words, 10 to 15 seconds).
+# Facts are limited to the listing titles; verify each ASIN on Amazon (see PR checklist). Photos are honest category stock photos.
+
+- slot: 2026-10-31 11:30
+  asin: B0194WDVHI
+  name: Anker PowerCore 10000 Portable Charger
+  lane: phone, travel and charging gadgets
+  angle: The battery bank that fits in a pocket and saves the day when your phone hits one percent.
+  key_facts:
+  - 10,000 mAh portable charger from Anker
+  - Small enough for a pocket or a bag
+  - A long-running best seller
+  broll:
+  - phone battery low
+  - power bank pocket
+  - travel bag
+  content:
+    photo_query: smartphone portable charger
+    beats:
+    - on_screen: Phone at 1 percent again
+      voiceover: Your phone is at one percent and there is no outlet in sight.
+      broll_query: phone battery low
+    - on_screen: Pocket-size backup power
+      voiceover: This pocket-size Anker power bank gives it a fresh charge anywhere.
+      broll_query: power bank pocket
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: travel bag
+    carousel:
+    - title: Phone at 1 percent?
+      body: Keep a backup in your pocket.
+    - title: 10,000 mAh
+      body: Enough to top up a phone more than once.
+    - title: Pocket size
+      body: Small enough to forget it is there.
+    - title: A long-time favorite
+      body: One of Anker's best-known power banks.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Never hunt for an outlet again. 🔋
+
+      The Anker PowerCore 10000 is a 10,000 mAh power bank small enough for a pocket or a bag, so your phone always has a backup.
+
+      Tip: charge it the night before a trip so it is full when you leave.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - powerbank
+    - anker
+    - travelgear
+    - phonecharger
+    - techgadgets
+    - amazonfinds
+    - everydaycarry
+    - gadgets
+    dm_message: |-
+      Here is the Anker PowerCore 10000 Portable Charger: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-31 19:00
+  asin: B0CJWJ8RYR
+  name: Wyze Cam v4
+  lane: home security and safety gadgets
+  angle: A small Wi-Fi camera with a built-in spotlight that watches the door or the dog while you are
+    out.
+  key_facts:
+  - Wi-Fi security camera for indoor or outdoor use
+  - Built-in spotlight
+  - Two-way audio and color night vision
+  broll:
+  - security camera
+  - front door
+  - pet at home
+  content:
+    photo_query: home security camera
+    beats:
+    - on_screen: Who is at your door?
+      voiceover: Want to know who is at your door while you are out?
+      broll_query: front door
+    - on_screen: Spotlight and 2-way audio
+      voiceover: This Wyze camera has a spotlight and two-way audio, indoors or out.
+      broll_query: security camera
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: pet at home
+    carousel:
+    - title: Who is at your door?
+      body: See it from your phone.
+    - title: Built-in spotlight
+      body: Lights up the scene when it matters.
+    - title: Two-way audio
+      body: Talk to whoever is there.
+    - title: Color night vision
+      body: Keeps watch after dark.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Keep an eye on home from anywhere. 👀
+
+      The Wyze Cam v4 is a Wi-Fi camera for indoors or outdoors, with a built-in spotlight, two-way audio and color night vision.
+
+      Tip: point it at the entry you use most, like the front door or the garage side door.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - wyze
+    - securitycamera
+    - homesecurity
+    - smarthome
+    - techgadgets
+    - amazonfinds
+    - homegadgets
+    - gadgets
+    dm_message: |-
+      Here is the Wyze Cam v4: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-01 11:30
+  asin: B00TP1BWMK
+  name: Amazon Basics 6-Outlet Surge Protector
+  lane: desk and productivity setup
+  angle: The boring desk upgrade that protects your laptop, monitor and chargers from power surges.
+  key_facts:
+  - 6-outlet surge protector power strip from Amazon Basics
+  - Protects connected electronics from power surges
+  broll:
+  - desk power strip
+  - home office desk
+  - laptop charger desk
+  content:
+    photo_query: power strip plugs cables
+    beats:
+    - on_screen: Plugged into the wall?
+      voiceover: Is your computer plugged straight into the wall?
+      broll_query: home office desk
+    - on_screen: Six outlets, surge protected
+      voiceover: This six-outlet surge protector guards your gear from power surges.
+      broll_query: desk power strip
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: laptop charger desk
+    carousel:
+    - title: Straight into the wall?
+      body: One surge can fry your gear.
+    - title: Six outlets
+      body: Laptop, monitor, chargers, all in one strip.
+    - title: Surge protection
+      body: Guards what you plug into it.
+    - title: Simple desk upgrade
+      body: Takes ten seconds to set up.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      The least exciting desk upgrade, and one of the smartest. ⚡
+
+      This Amazon Basics 6-outlet surge protector gives your laptop, monitor and chargers one safe place to plug in.
+
+      Tip: replace any old power strip that has no surge protection label.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - surgeprotector
+    - desksetup
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    - amazonfinds
+    - amazonbasics
+    - gadgets
+    dm_message: |-
+      Here is the Amazon Basics 6-Outlet Surge Protector: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-01 19:00
+  asin: B01MTB55WH
+  name: Anker Soundcore 2 Bluetooth Speaker
+  lane: other
+  angle: A small waterproof Bluetooth speaker with big stereo sound for the kitchen, patio or shower.
+  key_facts:
+  - Portable Bluetooth speaker with 12W stereo sound
+  - IPX7 waterproof
+  - Up to 24 hours of playtime
+  broll:
+  - bluetooth speaker
+  - backyard patio
+  - kitchen counter
+  content:
+    photo_query: bluetooth speaker
+    beats:
+    - on_screen: Tiny speaker, big sound
+      voiceover: This little Bluetooth speaker puts out surprisingly big stereo sound.
+      broll_query: bluetooth speaker
+    - on_screen: Waterproof, 24 hours
+      voiceover: It is waterproof and plays for up to twenty-four hours.
+      broll_query: backyard patio
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: kitchen counter
+    carousel:
+    - title: Tiny speaker, big sound
+      body: 12W stereo from something this small.
+    - title: Waterproof
+      body: IPX7 rated for splashes and spills.
+    - title: 24 hours of playtime
+      body: Charge once, play all weekend.
+    - title: Goes anywhere
+      body: Kitchen, patio, even the shower.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Small speaker, big sound. 🔊
+
+      The Anker Soundcore 2 has 12W stereo sound, an IPX7 waterproof rating and up to 24 hours of playtime.
+
+      Tip: pair two of them for wider stereo sound.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - bluetoothspeaker
+    - soundcore
+    - anker
+    - portablespeaker
+    - techgadgets
+    - amazonfinds
+    - gadgets
+    - music
+    dm_message: |-
+      Here is the Anker Soundcore 2 Bluetooth Speaker: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-02 11:30
+  asin: B004YAVF8I
+  name: Logitech M185 Wireless Mouse
+  lane: desk and productivity setup
+  angle: The simple, reliable wireless mouse that makes any laptop easier to use.
+  key_facts:
+  - Logitech wireless mouse
+  - Plug-in USB receiver, no setup
+  - One of the most popular mice on Amazon
+  broll:
+  - computer mouse desk
+  - laptop desk
+  - home office
+  content:
+    photo_query: wireless computer mouse
+    beats:
+    - on_screen: Still using the trackpad?
+      voiceover: Still fighting your laptop trackpad all day?
+      broll_query: laptop desk
+    - on_screen: Plug in and go
+      voiceover: This Logitech wireless mouse plugs in and just works.
+      broll_query: computer mouse desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Fighting the trackpad?
+      body: A mouse makes everything faster.
+    - title: Wireless
+      body: No cord to tangle on your desk.
+    - title: Plug in and go
+      body: Tiny USB receiver, no setup.
+    - title: A popular pick
+      body: One of Amazon's best-known mice.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      The easiest upgrade for any laptop. 🖱️
+
+      The Logitech M185 is a simple wireless mouse with a tiny USB receiver. Plug it in and it works.
+
+      Tip: keep the receiver in the mouse's battery compartment when you travel.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - logitech
+    - wirelessmouse
+    - desksetup
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    - amazonfinds
+    - gadgets
+    dm_message: |-
+      Here is the Logitech M185 Wireless Mouse: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-02 19:00
+  asin: B091FXQQMQ
+  name: Kasa Smart Plug Mini (2-pack)
+  lane: other
+  angle: Turn any lamp or appliance into a smart one with one small plug.
+  key_facts:
+  - Wi-Fi smart plug, no hub required
+  - Works with 2.4 GHz Wi-Fi
+  - Control from a phone app or by voice
+  broll:
+  - smart plug outlet
+  - table lamp
+  - living room
+  content:
+    photo_query: smart plug outlet
+    beats:
+    - on_screen: Did you leave the lamp on?
+      voiceover: Did you leave the lamp on? You can check from your phone.
+      broll_query: table lamp
+    - on_screen: No hub needed
+      voiceover: This smart plug needs no hub. Plug it in and connect it to Wi-Fi.
+      broll_query: smart plug outlet
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: living room
+    carousel:
+    - title: Left the lamp on?
+      body: Switch it off from your phone.
+    - title: No hub needed
+      body: Plug in, connect to Wi-Fi, done.
+    - title: Any lamp or appliance
+      body: If it plugs in, it becomes smart.
+    - title: Voice control too
+      body: Works with popular voice assistants.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Make any lamp smart in a minute. 💡
+
+      The Kasa Smart Plug Mini needs no hub. Plug it in, connect it to your 2.4 GHz Wi-Fi, and control it from your phone.
+
+      Tip: set a schedule so a lamp turns on before you get home.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - smartplug
+    - kasa
+    - smarthome
+    - homeautomation
+    - techgadgets
+    - amazonfinds
+    - homegadgets
+    - gadgets
+    dm_message: |-
+      Here is the Kasa Smart Plug Mini (2-pack): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-03 11:30
+  asin: B00X4SCCFG
+  name: Amazon Basics Adjustable Monitor Riser
+  lane: desk and productivity setup
+  angle: Raise your screen to eye level, free up desk space and stop slouching.
+  key_facts:
+  - Adjustable computer monitor riser desk stand from Amazon Basics
+  - Creates storage space under the monitor
+  broll:
+  - monitor desk
+  - home office
+  - desk setup
+  content:
+    photo_query: computer monitor screen workspace
+    beats:
+    - on_screen: Your screen is too low
+      voiceover: If your screen is too low, your neck pays for it.
+      broll_query: monitor desk
+    - on_screen: Eye level plus storage
+      voiceover: This monitor riser lifts it to eye level and frees up desk space.
+      broll_query: desk setup
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: desk setup
+    carousel:
+    - title: Screen too low?
+      body: Your neck pays for it.
+    - title: Eye level
+      body: Raise the monitor to a better height.
+    - title: Adjustable
+      body: Set the height that fits you.
+    - title: Extra desk space
+      body: Store your keyboard underneath.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A better desk posture in one move. 🖥️
+
+      This Amazon Basics monitor riser lifts your screen toward eye level and gives you storage space under it.
+
+      Tip: the top of the screen should sit at or just below eye level.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - monitorstand
+    - desksetup
+    - ergonomics
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    - amazonfinds
+    - gadgets
+    dm_message: |-
+      Here is the Amazon Basics Adjustable Monitor Riser: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-03 19:00
+  asin: B0C3HCD34R
+  name: Soundcore by Anker Q20i Noise Cancelling Headphones
+  lane: other
+  angle: Hybrid noise cancelling headphones that block the noise without a premium price tag.
+  key_facts:
+  - Hybrid active noise cancelling over-ear headphones from Soundcore by Anker
+  - Wireless Bluetooth
+  - Long battery life
+  broll:
+  - headphones
+  - commute
+  - home office
+  content:
+    photo_query: wireless headphones
+    beats:
+    - on_screen: Too much background noise?
+      voiceover: Too much noise to focus? Noise cancelling fixes that.
+      broll_query: home office
+    - on_screen: Hybrid noise cancelling
+      voiceover: These Soundcore headphones use hybrid noise cancelling to cut the background noise.
+      broll_query: headphones
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Too noisy to focus?
+      body: Cancel the noise around you.
+    - title: Hybrid noise cancelling
+      body: Cuts down constant background sound.
+    - title: Wireless
+      body: Bluetooth, no cord.
+    - title: Long battery life
+      body: Made for long work days and trips.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Quiet on demand. 🎧
+
+      The Soundcore Q20i has hybrid active noise cancelling and wireless Bluetooth, so you can focus on a noisy commute or office.
+
+      Tip: switch on noise cancelling before you open your laptop, not after.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - headphones
+    - noisecancelling
+    - soundcore
+    - anker
+    - techgadgets
+    - amazonfinds
+    - workfromhome
+    - gadgets
+    dm_message: |-
+      Here is the Soundcore by Anker Q20i Noise Cancelling Headphones: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-04 11:30
+  asin: B0B3HSJ5NL
+  name: Anker 525 Charging Station (7-in-1)
+  lane: phone, travel and charging gadgets
+  angle: One power strip with USB-C and USB-A ports so every device charges from one spot on your desk.
+  key_facts:
+  - '7-in-1 power strip: 3 AC outlets, 2 USB-A and 2 USB-C ports'
+  - Up to 65W power delivery
+  - 5 ft cord
+  broll:
+  - desk power strip
+  - laptop desk
+  - phone on desk
+  content:
+    photo_query: usb charger plug socket
+    beats:
+    - on_screen: A mess of chargers
+      voiceover: Is your desk covered in bulky chargers?
+      broll_query: laptop desk
+    - on_screen: One strip, seven ports
+      voiceover: This Anker strip has three outlets plus four USB ports in one.
+      broll_query: desk power strip
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: phone on desk
+    carousel:
+    - title: Charger clutter?
+      body: One strip can replace them all.
+    - title: 7 in 1
+      body: 3 AC outlets, 2 USB-A, 2 USB-C.
+    - title: Up to 65W
+      body: Enough to power a laptop.
+    - title: 5 ft cord
+      body: Reaches from the wall to your desk.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Clear the charger clutter. 🔌
+
+      The Anker 525 charging station packs 3 AC outlets, 2 USB-A ports and 2 USB-C ports with up to 65W of power delivery into one slim strip.
+
+      Tip: mount it under the desk edge to hide the cables.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - anker
+    - chargingstation
+    - desksetup
+    - deskessentials
+    - techgadgets
+    - amazonfinds
+    - homeoffice
+    - gadgets
+    dm_message: |-
+      Here is the Anker 525 Charging Station (7-in-1): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-04 19:00
+  asin: B0BP9SNVH9
+  name: Amazon Fire TV Stick 4K Max
+  lane: other
+  angle: Turn almost any TV into a smart TV for streaming in 4K with Wi-Fi 6E and Alexa on the remote.
+  key_facts:
+  - 4K streaming stick with Wi-Fi 6E support
+  - Alexa Voice Remote
+  - Plugs into the TV's HDMI port
+  broll:
+  - living room tv
+  - remote control
+  - movie night
+  content:
+    photo_query: television remote living room
+    beats:
+    - on_screen: Your TV is not smart?
+      voiceover: Is your TV stuck in the past? It does not have to be.
+      broll_query: living room tv
+    - on_screen: Streaming in 4K
+      voiceover: This stick plugs into the HDMI port and streams in 4K with Alexa on the remote.
+      broll_query: remote control
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: movie night
+    carousel:
+    - title: TV stuck in the past?
+      body: Make it smart in minutes.
+    - title: 4K streaming
+      body: Plugs into any HDMI port.
+    - title: Wi-Fi 6E support
+      body: Built for fast, smooth streaming.
+    - title: Alexa voice remote
+      body: Just say what you want to watch.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Make any TV a smart TV. 📺
+
+      The Fire TV Stick 4K Max plugs into your TV's HDMI port for 4K streaming, Wi-Fi 6E support and an Alexa Voice Remote.
+
+      Tip: use the remote's voice button to search by title instead of typing.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - firetv
+    - streaming
+    - smarttv
+    - alexa
+    - techgadgets
+    - amazonfinds
+    - movienight
+    - gadgets
+    dm_message: |-
+      Here is the Amazon Fire TV Stick 4K Max: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-05 11:30
+  asin: B09J1SYX5B
+  name: Logitech Lift Vertical Ergonomic Mouse (left-handed)
+  lane: desk and productivity setup
+  angle: A vertical mouse that keeps your hand in a handshake position instead of twisted flat.
+  key_facts:
+  - Vertical ergonomic mouse from Logitech, left-handed model
+  - Wireless, connects by Bluetooth or USB receiver
+  broll:
+  - computer mouse desk
+  - hand on mouse
+  - home office desk
+  content:
+    photo_query: computer mouse hand
+    beats:
+    - on_screen: Wrist sore from the mouse?
+      voiceover: Does your wrist ache after a long day at the mouse?
+      broll_query: hand on mouse
+    - on_screen: Handshake position
+      voiceover: This vertical mouse keeps your hand in a natural handshake position.
+      broll_query: computer mouse desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office desk
+    carousel:
+    - title: Sore wrist?
+      body: Your mouse might be the cause.
+    - title: Vertical design
+      body: Hand stays in a handshake position.
+    - title: Wireless
+      body: Bluetooth or USB receiver.
+    - title: Left-handed model
+      body: Built for left hands.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A more comfortable way to mouse. 🖱️
+
+      The Logitech Lift is a wireless vertical mouse that keeps your hand in a natural handshake position. This listing is the left-handed model.
+
+      Tip: give it a few days. Vertical mice feel strange at first.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - ergonomic
+    - logitech
+    - verticalmouse
+    - desksetup
+    - homeoffice
+    - techgadgets
+    - amazonfinds
+    - gadgets
+    dm_message: |-
+      Here is the Logitech Lift Vertical Ergonomic Mouse (left-handed): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-05 19:00
+  asin: B0BZV4QFP8
+  name: Anker Soundcore Liberty 4 NC Earbuds
+  lane: other
+  angle: Noise cancelling earbuds that adapt to the sound around you and last a long time.
+  key_facts:
+  - Wireless earbuds with adaptive noise cancelling
+  - Up to 50 hours of battery with the case
+  - Wireless charging case
+  broll:
+  - earbuds
+  - commute
+  - gym
+  content:
+    photo_query: wireless earbuds
+    beats:
+    - on_screen: Earbuds that adapt
+      voiceover: Earbuds that change how they cancel noise as you move.
+      broll_query: earbuds
+    - on_screen: 50 hours of battery
+      voiceover: These Anker earbuds give up to fifty hours with the case.
+      broll_query: commute
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: gym
+    carousel:
+    - title: Earbuds that adapt
+      body: Noise cancelling that adjusts to you.
+    - title: Adaptive noise cancelling
+      body: Fits quiet rooms and loud streets.
+    - title: Long battery life
+      body: Up to 50 hours with the case.
+    - title: Wireless charging case
+      body: Drop it on a pad to top up.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Noise cancelling that adapts to you. 🎧
+
+      The Soundcore Liberty 4 NC has adaptive noise cancelling, up to 50 hours of battery with the case, and a wireless charging case.
+
+      Tip: try different ear tip sizes. The right fit improves noise cancelling.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - earbuds
+    - soundcore
+    - anker
+    - noisecancelling
+    - techgadgets
+    - amazonfinds
+    - wirelessearbuds
+    - gadgets
+    dm_message: |-
+      Here is the Anker Soundcore Liberty 4 NC Earbuds: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-06 11:30
+  asin: B0BLRJ4R8F
+  name: Amazon Basics Portable Laptop Stand
+  lane: desk and productivity setup
+  angle: A foldable laptop stand that lifts your screen and goes in your bag.
+  key_facts:
+  - Portable ergonomic laptop stand from Amazon Basics
+  - Fits laptops up to 17.3 inches
+  broll:
+  - laptop desk
+  - coffee shop laptop
+  - home office
+  content:
+    photo_query: laptop stand desk
+    beats:
+    - on_screen: Hunched over your laptop?
+      voiceover: Hunched over your laptop all day?
+      broll_query: laptop desk
+    - on_screen: Lifts and packs away
+      voiceover: This stand lifts your screen up and packs into your bag.
+      broll_query: coffee shop laptop
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Hunched over?
+      body: Lift the screen to eye level.
+    - title: Ergonomic
+      body: Better posture, less neck strain.
+    - title: Fits up to 17.3 inches
+      body: Works with most laptops.
+    - title: Portable
+      body: Take it from desk to cafe.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Lift your laptop, lift your posture. 💻
+
+      This Amazon Basics laptop stand raises your screen for better posture, fits laptops up to 17.3 inches, and is portable.
+
+      Tip: pair it with a separate keyboard and mouse so your hands stay comfortable.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - laptopstand
+    - desksetup
+    - ergonomics
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    - amazonfinds
+    - gadgets
+    dm_message: |-
+      Here is the Amazon Basics Portable Laptop Stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-06 19:00
+  asin: B0CH9JPNZM
+  name: Anker 332 USB-C Hub (5-in-1)
+  lane: phone, travel and charging gadgets
+  angle: One small hub that adds HDMI and extra USB ports to a laptop that has almost none.
+  key_facts:
+  - 5-in-1 USB-C hub with 4K HDMI
+  - 5Gbps USB-C data port and two 5Gbps USB-A ports
+  broll:
+  - laptop ports
+  - usb hub
+  - home office desk
+  content:
+    photo_query: laptop usb ports
+    beats:
+    - on_screen: Laptop out of ports?
+      voiceover: Laptop out of ports again?
+      broll_query: laptop ports
+    - on_screen: HDMI plus USB ports
+      voiceover: This hub adds 4K HDMI and extra USB ports through one USB-C port.
+      broll_query: usb hub
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office desk
+    carousel:
+    - title: Out of ports?
+      body: One hub fixes it.
+    - title: 4K HDMI
+      body: Connect a monitor or TV.
+    - title: Extra USB ports
+      body: One USB-C and two USB-A at 5Gbps.
+    - title: Small and light
+      body: Easy to toss in your bag.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Add the ports your laptop forgot. 🔌
+
+      The Anker 332 USB-C hub adds 4K HDMI, a 5Gbps USB-C data port and two 5Gbps USB-A ports through a single USB-C connection.
+
+      Tip: check that your laptop's USB-C port supports video output before you rely on HDMI.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - usbchub
+    - anker
+    - laptopaccessories
+    - desksetup
+    - techgadgets
+    - amazonfinds
+    - homeoffice
+    - gadgets
+    dm_message: |-
+      Here is the Anker 332 USB-C Hub (5-in-1): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
