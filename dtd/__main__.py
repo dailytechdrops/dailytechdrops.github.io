@@ -6,6 +6,7 @@
   python -m dtd wait-next                              wait for a post due within the next few hours
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
+  python -m dtd report                                 write the weekly performance report to reports/
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd refresh-token                          print a refreshed Instagram token
 """
@@ -23,7 +24,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram, shop, youtube
+from . import facebook, instagram, report, shop, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -242,7 +243,8 @@ def reply(cfg: dict) -> int:
     words = [ig["comment_keyword"], *ig.get("comment_aliases", [])]
     wanted = re.compile(r"\b(" + "|".join(re.escape(w) for w in words) + r")\b", re.IGNORECASE)
     handle = cfg["brand"]["handle"].lower()
-    by_media = {m: h for h in read_state("history", []) for m in h.get("media_ids", [])}
+    history = read_state("history", [])
+    by_media = {m: h for h in history for m in h.get("media_ids", [])}
     replied = set(read_state("replied", []))
     failures = read_state("reply_failures", {})
     sent = 0
@@ -269,11 +271,13 @@ def reply(cfg: dict) -> int:
             replied.add(c["id"])
             failures.pop(c["id"], None)
             sent += 1
+            post["dms"] = post.get("dms", 0) + 1  # counted for the weekly report
             try:
                 instagram.public_reply(c["id"], _public_reply_text(cfg, c["id"], user))
             except instagram.InstagramError as e:
                 print(f"Public reply to {c['id']} failed: {e}", file=sys.stderr)
     write_state("replied", sorted(replied))
+    write_state("history", history)
     write_state("reply_failures", {k: v for k, v in failures.items() if k not in replied})
     print(f"::notice title=Reply scan::{len(recent)} recent posts, {len(by_media)} tracked, comments seen: {seen[:10]}")
     print(f"Sent {sent} link DMs")
@@ -297,7 +301,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -321,6 +325,12 @@ def main() -> int:
         return reply(cfg)
     if args.command == "youtube-due":
         return youtube_due(cfg)
+    if args.command == "report":
+        if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
+            print("Instagram secrets not set yet; skipping.")
+            return 1
+        report.run()
+        return 0
     print(instagram.refresh_token())
     return 0
 
