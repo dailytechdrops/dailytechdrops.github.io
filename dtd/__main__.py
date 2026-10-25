@@ -25,7 +25,7 @@ from . import facebook, instagram, shop, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
-from .writer import full_caption, write_content
+from .writer import disclosure_last, full_caption, write_content
 
 # A post whose time passed longer ago than this is skipped rather than posted late.
 STALE_AFTER = timedelta(hours=6)
@@ -115,7 +115,7 @@ def post_due(cfg: dict) -> int:
             history.append({"id": item["id"], "skipped": True})
             continue
         try:
-            _publish(item["id"], history)
+            _publish(cfg, item["id"], history)
         except Exception as e:
             # Run logs are hard to read; an error annotation shows the cause on the run page.
             print(f"::error title=Post failed::{item['id']}: {type(e).__name__}: {str(e)[:500]}")
@@ -128,7 +128,7 @@ def post_due(cfg: dict) -> int:
     return 0
 
 
-def _publish(item_id: str, history: list) -> None:
+def _publish(cfg: dict, item_id: str, history: list) -> None:
     out = OUTPUT_DIR / item_id
     if not out.exists():
         # Rendered media lives on the media branch; pull just this product's folder.
@@ -136,6 +136,8 @@ def _publish(item_id: str, history: list) -> None:
         archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
         subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
     draft = json.loads((out / "draft.json").read_text())
+    # Drafts rendered before Oct 25 2026 have the disclosure first; move it to the end.
+    draft["caption"] = disclosure_last(cfg, draft["caption"])
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
     reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None

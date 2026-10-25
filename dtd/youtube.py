@@ -55,14 +55,14 @@ def description_for(cfg: dict, draft: dict) -> str:
     description carries the link instead. Shorts descriptions do not make links
     clickable, so the shop page is named too; it is also linked on the channel."""
     return "\n".join([
-        cfg["instagram"]["disclosure"],
-        "",
         f"{draft['name']}: {draft['link']}",
         "",
         f"Every gadget we post: {SHOP_URL}",
         "Prices change often, so check Amazon for today's price.",
         "",
         "#Shorts #techgadgets #amazonfinds #coolgadgets",
+        "",
+        cfg["instagram"]["disclosure"],
     ])
 
 

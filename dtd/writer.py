@@ -98,5 +98,12 @@ def full_caption(cfg: dict, content: DropContent) -> str:
     body = content.caption
     if keyword not in body:
         body += f"\n\nComment {keyword} for the link."
-    # Disclosure goes first so it shows before "more", as the FTC expects.
-    return f"{cfg['instagram']['disclosure']}\n\n{body}\n\n{tags}"
+    return disclosure_last(cfg, f"{body}\n\n{tags}")
+
+
+def disclosure_last(cfg: dict, text: str) -> str:
+    """Puts the #ad disclosure on the very last line, as Kevin asked (Oct 25 2026).
+    Also fixes captions rendered earlier with the disclosure first."""
+    disclosure = cfg["instagram"]["disclosure"]
+    body = "\n".join(line for line in text.strip().splitlines() if line.strip() != disclosure).strip()
+    return f"{body}\n\n{disclosure}"
