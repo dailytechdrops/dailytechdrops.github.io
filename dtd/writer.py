@@ -22,7 +22,7 @@ class Slide(BaseModel):
 
 
 class DropContent(BaseModel):
-    beats: list[Beat] = Field(description="5 to 7 beats; beat 1 is the hook, the last beat is the comment call to action")
+    beats: list[Beat] = Field(description="4 beats; beat 1 is the hook, the last beat is the comment call to action")
     carousel: list[Slide] = Field(description="4 or 5 slides; slide 1 is the hook, the last says to comment the keyword")
     caption: str = Field(description="Instagram caption body without hashtags or disclosure, under 900 characters")
     hashtags: list[str] = Field(description="Hashtags without the # symbol")
@@ -37,7 +37,7 @@ Rules:
 - Never invent specs. Use only the facts provided; speak generally otherwise.
 - Hook in the first beat must stop the scroll: a problem, a risk, or a surprising fact.
 - The final beat and final slide tell viewers to comment "{keyword}" to get the link.
-- The reel runs 20 to 35 seconds of voiceover in total.
+- The reel runs 15 to 18 seconds: 4 beats and about 45 words of voiceover in total.
 - Plain words, no emojis in on-screen text, at most 3 emojis in the caption."""
 
 
@@ -78,7 +78,7 @@ def _template(product: dict, keyword: str) -> DropContent:
     facts = product.get("key_facts", []) or ["Easy to set up", "Highly rated", "Worth a look"]
     broll = product.get("broll", []) or ["technology desk"]
     beats = [Beat(on_screen="Most people get this wrong", voiceover=product.get("angle", name).strip(), broll_query=broll[0])]
-    for i, fact in enumerate(facts[:3]):
+    for i, fact in enumerate(facts[:2]):
         beats.append(Beat(on_screen=fact, voiceover=fact + ".", broll_query=broll[(i + 1) % len(broll)]))
     beats.append(Beat(on_screen=f"Comment {keyword} for the link", voiceover=f"Comment {keyword} and I will send you the link.", broll_query=broll[-1]))
     return DropContent(
