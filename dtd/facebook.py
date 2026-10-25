@@ -66,7 +66,14 @@ def publish_reel(video: Path, caption: str) -> str:
 def _wait_published(video_id: str, token: str, timeout_s: int = 600) -> None:
     deadline = time.time() + timeout_s
     while time.time() < deadline:
-        status = _call("GET", f"{API}/{video_id}", params={"fields": "status", "access_token": token}).get("status", {})
+        try:
+            status = _call("GET", f"{API}/{video_id}", params={"fields": "status", "access_token": token}).get("status", {})
+        except FacebookError as e:
+            # A just-finished reel can briefly read as "does not exist" (subcode 33) before Facebook indexes it.
+            if '"error_subcode":33' not in str(e):
+                raise
+            time.sleep(15)
+            continue
         phase = status.get("video_status")
         if phase == "ready":
             return

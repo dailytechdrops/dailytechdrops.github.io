@@ -101,9 +101,18 @@ def _wait_ready(container_id: str, token: str, timeout_s: int = 600) -> None:
     raise InstagramError(f"Container {container_id} not ready after {timeout_s}s")
 
 
-def _publish(user: str, token: str, container_id: str) -> str:
-    result = _call("POST", f"{API}/{user}/media_publish", params={"creation_id": container_id, "access_token": token})
-    return result["id"]
+def _publish(user: str, token: str, container_id: str, attempts: int = 5) -> str:
+    # Right after a container reports FINISHED, Instagram sometimes still answers "Media Not Found"
+    # (2207006) or "not ready" (9007). Nothing was published in that case, so a retry is safe.
+    for attempt in range(attempts):
+        try:
+            result = _call("POST", f"{API}/{user}/media_publish", params={"creation_id": container_id, "access_token": token})
+            return result["id"]
+        except InstagramError as e:
+            if attempt == attempts - 1 or not any(code in str(e) for code in ("2207006", "2207027", '"code":9007')):
+                raise
+            time.sleep(20)
+    raise AssertionError("unreachable")
 
 
 def recent_media(days: int = 7) -> list[dict]:

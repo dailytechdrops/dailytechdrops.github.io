@@ -7,7 +7,7 @@ from datetime import date, datetime, timedelta
 import requests
 
 from .config import EASTERN, env, load_all_weeks, read_state
-from . import facebook
+from . import facebook, youtube
 
 # Dates things expire, from setup. Warned about three weeks ahead.
 EXPIRIES = {
@@ -32,6 +32,12 @@ def problems() -> list[str]:
         r = requests.get(f"https://graph.facebook.com/v23.0/{page}", params={"fields": "id", "access_token": tok}, timeout=60)
         if r.status_code != 200:
             found.append(f"Facebook Page login is failing ({r.status_code}). Reels will not cross-post until it is reconnected.")
+
+    if youtube.configured():
+        try:
+            youtube._check_channel(youtube._access_token())
+        except youtube.YouTubeError as e:
+            found.append(f"YouTube Shorts are paused: the saved YouTube login is not for the Daily Tech Drops channel yet ({str(e)[:120]}).")
 
     try:
         if requests.get(SHOP_URL, timeout=60).status_code != 200:
