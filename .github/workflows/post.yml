@@ -1,11 +1,11 @@
 name: Post and reply
 
-# Every 30 minutes: post the next approved product whose time has come,
+# Every 10 minutes (in practice, whenever GitHub gets to it): post the next approved product whose time has come,
 # then DM the link to anyone who commented the keyword.
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # GitHub may start it a few minutes late
+    - cron: "*/10 * * * *"   # GitHub skips and delays scheduled runs on quiet repos, so ask often
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 340   # room to wait up to 5 hours for the next post (see wait-next)
     steps:
       - uses: actions/checkout@v4
 
@@ -31,15 +31,43 @@ jobs:
 
       - run: git fetch origin media || true
 
+      - name: Wait for a post coming up soon
+        # GitHub starts scheduled runs hours late, so an early run waits here and posts on time.
+        run: python -m dtd wait-next
+
+      - name: Put the next due product on the shop page first
+        id: site
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+        run: python -m dtd site-prep
+
+      - name: Publish the shop page, then give it time to go live
+        if: ${{ steps.site.outputs.due == '1' }}
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/
+          if ! git diff --cached --quiet; then
+            git commit -m "Shop page: add the next product before its reel posts"
+            git pull --rebase origin "${{ github.ref_name }}"
+            git push
+            sleep 120
+          fi
+
       - name: Post anything due
         env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
         run: python -m dtd post-due
 
       - name: Send link DMs
-        if: ${{ always() && vars.KEYWORD_DMS != 'off' }}
+        if: ${{ always() && vars.KEYWORD_DMS == 'on' }}
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -50,7 +78,7 @@ jobs:
         run: |
           git config user.name "daily-tech-drops-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add state/
+          git add state/ docs/
           git diff --cached --quiet && exit 0
           git commit -m "Update post history"
           git pull --rebase origin "${{ github.ref_name }}"

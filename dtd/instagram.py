@@ -6,6 +6,7 @@ instagram_business_manage_messages and (for the weekly report)
 instagram_business_manage_insights.
 """
 
+import sys
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -35,17 +36,27 @@ def _call(method: str, url: str, **kwargs) -> dict:
     return r.json()
 
 
-def publish_reel(video: Path, caption: str) -> str:
-    """Uploads the local file directly (resumable upload), so no public URL is needed."""
+def publish_reel(video: Path, caption: str, video_url: str | None = None) -> str:
+    """Uploads the local file directly (resumable upload); if Instagram refuses that,
+    falls back to letting it fetch the file from a public URL."""
     user, token = _creds()
-    container = _call("POST", f"{API}/{user}/media", params={
-        "media_type": "REELS", "upload_type": "resumable", "caption": caption,
-        "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
-    })
-    size = video.stat().st_size
-    _call("POST", container["uri"], headers={
-        "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
-    }, data=video.read_bytes())
+    try:
+        container = _call("POST", f"{API}/{user}/media", params={
+            "media_type": "REELS", "upload_type": "resumable", "caption": caption,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+        })
+        size = video.stat().st_size
+        _call("POST", container["uri"], headers={
+            "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+        }, data=video.read_bytes())
+    except InstagramError as e:
+        if not video_url:
+            raise
+        print(f"Resumable upload refused ({e}); using the public URL instead", file=sys.stderr)
+        container = _call("POST", f"{API}/{user}/media", params={
+            "media_type": "REELS", "video_url": video_url, "caption": caption,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+        })
     _wait_ready(container["id"], token)
     return _publish(user, token, container["id"])
 
@@ -68,6 +79,16 @@ def publish_carousel(image_urls: list[str], caption: str) -> str:
     return _publish(user, token, parent["id"])
 
 
+def publish_story(image_url: str) -> str:
+    """A Story from one public image. The API cannot add link stickers, so this is for reach only."""
+    user, token = _creds()
+    container = _call("POST", f"{API}/{user}/media", params={
+        "media_type": "STORIES", "image_url": image_url, "access_token": token,
+    })
+    _wait_ready(container["id"], token)
+    return _publish(user, token, container["id"])
+
+
 def _wait_ready(container_id: str, token: str, timeout_s: int = 600) -> None:
     deadline = time.time() + timeout_s
     while time.time() < deadline:
@@ -81,9 +102,18 @@ def _wait_ready(container_id: str, token: str, timeout_s: int = 600) -> None:
     raise InstagramError(f"Container {container_id} not ready after {timeout_s}s")
 
 
-def _publish(user: str, token: str, container_id: str) -> str:
-    result = _call("POST", f"{API}/{user}/media_publish", params={"creation_id": container_id, "access_token": token})
-    return result["id"]
+def _publish(user: str, token: str, container_id: str, attempts: int = 5) -> str:
+    # Right after a container reports FINISHED, Instagram sometimes still answers "Media Not Found"
+    # (2207006) or "not ready" (9007). Nothing was published in that case, so a retry is safe.
+    for attempt in range(attempts):
+        try:
+            result = _call("POST", f"{API}/{user}/media_publish", params={"creation_id": container_id, "access_token": token})
+            return result["id"]
+        except InstagramError as e:
+            if attempt == attempts - 1 or not any(code in str(e) for code in ("2207006", "2207027", '"code":9007')):
+                raise
+            time.sleep(20)
+    raise AssertionError("unreachable")
 
 
 def recent_media(days: int = 7) -> list[dict]:
@@ -104,6 +134,12 @@ def private_reply(comment_id: str, text: str) -> None:
     user, token = _creds()
     _call("POST", f"{API}/{user}/messages", params={"access_token": token},
           json={"recipient": {"comment_id": comment_id}, "message": {"text": text}})
+
+
+def comment(media_id: str, text: str) -> str:
+    """A comment from our own account on our own post. The API has no way to pin it."""
+    _, token = _creds()
+    return _call("POST", f"{API}/{media_id}/comments", params={"message": text, "access_token": token})["id"]
 
 
 def public_reply(comment_id: str, text: str) -> None:

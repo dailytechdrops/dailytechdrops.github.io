@@ -1,0 +1,45 @@
+name: Shop images
+
+# Saves a small stock photo for each earlier pick on the shop page. Runs by hand, or when the archive changes.
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/shop-photos]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: state-writes
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch photos and rebuild the page
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+        run: |
+          python -m dtd shop-images
+          python -c "
+          from dtd.config import load_config, read_state
+          from dtd import shop
+          shop.build(load_config(), read_state('history', []))"
+      - name: Save
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet && exit 0
+          git commit -m "Shop page: add product photos"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push

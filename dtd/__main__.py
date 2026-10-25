@@ -2,30 +2,42 @@
 
   python -m dtd render  --week weeks/2026-10-26.yaml   render every product in a week -> output/<id>/
   python -m dtd preview --week weeks/2026-10-26.yaml   print a markdown preview of the week
+  python -m dtd site-prep                              put the next due product on the shop page first
+  python -m dtd wait-next                              wait for a post due within the next few hours
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
   python -m dtd report                                 write the weekly performance report to reports/
+  python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd refresh-token                          print a refreshed Instagram token
 """
 
 import argparse
+import copy
 import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import time
+import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import instagram, report
+from . import facebook, instagram, report, shop, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
-from .writer import full_caption, write_content
+from .writer import disclosure_last, full_caption, write_content
 
 # A post whose time passed longer ago than this is skipped rather than posted late.
 STALE_AFTER = timedelta(hours=6)
+# A link DM that keeps failing (for example, the person blocks messages) is dropped after this many tries.
+MAX_DM_ATTEMPTS = 3
+# Only reels posted this recently go to YouTube, so connecting the channel does not flood it with old posts.
+YOUTUBE_WINDOW = timedelta(days=3)
+# A run waits for a post due within this long (the job's own time limit is set above it).
+WAIT_AHEAD = timedelta(hours=5)
 
 
 def render(cfg: dict, week: Path) -> int:
@@ -34,6 +46,16 @@ def render(cfg: dict, week: Path) -> int:
         content = write_content(cfg, item)
         reel = render_reel(cfg, content, out / "work")
         reel.rename(out / "reel.mp4")
+        # Optional extra reels in other free voices, for comparing before choosing one.
+        # Names are Piper voices, or kokoro:<voice> for Kokoro.
+        for voice in os.environ.get("EXTRA_VOICES", "").split():
+            alt = copy.deepcopy(cfg)
+            if voice.startswith("kokoro:"):
+                alt["voice"]["provider"], alt["voice"]["kokoro_voice"] = "kokoro", voice.split(":", 1)[1]
+            else:
+                alt["voice"]["provider"], alt["voice"]["piper_voice"] = "piper", voice
+            voice = voice.replace(":", "-")
+            render_reel(alt, content, out / "work" / voice).rename(out / f"reel-{voice}.mp4")
         slides = render_carousel(cfg, content, out)
         link = affiliate_link(cfg, item["asin"])
         draft = {
@@ -66,6 +88,39 @@ def preview(cfg: dict, week: Path, base: str) -> int:
     return 0
 
 
+def site_prep(cfg: dict) -> int:
+    """Puts the next due product on the shop page before its reel is published.
+    Prints due=1 to the workflow when it did, so the page can go live first."""
+    now = datetime.now(EASTERN)
+    history = read_state("history", [])
+    posted = {h["id"] for h in history}
+    due = sorted((i for i in load_all_weeks() if i["id"] not in posted and i["when"] <= now and now - i["when"] <= STALE_AFTER), key=lambda i: i["when"])
+    if due:
+        item = due[0]
+        shop.build(cfg, history + [{"id": item["id"], "name": item["name"], "link": affiliate_link(cfg, item["asin"])}])
+        print(f"Shop page now lists {item['id']}")
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a") as f:
+            f.write(f"due={1 if due else 0}\n")
+    return 0
+
+
+def wait_next(cfg: dict) -> int:
+    """GitHub starts scheduled runs hours late on quiet repos, so a run that finds the next post
+    coming up soon waits for it here instead of leaving it to a later run that may not come in time."""
+    now = datetime.now(EASTERN)
+    posted = {h["id"] for h in read_state("history", [])}
+    if any(i["id"] not in posted and i["when"] <= now and now - i["when"] <= STALE_AFTER for i in load_all_weeks()):
+        return 0  # something is already due (for example, an extra post added for right now); post it first
+    upcoming = sorted(i["when"] for i in load_all_weeks() if i["id"] not in posted and i["when"] > now)
+    if upcoming and upcoming[0] - now <= WAIT_AHEAD:
+        seconds = (upcoming[0] - now).total_seconds() + 30
+        print(f"Next post is at {upcoming[0]:%-I:%M %p} ET; waiting {seconds / 60:.0f} minutes for it.")
+        time.sleep(seconds)
+    return 0
+
+
 def post_due(cfg: dict) -> int:
     if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
         print("Instagram secrets not set yet; skipping.")
@@ -79,15 +134,21 @@ def post_due(cfg: dict) -> int:
             print(f"Skipping {item['id']}: its time passed more than {STALE_AFTER} ago")
             history.append({"id": item["id"], "skipped": True})
             continue
-        _publish(item["id"], history)
+        try:
+            _publish(cfg, item["id"], history)
+        except Exception as e:
+            # Run logs are hard to read; an error annotation shows the cause on the run page.
+            print(f"::error title=Post failed::{item['id']}: {type(e).__name__}: {str(e)[:500]}")
+            raise
         break  # one product per run keeps posts spaced out if several are due
     else:
         print("Nothing due.")
     write_state("history", history)
+    shop.build(cfg, history)
     return 0
 
 
-def _publish(item_id: str, history: list) -> None:
+def _publish(cfg: dict, item_id: str, history: list) -> None:
     out = OUTPUT_DIR / item_id
     if not out.exists():
         # Rendered media lives on the media branch; pull just this product's folder.
@@ -95,19 +156,82 @@ def _publish(item_id: str, history: list) -> None:
         archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
         subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
     draft = json.loads((out / "draft.json").read_text())
-    reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"])
+    # Drafts rendered before Oct 25 2026 have the disclosure first; move it to the end.
+    draft["caption"] = disclosure_last(cfg, draft["caption"])
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
+    reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None
     try:
         carousel_id = instagram.publish_carousel([f"{base}/{item_id}/{s}" for s in draft["slides"]], draft["caption"])
     except instagram.InstagramError as e:
         # The reel is the main post; a failed carousel should not undo it.
         print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
+    first_comment = "Every gadget we post is on the shop page, linked in our bio. Comment SHOP and we will send you the link too."
+    for media_id in (reel_id, carousel_id):
+        if not media_id:
+            continue
+        try:
+            instagram.comment(media_id, first_comment)
+        except Exception as e:
+            # A first comment is a bonus; never undo or block the posts.
+            print(f"First comment failed on {media_id}: {e}", file=sys.stderr)
+    story_id = None
+    try:
+        story_id = instagram.publish_story(f"{base}/{item_id}/{draft['slides'][0]}")
+    except Exception as e:
+        # A Story is a bonus; never undo or block the feed posts.
+        print(f"Story failed, feed posts are live: {e}", file=sys.stderr)
+    facebook_id = None
+    if facebook.configured():
+        try:
+            facebook_id = facebook.publish_reel(out / "reel.mp4", facebook.caption_for_facebook(draft["caption"], draft["link"]))
+        except facebook.FacebookError as e:
+            # Cross-posting is a bonus; never undo or block the Instagram post.
+            print(f"Facebook reel failed, Instagram is live: {e}", file=sys.stderr)
     history.append({
+        "facebook_id": facebook_id,
         "id": item_id, "asin": draft["asin"], "name": draft["name"], "link": draft["link"],
         "dm_message": draft["dm_message"], "media_ids": [m for m in (reel_id, carousel_id) if m],
     })
-    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}")
+    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}")
+
+
+def youtube_due(cfg: dict) -> int:
+    """Uploads reels already posted to Instagram as Shorts, one per run, newest first.
+    Runs on its own schedule so a YouTube problem can never hold up Instagram."""
+    if not youtube.configured():
+        print("YouTube secrets not set yet; skipping.")
+        return 0
+    uploaded = read_state("youtube", {})
+    cutoff = f"{datetime.now(EASTERN) - YOUTUBE_WINDOW:%Y-%m-%d-%H%M}"
+    # A manual run can name one posted reel to upload, for testing or to fill a gap.
+    forced = env("YOUTUBE_ITEM")
+    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in uploaded and (h["id"] == forced if forced else h["id"] >= cutoff)]
+    if not todo:
+        print("No new reels for YouTube.")
+        return 0
+    item_id = max(todo, key=lambda h: h["id"])["id"]
+    out = OUTPUT_DIR / item_id
+    if not out.exists():
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
+        subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
+    draft = json.loads((out / "draft.json").read_text())
+    privacy = env("YOUTUBE_PRIVACY") or "private"
+    try:
+        video_id = youtube.upload_short(out / "reel.mp4", youtube.title_for(draft["name"]), youtube.description_for(cfg, draft), privacy)
+    except youtube.WrongChannel as e:
+        # A login problem, not a broken run: warn and stay green so it does not email a failure every hour.
+        # The daily health check reports it once instead.
+        print(f"::warning title=YouTube waiting on login::{str(e)[:300]}")
+        return 0
+    except youtube.YouTubeError as e:
+        print(f"::error title=YouTube upload failed::{item_id}: {str(e)[:500]}")
+        raise
+    uploaded[item_id] = video_id
+    write_state("youtube", uploaded)
+    print(f"Uploaded {item_id} to YouTube as {privacy}: https://youtube.com/shorts/{video_id}")
+    return 0
 
 
 def reply(cfg: dict) -> int:
@@ -115,38 +239,69 @@ def reply(cfg: dict) -> int:
         # Runs every 30 minutes; stay quiet until Instagram is connected.
         print("Instagram secrets not set yet; skipping.")
         return 0
-    keyword = cfg["instagram"]["comment_keyword"].lower()
+    ig = cfg["instagram"]
+    words = [ig["comment_keyword"], *ig.get("comment_aliases", [])]
+    wanted = re.compile(r"\b(" + "|".join(re.escape(w) for w in words) + r")\b", re.IGNORECASE)
     handle = cfg["brand"]["handle"].lower()
     history = read_state("history", [])
     by_media = {m: h for h in history for m in h.get("media_ids", [])}
     replied = set(read_state("replied", []))
+    failures = read_state("reply_failures", {})
     sent = 0
-    for media in instagram.recent_media(days=7):
+    recent = instagram.recent_media(days=7)
+    seen = []
+    for media in recent:
         post = by_media.get(media["id"])
         if not post:
             continue
         for c in instagram.comments(media["id"]):
-            if c["id"] in replied or c.get("username", "").lower() == handle:
+            seen.append(f"{c.get('username')}:{c.get('text', '')[:20]!r}")
+            user = c.get("username", "")
+            if c["id"] in replied or user.lower() == handle or not wanted.search(c.get("text", "")):
                 continue
-            if re.search(rf"\b{re.escape(keyword)}\b", c.get("text", "").lower()):
-                try:
-                    instagram.private_reply(c["id"], post["dm_message"])
-                    instagram.public_reply(c["id"], "Sent! Check your DMs.")
-                    sent += 1
-                    post["dms"] = post.get("dms", 0) + 1  # counted for the weekly report
-                except instagram.InstagramError as e:
-                    print(f"Reply to {c['id']} failed: {e}", file=sys.stderr)
-                    continue
-                replied.add(c["id"])
+            try:
+                instagram.private_reply(c["id"], _dm_text(cfg, post, user))
+            except instagram.InstagramError as e:
+                failures[c["id"]] = failures.get(c["id"], 0) + 1
+                print(f"DM for comment {c['id']} failed (attempt {failures[c['id']]}): {e}", file=sys.stderr)
+                if failures[c["id"]] >= MAX_DM_ATTEMPTS:
+                    replied.add(c["id"])  # give up rather than retry every run for a week
+                continue
+            # The DM went out, so never send it again even if the public reply fails.
+            replied.add(c["id"])
+            failures.pop(c["id"], None)
+            sent += 1
+            post["dms"] = post.get("dms", 0) + 1  # counted for the weekly report
+            try:
+                instagram.public_reply(c["id"], _public_reply_text(cfg, c["id"], user))
+            except instagram.InstagramError as e:
+                print(f"Public reply to {c['id']} failed: {e}", file=sys.stderr)
     write_state("replied", sorted(replied))
     write_state("history", history)
+    write_state("reply_failures", {k: v for k, v in failures.items() if k not in replied})
+    print(f"::notice title=Reply scan::{len(recent)} recent posts, {len(by_media)} tracked, comments seen: {seen[:10]}")
     print(f"Sent {sent} link DMs")
     return 0
 
 
+def _dm_text(cfg: dict, post: dict, user: str) -> str:
+    template = cfg["instagram"].get("dm_template")
+    if not template:
+        return post["dm_message"]
+    greeting = f"@{user}" if user else "there"
+    return template.format(user=greeting, name=post["name"], link=post["link"]).strip()
+
+
+def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
+    # Rotating the wording keeps identical replies from looking like spam to Instagram.
+    options = cfg["instagram"].get("public_replies") or ["Sent! Check your DMs."]
+    text = options[zlib.crc32(comment_id.encode()) % len(options)]
+    return text.format(user=f"@{user}" if user else "").replace("  ", " ").strip()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "post-due", "reply", "report", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -155,10 +310,21 @@ def main() -> int:
         return render(cfg, args.week)
     if args.command == "preview":
         return preview(cfg, args.week, args.base)
+    if args.command == "health":
+        from .health import main as health_main
+        return health_main()
+    if args.command == "shop-images":
+        return shop.fetch_images()
+    if args.command == "site-prep":
+        return site_prep(cfg)
+    if args.command == "wait-next":
+        return wait_next(cfg)
     if args.command == "post-due":
         return post_due(cfg)
     if args.command == "reply":
         return reply(cfg)
+    if args.command == "youtube-due":
+        return youtube_due(cfg)
     if args.command == "report":
         if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
             print("Instagram secrets not set yet; skipping.")

@@ -16,9 +16,8 @@ permissions:
   contents: write
   issues: write
 
-concurrency:
-  group: state-writes
-  cancel-in-progress: false
+# No shared concurrency group: posting runs queue often and would cancel a pending report.
+# The report only writes reports/ and state/insights.json, so it cannot clash with them.
 
 jobs:
   report:

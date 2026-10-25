@@ -1,0 +1,50 @@
+name: Health check
+
+# Every morning: checks the logins, the shop page, that posts are scheduled, and that the posting
+# workflow is not failing. Any problem opens a GitHub issue, which emails the repo owner.
+
+on:
+  schedule:
+    - cron: "20 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run the checks
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python -m dtd health | tee problems.txt
+      - name: Open an issue if something is wrong
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s problems.txt ] || exit 0
+          TITLE="Daily Tech Drops needs attention"
+          OPEN=$(gh issue list --repo "${{ github.repository }}" --state open --search "in:title $TITLE" --json number --jq '.[0].number')
+          BODY=$(printf 'The daily health check found:\n\n%s\n' "$(sed 's/^/- /' problems.txt)")
+          if [ -n "$OPEN" ]; then
+            gh issue comment "$OPEN" --repo "${{ github.repository }}" --body "$BODY"
+          else
+            gh issue create --repo "${{ github.repository }}" --title "$TITLE" --body "$BODY"
+          fi

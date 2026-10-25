@@ -17,9 +17,25 @@ amazon:
   marketplace: www.amazon.com
 
 instagram:
-  comment_keyword: LINK          # Viewers comment this word to get the link by DM
+  comment_keyword: SHOP          # Viewers comment this word to get the link by DM
+  comment_aliases: [LINK]        # Also answered, since people guess these
   hashtags_per_post: 8
   disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
+  # The link DM. {user} is @their_name, {name} the product, {link} the affiliate link.
+  dm_template: |-
+    Hey {user}! 👋 Here's the {name} you asked about:
+    {link}
+
+    Prices change often, so check Amazon for today's price.
+    New finds drop twice a day at @daily_tech_drops 📦
+
+    #ad As an Amazon Associate I earn from qualifying purchases.
+  # Public comment replies, rotated so they don't look like spam. {user} is @their_name.
+  public_replies:
+    - "Sent! Check your DMs {user} 📩"
+    - "Just sent you the link {user} 🙌"
+    - "Check your inbox {user}, it's on the way 📬"
+    - "Done {user}! Link is in your DMs ✅"
 
 schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
@@ -31,13 +47,18 @@ reel:
   height: 1920
   fps: 30
   seconds_per_beat_without_voice: 2.8
-  music_volume: 0.12             # background music level under the voiceover
+  music_volume: 0.32             # background music level under the voiceover
   font: assets/fonts/Inter-ExtraBold.otf
   body_font: assets/fonts/Inter-Medium.otf
   accent_color: "#E8792B"       # matches the orange D logo
+  background_color: "#FBF6EE"   # warm cream: light and airy, never black
+  ink_color: "#3B2F27"          # warm dark brown for text
+  muted_color: "#7A6A5D"        # secondary text
 
 voice:
-  provider: piper                # piper (free, runs on GitHub) | elevenlabs (paid) | none
+  provider: kokoro               # kokoro (free, most natural) | piper (free) | elevenlabs (paid) | none
+  kokoro_voice: af_heart         # chosen by Kevin 2026-10-20
+  kokoro_speed: 1.05
   piper_voice: en_US-ryan-high   # free Piper voice; samples at rhasspy.github.io/piper-samples
   piper_speed: 0.9               # below 1 speaks faster
   voice_id: "pNInz6obpgDQGcFmaJgB"   # ElevenLabs only
@@ -49,11 +70,10 @@ writer:
   model: claude-opus-5-5
   effort: medium
 
-# Niche lanes rotated so the feed stays varied.
+# Niche lanes rotated so the feed stays varied, best performers first.
+# Lighting and room decor was dropped in Oct 2026: it drew the fewest views.
 lanes:
-  - smart lighting and room decor (lamps, LED panels, smart mirrors)
-  - clocks and desk gadgets
-  - robots and fun tech
+  - desk and productivity setup (stands, monitor bars, cable management)
   - phone, travel and charging gadgets
-  - smart home and kitchen tech
-  - gaming and desk setup
+  - home security and safety gadgets (trackers, detectors, locks)
+  - robots, clocks and fun tech

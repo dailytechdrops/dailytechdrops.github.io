@@ -22,11 +22,12 @@ class Slide(BaseModel):
 
 
 class DropContent(BaseModel):
-    beats: list[Beat] = Field(description="5 to 7 beats; beat 1 is the hook, the last beat is the comment call to action")
+    beats: list[Beat] = Field(description="4 beats; beat 1 is the hook, the last beat is the comment call to action")
     carousel: list[Slide] = Field(description="4 or 5 slides; slide 1 is the hook, the last says to comment the keyword")
     caption: str = Field(description="Instagram caption body without hashtags or disclosure, under 900 characters")
     hashtags: list[str] = Field(description="Hashtags without the # symbol")
     dm_message: str = Field(description="Friendly DM text sent with the link; must include {link}")
+    photo_query: str | None = Field(default=None, description="2 to 4 word stock photo search showing the kind of product, used on carousel slide 1 and in the first second of the reel")
 
 
 SYSTEM = """You write short-form Instagram content for {brand}, an Amazon tech affiliate account.
@@ -36,7 +37,7 @@ Rules:
 - Never invent specs. Use only the facts provided; speak generally otherwise.
 - Hook in the first beat must stop the scroll: a problem, a risk, or a surprising fact.
 - The final beat and final slide tell viewers to comment "{keyword}" to get the link.
-- The reel runs 20 to 35 seconds of voiceover in total.
+- The reel runs 15 to 18 seconds: 4 beats and about 45 words of voiceover in total.
 - Plain words, no emojis in on-screen text, at most 3 emojis in the caption."""
 
 
@@ -77,7 +78,7 @@ def _template(product: dict, keyword: str) -> DropContent:
     facts = product.get("key_facts", []) or ["Easy to set up", "Highly rated", "Worth a look"]
     broll = product.get("broll", []) or ["technology desk"]
     beats = [Beat(on_screen="Most people get this wrong", voiceover=product.get("angle", name).strip(), broll_query=broll[0])]
-    for i, fact in enumerate(facts[:3]):
+    for i, fact in enumerate(facts[:2]):
         beats.append(Beat(on_screen=fact, voiceover=fact + ".", broll_query=broll[(i + 1) % len(broll)]))
     beats.append(Beat(on_screen=f"Comment {keyword} for the link", voiceover=f"Comment {keyword} and I will send you the link.", broll_query=broll[-1]))
     return DropContent(
@@ -97,5 +98,12 @@ def full_caption(cfg: dict, content: DropContent) -> str:
     body = content.caption
     if keyword not in body:
         body += f"\n\nComment {keyword} for the link."
-    # Disclosure goes first so it shows before "more", as the FTC expects.
-    return f"{cfg['instagram']['disclosure']}\n\n{body}\n\n{tags}"
+    return disclosure_last(cfg, f"{body}\n\n{tags}")
+
+
+def disclosure_last(cfg: dict, text: str) -> str:
+    """Puts the #ad disclosure on the very last line, as Kevin asked (Oct 25 2026).
+    Also fixes captions rendered earlier with the disclosure first."""
+    disclosure = cfg["instagram"]["disclosure"]
+    body = "\n".join(line for line in text.strip().splitlines() if line.strip() != disclosure).strip()
+    return f"{body}\n\n{disclosure}"

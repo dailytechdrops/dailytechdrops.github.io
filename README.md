@@ -87,6 +87,7 @@ python -m dtd render --week weeks/2026-10-26.yaml   # writes output/<id>/ per pr
 With no API keys set it still renders a full draft using the template, which is a free way to test changes.
 
 ## Rules this follows
-- Every caption starts with `#ad As an Amazon Associate I earn from qualifying purchases.` (FTC and Amazon).
+- Every caption, Facebook post and YouTube description ends with `#ad As an Amazon Associate I earn from qualifying purchases.` as its last line (FTC and Amazon).
+- Reels run 15 to 18 seconds: 4 beats (hook, two points, comment SHOP) and about 45 words of voiceover (Kevin, Oct 25 2026).
 - No Amazon product photos: the Associates agreement limits reuse of Amazon images. Visuals are stock footage and branded text.
 - Posting and DMs go through Instagram's official API only.

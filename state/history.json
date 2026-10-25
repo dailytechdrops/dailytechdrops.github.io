@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "asin": "B002L6BZXC",
+    "dm_message": "Here is the portable door lock: https://www.amazon.com/dp/B002L6BZXC?tag=thegadgetgrab-20\n\nAs an Amazon Associate I earn from qualifying purchases. Safe travels!",
+    "facebook_id": "2481078569368628",
+    "id": "2026-10-20-1730-B002L6BZXC",
+    "link": "https://www.amazon.com/dp/B002L6BZXC?tag=thegadgetgrab-20",
+    "media_ids": [
+      "17933688126425532",
+      "17913819378287611"
+    ],
+    "name": "Addalock Portable Door Lock (2-pack)"
+  },
+  {
+    "asin": "B08DKQ3JG1",
+    "dm_message": "Here is the Quntis monitor light bar: https://www.amazon.com/dp/B08DKQ3JG1?tag=thegadgetgrab-20\n\nAs an Amazon Associate I earn from qualifying purchases.",
+    "facebook_id": "2152127135698680",
+    "id": "2026-10-24-1130-B08DKQ3JG1",
+    "link": "https://www.amazon.com/dp/B08DKQ3JG1?tag=thegadgetgrab-20",
+    "media_ids": [
+      "17979528582131146",
+      "18114722999042141"
+    ],
+    "name": "Quntis Monitor Light Bar (USB, touch control)"
+  },
+  {
+    "asin": "B0CFDQ9QH5",
+    "dm_message": "Here is the Anker MagGo power bank: https://www.amazon.com/dp/B0CFDQ9QH5?tag=thegadgetgrab-20\n\nAs an Amazon Associate I earn from qualifying purchases.",
+    "facebook_id": null,
+    "id": "2026-10-24-1900-B0CFDQ9QH5",
+    "link": "https://www.amazon.com/dp/B0CFDQ9QH5?tag=thegadgetgrab-20",
+    "media_ids": [
+      "18060520841551161",
+      "17902959432377474"
+    ],
+    "name": "Anker MagGo Power Bank (10K, Qi2 magnetic, foldable stand)"
+  },
+  {
+    "asin": "B0H1HF44BC",
+    "dm_message": "Here is the portable USB flash drive: https://www.amazon.com/dp/B0H1HF44BC?tag=thegadgetgrab-20\n\nAs an Amazon Associate I earn from qualifying purchases.",
+    "facebook_id": "3227996494256487",
+    "id": "2026-10-25-0945-B0H1HF44BC",
+    "link": "https://www.amazon.com/dp/B0H1HF44BC?tag=thegadgetgrab-20",
+    "media_ids": [
+      "18126617965906817",
+      "18142375381617236"
+    ],
+    "name": "IMEASON Portable USB Flash Drive"
+  },
+  {
+    "asin": "B0BZWRSRWV",
+    "dm_message": "Here is the Ring Battery Doorbell: https://www.amazon.com/dp/B0BZWRSRWV?tag=thegadgetgrab-20\n\nAs an Amazon Associate I earn from qualifying purchases.",
+    "facebook_id": "4516010065382649",
+    "id": "2026-10-25-1130-B0BZWRSRWV",
+    "link": "https://www.amazon.com/dp/B0BZWRSRWV?tag=thegadgetgrab-20",
+    "media_ids": [
+      "18140825137612284",
+      "18048659456818740"
+    ],
+    "name": "Ring Battery Doorbell"
+  }
+]
