@@ -20,7 +20,7 @@
     - office desk files
     - backpack school
   content:
-    photo_query: usb flash drive laptop
+    photo_query: usb stick
     beats:
       - on_screen: "The backup you forget you need"
         voiceover: "Here is the tiny thing you never think about until you really need it."
