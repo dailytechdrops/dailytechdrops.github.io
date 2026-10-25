@@ -81,6 +81,6 @@ With no API keys set it still renders a full draft using the template, which is 
 
 ## Rules this follows
 - Every caption, Facebook post and YouTube description ends with `#ad As an Amazon Associate I earn from qualifying purchases.` as its last line (FTC and Amazon).
-- Reels run 15 to 18 seconds: 4 beats (hook, two points, comment SHOP) and about 45 words of voiceover (Kevin, Oct 25 2026).
+- Reels run 10 to 15 seconds, never longer: 3 beats (hook, one reason, comment SHOP) and about 30 words of voiceover (Kevin, Oct 25 2026).
 - No Amazon product photos: the Associates agreement limits reuse of Amazon images. Visuals are stock footage and branded text.
 - Posting and DMs go through Instagram's official API only.

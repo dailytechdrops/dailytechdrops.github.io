@@ -319,9 +319,6 @@
       - on_screen: A real speaker too
         voiceover: It plays your music over Bluetooth, and shows pixel art you control from an app.
         broll_query: bluetooth speaker
-      - on_screen: Clock, alarm, timer
-        voiceover: It is also an alarm clock and a timer for your desk.
-        broll_query: gaming desk
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: retro gaming
@@ -388,9 +385,6 @@
       - on_screen: Quiet clicks, tracks on glass
         voiceover: It is the MX Master 3S. Quiet clicks, and it tracks even on glass.
         broll_query: mouse hand desk
-      - on_screen: 70 days on a charge
-        voiceover: One charge lasts up to seventy days.
-        broll_query: laptop workspace
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: home office
@@ -456,9 +450,6 @@
       - on_screen: It snaps on magnetically
         voiceover: Your iPhone snaps on magnetically and charges fast with Qi2.
         broll_query: phone wireless charging
-      - on_screen: Folds flat for travel
-        voiceover: Then it folds flat to toss in your bag.
-        broll_query: suitcase packing
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: hotel room travel
@@ -522,9 +513,6 @@
       - on_screen: Four tiny trackers
         voiceover: This four pack of AirTags fits keys, a wallet, a backpack, or luggage.
         broll_query: luggage travel
-      - on_screen: Find them in the Find My app
-        voiceover: Find any of them in the Find My app, even far from home.
-        broll_query: phone map app
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: travel suitcase
@@ -590,9 +578,6 @@
       - on_screen: A 5.5 inch smart display
         voiceover: The Echo Show 5 is a small smart display with Alexa built in.
         broll_query: smart speaker
-      - on_screen: Timers, music, questions
-        voiceover: Ask for timers, music, or the weather, and see it on screen.
-        broll_query: kitchen morning
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: home living room
@@ -655,9 +640,6 @@
       - on_screen: Power strip, gone
         voiceover: Drop your power strip and cables in, and they disappear.
         broll_query: power strip cables
-      - on_screen: A clean desk in minutes
-        voiceover: They screw on in minutes.
-        broll_query: tidy desk
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: clean workspace
@@ -722,9 +704,6 @@
       - on_screen: Anker Nano, 10,000 mAh
         voiceover: The Anker Nano holds ten thousand milliamp hours with thirty watt fast charging.
         broll_query: power bank
-      - on_screen: Extra ports too
-        voiceover: Plus two more ports for a second device.
-        broll_query: usb ports
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: commuter train
@@ -791,9 +770,6 @@
       - on_screen: Color night view
         voiceover: The Blink Mini 2 has a built-in spotlight and two-way audio.
         broll_query: night home
-      - on_screen: Indoors or out
-        voiceover: Use it indoors, or outside with a weather-resistant adapter.
-        broll_query: front porch
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: house night
@@ -856,9 +832,6 @@
       - on_screen: Time, weather, song titles
         voiceover: The Echo Dot with Clock shows the time, your alarms, and the weather.
         broll_query: digital clock
-      - on_screen: Tap to control it
-        voiceover: Tap the top to control it without saying a word.
-        broll_query: hand tapping speaker
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: cozy bedroom
@@ -923,9 +896,6 @@
       - on_screen: Quiet, comfortable typing
         voiceover: The MX Keys S is built for quiet, comfortable typing all day.
         broll_query: typing laptop
-      - on_screen: Three devices, one keyboard
-        voiceover: Pair it with up to three devices and switch with one key.
-        broll_query: desk laptop tablet
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: home office
@@ -988,9 +958,6 @@
       - on_screen: 10,000 mAh and 45 watts
         voiceover: This Anker Nano packs ten thousand milliamp hours and up to forty-five watts.
         broll_query: phone charging
-      - on_screen: Built to be bent
-        voiceover: Anker rates the cable for over twenty thousand bends.
-        broll_query: cable bend
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: cafe travel
