@@ -245,23 +245,17 @@
   content:
     photo_query: front door porch
     beats:
-      - on_screen: "See who is at the door"
-        voiceover: "Imagine seeing who is at your front door from anywhere, with no wiring at all."
+      - on_screen: See who is at the door
+        voiceover: See who is at your front door from anywhere, with no wiring.
         broll_query: front door
-      - on_screen: "No wires, just a battery"
-        voiceover: "This Ring doorbell runs on a rechargeable battery. Charge it, click it into place, and set it up in the app."
+      - on_screen: No wires, just a battery
+        voiceover: This Ring doorbell runs on a rechargeable battery and clicks right into place.
         broll_query: doorbell
-      - on_screen: "Head-to-toe video"
-        voiceover: "The camera shows head-to-toe HD video, so you can see the package on the step, not just the face."
-        broll_query: package porch
-      - on_screen: "Talk to anyone, from your phone"
-        voiceover: "Get motion alerts on your phone and use two-way talk to answer without opening the door."
+      - on_screen: Talk to anyone, from your phone
+        voiceover: Get motion alerts and talk to visitors from your phone.
         broll_query: smartphone alert
-      - on_screen: "Tip: check the Ring Protect plan"
-        voiceover: "Quick tip. Features like video history need a Ring Protect plan, which is sold separately."
-        broll_query: smartphone app
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: house exterior
     carousel:
       - title: "See who is at the door"
@@ -319,23 +313,17 @@
   content:
     photo_query: bluetooth speaker desk
     beats:
-      - on_screen: "A tiny arcade on your desk"
-        voiceover: "This little retro box is a speaker, a clock, and a pixel art screen all in one."
+      - on_screen: A tiny arcade on your desk
+        voiceover: This little retro box is a speaker, a clock, and a pixel art screen.
         broll_query: retro pixel art
-      - on_screen: "A 16 by 16 pixel screen"
-        voiceover: "The Ditoo Pro has a sixteen by sixteen pixel display that you control from an app."
-        broll_query: 8 bit game
-      - on_screen: "A real speaker too"
-        voiceover: "It is also a fifteen watt Bluetooth speaker, so it plays your music and your sound effects."
+      - on_screen: A real speaker too
+        voiceover: It plays your music over Bluetooth, and shows pixel art you control from an app.
         broll_query: bluetooth speaker
-      - on_screen: "Clock, alarm, timer"
-        voiceover: "Use it as an alarm clock, a timer, or a white noise machine on your desk."
+      - on_screen: Clock, alarm, timer
+        voiceover: It is also an alarm clock and a timer for your desk.
         broll_query: gaming desk
-      - on_screen: "Tip: draw your own art"
-        voiceover: "Quick tip. Use the app to make your own pixel art and animations for the screen."
-        broll_query: pixel art
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: retro gaming
     carousel:
       - title: "A tiny arcade on your desk"
@@ -394,23 +382,17 @@
   content:
     photo_query: ergonomic wireless mouse hand desk
     beats:
-      - on_screen: "Scroll 1000 lines in one second"
-        voiceover: "This scroll wheel can fly through a thousand lines in a single second, and then stop on a dime."
+      - on_screen: Scroll 1000 lines in one second
+        voiceover: This scroll wheel flies through a thousand lines in one second.
         broll_query: computer mouse scroll
-      - on_screen: "The MX Master 3S"
-        voiceover: "It is the Logitech MX Master 3S, a wireless mouse built for long workdays."
-        broll_query: office desk
-      - on_screen: "Quiet clicks, tracks on glass"
-        voiceover: "The clicks are quiet, and the eight thousand DPI sensor tracks even on a glass desk."
+      - on_screen: Quiet clicks, tracks on glass
+        voiceover: It is the MX Master 3S. Quiet clicks, and it tracks even on glass.
         broll_query: mouse hand desk
-      - on_screen: "70 days on a charge"
-        voiceover: "One USB-C charge lasts up to seventy days, and it connects by Bluetooth or the Logi Bolt receiver."
+      - on_screen: 70 days on a charge
+        voiceover: One charge lasts up to seventy days.
         broll_query: laptop workspace
-      - on_screen: "Tip: pair more than one computer"
-        voiceover: "Quick tip. Pair it with more than one computer and switch between them with a button."
-        broll_query: two computers desk
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: home office
     carousel:
       - title: "Scroll 1000 lines in a second"
@@ -468,23 +450,17 @@
   content:
     photo_query: wireless charging pad phone desk
     beats:
-      - on_screen: "Three devices, one tiny stand"
-        voiceover: "One small stand charges your phone, your watch, and your earbuds all at once."
+      - on_screen: Three devices, one tiny stand
+        voiceover: One small stand charges your phone, watch, and earbuds at once.
         broll_query: bedside table phone
-      - on_screen: "It snaps on magnetically"
-        voiceover: "Your iPhone snaps on magnetically and charges at up to fifteen watts with Qi2."
+      - on_screen: It snaps on magnetically
+        voiceover: Your iPhone snaps on magnetically and charges fast with Qi2.
         broll_query: phone wireless charging
-      - on_screen: "Watch and AirPods too"
-        voiceover: "There are spots for an Apple Watch and AirPods, so everything charges together."
-        broll_query: apple watch charging
-      - on_screen: "Folds flat for travel"
-        voiceover: "Then it folds down small enough to toss in your bag."
+      - on_screen: Folds flat for travel
+        voiceover: Then it folds flat to toss in your bag.
         broll_query: suitcase packing
-      - on_screen: "Tip: use a strong power adapter"
-        voiceover: "Quick tip. Anker recommends a 40 watt USB-C adapter, so a weak charger can slow it down."
-        broll_query: wall charger usb
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: hotel room travel
     carousel:
       - title: "Three devices, one stand"
@@ -540,23 +516,17 @@
   content:
     photo_query: keychain keys wallet
     beats:
-      - on_screen: "Never lose your keys again"
-        voiceover: "Stop tearing the house apart every morning looking for your keys."
+      - on_screen: Never lose your keys again
+        voiceover: Stop tearing the house apart looking for your keys.
         broll_query: searching for keys
-      - on_screen: "Four tiny trackers"
-        voiceover: "This is a four pack of Apple AirTags, small trackers for keys, a wallet, a backpack, or luggage."
+      - on_screen: Four tiny trackers
+        voiceover: This four pack of AirTags fits keys, a wallet, a backpack, or luggage.
         broll_query: luggage travel
-      - on_screen: "Find them in the Find My app"
-        voiceover: "Set one up with your iPhone, then find it in the Find My app, even far from home."
+      - on_screen: Find them in the Find My app
+        voiceover: Find any of them in the Find My app, even far from home.
         broll_query: phone map app
-      - on_screen: "Replaceable battery included"
-        voiceover: "They use a replaceable battery, and the batteries come in the pack."
-        broll_query: small battery coin
-      - on_screen: "Tip: one on your luggage"
-        voiceover: "Quick tip. Put one in your checked bag the next time you fly."
-        broll_query: airport luggage
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: travel suitcase
     carousel:
       - title: "Never lose your keys again"
@@ -614,23 +584,17 @@
   content:
     photo_query: smart display screen home
     beats:
-      - on_screen: "A bedside clock that talks back"
-        voiceover: "Your alarm clock could do a lot more than beep."
+      - on_screen: A bedside clock that talks back
+        voiceover: Your alarm clock could do a lot more than beep.
         broll_query: bedside alarm clock
-      - on_screen: "A 5.5 inch smart display"
-        voiceover: "The Echo Show 5 is a small smart display with Alexa built in."
+      - on_screen: A 5.5 inch smart display
+        voiceover: The Echo Show 5 is a small smart display with Alexa built in.
         broll_query: smart speaker
-      - on_screen: "Timers, music, questions"
-        voiceover: "Ask for timers, music, or the weather, and see the answer on the screen."
+      - on_screen: Timers, music, questions
+        voiceover: Ask for timers, music, or the weather, and see it on screen.
         broll_query: kitchen morning
-      - on_screen: "Bigger bass, clearer sound"
-        voiceover: "The newest model has two times the bass and clearer sound than before."
-        broll_query: music speaker
-      - on_screen: "Tip: great bedside spot"
-        voiceover: "Quick tip. A bedside table or kitchen counter is where it earns its spot, as a clock and alarm."
-        broll_query: bedroom nightstand
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: home living room
     carousel:
       - title: "A bedside clock that talks back"
@@ -685,23 +649,17 @@
   content:
     photo_query: desk setup computer cables office
     beats:
-      - on_screen: "Hide the cable mess"
-        voiceover: "Look at the cable mess under this desk, and now look at it with two trays."
+      - on_screen: Hide the cable mess
+        voiceover: Look at the cable mess under this desk. Now look at it with two trays.
         broll_query: messy cables
-      - on_screen: "Two steel trays"
-        voiceover: "This is a set of two powder-coated steel cable trays that mount under your desk."
-        broll_query: desk underside
-      - on_screen: "Power strip, gone"
-        voiceover: "Drop your power strip and the cables into the tray, and they disappear from sight."
+      - on_screen: Power strip, gone
+        voiceover: Drop your power strip and cables in, and they disappear.
         broll_query: power strip cables
-      - on_screen: "A clean desk in minutes"
-        voiceover: "They screw on in minutes, and your whole setup looks cleaner."
+      - on_screen: A clean desk in minutes
+        voiceover: They screw on in minutes.
         broll_query: tidy desk
-      - on_screen: "Tip: plan before you drill"
-        voiceover: "Quick tip. Hold the tray up first and plan where your power strip and cables will sit before you screw it on."
-        broll_query: home office desk
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: clean workspace
     carousel:
       - title: "Hide the cable mess"
@@ -758,23 +716,17 @@
   content:
     photo_query: usb c cable laptop desk
     beats:
-      - on_screen: "The cable is built in"
-        voiceover: "Here is a power bank where the cable is already built in."
+      - on_screen: The cable is built in
+        voiceover: Here is a power bank with the cable already built in.
         broll_query: hand holding phone
-      - on_screen: "Anker Nano, 10,000 mAh"
-        voiceover: "It is the Anker Nano, with ten thousand milliamp hours and thirty watt fast charging."
+      - on_screen: Anker Nano, 10,000 mAh
+        voiceover: The Anker Nano holds ten thousand milliamp hours with thirty watt fast charging.
         broll_query: power bank
-      - on_screen: "Phone at 50% in minutes"
-        voiceover: "Anker says it can charge an iPhone 14 to fifty percent in about thirty minutes."
-        broll_query: phone charging
-      - on_screen: "Extra ports too"
-        voiceover: "There is also a USB-C port and a USB-A port, for a second device."
+      - on_screen: Extra ports too
+        voiceover: Plus two more ports for a second device.
         broll_query: usb ports
-      - on_screen: "Tip: wrap the cable around it"
-        voiceover: "Quick tip. Keep the cable tucked along the body when you toss it in your bag."
-        broll_query: backpack bag
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: commuter train
     carousel:
       - title: "The cable is built in"
@@ -833,23 +785,17 @@
   content:
     photo_query: home security camera outdoor wall
     beats:
-      - on_screen: "See your house in the dark"
-        voiceover: "Even in a dark hallway, this tiny camera can show you what is going on in color."
+      - on_screen: See your house in the dark
+        voiceover: Even in a dark hallway, this tiny camera shows you color video.
         broll_query: dark hallway
-      - on_screen: "Blink Mini 2"
-        voiceover: "The Blink Mini 2 is a small plug-in camera with 1080p HD video."
-        broll_query: security camera
-      - on_screen: "Color night view"
-        voiceover: "It has a built-in spotlight for color night view, plus two-way audio so you can talk back."
+      - on_screen: Color night view
+        voiceover: The Blink Mini 2 has a built-in spotlight and two-way audio.
         broll_query: night home
-      - on_screen: "Indoors or out"
-        voiceover: "Use it indoors, or outside with a separate weather-resistant power adapter."
+      - on_screen: Indoors or out
+        voiceover: Use it indoors, or outside with a weather-resistant adapter.
         broll_query: front porch
-      - on_screen: "Tip: check the subscription"
-        voiceover: "Quick tip. Longer live view and saved clips need a Blink plan, which is sold separately."
-        broll_query: smartphone app
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: house night
     carousel:
       - title: "See your house in the dark"
@@ -904,23 +850,17 @@
   content:
     photo_query: alarm clock bedside table
     beats:
-      - on_screen: "A clock that glows and listens"
-        voiceover: "This little speaker doubles as a glowing clock."
+      - on_screen: A clock that glows and listens
+        voiceover: This little speaker doubles as a glowing clock.
         broll_query: nightstand clock
-      - on_screen: "Echo Dot with Clock"
-        voiceover: "The Echo Dot with Clock has Alexa built in and an LED display on the front."
-        broll_query: smart speaker
-      - on_screen: "Time, weather, song titles"
-        voiceover: "The display shows the time, your alarms, the weather, and even the song that is playing."
+      - on_screen: Time, weather, song titles
+        voiceover: The Echo Dot with Clock shows the time, your alarms, and the weather.
         broll_query: digital clock
-      - on_screen: "Tap to control it"
-        voiceover: "There are tap controls on top, so you can control it without saying a word."
+      - on_screen: Tap to control it
+        voiceover: Tap the top to control it without saying a word.
         broll_query: hand tapping speaker
-      - on_screen: "Tip: put it on the nightstand"
-        voiceover: "Quick tip. It is made for the nightstand or a kitchen counter, so you can check the time at a glance."
-        broll_query: bedroom nightstand
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: cozy bedroom
     carousel:
       - title: "A clock that glows"
@@ -977,23 +917,17 @@
   content:
     photo_query: backlit keyboard desk night
     beats:
-      - on_screen: "The keys light up as you reach"
-        voiceover: "Watch the keys light up the moment your hands get close."
+      - on_screen: The keys light up as you reach
+        voiceover: Watch the keys light up the moment your hands get close.
         broll_query: backlit keyboard
-      - on_screen: "The Logitech MX Keys S"
-        voiceover: "This is the Logitech MX Keys S, a low profile wireless keyboard."
-        broll_query: keyboard typing
-      - on_screen: "Quiet, comfortable typing"
-        voiceover: "The keys are shaped for comfortable, quiet typing, even through a long workday."
+      - on_screen: Quiet, comfortable typing
+        voiceover: The MX Keys S is built for quiet, comfortable typing all day.
         broll_query: typing laptop
-      - on_screen: "Three devices, one keyboard"
-        voiceover: "Pair it with up to three devices, by Bluetooth or the Logi Bolt receiver."
+      - on_screen: Three devices, one keyboard
+        voiceover: Pair it with up to three devices and switch with one key.
         broll_query: desk laptop tablet
-      - on_screen: "Tip: backlight drains battery"
-        voiceover: "Quick tip. It lasts up to ten days with the backlight on, and up to five months with it off."
-        broll_query: battery charging usb
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: home office
     carousel:
       - title: "Keys that light up"
@@ -1048,23 +982,17 @@
   content:
     photo_query: usb c cable travel bag
     beats:
-      - on_screen: "The cable pulls out and snaps back"
-        voiceover: "Watch this cable pull out, and then snap right back in."
+      - on_screen: The cable pulls out and snaps back
+        voiceover: Watch this cable pull out, and then snap right back in.
         broll_query: hand pulling cable
-      - on_screen: "A retractable USB-C cable"
-        voiceover: "This Anker Nano power bank hides a two point three foot retractable cable inside."
-        broll_query: power bank
-      - on_screen: "10,000 mAh and 45 watts"
-        voiceover: "It packs ten thousand milliamp hours and up to forty-five watts of output."
+      - on_screen: 10,000 mAh and 45 watts
+        voiceover: This Anker Nano packs ten thousand milliamp hours and up to forty-five watts.
         broll_query: phone charging
-      - on_screen: "Built to be bent"
-        voiceover: "Anker rates the cable for over twenty thousand bends."
+      - on_screen: Built to be bent
+        voiceover: Anker rates the cable for over twenty thousand bends.
         broll_query: cable bend
-      - on_screen: "Tip: no more tangles"
-        voiceover: "Quick tip. Slide the cable back in before it goes in your bag, and it stays tangle free."
-        broll_query: backpack
-      - on_screen: "Comment SHOP or tap the link in bio"
-        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
         broll_query: cafe travel
     carousel:
       - title: "The cable snaps back"
