@@ -3,6 +3,7 @@
   python -m dtd render  --week weeks/2026-10-26.yaml   render every product in a week -> output/<id>/
   python -m dtd preview --week weeks/2026-10-26.yaml   print a markdown preview of the week
   python -m dtd site-prep                              put the next due product on the shop page first
+  python -m dtd wait-next                              wait for a post due within the next few hours
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
@@ -17,6 +18,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -33,6 +35,8 @@ STALE_AFTER = timedelta(hours=6)
 MAX_DM_ATTEMPTS = 3
 # Only reels posted this recently go to YouTube, so connecting the channel does not flood it with old posts.
 YOUTUBE_WINDOW = timedelta(days=3)
+# A run waits for a post due within this long (the job's own time limit is set above it).
+WAIT_AHEAD = timedelta(hours=5)
 
 
 def render(cfg: dict, week: Path) -> int:
@@ -98,6 +102,19 @@ def site_prep(cfg: dict) -> int:
     if out:
         with open(out, "a") as f:
             f.write(f"due={1 if due else 0}\n")
+    return 0
+
+
+def wait_next(cfg: dict) -> int:
+    """GitHub starts scheduled runs hours late on quiet repos, so a run that finds the next post
+    coming up soon waits for it here instead of leaving it to a later run that may not come in time."""
+    now = datetime.now(EASTERN)
+    posted = {h["id"] for h in read_state("history", [])}
+    upcoming = sorted(i["when"] for i in load_all_weeks() if i["id"] not in posted and i["when"] > now)
+    if upcoming and upcoming[0] - now <= WAIT_AHEAD:
+        seconds = (upcoming[0] - now).total_seconds() + 30
+        print(f"Next post is at {upcoming[0]:%-I:%M %p} ET; waiting {seconds / 60:.0f} minutes for it.")
+        time.sleep(seconds)
     return 0
 
 
@@ -200,6 +217,11 @@ def youtube_due(cfg: dict) -> int:
     privacy = env("YOUTUBE_PRIVACY") or "private"
     try:
         video_id = youtube.upload_short(out / "reel.mp4", youtube.title_for(draft["name"]), youtube.description_for(cfg, draft), privacy)
+    except youtube.WrongChannel as e:
+        # A login problem, not a broken run: warn and stay green so it does not email a failure every hour.
+        # The daily health check reports it once instead.
+        print(f"::warning title=YouTube waiting on login::{str(e)[:300]}")
+        return 0
     except youtube.YouTubeError as e:
         print(f"::error title=YouTube upload failed::{item_id}: {str(e)[:500]}")
         raise
@@ -273,7 +295,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "reply", "youtube-due", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "refresh-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -289,6 +311,8 @@ def main() -> int:
         return shop.fetch_images()
     if args.command == "site-prep":
         return site_prep(cfg)
+    if args.command == "wait-next":
+        return wait_next(cfg)
     if args.command == "post-due":
         return post_due(cfg)
     if args.command == "reply":

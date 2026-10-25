@@ -31,6 +31,10 @@ class YouTubeError(RuntimeError):
     pass
 
 
+class WrongChannel(YouTubeError):
+    """The saved login is not (yet) for the Daily Tech Drops channel. Nothing is uploaded."""
+
+
 def configured() -> bool:
     return bool(env("YT_CLIENT_ID") and env("YT_CLIENT_SECRET") and env("YT_REFRESH_TOKEN"))
 
@@ -69,10 +73,10 @@ def description_for(cfg: dict, draft: dict) -> str:
 def _check_channel(token: str) -> None:
     r = requests.get(CHANNELS_URL, timeout=60, params={"part": "id", "mine": "true"}, headers={"Authorization": f"Bearer {token}"})
     if r.status_code >= 400:
-        raise YouTubeError(f"Channel check failed {r.status_code} (token needs the youtube.readonly scope): {r.text[:300]}")
+        raise WrongChannel(f"Channel check failed {r.status_code} (token needs the youtube.readonly scope): {r.text[:300]}")
     ids = [c["id"] for c in r.json().get("items", [])]
     if CHANNEL_ID not in ids:
-        raise YouTubeError(f"Token belongs to channel {ids}, not Daily Tech Drops ({CHANNEL_ID}); refusing to upload")
+        raise WrongChannel(f"Token belongs to channel {ids}, not Daily Tech Drops ({CHANNEL_ID}); refusing to upload")
 
 
 def upload_short(video: Path, title: str, description: str, privacy: str = "private") -> str:

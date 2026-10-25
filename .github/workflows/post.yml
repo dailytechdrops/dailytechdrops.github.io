@@ -1,6 +1,6 @@
 name: Post and reply
 
-# Every 10 minutes: post the next approved product whose time has come,
+# Every 10 minutes (in practice, whenever GitHub gets to it): post the next approved product whose time has come,
 # then DM the link to anyone who commented the keyword.
 
 on:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 340   # room to wait up to 5 hours for the next post (see wait-next)
     steps:
       - uses: actions/checkout@v4
 
@@ -30,6 +30,10 @@ jobs:
       - run: pip install -r requirements.txt
 
       - run: git fetch origin media || true
+
+      - name: Wait for a post coming up soon
+        # GitHub starts scheduled runs hours late, so an early run waits here and posts on time.
+        run: python -m dtd wait-next
 
       - name: Put the next due product on the shop page first
         id: site
