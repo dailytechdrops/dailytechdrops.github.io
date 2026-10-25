@@ -44,7 +44,11 @@ def render(cfg: dict, week: Path) -> int:
     for item in load_week(week):
         out = OUTPUT_DIR / item["id"]
         content = write_content(cfg, item)
-        reel = render_reel(cfg, content, out / "work")
+        try:
+            reel = render_reel(cfg, content, out / "work")
+        except Exception as e:
+            print(f"::error title=Reel failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
+            raise
         reel.rename(out / "reel.mp4")
         # Optional extra reels in other free voices, for comparing before choosing one.
         # Names are Piper voices, or kokoro:<voice> for Kokoro.
