@@ -1,0 +1,76 @@
+# Extra post Kevin asked for on Oct 25 2026, added between the Oct 25 posts.
+# Kept in its own file so only this product renders; the Oct 26 week is untouched.
+# Facts are limited to what the listing title says (portable USB flash drive); no capacity, speed or rating claims.
+
+- slot: "2026-10-25 15:00"
+  asin: B0H1HF44BC
+  name: "IMEASON Portable USB Flash Drive"
+  lane: desk and productivity setup
+  angle: >
+    The cheap little backup everyone forgets they need until the laptop dies
+    or the printer will not take an email. An easy impulse buy for students
+    and anyone who carries files around.
+  key_facts:
+    - "Portable USB flash drive for files, photos and schoolwork"
+    - "Plug and play, no app or account needed"
+    - "Small enough for a keyring, backpack or desk drawer"
+  broll:
+    - usb flash drive laptop
+    - student studying laptop
+    - office desk files
+    - backpack school
+  content:
+    photo_query: usb flash drive laptop
+    beats:
+      - on_screen: "The backup you forget you need"
+        voiceover: "Here is the tiny thing you never think about until you really need it."
+        broll_query: usb flash drive
+      - on_screen: "Your files, in your pocket"
+        voiceover: "It is a portable USB flash drive. Plug it in, drag your files over, and take them anywhere."
+        broll_query: laptop desk
+      - on_screen: "No app, no account, no Wi-Fi"
+        voiceover: "No app, no sign-in, no Wi-Fi. It just works when the cloud does not."
+        broll_query: student laptop
+      - on_screen: "School, printing, photos"
+        voiceover: "Great for school projects, print shops, and a spare copy of your favorite photos."
+        broll_query: printing documents
+      - on_screen: "Tip: keep two copies"
+        voiceover: "Quick tip. Keep your important files in two places, and make this drive one of them."
+        broll_query: office desk
+      - on_screen: "Comment SHOP or tap the link in bio"
+        voiceover: "Comment SHOP, or tap the link in bio, and I will send you the link."
+        broll_query: backpack desk
+    carousel:
+      - title: "The backup you forget you need"
+        body: "A pocket-size USB drive for your files."
+      - title: "Plug in and go"
+        body: "No app, no account, no Wi-Fi."
+      - title: "School, printing, photos"
+        body: "Projects, print shops and a spare copy of your photos."
+      - title: "Tip: keep two copies"
+        body: "Important files belong in two places. Make this one of them."
+      - title: "Comment SHOP"
+        body: "I will DM you the Amazon link."
+    caption: |-
+      The backup you forget you need until you need it. 💾
+
+      A portable USB flash drive: plug it in, drag your files over, and take them anywhere. No app, no account, no Wi-Fi.
+
+      Handy for school projects, the print shop, and a spare copy of your favorite photos.
+
+      Tip: keep important files in two places, and make this drive one of them.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+      - usbdrive
+      - flashdrive
+      - studentlife
+      - backtoschool
+      - amazonfinds
+      - techgadgets
+      - deskessentials
+      - techtips
+    dm_message: |-
+      Here is the portable USB flash drive: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
