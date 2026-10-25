@@ -356,7 +356,7 @@
   - home office
   - desk setup
   content:
-    photo_query: computer monitor desk office
+    photo_query: computer monitor screen workspace
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -413,7 +413,7 @@
   - commute
   - home office
   content:
-    photo_query: headphones music
+    photo_query: wireless headphones
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -470,7 +470,7 @@
   - laptop desk
   - phone on desk
   content:
-    photo_query: extension cord outlets
+    photo_query: usb charger plug socket
     beats:
     - on_screen: A mess of chargers
       voiceover: Is your desk covered in bulky chargers?
