@@ -1,6 +1,6 @@
 # Three extra impulse-buy posts Kevin asked for on Oct 25 2026: gadgets under $10, aimed at a first quick sale.
 # Kept in its own file so only these render; the Oct 26 week is untouched (the Divoom keeps 7pm).
-# Kevin asked for them 45 minutes apart.
+# Kevin asked for them 45 minutes apart, and (at 1:35pm) for reels of about 10 to 15 seconds: 3 beats each.
 # Prices checked live on Amazon at 12:58pm ET: phone stand $9.99, cable clips $6.99, webcam covers $5.99.
 # Photos: product photos Kevin supplied Oct 25 2026, set on a cream background in assets/photos/.
 # Captions say "cheaper than lunch" instead of a dollar figure, since prices change after posting.
@@ -28,11 +28,8 @@
         voiceover: Stop picking up your phone every time it buzzes.
         broll_query: smartphone desk
       - on_screen: Eye level, hands free
-        voiceover: This aluminum stand holds it at eye level, so you read texts without touching it.
+        voiceover: This aluminum stand holds it at eye level. Over forty thousand people rated it.
         broll_query: phone stand
-      - on_screen: 43,000+ ratings, 4.7 stars
-        voiceover: Video calls, recipes, and movies, and it is rated four point seven stars.
-        broll_query: video call desk
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: home office desk
@@ -90,14 +87,11 @@
     photo_query: assets/photos/cable-clips
     beats:
       - on_screen: Your charger fell behind the desk again
-        voiceover: Your charging cable fell behind the desk again, right?
+        voiceover: Your charging cable fell behind the desk again?
         broll_query: desk cables
       - on_screen: Stick it, clip it, done
-        voiceover: Stick one of these clips on the edge, and your cable stays right where you can grab it.
+        voiceover: Stick one of these clips on the edge and it stays put. Sixteen in a pack.
         broll_query: charging cable
-      - on_screen: 16 clips, 81,000+ ratings
-        voiceover: You get sixteen for less than a coffee, and over eighty thousand people rated them.
-        broll_query: tidy desk
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: desk setup
@@ -156,14 +150,11 @@
     photo_query: assets/photos/webcam-cover
     beats:
       - on_screen: Is your laptop camera covered?
-        voiceover: Quick question. Is your laptop camera covered right now?
+        voiceover: Is your laptop camera covered right now?
         broll_query: laptop camera
       - on_screen: Slide it shut, slide it open
-        voiceover: This paper-thin cover sticks above the camera. Slide it open for calls, and shut when you are done.
+        voiceover: This paper-thin cover slides open for calls and shut when you are done. Six in a pack.
         broll_query: laptop video call
-      - on_screen: 6 pack for every device
-        voiceover: You get six, so the laptop, tablet, and kids' computers are all covered.
-        broll_query: laptop tablet
       - on_screen: Comment SHOP or tap the link in bio
         voiceover: Comment SHOP and I will send you the link.
         broll_query: laptop desk
