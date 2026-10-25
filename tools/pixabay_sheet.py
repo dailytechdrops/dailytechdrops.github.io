@@ -11,7 +11,10 @@ for q in sys.argv[1:]:
                         "orientation": "vertical", "safesearch": "true", "min_height": 1200, "per_page": 24}, timeout=60).json().get("hits", [])
     sheet = Image.new("RGB", (6 * 180, 4 * 260), "white")
     for i, h in enumerate(hits[:24]):
-        im = Image.open(io.BytesIO(requests.get(h["webformatURL"], timeout=60).content)).convert("RGB")
+        try:
+            im = Image.open(io.BytesIO(requests.get(h.get("largeImageURL") or h["webformatURL"], timeout=60).content)).convert("RGB")
+        except Exception:
+            continue
         im.thumbnail((180, 240))
         sheet.paste(im, ((i % 6) * 180, (i // 6) * 260))
         ImageDraw.Draw(sheet).text(((i % 6) * 180 + 4, (i // 6) * 260 + 244), f"{i} id{h['id']}", fill="red")
