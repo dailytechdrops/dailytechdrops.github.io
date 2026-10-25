@@ -117,7 +117,17 @@ def stock_photo(query: str, out: Path, n: int = 0) -> Path | None:
     """A tall, sharp stock photo of the product type (Pixabay, free), or None.
 
     Pixabay's own order is loose, so the 40 best matches are re-ranked by how many query words
-    show up in their tags, and ones tagged with another brand or an old look are pushed down."""
+    show up in their tags, and ones tagged with another brand or an old look are pushed down.
+
+    A query naming a folder under assets/photos/ uses our own product photos instead, in name order."""
+    own = ROOT / query if query and query.startswith("assets/photos/") else None
+    if own and own.is_dir():
+        from PIL import Image, ImageOps
+        files = sorted(p for p in own.iterdir() if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
+        if not files:
+            return None
+        ImageOps.exif_transpose(Image.open(files[n % len(files)])).convert("RGB").save(out, quality=92)
+        return out
     if not (query and env("PIXABAY_API_KEY")):
         return None
     r = requests.get(
