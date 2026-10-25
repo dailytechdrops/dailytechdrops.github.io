@@ -62,7 +62,8 @@ jobs:
           grep -q "provider: kokoro" config.yaml || echo "${{ inputs.voices }}" | grep -q "kokoro:" || exit 0
           sudo apt-get install -y -qq espeak-ng
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install kokoro soundfile
+          # preshed 3.0.14 (Oct 2026) breaks loading the spaCy English model Kokoro needs
+          pip install kokoro soundfile "preshed<3.0.14"
           python -c "from kokoro import KPipeline; KPipeline(lang_code='a')"
 
       - name: Find week files to render
