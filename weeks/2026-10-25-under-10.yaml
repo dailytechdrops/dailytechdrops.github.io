@@ -1,0 +1,203 @@
+# Three extra impulse-buy posts Kevin asked for on Oct 25 2026: gadgets under $10, aimed at a first quick sale.
+# Kept in its own file so only these render; the Oct 26 week is untouched (the Divoom keeps 7pm).
+# Kevin asked for them 45 minutes apart.
+# Prices checked live on Amazon at 12:58pm ET: phone stand $9.99, cable clips $6.99, webcam covers $5.99.
+# Photos: product photos Kevin supplied Oct 25 2026, set on a cream background in assets/photos/.
+# Captions say "cheaper than lunch" instead of a dollar figure, since prices change after posting.
+# Facts are limited to the listing titles and their ratings.
+
+- slot: "2026-10-25 14:00"
+  asin: B01M7U6F8T
+  name: "Lamicall Aluminum Adjustable Phone Stand"
+  lane: desk and productivity setup
+  angle: >
+    The cheapest desk upgrade there is: your phone stands up at eye level, so you
+    see texts, take video calls and follow recipes hands free.
+  key_facts:
+    - "Aluminum adjustable desk phone holder"
+    - "Rated about 4.7 stars from 43,000+ ratings"
+    - "Thousands bought in the past month"
+  broll:
+    - smartphone desk stand
+    - video call phone desk
+    - home office desk
+  content:
+    photo_query: assets/photos/phone-stand
+    beats:
+      - on_screen: Stop picking up your phone
+        voiceover: Stop picking up your phone every time it buzzes.
+        broll_query: smartphone desk
+      - on_screen: Eye level, hands free
+        voiceover: This aluminum stand holds it at eye level, so you read texts without touching it.
+        broll_query: phone stand
+      - on_screen: 43,000+ ratings, 4.7 stars
+        voiceover: Video calls, recipes, and movies, and it is rated four point seven stars.
+        broll_query: video call desk
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
+        broll_query: home office desk
+    carousel:
+      - title: "Stop picking up your phone"
+        body: "An aluminum stand puts it at eye level."
+      - title: "Hands free"
+        body: "Texts, video calls, recipes and movies."
+      - title: "Adjustable angle"
+        body: "Tilt it to fit your desk and your eyes."
+      - title: "4.7 stars, 43,000+ ratings"
+        body: "One of the most popular desk upgrades on Amazon."
+      - title: "Comment SHOP"
+        body: "I will DM you the Amazon link."
+    caption: |-
+      The cheapest desk upgrade you can make. 📱
+
+      This Lamicall aluminum stand holds your phone at eye level, so you can read texts, take video calls and follow a recipe without picking it up. Tilt it to the angle you like.
+
+      It is rated about 4.7 stars from more than 43,000 ratings, and it costs less than lunch.
+
+      Tip: put it right next to your keyboard so notifications stop pulling you out of your work.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+      - phonestand
+      - desksetup
+      - deskessentials
+      - homeoffice
+      - amazonfinds
+      - techgadgets
+      - under10
+      - workfromhome
+    dm_message: |-
+      Here is the Lamicall aluminum phone stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: "2026-10-25 14:45"
+  asin: B071FXZBMV
+  name: "OHill Self-Adhesive Cable Clips (16 pack)"
+  lane: desk and productivity setup
+  angle: >
+    The charging cable that keeps sliding behind the desk, fixed for good. A
+    satisfying two-minute cleanup and an easy impulse buy.
+  key_facts:
+    - "16 self-adhesive cable clips that hold cords in place"
+    - "Rated about 4.4 stars from 81,000+ ratings"
+    - "Thousands bought in the past month"
+  broll:
+    - desk cables
+    - charging cable desk
+    - tidy desk setup
+  content:
+    photo_query: assets/photos/cable-clips
+    beats:
+      - on_screen: Your charger fell behind the desk again
+        voiceover: Your charging cable fell behind the desk again, right?
+        broll_query: desk cables
+      - on_screen: Stick it, clip it, done
+        voiceover: Stick one of these clips on the edge, and your cable stays right where you can grab it.
+        broll_query: charging cable
+      - on_screen: 16 clips, 81,000+ ratings
+        voiceover: You get sixteen for less than a coffee, and over eighty thousand people rated them.
+        broll_query: tidy desk
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
+        broll_query: desk setup
+    carousel:
+      - title: "Charger fell behind the desk again?"
+        body: "Sixteen little clips fix it for good."
+      - title: "Stick, clip, done"
+        body: "Self-adhesive, so it takes about two minutes."
+      - title: "Put them everywhere"
+        body: "Desk edge, nightstand, car and behind the TV."
+      - title: "81,000+ ratings"
+        body: "One of the best-selling cable fixes on Amazon."
+      - title: "Comment SHOP"
+        body: "I will DM you the Amazon link."
+    caption: |-
+      Your charging cable fell behind the desk again. 🔌
+
+      These self-adhesive clips stick to the edge of your desk and hold the cable right where you can grab it. You get 16 in the pack, for less than a coffee.
+
+      Over 81,000 people have rated them, about 4.4 stars.
+
+      Tip: put one on your nightstand and one in the car too. Clean the spot with a little rubbing alcohol first so they stick better.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+      - cablemanagement
+      - desksetup
+      - deskessentials
+      - organization
+      - amazonfinds
+      - techgadgets
+      - under10
+      - lifehacks
+    dm_message: |-
+      Here are the self-adhesive cable clips: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: "2026-10-25 15:30"
+  asin: B08CVKRZW9
+  name: "Ultra-Thin Webcam Cover Slide (6 pack)"
+  lane: home security and safety gadgets
+  angle: >
+    Peace of mind for the price of a snack: a paper-thin slider that blocks the
+    laptop camera when you are not using it, with a six pack for every device in the house.
+  key_facts:
+    - "6 pack of ultra-thin (0.022 inch) sliding webcam covers"
+    - "Fits laptops, tablets and phones; the laptop lid still closes"
+    - "Rated about 4.2 stars from 12,000+ ratings"
+    - "Thousands bought in the past month"
+  broll:
+    - laptop webcam
+    - laptop privacy
+    - video call laptop
+  content:
+    photo_query: assets/photos/webcam-cover
+    beats:
+      - on_screen: Is your laptop camera covered?
+        voiceover: Quick question. Is your laptop camera covered right now?
+        broll_query: laptop camera
+      - on_screen: Slide it shut, slide it open
+        voiceover: This paper-thin cover sticks above the camera. Slide it open for calls, and shut when you are done.
+        broll_query: laptop video call
+      - on_screen: 6 pack for every device
+        voiceover: You get six, so the laptop, tablet, and kids' computers are all covered.
+        broll_query: laptop tablet
+      - on_screen: Comment SHOP or tap the link in bio
+        voiceover: Comment SHOP and I will send you the link.
+        broll_query: laptop desk
+    carousel:
+      - title: "Is your laptop camera covered?"
+        body: "A paper-thin slider fixes that."
+      - title: "Slide open, slide shut"
+        body: "Open for calls, closed the rest of the time."
+      - title: "Ultra thin"
+        body: "0.022 inch, made for laptops, tablets and phones."
+      - title: "6 in the pack"
+        body: "Cover every device in the house."
+      - title: "Comment SHOP"
+        body: "I will DM you the Amazon link."
+    caption: |-
+      Is your laptop camera covered right now? 👀
+
+      This ultra-thin webcam cover sticks above the camera. Slide it open for video calls, and slide it shut when you are done. It is only 0.022 inch thick.
+
+      The pack has six, so the laptop, tablet and the kids' computers are all covered, for about the price of a snack. Rated about 4.2 stars from more than 12,000 ratings.
+
+      Tip: on laptops that close very tight, like some MacBooks, check the fit guide on the listing first.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+      - privacy
+      - webcamcover
+      - cybersafety
+      - laptopaccessories
+      - amazonfinds
+      - techgadgets
+      - under10
+      - homeoffice
+    dm_message: |-
+      Here are the ultra-thin webcam covers: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
