@@ -15,7 +15,7 @@
   - power bank pocket
   - travel bag
   content:
-    photo_query: portable power bank
+    photo_query: smartphone portable charger
     beats:
     - on_screen: Phone at 1 percent again
       voiceover: Your phone is at one percent and there is no outlet in sight.
@@ -129,7 +129,7 @@
   - home office desk
   - laptop charger desk
   content:
-    photo_query: power strip desk
+    photo_query: power strip plugs cables
     beats:
     - on_screen: Plugged into the wall?
       voiceover: Is your computer plugged straight into the wall?
@@ -356,7 +356,7 @@
   - home office
   - desk setup
   content:
-    photo_query: monitor stand desk
+    photo_query: computer monitor desk office
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -403,7 +403,7 @@
   asin: B0C3HCD34R
   name: Soundcore by Anker Q20i Noise Cancelling Headphones
   lane: other
-  angle: Hybrid noise cancelling headphones that block the noise without a premium feel.
+  angle: Hybrid noise cancelling headphones that block the noise without a premium price tag.
   key_facts:
   - Hybrid active noise cancelling over-ear headphones from Soundcore by Anker
   - Wireless Bluetooth
@@ -413,7 +413,7 @@
   - commute
   - home office
   content:
-    photo_query: over ear headphones
+    photo_query: headphones music
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -470,7 +470,7 @@
   - laptop desk
   - phone on desk
   content:
-    photo_query: desk power strip
+    photo_query: extension cord outlets
     beats:
     - on_screen: A mess of chargers
       voiceover: Is your desk covered in bulky chargers?
@@ -527,7 +527,7 @@
   - remote control
   - movie night
   content:
-    photo_query: tv streaming stick
+    photo_query: television remote living room
     beats:
     - on_screen: Your TV is not smart?
       voiceover: Is your TV stuck in the past? It does not have to be.
@@ -583,7 +583,7 @@
   - hand on mouse
   - home office desk
   content:
-    photo_query: ergonomic vertical mouse
+    photo_query: computer mouse hand
     beats:
     - on_screen: Wrist sore from the mouse?
       voiceover: Does your wrist ache after a long day at the mouse?
@@ -752,7 +752,7 @@
   - usb hub
   - home office desk
   content:
-    photo_query: usb c hub laptop
+    photo_query: laptop usb ports
     beats:
     - on_screen: Laptop out of ports?
       voiceover: Laptop out of ports again?
