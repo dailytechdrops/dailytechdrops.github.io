@@ -110,6 +110,8 @@ def wait_next(cfg: dict) -> int:
     coming up soon waits for it here instead of leaving it to a later run that may not come in time."""
     now = datetime.now(EASTERN)
     posted = {h["id"] for h in read_state("history", [])}
+    if any(i["id"] not in posted and i["when"] <= now and now - i["when"] <= STALE_AFTER for i in load_all_weeks()):
+        return 0  # something is already due (for example, an extra post added for right now); post it first
     upcoming = sorted(i["when"] for i in load_all_weeks() if i["id"] not in posted and i["when"] > now)
     if upcoming and upcoming[0] - now <= WAIT_AHEAD:
         seconds = (upcoming[0] - now).total_seconds() + 30
