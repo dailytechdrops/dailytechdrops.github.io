@@ -13,8 +13,9 @@ from .config import ROOT, affiliate_link, channel_link, env
 from .media_sources import stock_photo
 
 IMG_DIR = ROOT / "docs" / "img"
-# Posts whose own slide is only text get a stock photo on the shop page instead.
-PHOTO_OVERRIDES = {"2026-10-20-1730-B002L6BZXC": "hotel room door"}
+# Posts whose own slide is only text can get a photo on the shop page instead (post id: stock search).
+# Only for a photo that truly shows the product; a look-alike stock photo costs trust.
+PHOTO_OVERRIDES: dict[str, str] = {}
 
 
 def _slug(text: str) -> str:
@@ -22,7 +23,7 @@ def _slug(text: str) -> str:
 
 
 def fetch_images() -> int:
-    """Saves one small stock photo per earlier pick (and per override) into docs/img, so the page serves its own copies."""
+    """Saves one small photo per earlier pick with a `photo` search (and per override) into docs/img, so the page serves its own copies."""
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     archive = ROOT / "shop_archive.yaml"
     wanted = {_slug(e["name"]): e.get("photo") for e in (yaml.safe_load(archive.read_text()) or [])}
@@ -50,18 +51,21 @@ def _track(event: str, name: str) -> str:
 
 
 def build(cfg: dict, history: list) -> None:
-    base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{repo}/media"
+    owner, _, name = repo.partition("/")
+    site = f"https://{owner}.github.io/{name}/" if owner else ""
     handle = cfg["brand"]["handle"]
     cards = []
     for h in reversed([h for h in history if h.get("link")]):
         when = datetime.strptime(h["id"][:10], "%Y-%m-%d").strftime("%b %d").replace(" 0", " ")
-        reel = f"https://cdn.jsdelivr.net/gh/{os.environ.get('GITHUB_REPOSITORY', '')}@media/{h['id']}/reel.mp4"
+        reel = f"https://cdn.jsdelivr.net/gh/{repo}@media/{h['id']}/reel.mp4"
         cards.append(
             f'<div class="item"><a class="card" href="{html.escape(channel_link(cfg, h["link"], "shop"))}" rel="sponsored noopener" {_track("amazon-" + h["id"], h["name"])}>'
             f'<img src="{_img_for_card(h["id"], base)}" alt="" loading="lazy">'
             f'<span class="meta"><span class="date">{when}</span>'
             f'<strong>{html.escape(h["name"])}</strong><span class="cta">See it on Amazon</span></span></a>'
-            f'<a class="reel" href="{reel}" {_track("reel-" + h["id"], h["name"])}>Watch the reel</a></div>'
+            f'<a class="reel" href="{reel}" {_track("reel-" + h["id"], h["name"])}>&#9654;&#xFE0E; Watch the reel</a></div>'
         )
     earlier = []
     archive = ROOT / "shop_archive.yaml"
@@ -71,46 +75,65 @@ def build(cfg: dict, history: list) -> None:
         else:
             link = f"https://{cfg['amazon']['marketplace']}/s?k={quote_plus(e['search'])}" + (f"&tag={cfg['amazon']['tag']}" if cfg["amazon"]["tag"] else "")
             link = channel_link(cfg, link, "shop")
+        # A thumbnail only when it is a real photo of this product; a look-alike stock photo costs trust.
         pic = IMG_DIR / f"{_slug(e['name'])}.jpg"
-        thumb = f'<img src="img/{pic.name}" alt="" loading="lazy">' if pic.exists() else f'<span class="tile">{html.escape(e["name"][0].upper())}</span>'
+        thumb = f'<img src="img/{pic.name}" alt="" loading="lazy">' if pic.exists() else ""
         earlier.append(
-            f'<a class="card" href="{html.escape(link)}" rel="sponsored noopener" {_track("amazon-" + _slug(e["name"]), e["name"])}>{thumb}'
+            f'<a class="row" href="{html.escape(link)}" rel="sponsored noopener" {_track("amazon-" + _slug(e["name"]), e["name"])}>{thumb}'
             f'<span class="meta"><strong>{html.escape(e["name"])}</strong>'
-            f'<span class="date">{html.escape(e.get("tagline", ""))}</span>'
-            f'<span class="cta">See it on Amazon</span></span></a>'
+            f'<span class="date">{html.escape(e.get("tagline", ""))}</span></span>'
+            f'<span class="go">Amazon &rsaquo;</span></a>'
         )
     code = (cfg.get("analytics") or {}).get("goatcounter")
     counter = f'<script data-goatcounter="https://{code}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' if code else ""
-    earlier_html = ("<h2>Earlier picks</h2>\n" + "\n".join(earlier)) if earlier else ""
+    earlier_html = ('<h2>More picks</h2>\n<div class="list">\n' + "\n".join(earlier) + "\n</div>") if earlier else ""
+    og = (f'<meta property="og:image" content="{site}img/logo.png">\n<meta property="og:url" content="{site}">\n') if site else ""
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily Tech Drops: every gadget we have posted</title>
+<title>Daily Tech Drops: cool tech finds on Amazon</title>
+<meta name="description" content="Every gadget from @{html.escape(handle)}, newest first. Cool tech finds on Amazon, new every day.">
+<meta property="og:title" content="Daily Tech Drops">
+<meta property="og:description" content="Cool tech finds on Amazon, new every day.">
+{og}<link rel="icon" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<meta name="theme-color" content="#FBF6EE">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
-:root {{ --bg:#FBF6EE; --ink:#3B2F27; --muted:#7A6A5D; --accent:#E8792B; --card:#fff; }}
-body {{ margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 Inter, system-ui, sans-serif; }}
-main {{ max-width:520px; margin:0 auto; padding:24px 16px 48px; }}
-h1 {{ font:700 28px/1.2 Poppins, system-ui, sans-serif; margin:0 0 4px; }}
-p.sub {{ color:var(--muted); margin:0 0 6px; }}
-p.disclose {{ color:var(--muted); font-size:13px; margin:0 0 20px; }}
-.card {{ display:flex; gap:14px; align-items:center; background:var(--card); border-radius:16px; padding:12px; margin-bottom:12px; text-decoration:none; color:inherit; box-shadow:0 1px 4px rgba(59,47,39,.08); }}
-.card img {{ width:88px; height:110px; object-fit:cover; border-radius:10px; flex:none; }}
-.meta {{ display:flex; flex-direction:column; gap:4px; }}
+:root {{ --bg:#FBF6EE; --ink:#3B2F27; --muted:#7A6A5D; --accent:#E8792B; --accent-soft:#FBE7D6; --card:#fff; --line:#F1E8DC; }}
+* {{ box-sizing:border-box; }}
+body {{ margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }}
+main {{ max-width:520px; margin:0 auto; padding:28px 16px 48px; }}
+header {{ display:flex; gap:14px; align-items:center; margin-bottom:14px; }}
+header img {{ width:60px; height:60px; border-radius:16px; box-shadow:0 2px 10px rgba(59,47,39,.10); flex:none; }}
+h1 {{ font:800 26px/1.15 Inter, system-ui, sans-serif; letter-spacing:-.02em; margin:0; }}
+p.sub {{ color:var(--muted); margin:2px 0 0; font-size:15px; }}
+p.disclose {{ color:var(--muted); font-size:12.5px; line-height:1.45; margin:0 0 22px; padding:10px 12px; background:var(--accent-soft); border-radius:12px; }}
+h2 {{ font:600 13px/1.3 Inter, system-ui, sans-serif; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:30px 0 12px; }}
+.item {{ background:var(--card); border-radius:18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(59,47,39,.05), 0 6px 18px rgba(59,47,39,.06); overflow:hidden; }}
+.card {{ display:flex; gap:14px; align-items:center; padding:12px; text-decoration:none; color:inherit; }}
+.card img {{ width:96px; height:120px; object-fit:cover; border-radius:12px; flex:none; background:var(--line); }}
+.meta {{ display:flex; flex-direction:column; gap:4px; min-width:0; }}
+.meta strong {{ font-weight:600; font-size:16px; line-height:1.3; }}
 .date {{ color:var(--muted); font-size:13px; }}
-.tile {{ width:88px; height:110px; border-radius:10px; flex:none; display:flex; align-items:center; justify-content:center; background:#F6D9BF; color:var(--accent); font:700 34px Poppins, system-ui, sans-serif; }}
-.item {{ margin-bottom:12px; }}
-.item .card {{ margin-bottom:4px; }}
-.reel {{ display:block; text-align:right; padding:0 6px; color:var(--accent); font-size:13px; text-decoration:none; }}
-.cta {{ color:var(--accent); font-weight:600; font-size:14px; }}
-h2 {{ font:600 18px/1.3 Poppins, system-ui, sans-serif; margin:28px 0 12px; }}
-footer {{ color:var(--muted); font-size:13px; margin-top:24px; }}
+.cta {{ align-self:flex-start; margin-top:6px; background:var(--accent); color:#fff; font-weight:600; font-size:14px; padding:7px 14px; border-radius:999px; }}
+.reel {{ display:block; padding:10px 14px; border-top:1px solid var(--line); color:var(--accent); font-size:14px; font-weight:500; text-decoration:none; }}
+.list {{ background:var(--card); border-radius:18px; box-shadow:0 1px 2px rgba(59,47,39,.05), 0 6px 18px rgba(59,47,39,.06); overflow:hidden; }}
+.row {{ display:flex; gap:12px; align-items:center; padding:13px 14px; text-decoration:none; color:inherit; border-top:1px solid var(--line); }}
+.row:first-child {{ border-top:0; }}
+.row img {{ width:52px; height:52px; object-fit:cover; border-radius:10px; flex:none; }}
+.row .meta {{ flex:1; gap:1px; }}
+.row strong {{ font-size:15px; }}
+.go {{ color:var(--accent); font-weight:600; font-size:13px; white-space:nowrap; }}
+footer {{ color:var(--muted); font-size:12.5px; margin-top:28px; text-align:center; line-height:1.6; }}
 </style></head><body><main>
-<h1>Daily Tech Drops</h1>
-<p class="sub">Every gadget from @{html.escape(handle)}, newest first.</p>
+<header><img src="img/logo.png" alt="Daily Tech Drops logo"><div><h1>Daily Tech Drops</h1><p class="sub">Cool tech finds, new every day.</p></div></header>
 <p class="disclose">As an Amazon Associate we earn from qualifying purchases. Product links on this page are affiliate links.</p>
+<h2>Latest drops</h2>
 {chr(10).join(cards) or "<p>Our first drop is coming soon.</p>"}
 {earlier_html}
-<footer>As an Amazon Associate we earn from qualifying purchases.</footer>
+<footer>Every gadget from @{html.escape(handle)}, newest first.<br>Prices change often, so check Amazon for today's price.<br>As an Amazon Associate we earn from qualifying purchases.</footer>
 </main>
 {counter}
 </body></html>
