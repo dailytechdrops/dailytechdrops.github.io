@@ -142,6 +142,7 @@ h2 {{ font:600 13px/1.3 Inter, system-ui, sans-serif; text-transform:uppercase; 
 .pick img {{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px; display:block; margin-bottom:6px; }}
 .go {{ color:var(--accent); font-weight:600; font-size:13px; white-space:nowrap; }}
 footer {{ color:var(--muted); font-size:12.5px; margin-top:28px; text-align:center; line-height:1.6; }}
+footer a {{ color:var(--muted); }}
 </style></head><body><main>
 <header><img src="img/logo.png" alt="Daily Tech Drops logo"><div><h1>Daily Tech Drops</h1><p class="sub">Cool tech finds, new every day.</p></div></header>
 <p class="disclose">As an Amazon Associate we earn from qualifying purchases. Product links on this page are affiliate links.</p>
@@ -149,7 +150,7 @@ footer {{ color:var(--muted); font-size:12.5px; margin-top:28px; text-align:cent
 <h2>Latest drops</h2>
 {chr(10).join(cards) or "<p>Our first drop is coming soon.</p>"}
 {earlier_html}
-<footer>Every gadget from @{html.escape(handle)}, newest first.<br>Prices change often, so check Amazon for today's price.<br>As an Amazon Associate we earn from qualifying purchases.</footer>
+<footer>Every gadget from @{html.escape(handle)}, newest first.<br>Prices change often, so check Amazon for today's price.<br>As an Amazon Associate we earn from qualifying purchases.<br><a href="https://www.youtube.com/@daily_tech_drops">Watch us on YouTube</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></footer>
 </main>
 {counter}
 </body></html>
