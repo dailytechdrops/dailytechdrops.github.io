@@ -165,11 +165,12 @@ def _publish(cfg: dict, item_id: str, history: list) -> None:
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
     reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None
-    try:
-        carousel_id = instagram.publish_carousel([f"{base}/{item_id}/{s}" for s in draft["slides"]], draft["caption"])
-    except instagram.InstagramError as e:
-        # The reel is the main post; a failed carousel should not undo it.
-        print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
+    if cfg["instagram"].get("post_carousel", True):
+        try:
+            carousel_id = instagram.publish_carousel([f"{base}/{item_id}/{s}" for s in draft["slides"]], draft["caption"])
+        except instagram.InstagramError as e:
+            # The reel is the main post; a failed carousel should not undo it.
+            print(f"Carousel failed, reel is live: {e}", file=sys.stderr)
     first_comment = "Every gadget we post is on the shop page, linked in our bio. Comment SHOP and we will send you the link too."
     for media_id in (reel_id, carousel_id):
         if not media_id:

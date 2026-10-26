@@ -24,7 +24,7 @@ def build(days: int = 7) -> tuple[str, str]:
     since = until - timedelta(days=days)
     history = read_state("history", [])
     by_media = {m: h for h in history for m in h.get("media_ids", [])}
-    lanes = {i["id"]: i.get("lane") for i in load_all_weeks()}
+    items = {i["id"]: i for i in load_all_weeks()}
 
     rows = []
     for media in instagram.media_since(since):
@@ -32,9 +32,14 @@ def build(days: int = 7) -> tuple[str, str]:
         stats = instagram.media_insights(media["id"], REEL_METRICS if reel else POST_METRICS)
         post = by_media.get(media["id"], {})
         reach = stats.get("reach", 0)
+        item = items.get(post.get("id"), {})
         rows.append({
+            "id": post.get("id"),
+            "asin": post.get("asin"),
+            "hook": hook_style(item) if reel else None,
+            "remix_of": item.get("remix_of"),
             "name": (post.get("name") or _snippet(media.get("caption", ""))).replace("|", "/"),
-            "lane": lanes.get(post.get("id")) or "other",
+            "lane": item.get("lane") or "other",
             "kind": "Reel" if reel else {"CAROUSEL_ALBUM": "Carousel", "IMAGE": "Photo"}.get(media.get("media_type"), "Post"),
             "when": instagram._ts(media["timestamp"]).astimezone(EASTERN),
             "url": media.get("permalink", ""),
@@ -93,6 +98,8 @@ def build(days: int = 7) -> tuple[str, str]:
     for lane, items in lane_rows:
         md.append(f"| {lane} | {len(items)} | {_avg(items, 'reach'):,.0f} | {_rate(items):.1%} | {sum(r['dms'] for r in items)} |")
 
+    md += experiments_section(rows)
+
     best, worst = ranked[0], ranked[-1]
     md.append("\n### For next week's picks\n")
     md.append(f"- Best post: **{best['name']}** ({best['lane']}).")
@@ -125,6 +132,7 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
         md.append(f"Could not read shop page stats this week: {str(e)[:200]}\n")
         return md
     rows = hits.json().get("hits") or []
+    _save_top_products(rows)
     visits = sum(h.get("count", 0) for h in rows if not h.get("event"))
     taps = sorted((h for h in rows if h.get("event") and str(h.get("path", "")).startswith("amazon-")), key=lambda h: h.get("count", 0), reverse=True)
     reels = sum(h.get("count", 0) for h in rows if h.get("event") and str(h.get("path", "")).startswith("reel-"))
@@ -139,6 +147,75 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
             md.append(f"| {(h.get('title') or h['path']).replace('|', '/')} | {h.get('count', 0)} |")
         md.append("")
     return md
+
+
+# Hook styles the first beat is sorted into, so the report can say which kind of opening holds viewers.
+HOOK_STYLES = {
+    "question": "asks the viewer something",
+    "demo": "tells them to watch or look",
+    "number": "leads with a number",
+    "statement": "states a problem or a claim",
+}
+
+
+def hook_style(item: dict) -> str | None:
+    """The week file's hook_style if set, otherwise a guess from the first beat's text."""
+    if item.get("hook_style"):
+        return item["hook_style"]
+    beats = (item.get("content") or {}).get("beats") or []
+    if not beats:
+        return None
+    screen, voice = beats[0].get("on_screen", ""), beats[0].get("voiceover", "")
+    if screen.rstrip().endswith("?") or voice.rstrip().endswith("?"):
+        return "question"
+    if voice.split(" ", 1)[0].strip(".,").lower() in {"watch", "look", "see"}:
+        return "demo"
+    numbers = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "hundred", "thousand"}
+    if any(ch.isdigit() for ch in screen) or numbers & {w.strip(".,!").lower() for w in screen.split()}:
+        return "number"
+    return "statement"
+
+
+def _daypart(when: datetime) -> str:
+    h = when.hour + when.minute / 60
+    return "morning (before 11)" if h < 11 else "midday (11 to 2)" if h < 14 else "afternoon (2 to 6)" if h < 18 else "evening (after 6)"
+
+
+def experiments_section(rows: list[dict]) -> list[str]:
+    """Reels only: which hook style and which time of day did best, and how each remix
+    (same product, new hook) did against its first post."""
+    reels = [r for r in rows if r["kind"] == "Reel"]
+    if not reels:
+        return []
+    md = ["\n### Experiments (reels only)\n"]
+    for title, key in (("Hook style", lambda r: r["hook"] or "untagged"), ("Time of day", lambda r: _daypart(r["when"]))):
+        groups = defaultdict(list)
+        for r in reels:
+            groups[key(r)].append(r)
+        md.append(f"| {title} | Reels | Avg reach | Avg watch | Saves + shares | Link DMs |")
+        md.append("| --- | ---: | ---: | ---: | ---: | ---: |")
+        for name, items in sorted(groups.items(), key=lambda kv: _avg(kv[1], "reach"), reverse=True):
+            watched = [i for i in items if i["watch_s"]]
+            md.append(f"| {name} | {len(items)} | {_avg(items, 'reach'):,.0f} | {_avg(watched, 'watch_s'):.1f}s "
+                      f"| {sum(i['saves'] + i['shares'] for i in items):.0f} | {sum(i['dms'] for i in items)} |")
+        md.append("")
+    by_id = {r["id"]: r for r in reels if r["id"]}
+    pairs = [(by_id.get(r["remix_of"]), r) for r in reels if r["remix_of"]]
+    if pairs:
+        md.append("| Remix (same product, new hook) | First post | Remix |")
+        md.append("| --- | --- | --- |")
+        for first, remix in pairs:
+            before = f"{first['hook']}: reach {first['reach']:,.0f}, watch {first['watch_s']:.1f}s" if first else "posted before this week"
+            md.append(f"| {remix['name']} | {before} | {remix['hook']}: reach {remix['reach']:,.0f}, watch {remix['watch_s']:.1f}s |")
+        md.append("")
+    md.append("Small samples swing a lot; trust a pattern only once it holds for two or three weeks.\n")
+    return md
+
+
+def _save_top_products(hits: list[dict]) -> None:
+    """The most tapped products this week, for the "Most tapped" row at the top of the shop page."""
+    taps = sorted((h for h in hits if h.get("event") and str(h.get("path", "")).startswith("amazon-")), key=lambda h: h.get("count", 0), reverse=True)
+    write_state("shop_top", [h["path"][len("amazon-"):] for h in taps if h.get("count", 0) > 0][:3])
 
 
 def run() -> str:

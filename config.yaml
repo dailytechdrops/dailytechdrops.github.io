@@ -31,7 +31,10 @@ analytics:
 instagram:
   comment_keyword: SHOP          # Viewers comment this word to get the link by DM
   comment_aliases: [LINK]        # Also answered, since people guess these
-  hashtags_per_post: 8
+  hashtags_per_post: 5           # Instagram now counts at most 5; extra tags are wasted
+  # Separate carousels reached 1 to 8 people while reels reached about 100 (report, Oct 25 2026),
+  # so Kevin chose a third reel a day instead (Oct 26 2026). Slides still render for the Story and shop page.
+  post_carousel: false
   disclosure: "#ad As an Amazon Associate I earn from qualifying purchases."
   # The link DM. {user} is @their_name, {name} the product, {link} the affiliate link.
   dm_template: |-
@@ -51,8 +54,11 @@ instagram:
 
 schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
-  posts_per_day: 2
-  times: ["11:30", "19:00", "15:00", "21:00"]   # first posts_per_day of these are used
+  posts_per_day: 3               # 3 reels a day from Oct 26 2026 (Kevin)
+  times: ["11:30", "19:00"]      # the two fixed daily slots
+  # The third reel is the posting-time test: it rotates through these, one per day in order,
+  # and the weekly report compares reach by time of day.
+  test_times: ["15:30", "08:00", "13:30", "21:30"]
 
 reel:
   width: 1080
