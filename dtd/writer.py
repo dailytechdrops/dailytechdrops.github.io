@@ -28,6 +28,7 @@ class DropContent(BaseModel):
     hashtags: list[str] = Field(description="Hashtags without the # symbol")
     dm_message: str = Field(description="Friendly DM text sent with the link; must include {link}")
     photo_query: str | None = Field(default=None, description="2 to 4 word stock photo search showing the kind of product, used on carousel slide 1 and in the first second of the reel")
+    photo_ids: list[int] = Field(default_factory=list, description="Pixabay photo ids picked by hand, one per reel beat and carousel slide in order; they win over photo_query")
 
 
 SYSTEM = """You write short-form Instagram content for {brand}, an Amazon tech affiliate account.

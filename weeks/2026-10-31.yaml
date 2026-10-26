@@ -16,6 +16,7 @@
   - travel bag
   content:
     photo_query: smartphone portable charger
+    photo_ids: [7832257, 2396278, 7276658]
     beats:
     - on_screen: Phone at 1 percent again
       voiceover: Your phone is at one percent and there is no outlet in sight.
@@ -74,6 +75,7 @@
   - pet at home
   content:
     photo_query: home security camera
+    photo_ids: [4955338, 3728625, 5501660]
     beats:
     - on_screen: Who is at your door?
       voiceover: Want to know who is at your door while you are out?
@@ -130,6 +132,7 @@
   - laptop charger desk
   content:
     photo_query: power strip plugs cables
+    photo_ids: [2587598, 3285039, 3285039]
     beats:
     - on_screen: Plugged into the wall?
       voiceover: Is your computer plugged straight into the wall?
@@ -187,6 +190,7 @@
   - kitchen counter
   content:
     photo_query: bluetooth speaker
+    photo_ids: [319841, 3483646, 319841]
     beats:
     - on_screen: Tiny speaker, big sound
       voiceover: This little Bluetooth speaker puts out surprisingly big stereo sound.
@@ -244,6 +248,7 @@
   - home office
   content:
     photo_query: wireless computer mouse
+    photo_ids: [5318837, 1999471, 2324120]
     beats:
     - on_screen: Still using the trackpad?
       voiceover: Still fighting your laptop trackpad all day?
@@ -301,6 +306,7 @@
   - living room
   content:
     photo_query: smart plug outlet
+    photo_ids: [2607283, 4715347, 4243898]
     beats:
     - on_screen: Did you leave the lamp on?
       voiceover: Did you leave the lamp on? You can check from your phone.
@@ -357,6 +363,7 @@
   - desk setup
   content:
     photo_query: computer monitor screen workspace
+    photo_ids: [4233915, 2568270, 2568270]
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -414,6 +421,7 @@
   - home office
   content:
     photo_query: wireless headphones
+    photo_ids: [8398212, 6787497, 6787507]
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -471,6 +479,7 @@
   - phone on desk
   content:
     photo_query: usb charger plug socket
+    photo_ids: [3285039, 7036075, 5318837]
     beats:
     - on_screen: A mess of chargers
       voiceover: Is your desk covered in bulky chargers?
@@ -528,6 +537,7 @@
   - movie night
   content:
     photo_query: television remote living room
+    photo_ids: [4148876, 2741799, 642138]
     beats:
     - on_screen: Your TV is not smart?
       voiceover: Is your TV stuck in the past? It does not have to be.
@@ -584,6 +594,7 @@
   - home office desk
   content:
     photo_query: computer mouse hand
+    photo_ids: [1850268, 2324120, 2587598]
     beats:
     - on_screen: Wrist sore from the mouse?
       voiceover: Does your wrist ache after a long day at the mouse?
@@ -641,6 +652,7 @@
   - gym
   content:
     photo_query: wireless earbuds
+    photo_ids: [7559937, 6933543, 2350507]
     beats:
     - on_screen: Earbuds that adapt
       voiceover: Earbuds that change how they cancel noise as you move.
@@ -697,6 +709,7 @@
   - home office
   content:
     photo_query: laptop stand desk
+    photo_ids: [2583442, 7571376, 5318837]
     beats:
     - on_screen: Hunched over your laptop?
       voiceover: Hunched over your laptop all day?
@@ -753,6 +766,7 @@
   - home office desk
   content:
     photo_query: laptop usb ports
+    photo_ids: [829332, 7036075, 2572036]
     beats:
     - on_screen: Laptop out of ports?
       voiceover: Laptop out of ports again?

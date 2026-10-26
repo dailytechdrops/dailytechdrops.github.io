@@ -22,12 +22,12 @@ def render_carousel(cfg: dict, content: DropContent, workdir: Path) -> list[Path
     paths = []
     scratch = workdir / "work"
     scratch.mkdir(parents=True, exist_ok=True)
-    photo = stock_photo(content.photo_query, scratch / "photo.jpg") if content.photo_query else None
+    photo = stock_photo(content.photo_query, scratch / "photo.jpg", 0, content.photo_ids) if (content.photo_query or content.photo_ids) else None
 
     for i, slide in enumerate(content.carousel):
         first, last = i == 0, i == total - 1
         if photo:
-            shot = stock_photo(content.photo_query, scratch / f"photo_{i}.jpg", i) or photo
+            shot = stock_photo(content.photo_query, scratch / f"photo_{i}.jpg", i, content.photo_ids) or photo
             path = workdir / f"slide_{i + 1}.jpg"
             _photo_slide(rc, cfg["brand"]["handle"], slide, shot, i, total, path)
             paths.append(path)

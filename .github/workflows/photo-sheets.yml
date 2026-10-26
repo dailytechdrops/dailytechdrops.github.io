@@ -1,0 +1,34 @@
+name: Photo sheets
+
+# Run on a week's branch before merging: commits contact sheets of Pixabay photo candidates
+# (with ids) to photo-sheets/ on that branch, so the best photo per reel beat can be pinned
+# as photo_ids in the week file. Delete photo-sheets/ before merging.
+
+on:
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Week file, e.g. weeks/2026-11-07.yaml"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  sheets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml requests pillow
+      - env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: python tools/photo_sheet.py "${{ inputs.week }}"
+      - run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add photo-sheets
+          git commit -m "Photo sheets for ${{ inputs.week }}"
+          git push
