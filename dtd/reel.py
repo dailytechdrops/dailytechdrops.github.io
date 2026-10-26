@@ -44,7 +44,7 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
             # The call to action is a clean branded end card around a photo of the product type.
             card = workdir / "endcard.png"
             end_card(cfg, photos[i % len(photos)], name, card)
-            _segment(rc, None, None, voice, seg_len, seg, card, motion=i, endcard=True, voice_delay=0.15)
+            _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
             label = _short_name(name) if i == 1 else ("Today's drop" if is_hook else "")
             caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label)
@@ -257,7 +257,7 @@ def end_card(cfg: dict, photo: Path, name: str, out: Path) -> None:
     bg.paste(Image.new("RGBA", (w, h), (246, 217, 191, 255)), (0, 0), glow)
 
     fw, fh = 760, 860
-    fx, fy = (w - fw) // 2, 270
+    fx, fy = (w - fw) // 2, 290
     _card(bg, [fx - 14, fy - 14, fx + fw + 14, fy + fh + 14], radius=48, fill=(255, 255, 255, 255), shadow=60)
     pic = ImageOps.fit(Image.open(photo).convert("RGB"), (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
     mask = Image.new("L", (fw, fh), 0)
