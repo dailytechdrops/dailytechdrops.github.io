@@ -4,12 +4,25 @@ gradient backgrounds."""
 
 import json
 import subprocess
+import time
 import wave
 from pathlib import Path
 
 import requests
 
 from .config import ROOT, env
+
+
+def _get(url: str, **kwargs) -> requests.Response:
+    """requests.get that waits and retries when Pixabay rate-limits us (429), which happens when
+    a photo sheet run and a render run back to back. Pixabay's limit resets within a minute."""
+    for wait in (5, 15, 30, 60):
+        r = requests.get(url, **kwargs)
+        if r.status_code != 429:
+            return r
+        retry = r.headers.get("Retry-After", "")
+        time.sleep(int(retry) if retry.isdigit() else wait)
+    return requests.get(url, **kwargs)
 
 
 def tts(cfg: dict, text: str, out: Path) -> Path | None:
@@ -81,7 +94,7 @@ def stock_clip(query: str, out: Path, used: set[int]) -> Path | None:
 
 
 def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
-    r = requests.get(
+    r = _get(
         "https://pixabay.com/api/videos/",
         params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 20, "safesearch": "true", "video_type": "film"},
         timeout=60,
@@ -102,7 +115,7 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     if not candidates:
         return None
     _, vid, url = next((c for c in candidates[:5] if c[0]), candidates[0])
-    data = requests.get(url, timeout=180)
+    data = _get(url, timeout=180)
     data.raise_for_status()
     out.write_bytes(data.content)
     used.add(vid)
@@ -123,11 +136,11 @@ def stock_photo(query: str | None, out: Path, n: int = 0, ids: list[int] | None 
     A query naming a folder under assets/photos/ uses our own product photos instead, in name order.
     Pixabay ids picked by hand (ids) win over the search: the nth photo is ids[n], wrapping around."""
     if ids and env("PIXABAY_API_KEY"):
-        r = requests.get("https://pixabay.com/api/", params={"key": env("PIXABAY_API_KEY"), "id": ids[n % len(ids)]}, timeout=60)
+        r = _get("https://pixabay.com/api/", params={"key": env("PIXABAY_API_KEY"), "id": ids[n % len(ids)]}, timeout=60)
         r.raise_for_status()
         hit = (r.json().get("hits") or [None])[0]
         if hit:
-            data = requests.get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
+            data = _get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
             data.raise_for_status()
             out.write_bytes(data.content)
             return out
@@ -141,7 +154,7 @@ def stock_photo(query: str | None, out: Path, n: int = 0, ids: list[int] | None 
         return out
     if not (query and env("PIXABAY_API_KEY")):
         return None
-    r = requests.get(
+    r = _get(
         "https://pixabay.com/api/",
         params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "image_type": "photo", "orientation": "vertical",
                 "safesearch": "true", "min_height": 1200, "per_page": 40},
@@ -161,7 +174,7 @@ def stock_photo(query: str | None, out: Path, n: int = 0, ids: list[int] | None 
 
     ranked = [h for _, h in sorted(enumerate(hits), key=score)]
     hit = ranked[n % len(ranked)]
-    data = requests.get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
+    data = _get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
     data.raise_for_status()
     out.write_bytes(data.content)
     return out
@@ -169,7 +182,7 @@ def stock_photo(query: str | None, out: Path, n: int = 0, ids: list[int] | None 
 
 def _pexels(query: str, out: Path, used: set[int]) -> Path | None:
     key = env("PEXELS_API_KEY")
-    r = requests.get(
+    r = _get(
         "https://api.pexels.com/videos/search",
         params={"query": query, "orientation": "portrait", "per_page": 10, "size": "medium"},
         headers={"Authorization": key},
@@ -183,7 +196,7 @@ def _pexels(query: str, out: Path, used: set[int]) -> Path | None:
         if not files:
             continue
         best = min(files, key=lambda f: abs(f["height"] - 1920))
-        data = requests.get(best["link"], timeout=180)
+        data = _get(best["link"], timeout=180)
         data.raise_for_status()
         out.write_bytes(data.content)
         used.add(video["id"])
