@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -57,3 +58,14 @@ def affiliate_link(cfg: dict, asin: str) -> str:
     base = f"https://{cfg['amazon']['marketplace']}/dp/{asin}"
     tag = cfg["amazon"]["tag"]
     return f"{base}?tag={tag}" if tag else base
+
+
+def channel_link(cfg: dict, link: str, channel: str) -> str:
+    """Swaps the base tag for the channel's own tracking ID (amazon.channel_tags), so the
+    Associates reports show whether a sale came from the shop page, Facebook or YouTube.
+    Channels without their own ID keep the base tag, so no link ever loses its tag."""
+    tag = (cfg["amazon"].get("channel_tags") or {}).get(channel)
+    base = cfg["amazon"]["tag"]
+    if not tag or not base:
+        return link
+    return re.sub(rf"([?&]tag=){re.escape(base)}(?=&|$)", rf"\g<1>{tag}", link)

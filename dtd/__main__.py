@@ -26,7 +26,7 @@ from pathlib import Path
 
 from . import facebook, instagram, report, shop, youtube
 from .carousel import render_carousel
-from .config import EASTERN, OUTPUT_DIR, affiliate_link, env, load_all_weeks, load_config, load_week, read_state, write_state
+from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
 from .writer import disclosure_last, full_caption, write_content
 
@@ -188,7 +188,7 @@ def _publish(cfg: dict, item_id: str, history: list) -> None:
     facebook_id = None
     if facebook.configured():
         try:
-            facebook_id = facebook.publish_reel(out / "reel.mp4", facebook.caption_for_facebook(draft["caption"], draft["link"]))
+            facebook_id = facebook.publish_reel(out / "reel.mp4", facebook.caption_for_facebook(draft["caption"], channel_link(cfg, draft["link"], "facebook")))
         except facebook.FacebookError as e:
             # Cross-posting is a bonus; never undo or block the Instagram post.
             print(f"Facebook reel failed, Instagram is live: {e}", file=sys.stderr)

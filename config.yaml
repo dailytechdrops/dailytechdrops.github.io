@@ -15,6 +15,18 @@ amazon:
   # Read from the AMAZON_TAG secret if set; this value is the fallback.
   tag: ""
   marketplace: www.amazon.com
+  # Extra tracking IDs made in Associates Central (Account Settings > Manage Tracking IDs),
+  # one per channel, so the Orders report shows where each sale came from.
+  # Leave one empty and that channel keeps the base tag above.
+  channel_tags:
+    shop: ""        # the shop page (IG bio, SHOP DMs)
+    facebook: ""    # links in Facebook reel captions
+    youtube: ""     # links in YouTube Shorts descriptions
+
+analytics:
+  # GoatCounter site code (free, goatcounter.com): counts shop page visits and which
+  # product cards are tapped. The weekly report reads it with the GOATCOUNTER_TOKEN secret.
+  goatcounter: dailytechdrops
 
 instagram:
   comment_keyword: SHOP          # Viewers comment this word to get the link by DM
