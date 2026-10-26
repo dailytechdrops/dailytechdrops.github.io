@@ -22,6 +22,7 @@ amazon:
     shop: ""        # the shop page (IG bio, SHOP DMs)
     facebook: ""    # links in Facebook reel captions
     youtube: ""     # links in YouTube Shorts descriptions
+    threads: ""     # links in Threads posts
 
 analytics:
   # GoatCounter site code (free, goatcounter.com): counts shop page visits and which

@@ -7,7 +7,7 @@ from datetime import date, datetime, timedelta
 import requests
 
 from .config import EASTERN, env, load_all_weeks, read_state
-from . import facebook, youtube
+from . import facebook, threads, youtube
 
 # Dates things expire, from setup. Warned about three weeks ahead.
 EXPIRIES = {
@@ -32,6 +32,11 @@ def problems() -> list[str]:
         r = requests.get(f"https://graph.facebook.com/v23.0/{page}", params={"fields": "id", "access_token": tok}, timeout=60)
         if r.status_code != 200:
             found.append(f"Facebook Page login is failing ({r.status_code}). Reels will not cross-post until it is reconnected.")
+
+    if threads.configured():
+        r = requests.get("https://graph.threads.net/v1.0/me", params={"fields": "id", "access_token": env("THREADS_ACCESS_TOKEN")}, timeout=60)
+        if r.status_code != 200:
+            found.append(f"Threads login is failing ({r.status_code}). Reels will not cross-post to Threads until it is reconnected.")
 
     if youtube.configured():
         try:
