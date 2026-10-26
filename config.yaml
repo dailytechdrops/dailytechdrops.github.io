@@ -27,7 +27,13 @@ amazon:
   # normal rate, but only through the campaign's own link ("Get affiliate link" on the campaign page).
   # ASIN: link. Every post, DM and shop card for that ASIN then uses it. Remove an entry when
   # its campaign ends.
-  campaign_links: {}
+  campaign_links:
+    # zakotu MD10 mini body camera, 25%, ends 2027-03-30
+    B0HJ1HXBWY: "https://www.amazon.com/dp/B0HJ1HXBWY?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2ZDVTB3J15QZ5&linkCode=tr1&tag=thegadgetgrab-20&linkId=amzn1.campaign.2ZDVTB3J15QZ5_1793023526145"
+    # SYLCXX electric letter opener, 25%, ends 2026-11-17
+    B0BZDJCGSR: "https://www.amazon.com/dp/B0BZDJCGSR?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2W47CLDX1VN6F&linkCode=tr1&tag=thegadgetgrab-20&linkId=amzn1.campaign.2W47CLDX1VN6F_1793023578395"
+    # ShSiXin 3-in-1 Apple Watch charging cable, 30%, ends 2026-11-18
+    B0C19CBT2N: "https://www.amazon.com/dp/B0C19CBT2N?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.14PEBM1R5AEMY&linkCode=tr1&tag=thegadgetgrab-20&linkId=amzn1.campaign.14PEBM1R5AEMY_1793023615034"
 
 analytics:
   # GoatCounter site code (free, goatcounter.com): counts shop page visits and which
