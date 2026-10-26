@@ -22,6 +22,34 @@ week toward the lanes, product types and hooks that earned the most link DMs, sa
 weakest, while still rotating lanes. Open the week's pull request body with two or three lines on what the report
 showed and how it shaped the picks.
 
+## Growth experiments (from Oct 26 2026)
+
+Three reels a day, no separate carousels (carousels reached 1 to 8 people, reels about 100). The Sunday research
+fills each day like this:
+
+| Slot | What | Why |
+| --- | --- | --- |
+| 11:30 ET | New product | Fixed time, so week-over-week numbers compare |
+| 19:00 ET | New product | Fixed time |
+| Test time, rotating `schedule.test_times` one per day | **Remix**: a product posted at least 2 days earlier, with a new hook | Tests hook styles on the same product and photos, tests posting times, and gives winners a second run |
+
+Remix entries carry `remix_of: <id of the first post>` and `hook_style:`, use a different hook style than the first
+post, reuse its `photo_ids`, and rewrite the caption opening. Pick remixes from the report's best reels (reach, then
+watch time); never remix the weakest. The shop page lists each product once.
+
+**Hook styles** (the report guesses one from the first beat when `hook_style` is not set):
+`question` ("Still fighting your trackpad?"), `demo` ("Watch this cable snap back"), `number` ("Three devices, one stand"),
+`statement` ("Never lose your keys again"). Spread the week's new products across all four until the report's
+"Experiments" tables show a style winning for two or three weeks in a row, then lean into it.
+
+**Holiday plan, Nov to Dec** (never state prices or discounts, Associates rule; say "stocking stuffer", not "under $10"):
+- Nov 7 to Nov 20: one of the two new products a day framed as a gift idea, with "gift" in the caption's first line.
+- Nov 21 to Dec 1 (Black Friday Nov 27, Cyber Monday Nov 30): best-reviewed big-name gadgets people wait for deals on;
+  the caption says "check Amazon for today's price", never the deal itself.
+- Dec 2 to Dec 15: gifts by person (for the desk worker, the traveler, the gamer, the person who has everything).
+- Dec 16 to Dec 21: stocking stuffers and small gifts that still ship in time; mention Prime shipping only as "check the delivery date".
+- Remix slots in Nov and Dec favor the year's most tapped products from the shop page.
+
 **Which posts drive sales:** the shop page counts visits and every tap on a product card (GoatCounter, site code in
 `config.yaml`), and the weekly report lists them under "Shop page". Links on the shop page, Facebook and YouTube can
 each carry their own Associates tracking ID (`amazon.channel_tags`), so the Associates Orders report shows which
