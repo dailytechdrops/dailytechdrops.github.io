@@ -9,6 +9,7 @@
   python -m dtd report                                 write the weekly performance report to reports/
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd refresh-token                          print a refreshed Instagram token
+  python -m dtd refresh-threads-token                  print a refreshed Threads token
 """
 
 import argparse
@@ -24,7 +25,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram, report, shop, youtube
+from . import facebook, instagram, report, shop, threads, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -193,12 +194,21 @@ def _publish(cfg: dict, item_id: str, history: list) -> None:
         except facebook.FacebookError as e:
             # Cross-posting is a bonus; never undo or block the Instagram post.
             print(f"Facebook reel failed, Instagram is live: {e}", file=sys.stderr)
+    threads_id = None
+    if threads.configured():
+        try:
+            text = threads.text_for_threads(draft["caption"], channel_link(cfg, draft["link"], "threads"), cfg["instagram"]["disclosure"])
+            threads_id = threads.publish_video(f"{base}/{item_id}/reel.mp4", text)
+        except Exception as e:
+            # Cross-posting is a bonus; never undo or block the Instagram post.
+            print(f"Threads post failed, Instagram is live: {e}", file=sys.stderr)
     history.append({
         "facebook_id": facebook_id,
+        "threads_id": threads_id,
         "id": item_id, "asin": draft["asin"], "name": draft["name"], "link": draft["link"],
         "dm_message": draft["dm_message"], "media_ids": [m for m in (reel_id, carousel_id) if m],
     })
-    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}")
+    print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}, threads {threads_id}")
 
 
 def youtube_due(cfg: dict) -> int:
@@ -306,7 +316,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -335,6 +345,9 @@ def main() -> int:
             print("Instagram secrets not set yet; skipping.")
             return 1
         report.run()
+        return 0
+    if args.command == "refresh-threads-token":
+        print(threads.refresh_token())
         return 0
     print(instagram.refresh_token())
     return 0

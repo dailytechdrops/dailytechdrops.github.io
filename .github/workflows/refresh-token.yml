@@ -1,6 +1,6 @@
 name: Refresh Instagram token
 
-# Instagram long-lived tokens expire after 60 days. This renews it monthly.
+# Instagram and Threads long-lived tokens expire after 60 days. This renews them monthly.
 # Needs a GH_PAT secret: a fine-grained token for this repo with "Secrets: read and write".
 
 on:
@@ -26,3 +26,13 @@ jobs:
           NEW=$(python -m dtd refresh-token)
           echo "::add-mask::$NEW"
           gh secret set IG_ACCESS_TOKEN --repo "${{ github.repository }}" --body "$NEW"
+      - name: Refresh and store the Threads token
+        if: ${{ always() }}
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          [ -n "$THREADS_ACCESS_TOKEN" ] || { echo "Threads not connected; skipping."; exit 0; }
+          NEW=$(python -m dtd refresh-threads-token)
+          echo "::add-mask::$NEW"
+          gh secret set THREADS_ACCESS_TOKEN --repo "${{ github.repository }}" --body "$NEW"
