@@ -3,7 +3,7 @@
 # (15:30, 08:00, 13:30, 21:30). The weekly report compares hook styles, times of day, and each remix
 # against its first post. Facts are only those in the first post's key_facts. No prices.
 #
-# Oct 27, 28 and 29 are not remixes: those three slots hold Creator Connections campaign products
+# Oct 28, 29 and 30 are not remixes: those three slots hold Creator Connections campaign products
 # (weeks/2026-10-27-campaigns.yaml), which pay a brand bonus on top of the normal rate.
 
 - slot: 2026-10-26 15:30
@@ -63,67 +63,61 @@
       Here is the Lamicall aluminum phone stand: {link}
 
       As an Amazon Associate I earn from qualifying purchases.
-- slot: 2026-10-30 15:30
-  asin: B0DDQ71B9P
-  name: Anker MagGo 3-in-1 Charging Station (Qi2, foldable)
-  lane: phone, travel and charging gadgets
-  remix_of: 2026-10-26-1900-B0DDQ71B9P
-  hook_style: question
-  angle: One small magnetic stand that charges an iPhone, Apple Watch and AirPods together, then folds flat for the bag.
+- slot: 2026-10-27 08:00
+  asin: B071FXZBMV
+  name: OHill Self-Adhesive Cable Clips (16 pack)
+  lane: desk and productivity setup
+  remix_of: 2026-10-25-1445-B071FXZBMV
+  hook_style: demo
+  angle: The charging cable that keeps sliding behind the desk, fixed for good. A satisfying two-minute cleanup and an easy
+    impulse buy.
   key_facts:
-  - Qi2 certified 15W magnetic charging for the iPhone
-  - Charges an iPhone, AirPods and an Apple Watch at the same time
-  - Folds down small for travel
-  - Anker recommends a 40W USB-C power adapter
-  - Rated about 4.5 stars (rating count not confirmed)
+  - 16 self-adhesive cable clips that hold cords in place
+  - Rated about 4.4 stars from 81,000+ ratings
+  - Thousands bought in the past month
   broll:
-  - bedside table phone charging
-  - apple watch charging
-  - airpods case
-  - packing suitcase travel
+  - desk cables
+  - charging cable desk
+  - tidy desk setup
   content:
-    photo_query: wireless charging pad phone desk
-    photo_ids:
-    - 4721542
-    - 6830011
-    - 4721542
+    photo_query: assets/photos/cable-clips
     beats:
-    - on_screen: How many chargers by your bed?
-      voiceover: How many chargers are tangled on your nightstand right now?
-      broll_query: bedside table phone
-    - on_screen: Phone, watch, earbuds, one stand
-      voiceover: This Anker MagGo stand charges all three at once, and folds up for travel.
-      broll_query: phone wireless charging
+    - on_screen: Watch this cable stay put
+      voiceover: Watch this. The cable clicks in and stays where you can grab it.
+      broll_query: desk cables
+    - on_screen: 16 clips in one pack
+      voiceover: Sixteen sticky clips for the desk, nightstand and car.
+      broll_query: charging cable
     - on_screen: Comment SHOP or tap the link in bio
       voiceover: Comment SHOP and I will send you the link.
-      broll_query: hotel room travel
+      broll_query: desk setup
     carousel:
-    - title: How many chargers by your bed?
-      body: Phone, watch and earbuds charge together.
-    - title: Snaps on magnetically
-      body: Qi2 certified 15W for your iPhone.
-    - title: Folds flat
-      body: Small enough for your bag.
-    - title: 'Tip: strong adapter'
-      body: Anker recommends a 40W USB-C adapter.
+    - title: Watch this cable stay put
+      body: Sixteen little clips fix it for good.
+    - title: Stick, clip, done
+      body: Self-adhesive, so it takes about two minutes.
+    - title: Put them everywhere
+      body: Desk edge, nightstand, car and behind the TV.
+    - title: 81,000+ ratings
+      body: One of the best-selling cable fixes on Amazon.
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
-      How many chargers are on your nightstand? 🔋
+      Watch the cable stay put. 🔌
 
-      The Anker MagGo 3-in-1 charges an iPhone, AirPods and an Apple Watch at the same time, with Qi2 magnetic charging, and folds small for a trip.
+      These self-adhesive OHill clips stick to a desk edge and hold your charging cable where you can grab it. Sixteen come in the pack.
 
-      Tip: Anker recommends a 40W USB-C power adapter to run it at full speed.
+      Tip: wipe the spot with a little rubbing alcohol first so they stick better.
 
       Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
     hashtags:
-    - wirelesscharger
-    - iphoneaccessories
-    - applewatch
-    - travelgadgets
+    - cablemanagement
+    - desksetup
+    - organization
+    - lifehacks
     - amazonfinds
     dm_message: |-
-      Here is the Anker MagGo 3-in-1 charging station: {link}
+      Here are the self-adhesive cable clips: {link}
 
       As an Amazon Associate I earn from qualifying purchases.
 - slot: 2026-10-31 08:00

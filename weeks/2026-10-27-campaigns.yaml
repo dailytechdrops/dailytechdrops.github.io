@@ -1,63 +1,10 @@
 # Creator Connections campaign reels (Kevin approved Oct 26 2026).
 # Amazon brands pay a bonus commission on top of the normal Associates rate, but only through the
 # campaign's own link, so each ASIN here must also be listed under amazon.campaign_links in config.yaml.
-# These three take the third (remix/test) slot on Oct 27, 28 and 29; the remixes they replace are
+# These three take the third (remix/test) slot on Oct 28, 29 and 30; the remixes they replace are
 # removed from weeks/2026-10-26-third-reel.yaml, so the day still has three reels.
-# Every brief requires a content link to be submitted before the campaign ends. No prices in captions.
-
-- slot: 2026-10-27 08:00
-  asin: B0HJ1HXBWY
-  name: zakotu MD10 Mini Body Camera
-  lane: home security and safety gadgets
-  hook_style: question
-  angle: A body camera the size of a thumb, with a magnetic clip, so delivery drivers, dog walkers and
-    night-shift workers can record what happens without holding anything.
-  key_facts:
-  - 1080P mini body camera, about 26 grams
-  - 360 degree clip and magnetic lanyard, 120 degree lens
-  - About 120 minutes of recording, and it records while charging
-  broll:
-  - security camera
-  - night street walking
-  - delivery driver
-  content:
-    beats:
-    - on_screen: Would you wear a camera?
-      voiceover: Would you wear a camera that weighs less than a key?
-      broll_query: small camera
-    - on_screen: Clips on, records 2 hours
-      voiceover: It clips anywhere with a magnet and records about two hours in ten eighty p.
-      broll_query: night street
-    - on_screen: Comment SHOP or tap the link in bio
-      voiceover: Comment SHOP and I will send you the link.
-      broll_query: walking at night
-    carousel:
-    - title: Would you wear a camera?
-      body: This one weighs about 26 grams.
-    - title: Magnetic clip
-      body: Shirt, strap or lanyard, no hands.
-    - title: Records about 2 hours
-      body: 1080P, and it records while charging.
-    - title: Comment SHOP
-      body: I will DM you the Amazon link.
-    caption: |-
-      A camera smaller than your thumb. 🎥
-
-      The zakotu MD10 clips on with a magnet and records in 1080P for about two hours, so walking the dog after dark or dropping off a delivery is on video without holding anything.
-
-      Tip: charge it while it records, and it keeps going.
-
-      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
-    hashtags:
-    - bodycamera
-    - personalsafety
-    - securitygadgets
-    - techfinds
-    - amazonfinds
-    dm_message: |-
-      Here is the mini body camera: {link}
-
-      As an Amazon Associate I earn from qualifying purchases.
+# Each brand was asked on Oct 26 for permission to use its listing photos; until one says yes,
+# its reel uses stock photos (photo_ids). Every brief requires a content link to be submitted before the campaign ends. No prices in captions.
 
 - slot: 2026-10-28 13:30
   asin: B0BZDJCGSR
@@ -75,6 +22,7 @@
   - home office desk
   - paperwork desk
   content:
+    photo_ids: [4943161, 7091494, 2559707]  # stock fallback until the brand approves its photos
     beats:
     - on_screen: Watch it open the mail
       voiceover: Watch this. The envelope goes in and comes out open.
@@ -129,6 +77,7 @@
   - travel bag packing
   - smartwatch charging
   content:
+    photo_ids: [3435343, 2568973, 2571409]  # stock fallback until the brand approves its photos
     beats:
     - on_screen: Three cables, one cord
       voiceover: Three chargers in your bag? This is one cord instead.
@@ -164,5 +113,60 @@
     - amazonfinds
     dm_message: |-
       Here is the 3-in-1 charging cable: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-10-30 15:30
+  asin: B0HJ1HXBWY
+  name: zakotu MD10 Mini Body Camera
+  lane: home security and safety gadgets
+  hook_style: question
+  angle: A body camera the size of a thumb, with a magnetic clip, so delivery drivers, dog walkers and
+    night-shift workers can record what happens without holding anything.
+  key_facts:
+  - 1080P mini body camera, about 26 grams
+  - 360 degree clip and magnetic lanyard, 120 degree lens
+  - About 120 minutes of recording, and it records while charging
+  broll:
+  - security camera
+  - night street walking
+  - delivery driver
+  content:
+    photo_ids: [9170093, 5630886, 4784803]  # stock fallback until the brand approves its photos
+    beats:
+    - on_screen: Would you wear a camera?
+      voiceover: Would you wear a camera that weighs less than a key?
+      broll_query: small camera
+    - on_screen: Clips on, records 2 hours
+      voiceover: It clips anywhere with a magnet and records about two hours in ten eighty p.
+      broll_query: night street
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: walking at night
+    carousel:
+    - title: Would you wear a camera?
+      body: This one weighs about 26 grams.
+    - title: Magnetic clip
+      body: Shirt, strap or lanyard, no hands.
+    - title: Records about 2 hours
+      body: 1080P, and it records while charging.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A camera smaller than your thumb. 🎥
+
+      The zakotu MD10 clips on with a magnet and records in 1080P for about two hours, so walking the dog after dark or dropping off a delivery is on video without holding anything.
+
+      Tip: charge it while it records, and it keeps going.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - bodycamera
+    - personalsafety
+    - securitygadgets
+    - techfinds
+    - amazonfinds
+    dm_message: |-
+      Here is the mini body camera: {link}
 
       As an Amazon Associate I earn from qualifying purchases.
