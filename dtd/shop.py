@@ -103,6 +103,7 @@ def build(cfg: dict, history: list) -> None:
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="6e85f01a269b53c34fe9467c8d2556e1"/>
 <title>Daily Tech Drops: cool tech finds on Amazon</title>
 <meta name="description" content="Every gadget from @{html.escape(handle)}, newest first. Cool tech finds on Amazon, new every day.">
 <meta property="og:title" content="Daily Tech Drops">
