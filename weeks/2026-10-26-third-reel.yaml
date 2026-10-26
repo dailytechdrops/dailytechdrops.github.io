@@ -1,0 +1,748 @@
+# Third daily reel, Oct 26 to Nov 6 2026 (Kevin chose 3 reels a day on Oct 26). Each one is a remix: a product
+# posted at least two days earlier, same photos, a different hook style, at a rotating test time
+# (15:30, 08:00, 13:30, 21:30). The weekly report compares hook styles, times of day, and each remix
+# against its first post. Facts are only those in the first post's key_facts. No prices.
+
+- slot: 2026-10-26 15:30
+  asin: B01M7U6F8T
+  name: Lamicall Aluminum Adjustable Phone Stand
+  lane: desk and productivity setup
+  remix_of: 2026-10-25-1400-B01M7U6F8T
+  hook_style: question
+  angle: 'The cheapest desk upgrade there is: your phone stands up at eye level, so you see texts, take video calls and follow
+    recipes hands free.'
+  key_facts:
+  - Aluminum adjustable desk phone holder
+  - Rated about 4.7 stars from 43,000+ ratings
+  - Thousands bought in the past month
+  broll:
+  - smartphone desk stand
+  - video call phone desk
+  - home office desk
+  content:
+    photo_query: assets/photos/phone-stand
+    beats:
+    - on_screen: Neck sore from looking down?
+      voiceover: Is your neck sore from looking down at your phone all day?
+      broll_query: smartphone desk
+    - on_screen: Eye level, hands free
+      voiceover: This aluminum stand holds it up at eye level, at any angle you like.
+      broll_query: phone stand
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office desk
+    carousel:
+    - title: Neck sore from looking down?
+      body: An aluminum stand puts it at eye level.
+    - title: Hands free
+      body: Texts, video calls, recipes and movies.
+    - title: Adjustable angle
+      body: Tilt it to fit your desk and your eyes.
+    - title: 4.7 stars, 43,000+ ratings
+      body: One of the most popular desk upgrades on Amazon.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Looking down at your phone all day? 📱
+
+      This Lamicall aluminum stand holds your phone at eye level, so texts, video calls and recipes are hands free. Tilt it to the angle you like.
+
+      Tip: set it beside your monitor so a glance replaces a pick-up.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - phonestand
+    - desksetup
+    - deskessentials
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here is the Lamicall aluminum phone stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-27 08:00
+  asin: B071FXZBMV
+  name: OHill Self-Adhesive Cable Clips (16 pack)
+  lane: desk and productivity setup
+  remix_of: 2026-10-25-1445-B071FXZBMV
+  hook_style: demo
+  angle: The charging cable that keeps sliding behind the desk, fixed for good. A satisfying two-minute cleanup and an easy
+    impulse buy.
+  key_facts:
+  - 16 self-adhesive cable clips that hold cords in place
+  - Rated about 4.4 stars from 81,000+ ratings
+  - Thousands bought in the past month
+  broll:
+  - desk cables
+  - charging cable desk
+  - tidy desk setup
+  content:
+    photo_query: assets/photos/cable-clips
+    beats:
+    - on_screen: Watch this cable stay put
+      voiceover: Watch this. The cable clicks in and stays where you can grab it.
+      broll_query: desk cables
+    - on_screen: 16 clips in one pack
+      voiceover: Sixteen sticky clips for the desk, nightstand and car.
+      broll_query: charging cable
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: desk setup
+    carousel:
+    - title: Watch this cable stay put
+      body: Sixteen little clips fix it for good.
+    - title: Stick, clip, done
+      body: Self-adhesive, so it takes about two minutes.
+    - title: Put them everywhere
+      body: Desk edge, nightstand, car and behind the TV.
+    - title: 81,000+ ratings
+      body: One of the best-selling cable fixes on Amazon.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Watch the cable stay put. 🔌
+
+      These self-adhesive OHill clips stick to a desk edge and hold your charging cable where you can grab it. Sixteen come in the pack.
+
+      Tip: wipe the spot with a little rubbing alcohol first so they stick better.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - cablemanagement
+    - desksetup
+    - organization
+    - lifehacks
+    - amazonfinds
+    dm_message: |-
+      Here are the self-adhesive cable clips: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-28 13:30
+  asin: B08CVKRZW9
+  name: Ultra-Thin Webcam Cover Slide (6 pack)
+  lane: home security and safety gadgets
+  remix_of: 2026-10-25-1530-B08CVKRZW9
+  hook_style: number
+  angle: 'Peace of mind for the price of a snack: a paper-thin slider that blocks the laptop camera when you are not using
+    it, with a six pack for every device in the house.'
+  key_facts:
+  - 6 pack of ultra-thin (0.022 inch) sliding webcam covers
+  - Fits laptops, tablets and phones; the laptop lid still closes
+  - Rated about 4.2 stars from 12,000+ ratings
+  - Thousands bought in the past month
+  broll:
+  - laptop webcam
+  - laptop privacy
+  - video call laptop
+  content:
+    photo_query: assets/photos/webcam-cover
+    beats:
+    - on_screen: Six covers, every screen
+      voiceover: Six paper-thin camera covers, one for every screen in the house.
+      broll_query: laptop camera
+    - on_screen: Slide open, slide shut
+      voiceover: Slide it open for calls, and shut when you are done.
+      broll_query: laptop video call
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: laptop desk
+    carousel:
+    - title: Six covers, every screen
+      body: A paper-thin slider fixes that.
+    - title: Slide open, slide shut
+      body: Open for calls, closed the rest of the time.
+    - title: Ultra thin
+      body: 0.022 inch, made for laptops, tablets and phones.
+    - title: 6 in the pack
+      body: Cover every device in the house.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Six covers, every screen in the house. 👀
+
+      These ultra-thin webcam sliders stick above the camera on a laptop, tablet or phone. Open for calls, closed the rest of the time.
+
+      Tip: on laptops that close very tight, check the fit guide on the listing first.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - webcamcover
+    - privacy
+    - laptopaccessories
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here are the ultra-thin webcam covers: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-29 21:30
+  asin: B09HM94VDS
+  name: Logitech MX Master 3S Wireless Mouse
+  lane: desk and productivity setup
+  remix_of: 2026-10-26-1130-B09HM94VDS
+  hook_style: question
+  angle: 'The mouse that people with serious desk setups keep recommending: a fast scroll wheel, quiet clicks, and one mouse
+    for several computers.'
+  key_facts:
+  - 8,000 DPI sensor that tracks even on glass
+  - Quiet Clicks buttons
+  - MagSpeed electromagnetic scroll wheel
+  - USB-C charging with up to 70 days of battery per charge
+  - Connects by Bluetooth or the Logi Bolt receiver
+  - Rated about 4.5 stars from 11,000+ ratings
+  broll:
+  - computer mouse hand
+  - office desk work
+  - person typing laptop
+  - video editing desk
+  content:
+    photo_query: ergonomic wireless mouse hand desk
+    photo_ids:
+    - 1999471
+    - 568968
+    - 1999471
+    beats:
+    - on_screen: Still scrolling forever?
+      voiceover: Still scrolling forever through long spreadsheets and pages?
+      broll_query: computer mouse scroll
+    - on_screen: MagSpeed scroll wheel
+      voiceover: The MX Master 3S spins through them in a flick, with quiet clicks.
+      broll_query: mouse hand desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Still scrolling forever?
+      body: The MagSpeed wheel is the star.
+    - title: Quiet clicks
+      body: Built for long workdays.
+    - title: Tracks on glass
+      body: 8,000 DPI sensor.
+    - title: 'Tip: pair more than one computer'
+      body: Switch between them with a button.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Still scrolling forever? 🖱️
+
+      The Logitech MX Master 3S has a MagSpeed electromagnetic scroll wheel that flies through long pages, quiet clicks, and a sensor that tracks even on glass.
+
+      Tip: it pairs by Bluetooth or the Logi Bolt receiver, so it works with a laptop and a desktop.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - desksetup
+    - logitech
+    - productivity
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Master 3S: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-30 15:30
+  asin: B0DDQ71B9P
+  name: Anker MagGo 3-in-1 Charging Station (Qi2, foldable)
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-10-26-1900-B0DDQ71B9P
+  hook_style: question
+  angle: One small magnetic stand that charges an iPhone, Apple Watch and AirPods together, then folds flat for the bag.
+  key_facts:
+  - Qi2 certified 15W magnetic charging for the iPhone
+  - Charges an iPhone, AirPods and an Apple Watch at the same time
+  - Folds down small for travel
+  - Anker recommends a 40W USB-C power adapter
+  - Rated about 4.5 stars (rating count not confirmed)
+  broll:
+  - bedside table phone charging
+  - apple watch charging
+  - airpods case
+  - packing suitcase travel
+  content:
+    photo_query: wireless charging pad phone desk
+    photo_ids:
+    - 4721542
+    - 6830011
+    - 4721542
+    beats:
+    - on_screen: How many chargers by your bed?
+      voiceover: How many chargers are tangled on your nightstand right now?
+      broll_query: bedside table phone
+    - on_screen: Phone, watch, earbuds, one stand
+      voiceover: This Anker MagGo stand charges all three at once, and folds up for travel.
+      broll_query: phone wireless charging
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: hotel room travel
+    carousel:
+    - title: How many chargers by your bed?
+      body: Phone, watch and earbuds charge together.
+    - title: Snaps on magnetically
+      body: Qi2 certified 15W for your iPhone.
+    - title: Folds flat
+      body: Small enough for your bag.
+    - title: 'Tip: strong adapter'
+      body: Anker recommends a 40W USB-C adapter.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      How many chargers are on your nightstand? 🔋
+
+      The Anker MagGo 3-in-1 charges an iPhone, AirPods and an Apple Watch at the same time, with Qi2 magnetic charging, and folds small for a trip.
+
+      Tip: Anker recommends a 40W USB-C power adapter to run it at full speed.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - wirelesscharger
+    - iphoneaccessories
+    - applewatch
+    - travelgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker MagGo 3-in-1 charging station: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-10-31 08:00
+  asin: B0D54JZTHY
+  name: Apple AirTag (4 Pack)
+  lane: home security and safety gadgets
+  remix_of: 2026-10-27-1130-B0D54JZTHY
+  hook_style: question
+  angle: 'Four tiny trackers for the things you always lose: keys, wallet, backpack and luggage. A pack of four also splits
+    easily across the family.'
+  key_facts:
+  - Tracks items in the Find My app on iPhone and iPad
+  - Works with Apple's Find My network
+  - Replaceable battery, and batteries are included
+  - Comes as a pack of four
+  - Rated about 4.8 stars from 40,000+ ratings
+  broll:
+  - lost keys
+  - luggage airport carousel
+  - backpack travel
+  - wallet pocket
+  content:
+    photo_query: keychain keys wallet
+    photo_ids:
+    - 4679225
+    - 5076561
+    - 4679225
+    beats:
+    - on_screen: Where did you leave your keys?
+      voiceover: Where did you leave your keys this time?
+      broll_query: searching for keys
+    - on_screen: Find them from your phone
+      voiceover: Put an AirTag on them and the Find My app shows you. Four come in the pack.
+      broll_query: luggage travel
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: travel suitcase
+    carousel:
+    - title: Where did you leave your keys?
+      body: Four tiny Apple trackers.
+    - title: Find My network
+      body: Locate items in the Find My app.
+    - title: Replaceable battery
+      body: Batteries are included in the pack.
+    - title: 'Tip: luggage'
+      body: Put one in your checked bag.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Where did you leave your keys this time? 🔑
+
+      Apple AirTags show up in the Find My app on iPhone and iPad. This pack has four, for keys, a wallet, a backpack and luggage.
+
+      Tip: the battery is replaceable, and the batteries are included.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - airtag
+    - findmy
+    - keyfinder
+    - travelhacks
+    - amazonfinds
+    dm_message: |-
+      Here is the Apple AirTag 4 pack: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-01 13:30
+  asin: B09B2SBHQK
+  name: Amazon Echo Show 5 (newest model, Charcoal)
+  lane: robots, clocks and fun tech
+  remix_of: 2026-10-27-1900-B09B2SBHQK
+  hook_style: number
+  angle: A small smart display that makes a great bedside or kitchen clock, with Alexa for timers, music and quick questions.
+  key_facts:
+  - 5.5 inch smart display with Alexa
+  - Newest model has 2x the bass and clearer sound than the previous version, per the listing
+  - Works as a bedside clock and alarm
+  - Reviewers mention on-screen ads and some lag
+  - Rated about 4.4 stars from 36,000+ ratings
+  broll:
+  - bedside alarm clock
+  - kitchen counter morning
+  - smart speaker home
+  - woman waking up bed
+  content:
+    photo_query: smart display screen home
+    photo_ids:
+    - 2116043
+    - 2565479
+    - 2565479
+    beats:
+    - on_screen: A 5.5 inch screen by your bed
+      voiceover: A five and a half inch screen for your nightstand.
+      broll_query: bedside alarm clock
+    - on_screen: Clock, alarm, and more
+      voiceover: The Echo Show 5 is a bedside clock and alarm with Alexa built in.
+      broll_query: smart speaker
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home living room
+    carousel:
+    - title: A 5.5 inch screen by your bed
+      body: Alexa on a 5.5 inch screen.
+    - title: Timers, music, weather
+      body: Ask, then see it on screen.
+    - title: 2x the bass
+      body: Clearer sound in the newest model.
+    - title: 'Tip: bedside or kitchen'
+      body: It works great as a clock and alarm.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A small screen that earns its spot on the nightstand. ⏰
+
+      The Echo Show 5 is a 5.5 inch smart display with Alexa: a bedside clock and alarm, with more sound than the last version, per the listing.
+
+      Tip: some reviewers mention on-screen ads, so check the display settings when you set it up.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - echoshow
+    - alexa
+    - smarthome
+    - bedsidegadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Amazon Echo Show 5: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-02 21:30
+  asin: B07BCHKHTG
+  name: Scandinavian Hub Under-Desk Cable Management Trays (set of 2)
+  lane: desk and productivity setup
+  remix_of: 2026-10-28-1130-B07BCHKHTG
+  hook_style: number
+  angle: Hide the power strip and the tangle of cables under your desk in minutes. The before-and-after is the whole video.
+  key_facts:
+  - Set of two powder-coated steel cable trays
+  - Screws on under the desk
+  - Holds power strips and cables out of sight
+  - Rated about 4.7 stars from 10,000+ ratings
+  broll:
+  - messy cables desk
+  - tidy desk setup
+  - power strip cables
+  - computer desk clean
+  content:
+    photo_query: desk setup computer cables office
+    photo_ids:
+    - 1819187
+    - 2568270
+    - 2604260
+    beats:
+    - on_screen: Two trays, zero cable mess
+      voiceover: Two steel trays, and the cable mess under your desk is gone.
+      broll_query: messy cables
+    - on_screen: Screws on under the desk
+      voiceover: They screw on under the desk and hide the power strip and cables.
+      broll_query: power strip cables
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: clean workspace
+    carousel:
+    - title: Two trays, zero cable mess
+      body: Two steel trays under your desk.
+    - title: Powder-coated steel
+      body: A set of two.
+    - title: Power strip, gone
+      body: Cables disappear from sight.
+    - title: 'Tip: plan first'
+      body: Hold it up before you screw it on.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Two trays, zero cable mess. 🧹
+
+      These Scandinavian Hub steel trays screw on under the desk and hold the power strip and every cable out of sight.
+
+      Tip: drop the power strip in first, then run each cable along the tray before plugging it in.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - cablemanagement
+    - desksetup
+    - cleansetup
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here are the Scandinavian Hub cable trays: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-03 15:30
+  asin: B0C9CJKCH3
+  name: Anker Nano Power Bank (10K, 30W, built-in USB-C cable)
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-10-28-1900-B0C9CJKCH3
+  hook_style: statement
+  angle: A pocket power bank with the cable already built in, so you can never show up with the wrong one.
+  key_facts:
+  - 10,000mAh with a built-in USB-C cable
+  - 30W fast charging
+  - Also has a USB-C port and a USB-A port
+  - Recharges to 50% in about 45 minutes, per Anker
+  - 24-month warranty, per Anker
+  - Rated about 4.5 stars from 8,500+ ratings
+  broll:
+  - phone charging outdoors
+  - commuter phone train
+  - hand holding power bank
+  - backpack travel
+  content:
+    photo_query: usb c cable laptop desk
+    photo_ids:
+    - 4498741
+    - 3146387
+    - 5682222
+    beats:
+    - on_screen: Never pack a charging cable again
+      voiceover: Never pack a separate charging cable again.
+      broll_query: hand holding phone
+    - on_screen: The cable is built in
+      voiceover: This Anker Nano power bank has a USB-C cable built right in, with thirty watt fast charging.
+      broll_query: power bank
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: commuter train
+    carousel:
+    - title: Never pack a charging cable again
+      body: No more forgetting it.
+    - title: 10,000mAh, 30W
+      body: The Anker Nano.
+    - title: 50% in about 30 minutes
+      body: For an iPhone 14, per Anker.
+    - title: 'Tip: tuck the cable'
+      body: Keep it along the body in your bag.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Never pack a separate charging cable again. 🔋
+
+      The Anker Nano power bank has a USB-C cable built in, holds 10,000 mAh and charges at up to 30W. It also has a USB-C port and a USB-A port.
+
+      Tip: Anker says it recharges to about half in around 45 minutes.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - powerbank
+    - travelgadgets
+    - everydaycarry
+    - phonecharger
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Nano power bank: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-04 08:00
+  asin: B0BWWZXWPL
+  name: Blink Mini 2 Security Camera (White)
+  lane: home security and safety gadgets
+  remix_of: 2026-10-29-1130-B0BWWZXWPL
+  hook_style: demo
+  angle: A tiny plug-in camera that watches the front hall or a pet corner, with color night view and two-way talk.
+  key_facts:
+  - 1080p HD video
+  - Color night view with a built-in spotlight
+  - Two-way audio
+  - Plug-in power; works outdoors with a separate weather-resistant adapter
+  - Longer live view and saved clips need a Blink subscription plan, sold separately
+  - Rated about 4.4 stars from 3,700+ ratings
+  broll:
+  - dark hallway night
+  - front door home
+  - dog home alone
+  - security camera
+  content:
+    photo_query: home security camera outdoor wall
+    photo_ids:
+    - 8005038
+    - 7546818
+    - 2796210
+    beats:
+    - on_screen: Watch the hallway light up
+      voiceover: Watch this tiny camera light up a dark hallway and show it in color.
+      broll_query: dark hallway
+    - on_screen: Spotlight and two-way audio
+      voiceover: The Blink Mini 2 has a built-in spotlight and two-way audio.
+      broll_query: night home
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: house night
+    carousel:
+    - title: Watch the hallway light up
+      body: Color night view in a tiny camera.
+    - title: 1080p HD
+      body: The Blink Mini 2 plugs in.
+    - title: Two-way audio
+      body: Talk back from your phone.
+    - title: 'Tip: subscription'
+      body: Longer live view and clips need a Blink plan.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Watch a dark hallway show up in color. 🏠
+
+      The Blink Mini 2 is a small plug-in camera with 1080p video, a built-in spotlight for color night view, and two-way audio.
+
+      Tip: longer live view and saved clips need a Blink plan, sold separately, so check that before you buy.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - homesecurity
+    - securitycamera
+    - blink
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the Blink Mini 2 camera: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-05 13:30
+  asin: B0BKW3LB2B
+  name: Logitech MX Keys S Wireless Keyboard
+  lane: desk and productivity setup
+  remix_of: 2026-10-30-1130-B0BKW3LB2B
+  hook_style: question
+  angle: A low-profile keyboard with keys that light up as your hands get close. It is the one on every clean desk setup.
+  key_facts:
+  - Backlit keys that light up as your hands approach
+  - Low profile keys shaped for comfortable, quiet typing
+  - Pairs with up to 3 devices by Bluetooth or the Logi Bolt receiver
+  - 'USB-C rechargeable: up to 10 days with backlight on, up to 5 months with it off'
+  - Works with Windows, macOS, Linux, Chrome OS and iPadOS
+  - Rated about 4.4 stars from 3,700+ ratings
+  broll:
+  - backlit keyboard typing
+  - laptop desk night
+  - office keyboard close up
+  - home office desk
+  content:
+    photo_query: backlit keyboard desk night
+    photo_ids:
+    - 549080
+    - 2654109
+    - 4233900
+    beats:
+    - on_screen: Typing in the dark?
+      voiceover: Ever try typing in the dark and miss every key?
+      broll_query: backlit keyboard
+    - on_screen: Keys that light up
+      voiceover: The MX Keys S lights up as your hands get close, and pairs with three devices.
+      broll_query: typing laptop
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Typing in the dark?
+      body: They glow as your hands get close.
+    - title: Low profile, quiet
+      body: Shaped for comfortable typing.
+    - title: Up to 3 devices
+      body: Bluetooth or Logi Bolt.
+    - title: 'Tip: battery life'
+      body: 10 days with backlight, 5 months without.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Typing in the dark? ⌨️
+
+      The Logitech MX Keys S has backlit keys that light up as your hands get close, quiet low-profile typing, and pairs with up to three devices.
+
+      Tip: with the backlight off, Logitech says a charge lasts up to five months.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - desksetup
+    - logitech
+    - keyboard
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Keys S: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-06 21:30
+  asin: B0DGKWTQQC
+  name: Anker Nano Power Bank (10K, 45W, retractable cable)
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-10-30-1900-B0DGKWTQQC
+  hook_style: number
+  angle: A power bank with a retractable USB-C cable that pulls out and snaps back, so nothing tangles in your bag.
+  key_facts:
+  - 10,000mAh with a built-in 2.3 ft retractable USB-C cable
+  - 45W max output
+  - Cable rated by Anker for over 20,000 bends
+  - Rated about 4.6 stars (1,900+ ratings on Amazon UK; US count not confirmed)
+  broll:
+  - tangled cables bag
+  - backpack travel
+  - phone charging cafe
+  - hand holding power bank
+  content:
+    photo_query: usb c cable travel bag
+    photo_ids:
+    - 4498741
+    - 7832257
+    - 5123473
+    beats:
+    - on_screen: Rated for 20,000 bends
+      voiceover: This cable is rated for over twenty thousand bends.
+      broll_query: hand pulling cable
+    - on_screen: Pull it out, it snaps back
+      voiceover: Pull it out of the Anker Nano, and it snaps back when you are done.
+      broll_query: phone charging
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: cafe travel
+    carousel:
+    - title: Rated for 20,000 bends
+      body: A retractable USB-C cable inside.
+    - title: 10,000mAh, 45W
+      body: The Anker Nano.
+    - title: Built to bend
+      body: Rated for 20,000+ bends.
+    - title: 'Tip: no tangles'
+      body: Slide it back in before packing.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A cable rated for 20,000 bends. 🔋
+
+      This Anker Nano power bank has a 2.3 ft retractable USB-C cable built in, 10,000 mAh, and up to 45W of output.
+
+      Tip: it rides in a jacket pocket, so it is easy to keep on you all day.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - powerbank
+    - travelgadgets
+    - everydaycarry
+    - anker
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Nano 45W power bank: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
