@@ -45,7 +45,7 @@ def render(cfg: dict, week: Path) -> int:
         out = OUTPUT_DIR / item["id"]
         content = write_content(cfg, item)
         try:
-            reel = render_reel(cfg, content, out / "work")
+            reel = render_reel(cfg, content, out / "work", item["name"])
         except Exception as e:
             print(f"::error title=Reel failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
             raise
@@ -59,7 +59,7 @@ def render(cfg: dict, week: Path) -> int:
             else:
                 alt["voice"]["provider"], alt["voice"]["piper_voice"] = "piper", voice
             voice = voice.replace(":", "-")
-            render_reel(alt, content, out / "work" / voice).rename(out / f"reel-{voice}.mp4")
+            render_reel(alt, content, out / "work" / voice, item["name"]).rename(out / f"reel-{voice}.mp4")
         slides = render_carousel(cfg, content, out)
         link = affiliate_link(cfg, item["asin"])
         draft = {

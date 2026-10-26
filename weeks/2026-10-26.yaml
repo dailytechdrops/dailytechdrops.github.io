@@ -378,6 +378,7 @@
     - video editing desk
   content:
     photo_query: ergonomic wireless mouse hand desk
+    photo_ids: [1999471, 568968, 1999471]
     beats:
       - on_screen: Scroll 1000 lines in one second
         voiceover: This scroll wheel flies through a thousand lines in one second.
@@ -443,6 +444,7 @@
     - packing suitcase travel
   content:
     photo_query: wireless charging pad phone desk
+    photo_ids: [4721542, 6830011, 4721542]
     beats:
       - on_screen: Three devices, one tiny stand
         voiceover: One small stand charges your phone, watch, and earbuds at once.
@@ -506,6 +508,7 @@
     - wallet pocket
   content:
     photo_query: keychain keys wallet
+    photo_ids: [4679225, 5076561, 4679225]
     beats:
       - on_screen: Never lose your keys again
         voiceover: Stop tearing the house apart looking for your keys.
@@ -571,6 +574,7 @@
     - woman waking up bed
   content:
     photo_query: smart display screen home
+    photo_ids: [2116043, 2565479, 2565479]
     beats:
       - on_screen: A bedside clock that talks back
         voiceover: Your alarm clock could do a lot more than beep.
@@ -633,6 +637,7 @@
     - computer desk clean
   content:
     photo_query: desk setup computer cables office
+    photo_ids: [1819187, 2568270, 2604260]
     beats:
       - on_screen: Hide the cable mess
         voiceover: Look at the cable mess under this desk. Now look at it with two trays.
@@ -697,6 +702,7 @@
     - backpack travel
   content:
     photo_query: usb c cable laptop desk
+    photo_ids: [4498741, 3146387, 5682222]
     beats:
       - on_screen: The cable is built in
         voiceover: Here is a power bank with the cable already built in.
@@ -763,6 +769,7 @@
     - security camera
   content:
     photo_query: home security camera outdoor wall
+    photo_ids: [8005038, 7546818, 2796210]
     beats:
       - on_screen: See your house in the dark
         voiceover: Even in a dark hallway, this tiny camera shows you color video.
@@ -825,6 +832,7 @@
     - morning alarm
   content:
     photo_query: alarm clock bedside table
+    photo_ids: [8382954, 6830011, 5084284]
     beats:
       - on_screen: A clock that glows and listens
         voiceover: This little speaker doubles as a glowing clock.
@@ -889,6 +897,7 @@
     - home office desk
   content:
     photo_query: backlit keyboard desk night
+    photo_ids: [549080, 2654109, 4233900]
     beats:
       - on_screen: The keys light up as you reach
         voiceover: Watch the keys light up the moment your hands get close.
@@ -951,6 +960,7 @@
     - hand holding power bank
   content:
     photo_query: usb c cable travel bag
+    photo_ids: [4498741, 7832257, 5123473]
     beats:
       - on_screen: The cable pulls out and snaps back
         voiceover: Watch this cable pull out, and then snap right back in.

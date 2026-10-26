@@ -110,16 +110,27 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
 
 
 # Pixabay tags that mean the picture shows a different brand, or an old or black and white look.
-_BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock", "car", "vehicle", "electric car", "charging station", "flower", "flowers", "mountain", "hiking", "bottle", "drink", "virus", "malware", "biohazard", "danger", "hacker", "cinnamon", "spice", "food"}
+_BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock", "car", "vehicle", "electric car", "charging station", "flower", "flowers", "mountain", "hiking", "bottle", "drink", "virus", "malware", "biohazard", "danger", "hacker", "cinnamon", "spice", "food",
+             "online", "dating", "valentine", "social media", "illustration"}
 
 
-def stock_photo(query: str, out: Path, n: int = 0) -> Path | None:
+def stock_photo(query: str | None, out: Path, n: int = 0, ids: list[int] | None = None) -> Path | None:
     """A tall, sharp stock photo of the product type (Pixabay, free), or None.
 
     Pixabay's own order is loose, so the 40 best matches are re-ranked by how many query words
     show up in their tags, and ones tagged with another brand or an old look are pushed down.
 
-    A query naming a folder under assets/photos/ uses our own product photos instead, in name order."""
+    A query naming a folder under assets/photos/ uses our own product photos instead, in name order.
+    Pixabay ids picked by hand (ids) win over the search: the nth photo is ids[n], wrapping around."""
+    if ids and env("PIXABAY_API_KEY"):
+        r = requests.get("https://pixabay.com/api/", params={"key": env("PIXABAY_API_KEY"), "id": ids[n % len(ids)]}, timeout=60)
+        r.raise_for_status()
+        hit = (r.json().get("hits") or [None])[0]
+        if hit:
+            data = requests.get(hit.get("largeImageURL") or hit["webformatURL"], timeout=120)
+            data.raise_for_status()
+            out.write_bytes(data.content)
+            return out
     own = ROOT / query if query and query.startswith("assets/photos/") else None
     if own and own.is_dir():
         from PIL import Image, ImageOps
