@@ -91,7 +91,8 @@ def build(cfg: dict, history: list) -> None:
 body {{ margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 Inter, system-ui, sans-serif; }}
 main {{ max-width:520px; margin:0 auto; padding:24px 16px 48px; }}
 h1 {{ font:700 28px/1.2 Poppins, system-ui, sans-serif; margin:0 0 4px; }}
-p.sub {{ color:var(--muted); margin:0 0 20px; }}
+p.sub {{ color:var(--muted); margin:0 0 6px; }}
+p.disclose {{ color:var(--muted); font-size:13px; margin:0 0 20px; }}
 .card {{ display:flex; gap:14px; align-items:center; background:var(--card); border-radius:16px; padding:12px; margin-bottom:12px; text-decoration:none; color:inherit; box-shadow:0 1px 4px rgba(59,47,39,.08); }}
 .card img {{ width:88px; height:110px; object-fit:cover; border-radius:10px; flex:none; }}
 .meta {{ display:flex; flex-direction:column; gap:4px; }}
@@ -106,6 +107,7 @@ footer {{ color:var(--muted); font-size:13px; margin-top:24px; }}
 </style></head><body><main>
 <h1>Daily Tech Drops</h1>
 <p class="sub">Every gadget from @{html.escape(handle)}, newest first.</p>
+<p class="disclose">As an Amazon Associate we earn from qualifying purchases. Product links on this page are affiliate links.</p>
 {chr(10).join(cards) or "<p>Our first drop is coming soon.</p>"}
 {earlier_html}
 <footer>As an Amazon Associate we earn from qualifying purchases.</footer>
