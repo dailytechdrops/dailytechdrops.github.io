@@ -582,8 +582,8 @@
     - 7546818
     - 2796210
     beats:
-    - on_screen: Watch the hallway light up
-      voiceover: Watch this tiny camera light up a dark hallway and show it in color.
+    - on_screen: Watch your home after dark
+      voiceover: Watch this tiny camera keep an eye on home after dark, in color.
       broll_query: dark hallway
     - on_screen: Spotlight and two-way audio
       voiceover: The Blink Mini 2 has a built-in spotlight and two-way audio.
@@ -592,7 +592,7 @@
       voiceover: Comment SHOP and I will send you the link.
       broll_query: house night
     carousel:
-    - title: Watch the hallway light up
+    - title: Watch your home after dark
       body: Color night view in a tiny camera.
     - title: 1080p HD
       body: The Blink Mini 2 plugs in.
@@ -603,7 +603,7 @@
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
-      Watch a dark hallway show up in color. 🏠
+      Watch home after dark, in color. 🏠
 
       The Blink Mini 2 is a small plug-in camera with 1080p video, a built-in spotlight for color night view, and two-way audio.
 
