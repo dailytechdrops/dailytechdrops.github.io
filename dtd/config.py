@@ -55,6 +55,11 @@ def env(name: str) -> str | None:
 
 
 def affiliate_link(cfg: dict, asin: str) -> str:
+    """A Creator Connections campaign link when the ASIN has one (amazon.campaign_links),
+    since only that link earns the brand's bonus commission; otherwise the tagged product link."""
+    campaign = (cfg["amazon"].get("campaign_links") or {}).get(asin)
+    if campaign:
+        return campaign
     base = f"https://{cfg['amazon']['marketplace']}/dp/{asin}"
     tag = cfg["amazon"]["tag"]
     return f"{base}?tag={tag}" if tag else base
@@ -63,9 +68,10 @@ def affiliate_link(cfg: dict, asin: str) -> str:
 def channel_link(cfg: dict, link: str, channel: str) -> str:
     """Swaps the base tag for the channel's own tracking ID (amazon.channel_tags), so the
     Associates reports show whether a sale came from the shop page, Facebook or YouTube.
-    Channels without their own ID keep the base tag, so no link ever loses its tag."""
+    Channels without their own ID keep the base tag, so no link ever loses its tag.
+    Campaign links are left exactly as Amazon issued them, so the bonus still tracks."""
     tag = (cfg["amazon"].get("channel_tags") or {}).get(channel)
     base = cfg["amazon"]["tag"]
-    if not tag or not base:
+    if not tag or not base or link in (cfg["amazon"].get("campaign_links") or {}).values():
         return link
     return re.sub(rf"([?&]tag=){re.escape(base)}(?=&|$)", rf"\g<1>{tag}", link)

@@ -23,6 +23,11 @@ amazon:
     facebook: ""    # links in Facebook reel captions
     youtube: ""     # links in YouTube Shorts descriptions
     threads: ""     # links in Threads posts
+  # Creator Connections (Kevin invited Oct 26 2026): brands pay a bonus commission on top of the
+  # normal rate, but only through the campaign's own link ("Get affiliate link" on the campaign page).
+  # ASIN: link. Every post, DM and shop card for that ASIN then uses it. Remove an entry when
+  # its campaign ends.
+  campaign_links: {}
 
 analytics:
   # GoatCounter site code (free, goatcounter.com): counts shop page visits and which
