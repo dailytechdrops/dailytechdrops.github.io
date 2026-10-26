@@ -22,6 +22,11 @@ week toward the lanes, product types and hooks that earned the most link DMs, sa
 weakest, while still rotating lanes. Open the week's pull request body with two or three lines on what the report
 showed and how it shaped the picks.
 
+**Which posts drive sales:** the shop page counts visits and every tap on a product card (GoatCounter, site code in
+`config.yaml`), and the weekly report lists them under "Shop page". Links on the shop page, Facebook and YouTube can
+each carry their own Associates tracking ID (`amazon.channel_tags`), so the Associates Orders report shows which
+channel and product earned each sale. Empty channel tags fall back to the base tag.
+
 A post more than 6 hours late (for example, a week merged on Tuesday) is skipped rather than posted late.
 To pull one product, delete it from the week file before its time.
 
@@ -39,6 +44,7 @@ Settings > Secrets and variables > Actions.
 | `PEXELS_API_KEY` | pexels.com/api (free, but new keys were paused when we tried in Oct 2026) | Optional alternative to Pixabay |
 | `ANTHROPIC_API_KEY` | console.anthropic.com (paid) | No. Only for products without pre-written content |
 | `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
+| `GOATCOUNTER_TOKEN` | goatcounter.com (free) > Settings > API > new token with "Read statistics" | For shop page clicks in the weekly report |
 | `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
 
 | Variable | Value |

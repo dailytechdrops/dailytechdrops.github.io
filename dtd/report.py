@@ -7,8 +7,10 @@ products) and keeps a follower history in state/insights.json for week-over-week
 from collections import defaultdict
 from datetime import datetime, timedelta
 
+import requests
+
 from . import instagram
-from .config import EASTERN, ROOT, load_all_weeks, read_state, write_state
+from .config import EASTERN, ROOT, env, load_all_weeks, load_config, read_state, write_state
 
 REPORTS_DIR = ROOT / "reports"
 POST_METRICS = ["reach", "views", "likes", "comments", "saved", "shares", "total_interactions"]
@@ -64,6 +66,7 @@ def build(days: int = 7) -> tuple[str, str]:
         f"**Accounts reached:** {totals.get('reach', 0):,.0f}  ·  **Views:** {totals.get('views', 0):,.0f}  ·  "
         f"**Engaged:** {totals.get('accounts_engaged', 0):,.0f}  ·  **Bio link taps:** {totals.get('profile_links_taps', 0):,.0f}\n"
     )
+    md += shop_section(since, until)
     if not rows:
         md.append("No posts in the last 7 days.")
         return title, "\n".join(md) + "\n"
@@ -98,6 +101,44 @@ def build(days: int = 7) -> tuple[str, str]:
     if lane_rows[0][0] != "other":
         md.append(f"- Strongest lane: **{lane_rows[0][0]}**. Lean into it next week while keeping the mix varied.")
     return title, "\n".join(md) + "\n"
+
+
+def shop_section(since: datetime, until: datetime) -> list[str]:
+    """Shop page visits, where they came from, and which product cards were tapped through
+    to Amazon, from GoatCounter. A tap is the last step we can see before Amazon; the
+    Associates Orders report (by tracking ID) shows what was bought."""
+    code = (load_config().get("analytics") or {}).get("goatcounter")
+    token = env("GOATCOUNTER_TOKEN")
+    md = ["### Shop page\n"]
+    if not (code and token):
+        md.append("Shop page stats are not connected yet (needs the GOATCOUNTER_TOKEN secret).\n")
+        return md
+    api = f"https://{code}.goatcounter.com/api/v0"
+    params = {"start": f"{since:%Y-%m-%d}", "end": f"{until:%Y-%m-%d}", "limit": 100}
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    try:
+        hits = requests.get(f"{api}/stats/hits", params=params, headers=headers, timeout=60)
+        hits.raise_for_status()
+        refs = requests.get(f"{api}/stats/toprefs", params=params, headers=headers, timeout=60)
+        refs.raise_for_status()
+    except requests.RequestException as e:
+        md.append(f"Could not read shop page stats this week: {str(e)[:200]}\n")
+        return md
+    rows = hits.json().get("hits") or []
+    visits = sum(h.get("count", 0) for h in rows if not h.get("event"))
+    taps = sorted((h for h in rows if h.get("event") and str(h.get("path", "")).startswith("amazon-")), key=lambda h: h.get("count", 0), reverse=True)
+    reels = sum(h.get("count", 0) for h in rows if h.get("event") and str(h.get("path", "")).startswith("reel-"))
+    md.append(f"**Visits:** {visits}  ·  **Taps to Amazon:** {sum(h.get('count', 0) for h in taps)}  ·  **Reel plays:** {reels}\n")
+    sources = [r for r in (refs.json().get("stats") or []) if r.get("count")]
+    if sources:
+        md.append("Came from: " + ", ".join(f"{r.get('name') or 'direct or app'} {r['count']}" for r in sources[:6]) + "\n")
+    if taps:
+        md.append("| Product tapped | Taps |")
+        md.append("| --- | ---: |")
+        for h in taps[:15]:
+            md.append(f"| {(h.get('title') or h['path']).replace('|', '/')} | {h.get('count', 0)} |")
+        md.append("")
+    return md
 
 
 def run() -> str:

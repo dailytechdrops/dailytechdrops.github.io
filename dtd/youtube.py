@@ -14,7 +14,7 @@ from pathlib import Path
 
 import requests
 
-from .config import env
+from .config import channel_link, env
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
@@ -59,7 +59,7 @@ def description_for(cfg: dict, draft: dict) -> str:
     description carries the link instead. Shorts descriptions do not make links
     clickable, so the shop page is named too; it is also linked on the channel."""
     return "\n".join([
-        f"{draft['name']}: {draft['link']}",
+        f"{draft['name']}: {channel_link(cfg, draft['link'], 'youtube')}",
         "",
         f"Every gadget we post: {SHOP_URL}",
         "Prices change often, so check Amazon for today's price.",

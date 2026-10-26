@@ -9,7 +9,7 @@ from urllib.parse import quote_plus
 
 import yaml
 
-from .config import ROOT, affiliate_link, env
+from .config import ROOT, affiliate_link, channel_link, env
 from .media_sources import stock_photo
 
 IMG_DIR = ROOT / "docs" / "img"
@@ -44,6 +44,11 @@ def _img_for_card(item_id: str, base: str) -> str:
     return f"img/{item_id}.jpg" if (IMG_DIR / f"{item_id}.jpg").exists() else f"{base}/{item_id}/slide_1.jpg"
 
 
+def _track(event: str, name: str) -> str:
+    """GoatCounter counts a tap on any link carrying these, named by product, so the weekly report can rank them."""
+    return f'data-goatcounter-click="{html.escape(event)}" data-goatcounter-title="{html.escape(name)}"'
+
+
 def build(cfg: dict, history: list) -> None:
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
     handle = cfg["brand"]["handle"]
@@ -52,27 +57,30 @@ def build(cfg: dict, history: list) -> None:
         when = datetime.strptime(h["id"][:10], "%Y-%m-%d").strftime("%b %d").replace(" 0", " ")
         reel = f"https://cdn.jsdelivr.net/gh/{os.environ.get('GITHUB_REPOSITORY', '')}@media/{h['id']}/reel.mp4"
         cards.append(
-            f'<div class="item"><a class="card" href="{html.escape(h["link"])}" rel="sponsored noopener">'
+            f'<div class="item"><a class="card" href="{html.escape(channel_link(cfg, h["link"], "shop"))}" rel="sponsored noopener" {_track("amazon-" + h["id"], h["name"])}>'
             f'<img src="{_img_for_card(h["id"], base)}" alt="" loading="lazy">'
             f'<span class="meta"><span class="date">{when}</span>'
             f'<strong>{html.escape(h["name"])}</strong><span class="cta">See it on Amazon</span></span></a>'
-            f'<a class="reel" href="{reel}">Watch the reel</a></div>'
+            f'<a class="reel" href="{reel}" {_track("reel-" + h["id"], h["name"])}>Watch the reel</a></div>'
         )
     earlier = []
     archive = ROOT / "shop_archive.yaml"
     for e in (yaml.safe_load(archive.read_text()) or []) if archive.exists() else []:
         if e.get("asin"):
-            link = affiliate_link(cfg, e["asin"])
+            link = channel_link(cfg, affiliate_link(cfg, e["asin"]), "shop")
         else:
             link = f"https://{cfg['amazon']['marketplace']}/s?k={quote_plus(e['search'])}" + (f"&tag={cfg['amazon']['tag']}" if cfg["amazon"]["tag"] else "")
+            link = channel_link(cfg, link, "shop")
         pic = IMG_DIR / f"{_slug(e['name'])}.jpg"
         thumb = f'<img src="img/{pic.name}" alt="" loading="lazy">' if pic.exists() else f'<span class="tile">{html.escape(e["name"][0].upper())}</span>'
         earlier.append(
-            f'<a class="card" href="{html.escape(link)}" rel="sponsored noopener">{thumb}'
+            f'<a class="card" href="{html.escape(link)}" rel="sponsored noopener" {_track("amazon-" + _slug(e["name"]), e["name"])}>{thumb}'
             f'<span class="meta"><strong>{html.escape(e["name"])}</strong>'
             f'<span class="date">{html.escape(e.get("tagline", ""))}</span>'
             f'<span class="cta">See it on Amazon</span></span></a>'
         )
+    code = (cfg.get("analytics") or {}).get("goatcounter")
+    counter = f'<script data-goatcounter="https://{code}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' if code else ""
     earlier_html = ("<h2>Earlier picks</h2>\n" + "\n".join(earlier)) if earlier else ""
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -101,7 +109,9 @@ footer {{ color:var(--muted); font-size:13px; margin-top:24px; }}
 {chr(10).join(cards) or "<p>Our first drop is coming soon.</p>"}
 {earlier_html}
 <footer>As an Amazon Associate we earn from qualifying purchases.</footer>
-</main></body></html>
+</main>
+{counter}
+</body></html>
 """
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "index.html").write_text(page)
