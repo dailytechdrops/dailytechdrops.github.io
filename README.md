@@ -15,11 +15,14 @@ then posts at its scheduled time, and anyone who comments **LINK** gets the affi
 | You merge | | The week is approved |
 | Every 30 min | `Post and reply` | Posts the next product whose time has come; DMs the link to keyword comments |
 | Sunday late morning | `Weekly report` | Measures the last 7 days per post and lane, saves `reports/latest.md` for the Sunday research, opens an issue with the report |
+| Every morning | `Winners dashboard` | Ranks every reel from the last 30 days by reach, saves, shares, watch time and shop taps at [winners.html](https://kevingalus.github.io/daily-tech-drops/winners.html); saves `reports/winners.md` |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |
 
 **Sunday research, read this:** if `reports/latest.md` exists, it is last week's performance report. Weight the new
 week toward the lanes, product types and hooks that earned the most link DMs, saves and shares, and away from the
-weakest, while still rotating lanes. Open the week's pull request body with two or three lines on what the report
+weakest, while still rotating lanes. Its "What to repeat" list (from the winners dashboard, last 30 days, also in
+`reports/winners.md` with every reel ranked) names the lane, hook style, time of day and products to repeat: follow
+it for hooks and remix picks unless it says there is no clear winner yet. Open the week's pull request body with two or three lines on what the report
 showed and how it shaped the picks.
 
 ## Growth experiments (from Oct 26 2026)
