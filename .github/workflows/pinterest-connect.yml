@@ -1,0 +1,31 @@
+name: Connect Pinterest
+
+# One time (or whenever Pinterest stops working): open docs/pinterest-connect.html, approve,
+# copy the code it shows, then run this workflow with that code. It saves PINTEREST_REFRESH_TOKEN.
+
+on:
+  workflow_dispatch:
+    inputs:
+      code:
+        description: "The code shown on the Connect Pinterest page"
+        required: true
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Exchange the code and store the refresh token
+        env:
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_CODE: ${{ inputs.code }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          NEW=$(python -m dtd pinterest-connect)
+          echo "::add-mask::$NEW"
+          gh secret set PINTEREST_REFRESH_TOKEN --repo "${{ github.repository }}" --body "$NEW"
+          echo "Pinterest connected."

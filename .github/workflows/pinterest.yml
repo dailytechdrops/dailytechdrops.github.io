@@ -1,0 +1,71 @@
+name: Pinterest Pins
+
+# Every hour: pin the newest reel already posted to Instagram as a Pinterest video Pin.
+# Separate from Post and reply so a Pinterest problem never delays Instagram.
+# Each run also saves the new Pinterest refresh token (needs GH_PAT, like the Instagram refresh).
+
+on:
+  schedule:
+    - cron: "41 * * * *"
+  workflow_dispatch:
+    inputs:
+      item:
+        description: "Optional: id of one posted reel to pin, e.g. 2026-10-27-1130-B0C19CBT2N"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: state-writes
+  cancel-in-progress: false
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - run: git fetch origin media || true
+
+      - name: Pin the next reel
+        env:
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
+          PINTEREST_ITEM: ${{ inputs.item }}
+          PINTEREST_NEW_REFRESH_FILE: ${{ runner.temp }}/pinterest_refresh
+        run: python -m dtd pinterest-due
+
+      - name: Save the new refresh token
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          FILE="${{ runner.temp }}/pinterest_refresh"
+          [ -s "$FILE" ] || exit 0
+          NEW=$(cat "$FILE")
+          echo "::add-mask::$NEW"
+          gh secret set PINTEREST_REFRESH_TOKEN --repo "${{ github.repository }}" --body "$NEW"
+          rm -f "$FILE"
+
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/
+          git diff --cached --quiet && exit 0
+          git commit -m "Record Pinterest pins"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push
