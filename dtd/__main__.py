@@ -3,6 +3,7 @@
   python -m dtd render  --week weeks/2026-10-26.yaml   render every product in a week -> output/<id>/
   python -m dtd preview --week weeks/2026-10-26.yaml   print a markdown preview of the week
   python -m dtd site-prep                              put the next due product on the shop page first
+  python -m dtd gift-pins                              draw a Pinterest pin per gift guide into docs/gifts/
   python -m dtd wait-next                              wait for a post due within the next few hours
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
@@ -316,7 +317,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -330,6 +331,9 @@ def main() -> int:
         return health_main()
     if args.command == "shop-images":
         return shop.fetch_images()
+    if args.command == "gift-pins":
+        from . import pins
+        return pins.render_all()
     if args.command == "site-prep":
         return site_prep(cfg)
     if args.command == "wait-next":

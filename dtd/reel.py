@@ -46,7 +46,7 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
             end_card(cfg, photos[i % len(photos)], name, card)
             _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
-            label = _short_name(name) if i == 1 else ("Today's drop" if is_hook else "")
+            label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
             caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label)
             _segment(rc, clip, overlay, voice, seg_len, seg, shot, motion=i, brand=brand,
                      voice_delay=0.35 if is_hook else 0.15)

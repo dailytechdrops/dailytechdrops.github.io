@@ -1,10 +1,12 @@
 name: Shop images
 
-# Saves a small stock photo for each earlier pick on the shop page. Runs by hand, or when the archive changes.
+# Saves a small stock photo for each earlier pick on the shop page and draws the gift guide Pinterest pins.
+# Runs by hand, or when the archive or the gift guides change on main.
 on:
   workflow_dispatch:
   push:
-    branches: [claude/shop-photos]
+    branches: [main]
+    paths: [shop_archive.yaml, gift_guides.yaml, dtd/pins.py]
 
 permissions:
   contents: write
@@ -23,13 +25,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Fetch photos and rebuild the page
+      - name: Fetch photos, draw the gift guide pins, and rebuild the page
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
         run: |
           python -m dtd shop-images
+          python -m dtd gift-pins
           python -c "
           from dtd.config import load_config, read_state
           from dtd import shop
@@ -40,6 +43,6 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add docs/
           git diff --cached --quiet && exit 0
-          git commit -m "Shop page: add product photos"
+          git commit -m "Shop page: product photos and gift guide pins"
           git pull --rebase origin "${{ github.ref_name }}"
           git push

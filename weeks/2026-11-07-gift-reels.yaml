@@ -1,0 +1,931 @@
+# Gift reels, Nov 7 to Nov 20 2026 (holiday plan in the README): the third daily reel, at the rotating test
+# time, is a gift-framed remix of a product we already posted. Same photos and facts as the first post, a new gift
+# hook, a "Gift idea" or "Stocking stuffer" tag on screen, and the caption points to that product's gift guide
+# (gift_guides.yaml). Never prices. The two new products a day come from the Sunday research as usual.
+
+- slot: 2026-11-07 15:30
+  asin: B09HM94VDS
+  name: Logitech MX Master 3S Wireless Mouse
+  lane: desk and productivity setup
+  remix_of: 2026-10-26-1130-B09HM94VDS
+  hook_style: question
+  gift_guide: desk
+  angle: |
+    Gift framing for the gift guide for the desk worker. The mouse that people with serious desk setups keep recommending: a fast scroll wheel, quiet clicks, and one mouse for several computers.
+  key_facts:
+  - 8,000 DPI sensor that tracks even on glass
+  - Quiet Clicks buttons
+  - MagSpeed electromagnetic scroll wheel
+  - USB-C charging with up to 70 days of battery per charge
+  - Connects by Bluetooth or the Logi Bolt receiver
+  - Rated about 4.5 stars from 11,000+ ratings
+  broll:
+  - computer mouse hand
+  - office desk work
+  - person typing laptop
+  - video editing desk
+  content:
+    photo_query: ergonomic wireless mouse hand desk
+    photo_ids:
+    - 1999471
+    - 568968
+    - 1999471
+    beats:
+    - on_screen: Gift for someone who works at a desk?
+      voiceover: Need a gift for someone who works at a desk all day?
+      broll_query: computer mouse scroll
+    - on_screen: Quiet clicks, tracks on glass
+      voiceover: It is the MX Master 3S. Quiet clicks, and it tracks even on glass.
+      broll_query: mouse hand desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Gift for someone who works at a desk?
+      body: A gift idea from our holiday gift guide.
+    - title: Quiet clicks
+      body: Built for long workdays.
+    - title: Tracks on glass
+      body: 8,000 DPI sensor.
+    - title: 'Tip: pair more than one computer'
+      body: Switch between them with a button.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for anyone who lives at their desk. 🎁
+
+      The Logitech MX Master 3S has quiet clicks, tracks even on glass, and charges by USB-C.
+
+      More ideas like this are in our gift guide for the desk worker, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - desksetup
+    - logitech
+    - mxmaster
+    - productivity
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Master 3S: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-08 08:00
+  asin: B0DDQ71B9P
+  name: Anker MagGo 3-in-1 Charging Station (Qi2, foldable)
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-10-26-1900-B0DDQ71B9P
+  hook_style: demo
+  gift_guide: everything
+  angle: |
+    Gift framing for the gift guide for the person who has everything. One small magnetic stand that charges an iPhone, Apple Watch and AirPods together, then folds flat for the bag.
+  key_facts:
+  - Qi2 certified 15W magnetic charging for the iPhone
+  - Charges an iPhone, AirPods and an Apple Watch at the same time
+  - Folds down small for travel
+  - Anker recommends a 40W USB-C power adapter
+  - Rated about 4.5 stars (rating count not confirmed)
+  broll:
+  - bedside table phone charging
+  - apple watch charging
+  - airpods case
+  - packing suitcase travel
+  content:
+    photo_query: wireless charging pad phone desk
+    photo_ids:
+    - 4721542
+    - 6830011
+    - 4721542
+    beats:
+    - on_screen: Watch one stand charge three things
+      voiceover: Watch one little stand charge three things at once. It makes a great gift.
+      broll_query: bedside table phone
+    - on_screen: It snaps on magnetically
+      voiceover: Your iPhone snaps on magnetically and charges fast with Qi2.
+      broll_query: phone wireless charging
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: hotel room travel
+    carousel:
+    - title: Watch one stand charge three things
+      body: A gift idea from our holiday gift guide.
+    - title: Snaps on magnetically
+      body: Qi2 certified 15W for your iPhone.
+    - title: Folds flat
+      body: Small enough for your bag.
+    - title: 'Tip: strong adapter'
+      body: Anker recommends a 40W USB-C adapter.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A gift for the iPhone fan who has everything. 🎁
+
+      The Anker MagGo 3-in-1 station charges an iPhone, AirPods and an Apple Watch at the same time, then folds down small for travel.
+
+      More ideas like this are in our gift guide for the person who has everything, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - wirelesscharger
+    - iphoneaccessories
+    - applewatch
+    - airpods
+    - travelgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker MagGo 3-in-1 charging station: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-09 13:30
+  asin: B08CVKRZW9
+  name: Ultra-Thin Webcam Cover Slide (6 pack)
+  lane: home security and safety gadgets
+  remix_of: 2026-10-25-1530-B08CVKRZW9
+  hook_style: number
+  gift_guide: stocking
+  angle: |
+    Gift framing for the gift guide for stocking stuffers. Peace of mind for the price of a snack: a paper-thin slider that blocks the laptop camera when you are not using it, with a six pack for every device in the house.
+  key_facts:
+  - 6 pack of ultra-thin (0.022 inch) sliding webcam covers
+  - Fits laptops, tablets and phones; the laptop lid still closes
+  - Rated about 4.2 stars from 12,000+ ratings
+  - Thousands bought in the past month
+  broll:
+  - laptop webcam
+  - laptop privacy
+  - video call laptop
+  content:
+    photo_query: assets/photos/webcam-cover
+    beats:
+    - on_screen: 1 pack covers every screen they own
+      voiceover: One pack covers every camera they own. Easy stocking stuffer.
+      broll_query: laptop camera
+    - on_screen: Slide it shut, slide it open
+      voiceover: This paper-thin cover slides open for calls and shut when you are done. Six in a pack.
+      broll_query: laptop video call
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: laptop desk
+    carousel:
+    - title: 1 pack covers every screen they own
+      body: A gift idea from our holiday gift guide.
+    - title: Slide open, slide shut
+      body: Open for calls, closed the rest of the time.
+    - title: Ultra thin
+      body: 0.022 inch, made for laptops, tablets and phones.
+    - title: 6 in the pack
+      body: Cover every device in the house.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Stocking stuffer gift idea: privacy for every screen they own. 🎁
+
+      Six ultra-thin sliding covers that fit laptops, tablets and phones, and the laptop lid still closes.
+
+      More ideas like this are in our gift guide for stocking stuffers, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - stockingstuffers
+    - giftguide
+    - privacy
+    - webcamcover
+    - cybersafety
+    - laptopaccessories
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are the ultra-thin webcam covers: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Stocking stuffer
+- slot: 2026-11-10 21:30
+  asin: B09B8VN8YQ
+  name: Amazon Echo Dot with Clock (5th Gen)
+  lane: robots, clocks and fun tech
+  remix_of: 2026-10-29-1900-B09B8VN8YQ
+  hook_style: statement
+  gift_guide: everything
+  angle: |
+    Gift framing for the gift guide for the person who has everything. A smart speaker with a glowing LED display, so the time, alarms and weather are always one glance away.
+  key_facts:
+  - Smart speaker with Alexa and an LED display
+  - Display shows the time, alarms, weather and song titles
+  - Tap controls on top
+  - Rated about 4.8 stars from 1,800+ reviews at Best Buy
+  broll:
+  - nightstand digital clock
+  - bedroom night
+  - kitchen counter speaker
+  - morning alarm
+  content:
+    photo_query: alarm clock bedside table
+    photo_ids:
+    - 8382954
+    - 6830011
+    - 5084284
+    beats:
+    - on_screen: The gift they will see every morning
+      voiceover: This is a gift they will look at every single morning.
+      broll_query: nightstand clock
+    - on_screen: Time, weather, song titles
+      voiceover: The Echo Dot with Clock shows the time, your alarms, and the weather.
+      broll_query: digital clock
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: cozy bedroom
+    carousel:
+    - title: The gift they will see every morning
+      body: A gift idea from our holiday gift guide.
+    - title: LED display
+      body: Time, alarms, weather, song titles.
+    - title: Tap controls
+      body: Control it without a word.
+    - title: 'Tip: nightstand'
+      body: Check the time at a glance.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the nightstand. 🎁
+
+      The Echo Dot with Clock shows the time, alarms, the weather and song titles, with tap controls on top.
+
+      More ideas like this are in our gift guide for the person who has everything, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - echodot
+    - alexa
+    - smarthome
+    - smartspeaker
+    - bedroomgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Echo Dot with Clock: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-11 15:30
+  asin: B0194WDVHI
+  name: Anker PowerCore 10000 Portable Charger
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-10-31-1130-B0194WDVHI
+  hook_style: question
+  gift_guide: traveler
+  angle: Gift framing for the gift guide for the traveler. The battery bank that fits in a pocket and saves the day when your
+    phone hits one percent.
+  key_facts:
+  - 10,000 mAh portable charger from Anker
+  - Small enough for a pocket or a bag
+  - A long-running best seller
+  broll:
+  - phone battery low
+  - power bank pocket
+  - travel bag
+  content:
+    photo_query: smartphone portable charger
+    photo_ids:
+    - 7832257
+    - 2396278
+    - 7276658
+    beats:
+    - on_screen: Know someone always at 1 percent?
+      voiceover: Know someone whose phone is always at one percent?
+      broll_query: phone battery low
+    - on_screen: Pocket-size backup power
+      voiceover: This pocket-size Anker power bank gives it a fresh charge anywhere.
+      broll_query: power bank pocket
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: travel bag
+    carousel:
+    - title: Know someone always at 1 percent?
+      body: A gift idea from our holiday gift guide.
+    - title: 10,000 mAh
+      body: Enough to top up a phone more than once.
+    - title: Pocket size
+      body: Small enough to forget it is there.
+    - title: A long-time favorite
+      body: One of Anker's best-known power banks.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the friend whose phone is always dying. 🎁
+
+      The Anker PowerCore 10000 is a 10,000 mAh power bank small enough for a pocket or a bag.
+
+      More ideas like this are in our gift guide for the traveler, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - powerbank
+    - anker
+    - travelgear
+    - phonecharger
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker PowerCore 10000 Portable Charger: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-12 08:00
+  asin: B0CJWJ8RYR
+  name: Wyze Cam v4
+  lane: home security and safety gadgets
+  remix_of: 2026-10-31-1900-B0CJWJ8RYR
+  hook_style: demo
+  gift_guide: home
+  angle: Gift framing for the gift guide for a safer home. A small Wi-Fi camera with a built-in spotlight that watches the
+    door or the dog while you are out.
+  key_facts:
+  - Wi-Fi security camera for indoor or outdoor use
+  - Built-in spotlight
+  - Two-way audio and color night vision
+  broll:
+  - security camera
+  - front door
+  - pet at home
+  content:
+    photo_query: home security camera
+    photo_ids:
+    - 4955338
+    - 3728625
+    - 5501660
+    beats:
+    - on_screen: Watch the porch from anywhere
+      voiceover: Watch the porch from anywhere. This is a gift for peace of mind.
+      broll_query: front door
+    - on_screen: Spotlight and 2-way audio
+      voiceover: This Wyze camera has a spotlight and two-way audio, indoors or out.
+      broll_query: security camera
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: pet at home
+    carousel:
+    - title: Watch the porch from anywhere
+      body: A gift idea from our holiday gift guide.
+    - title: Built-in spotlight
+      body: Lights up the scene when it matters.
+    - title: Two-way audio
+      body: Talk to whoever is there.
+    - title: Color night vision
+      body: Keeps watch after dark.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for a safer home this holiday. 🎁
+
+      The Wyze Cam v4 works indoors or out, with a built-in spotlight, two-way audio and color night vision.
+
+      More ideas like this are in our gift guide for a safer home, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - wyze
+    - securitycamera
+    - homesecurity
+    - smarthome
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Wyze Cam v4: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-13 13:30
+  asin: B0H1HF44BC
+  name: IMEASON Portable USB Flash Drive
+  lane: desk and productivity setup
+  remix_of: 2026-10-25-0945-B0H1HF44BC
+  hook_style: number
+  gift_guide: stocking
+  angle: |
+    Gift framing for the gift guide for stocking stuffers. The cheap little backup everyone forgets they need until the laptop dies or the printer will not take an email. An easy impulse buy for students and anyone who carries files around.
+  key_facts:
+  - Portable USB flash drive for files, photos and schoolwork
+  - Plug and play, no app or account needed
+  - Small enough for a keyring, backpack or desk drawer
+  broll:
+  - usb flash drive laptop
+  - student studying laptop
+  - office desk files
+  - backpack school
+  content:
+    photo_query: assets/photos/usb-flash-drive
+    beats:
+    - on_screen: 1 tiny drive, every file they need
+      voiceover: Their files, photos and schoolwork on one tiny drive.
+      broll_query: usb flash drive
+    - on_screen: Your files, in your pocket
+      voiceover: It is a portable USB flash drive. Plug it in, drag your files over, and take them anywhere.
+      broll_query: laptop desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: student laptop
+    carousel:
+    - title: 1 tiny drive, every file they need
+      body: A gift idea from our holiday gift guide.
+    - title: Plug in and go
+      body: No app, no account, no Wi-Fi.
+    - title: School, printing, photos
+      body: Projects, print shops and a spare copy of your photos.
+    - title: 'Tip: keep two copies'
+      body: Important files belong in two places. Make this one of them.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Stocking stuffer gift idea for students and travelers. 🎁
+
+      The IMEASON flash drive is plug and play, with no app or account, and small enough for a keyring.
+
+      More ideas like this are in our gift guide for stocking stuffers, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - stockingstuffers
+    - giftguide
+    - usbdrive
+    - flashdrive
+    - studentlife
+    - backtoschool
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here is the portable USB flash drive: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Stocking stuffer
+- slot: 2026-11-14 21:30
+  asin: B0C3HCD34R
+  name: Soundcore by Anker Q20i Noise Cancelling Headphones
+  lane: other
+  remix_of: 2026-11-03-1900-B0C3HCD34R
+  hook_style: statement
+  gift_guide: traveler
+  angle: Gift framing for the gift guide for the traveler. Hybrid noise cancelling headphones that block the noise without
+    a premium price tag.
+  key_facts:
+  - Hybrid active noise cancelling over-ear headphones from Soundcore by Anker
+  - Wireless Bluetooth
+  - Long battery life
+  broll:
+  - headphones
+  - commute
+  - home office
+  content:
+    photo_query: wireless headphones
+    photo_ids:
+    - 8398212
+    - 6787497
+    - 6787507
+    beats:
+    - on_screen: The gift that makes flights quiet
+      voiceover: This is the gift that makes every flight and commute quieter.
+      broll_query: home office
+    - on_screen: Hybrid noise cancelling
+      voiceover: These Soundcore headphones use hybrid noise cancelling to cut the background noise.
+      broll_query: headphones
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: The gift that makes flights quiet
+      body: A gift idea from our holiday gift guide.
+    - title: Hybrid noise cancelling
+      body: Cuts down constant background sound.
+    - title: Wireless
+      body: Bluetooth, no cord.
+    - title: Long battery life
+      body: Made for long work days and trips.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the traveler or the commuter. 🎁
+
+      The Soundcore Q20i from Anker are over-ear headphones with hybrid noise cancelling and long battery life.
+
+      More ideas like this are in our gift guide for the traveler, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - headphones
+    - noisecancelling
+    - soundcore
+    - anker
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Soundcore by Anker Q20i Noise Cancelling Headphones: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-15 15:30
+  asin: B0BP9SNVH9
+  name: Amazon Fire TV Stick 4K Max
+  lane: other
+  remix_of: 2026-11-04-1900-B0BP9SNVH9
+  hook_style: question
+  gift_guide: everything
+  angle: Gift framing for the gift guide for the person who has everything. Turn almost any TV into a smart TV for streaming
+    in 4K with Wi-Fi 6E and Alexa on the remote.
+  key_facts:
+  - 4K streaming stick with Wi-Fi 6E support
+  - Alexa Voice Remote
+  - Plugs into the TV's HDMI port
+  broll:
+  - living room tv
+  - remote control
+  - movie night
+  content:
+    photo_query: television remote living room
+    photo_ids:
+    - 4148876
+    - 2741799
+    - 642138
+    beats:
+    - on_screen: Gift for the movie night fan?
+      voiceover: Shopping for the person who loves movie night?
+      broll_query: living room tv
+    - on_screen: Streaming in 4K
+      voiceover: This stick plugs into the HDMI port and streams in 4K with Alexa on the remote.
+      broll_query: remote control
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: movie night
+    carousel:
+    - title: Gift for the movie night fan?
+      body: A gift idea from our holiday gift guide.
+    - title: 4K streaming
+      body: Plugs into any HDMI port.
+    - title: Wi-Fi 6E support
+      body: Built for fast, smooth streaming.
+    - title: Alexa voice remote
+      body: Just say what you want to watch.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the movie night fan. 🎁
+
+      The Fire TV Stick 4K Max plugs into the HDMI port, streams in 4K, and comes with the Alexa Voice Remote.
+
+      More ideas like this are in our gift guide for the person who has everything, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - firetv
+    - streaming
+    - smarttv
+    - alexa
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Amazon Fire TV Stick 4K Max: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-16 08:00
+  asin: B091FXQQMQ
+  name: Kasa Smart Plug Mini (2-pack)
+  lane: other
+  remix_of: 2026-11-02-1900-B091FXQQMQ
+  hook_style: demo
+  gift_guide: stocking
+  angle: Gift framing for the gift guide for stocking stuffers. Turn any lamp or appliance into a smart one with one small
+    plug.
+  key_facts:
+  - Wi-Fi smart plug, no hub required
+  - Works with 2.4 GHz Wi-Fi
+  - Control from a phone app or by voice
+  broll:
+  - smart plug outlet
+  - table lamp
+  - living room
+  content:
+    photo_query: smart plug outlet
+    photo_ids:
+    - 2607283
+    - 4715347
+    - 4243898
+    beats:
+    - on_screen: Watch any plain lamp get smarter
+      voiceover: Watch any plain lamp get smarter. Easy stocking stuffer.
+      broll_query: table lamp
+    - on_screen: No hub needed
+      voiceover: This smart plug needs no hub. Plug it in and connect it to Wi-Fi.
+      broll_query: smart plug outlet
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: living room
+    carousel:
+    - title: Watch any plain lamp get smarter
+      body: A gift idea from our holiday gift guide.
+    - title: No hub needed
+      body: Plug in, connect to Wi-Fi, done.
+    - title: Any lamp or appliance
+      body: If it plugs in, it becomes smart.
+    - title: Voice control too
+      body: Works with popular voice assistants.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Stocking stuffer gift idea: their first smart home upgrade. 🎁
+
+      The Kasa Smart Plug Mini comes in a 2-pack, needs no hub, and works from a phone app or by voice.
+
+      More ideas like this are in our gift guide for stocking stuffers, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - stockingstuffers
+    - giftguide
+    - smartplug
+    - kasa
+    - smarthome
+    - homeautomation
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Kasa Smart Plug Mini (2-pack): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Stocking stuffer
+- slot: 2026-11-17 13:30
+  asin: B0BLRJ4R8F
+  name: Amazon Basics Portable Laptop Stand
+  lane: desk and productivity setup
+  remix_of: 2026-11-06-1130-B0BLRJ4R8F
+  hook_style: number
+  gift_guide: desk
+  angle: Gift framing for the gift guide for the desk worker. A foldable laptop stand that lifts your screen and goes in your
+    bag.
+  key_facts:
+  - Portable ergonomic laptop stand from Amazon Basics
+  - Fits laptops up to 17.3 inches
+  broll:
+  - laptop desk
+  - coffee shop laptop
+  - home office
+  content:
+    photo_query: laptop stand desk
+    photo_ids:
+    - 2583442
+    - 7571376
+    - 5318837
+    beats:
+    - on_screen: 1 stand, every desk they sit at
+      voiceover: One stand lifts their laptop at home, at the office, or at the coffee shop.
+      broll_query: laptop desk
+    - on_screen: Lifts and packs away
+      voiceover: This stand lifts your screen up and packs into your bag.
+      broll_query: coffee shop laptop
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: 1 stand, every desk they sit at
+      body: A gift idea from our holiday gift guide.
+    - title: Ergonomic
+      body: Better posture, less neck strain.
+    - title: Fits up to 17.3 inches
+      body: Works with most laptops.
+    - title: Portable
+      body: Take it from desk to cafe.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the laptop worker. 🎁
+
+      The Amazon Basics portable laptop stand lifts the screen up, fits laptops up to 17.3 inches, and packs into a bag.
+
+      More ideas like this are in our gift guide for the desk worker, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - laptopstand
+    - desksetup
+    - ergonomics
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    dm_message: |-
+      Here is the Amazon Basics Portable Laptop Stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-18 21:30
+  asin: B0B3HSJ5NL
+  name: Anker 525 Charging Station (7-in-1)
+  lane: phone, travel and charging gadgets
+  remix_of: 2026-11-04-1130-B0B3HSJ5NL
+  hook_style: statement
+  gift_guide: desk
+  angle: Gift framing for the gift guide for the desk worker. One power strip with USB-C and USB-A ports so every device charges
+    from one spot on your desk.
+  key_facts:
+  - '7-in-1 power strip: 3 AC outlets, 2 USB-A and 2 USB-C ports'
+  - Up to 65W power delivery
+  - 5 ft cord
+  broll:
+  - desk power strip
+  - laptop desk
+  - phone on desk
+  content:
+    photo_query: usb charger plug socket
+    photo_ids:
+    - 3285039
+    - 7036075
+    - 5318837
+    beats:
+    - on_screen: The gift that ends the outlet fight
+      voiceover: This is the gift that ends the fight over outlets at the desk.
+      broll_query: laptop desk
+    - on_screen: One strip, seven ports
+      voiceover: This Anker strip has three outlets plus four USB ports in one.
+      broll_query: desk power strip
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: phone on desk
+    carousel:
+    - title: The gift that ends the outlet fight
+      body: A gift idea from our holiday gift guide.
+    - title: 7 in 1
+      body: 3 AC outlets, 2 USB-A, 2 USB-C.
+    - title: Up to 65W
+      body: Enough to power a laptop.
+    - title: 5 ft cord
+      body: Reaches from the wall to your desk.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the desk with too many chargers. 🎁
+
+      The Anker 525 is a 7-in-1 power strip with three outlets, two USB-A and two USB-C ports, and a 5 ft cord.
+
+      More ideas like this are in our gift guide for the desk worker, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - anker
+    - chargingstation
+    - desksetup
+    - deskessentials
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker 525 Charging Station (7-in-1): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-19 15:30
+  asin: B0BZV4QFP8
+  name: Anker Soundcore Liberty 4 NC Earbuds
+  lane: other
+  remix_of: 2026-11-05-1900-B0BZV4QFP8
+  hook_style: question
+  gift_guide: traveler
+  angle: Gift framing for the gift guide for the traveler. Noise cancelling earbuds that adapt to the sound around you and
+    last a long time.
+  key_facts:
+  - Wireless earbuds with adaptive noise cancelling
+  - Up to 50 hours of battery with the case
+  - Wireless charging case
+  broll:
+  - earbuds
+  - commute
+  - gym
+  content:
+    photo_query: wireless earbuds
+    photo_ids:
+    - 7559937
+    - 6933543
+    - 2350507
+    beats:
+    - on_screen: Gift for someone always on the go?
+      voiceover: Need a gift for someone who is always on the go?
+      broll_query: earbuds
+    - on_screen: 50 hours of battery
+      voiceover: These Anker earbuds give up to fifty hours with the case.
+      broll_query: commute
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: gym
+    carousel:
+    - title: Gift for someone always on the go?
+      body: A gift idea from our holiday gift guide.
+    - title: Adaptive noise cancelling
+      body: Fits quiet rooms and loud streets.
+    - title: Long battery life
+      body: Up to 50 hours with the case.
+    - title: Wireless charging case
+      body: Drop it on a pad to top up.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Gift idea for the commuter, the runner, or the traveler. 🎁
+
+      The Soundcore Liberty 4 NC earbuds from Anker have adaptive noise cancelling and up to 50 hours of battery with the case.
+
+      More ideas like this are in our gift guide for the traveler, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - giftideas
+    - giftguide
+    - earbuds
+    - soundcore
+    - anker
+    - noisecancelling
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Soundcore Liberty 4 NC Earbuds: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Gift idea
+- slot: 2026-11-20 08:00
+  asin: B004YAVF8I
+  name: Logitech M185 Wireless Mouse
+  lane: desk and productivity setup
+  remix_of: 2026-11-02-1130-B004YAVF8I
+  hook_style: demo
+  gift_guide: stocking
+  angle: Gift framing for the gift guide for stocking stuffers. The simple, reliable wireless mouse that makes any laptop
+    easier to use.
+  key_facts:
+  - Logitech wireless mouse
+  - Plug-in USB receiver, no setup
+  - One of the most popular mice on Amazon
+  broll:
+  - computer mouse desk
+  - laptop desk
+  - home office
+  content:
+    photo_query: wireless computer mouse
+    photo_ids:
+    - 5318837
+    - 1999471
+    - 2324120
+    beats:
+    - on_screen: Watch it work with zero setup
+      voiceover: Watch it work with zero setup. This mouse is a simple stocking stuffer.
+      broll_query: laptop desk
+    - on_screen: Plug in and go
+      voiceover: This Logitech wireless mouse plugs in and just works.
+      broll_query: computer mouse desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home office
+    carousel:
+    - title: Watch it work with zero setup
+      body: A gift idea from our holiday gift guide.
+    - title: Wireless
+      body: No cord to tangle on your desk.
+    - title: Plug in and go
+      body: Tiny USB receiver, no setup.
+    - title: A popular pick
+      body: One of Amazon's best-known mice.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Stocking stuffer gift idea for the laptop user. 🎁
+
+      The Logitech M185 has a plug-in USB receiver, needs no setup, and is one of the most popular mice on Amazon.
+
+      More ideas like this are in our gift guide for stocking stuffers, on the shop page in our bio. Prices change often, so check Amazon for today's price.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - stockingstuffers
+    - giftguide
+    - logitech
+    - wirelessmouse
+    - desksetup
+    - deskessentials
+    - homeoffice
+    - techgadgets
+    dm_message: |-
+      Here is the Logitech M185 Wireless Mouse: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+    label: Stocking stuffer

@@ -49,6 +49,16 @@ watch time); never remix the weakest. The shop page lists each product once.
 - Dec 2 to Dec 15: gifts by person (for the desk worker, the traveler, the gamer, the person who has everything).
 - Dec 16 to Dec 21: stocking stuffers and small gifts that still ship in time; mention Prime shipping only as "check the delivery date".
 - Remix slots in Nov and Dec favor the year's most tapped products from the shop page.
+  Nov 7 to Nov 20 remixes are already written as gift reels (`weeks/2026-11-07-gift-reels.yaml`).
+
+**Gift guides:** `gift_guides.yaml` lists five guides (desk worker, traveler, safer home, the person who has
+everything, stocking stuffers), grouped by who the gift is for and spanning every price range. Each is a page at
+`/gifts/<slug>.html` on the shop site, shown as a "Holiday gift guides" row on the shop page from Nov 1 to Dec 24.
+A posted product joins a guide when its ASIN is listed there, or when its week file entry has `gift_guide: <slug>`.
+A gift reel sets `content.label: Gift idea` (or `Stocking stuffer`) for the orange tag on its hook.
+The Shop images workflow draws a 1000x1500 Pinterest pin per guide (`docs/gifts/<slug>.jpg`) whenever the guides
+change; the guide page uses it as its preview image and has a "Save this guide to Pinterest" link. The weekly report
+has a "Gift guides" table: visits, opens from the shop page, taps to Amazon and Pinterest saves per guide.
 
 **Which posts drive sales:** the shop page counts visits and every tap on a product card (GoatCounter, site code in
 `config.yaml`), and the weekly report lists them under "Shop page". Links on the shop page, Facebook and YouTube can

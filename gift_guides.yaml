@@ -1,0 +1,47 @@
+# Holiday gift guides (holiday plan in the README). Each guide is its own page at docs/gifts/<slug>.html, with a
+# tall Pinterest pin image at docs/gifts/<slug>.jpg (python -m dtd gift-pins). The shop page shows a "Gift guides"
+# row between show_from and show_until. Pages stay up all season, so pins made early keep working.
+#
+# A product is listed once it has posted (so every card has its reel and photo), newest first. Add it here by
+# ASIN, or give its week file entry `gift_guide: <slug>` and it joins on its own. ASINs from shop_archive.yaml
+# also work. Never put a price or price band in a title or blurb; prices change daily (Associates rule).
+
+- slug: desk
+  title: Gifts for the desk worker
+  blurb: Upgrades for anyone who spends the day at a desk, from quiet mice to clutter fixes.
+  pin_description: Gift ideas for the desk worker, the remote worker and the home office. Mice, keyboards, stands and cable fixes people actually use every day.
+  show_from: 2026-11-01
+  show_until: 2026-12-24
+  asins: [B09HM94VDS, B0BKW3LB2B, B01M7U6F8T, B08DKQ3JG1, B07BCHKHTG, B00X4SCCFG, B0BLRJ4R8F, B0B3HSJ5NL, B0BZDJCGSR]
+
+- slug: traveler
+  title: Gifts for the traveler
+  blurb: Small gear that keeps phones charged and trips calm, all easy to pack.
+  pin_description: Gift ideas for the traveler and the commuter. Power banks, noise cancelling headphones, trackers and travel tech that fits in a bag.
+  show_from: 2026-11-01
+  show_until: 2026-12-24
+  asins: [B0194WDVHI, B0C9CJKCH3, B0DGKWTQQC, B0CFDQ9QH5, B0D54JZTHY, B0CH9JPNZM, B0C3HCD34R, B0BZV4QFP8, B002L6BZXC]
+
+- slug: home
+  title: Gifts for a safer home
+  blurb: Cameras, doorbells and smart plugs that add peace of mind without a contract.
+  pin_description: Gift ideas for a safer, smarter home. Video doorbells, security cameras, smart locks and smart plugs that are easy to set up.
+  show_from: 2026-11-01
+  show_until: 2026-12-24
+  asins: [B0BZWRSRWV, B0BWWZXWPL, B0CJWJ8RYR, B0BCV3NBKY, B0BZ55JZ4S, B091FXQQMQ, B09B2SBHQK]
+
+- slug: everything
+  title: Gifts for the person who has everything
+  blurb: Fun, clever tech they would not buy for themselves.
+  pin_description: Gift ideas for the person who has everything. Clever, fun tech gadgets they would never buy for themselves.
+  show_from: 2026-11-01
+  show_until: 2026-12-24
+  asins: [B07YWWPV7L, B09B8VN8YQ, B0BP9SNVH9, B01MTB55WH, B0DDQ71B9P, B0FQFB8FMG]
+
+- slug: stocking
+  title: Tech stocking stuffers
+  blurb: Small, useful gadgets that fit in a stocking. Check the delivery date before you order.
+  pin_description: Tech stocking stuffers people actually use. Small gadgets for the desk, the laptop and the phone.
+  show_from: 2026-11-01
+  show_until: 2026-12-24
+  asins: [B071FXZBMV, B08CVKRZW9, B0H1HF44BC, B01M7U6F8T, B004YAVF8I, B0C19CBT2N, B091FXQQMQ]
