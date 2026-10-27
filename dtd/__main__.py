@@ -11,6 +11,8 @@
   python -m dtd report                                 write the weekly performance report to reports/
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd tiktok-due                             post the newest posted reel to TikTok (through Buffer)
+  python -m dtd pinterest-due                          pin the newest posted reel to Pinterest
+  python -m dtd pinterest-connect                      print a Pinterest refresh token for PINTEREST_CODE
   python -m dtd refresh-token                          print a refreshed Instagram token
   python -m dtd refresh-threads-token                  print a refreshed Threads token
 """
@@ -28,7 +30,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram, report, shop, threads, tiktok, youtube
+from . import facebook, instagram, pinterest, report, shop, threads, tiktok, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -42,6 +44,8 @@ MAX_DM_ATTEMPTS = 3
 YOUTUBE_WINDOW = timedelta(days=3)
 # Same for TikTok.
 TIKTOK_WINDOW = timedelta(days=3)
+# Same for Pinterest.
+PINTEREST_WINDOW = timedelta(days=3)
 # A run waits for a post due within this long (the job's own time limit is set above it).
 WAIT_AHEAD = timedelta(hours=5)
 
@@ -299,6 +303,37 @@ def tiktok_due(cfg: dict) -> int:
     return 0
 
 
+def pinterest_due(cfg: dict) -> int:
+    """Pins reels already posted to Instagram as Pinterest video Pins, one per run, newest first.
+    Runs on its own schedule so a Pinterest problem can never hold up Instagram."""
+    if not pinterest.configured():
+        print("Pinterest secrets not set yet; skipping.")
+        return 0
+    pinned = read_state("pinterest", {})
+    cutoff = f"{datetime.now(EASTERN) - PINTEREST_WINDOW:%Y-%m-%d-%H%M}"
+    forced = env("PINTEREST_ITEM")
+    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in pinned and (h["id"] == forced if forced else h["id"] >= cutoff)]
+    if not todo:
+        print("No new reels for Pinterest.")
+        # Still refresh, so the saved refresh token never goes stale on quiet days.
+        pinterest.access_token(cfg, env("PINTEREST_NEW_REFRESH_FILE"))
+        return 0
+    item_id = max(todo, key=lambda h: h["id"])["id"]
+    out = _media(item_id)
+    draft = json.loads((out / "draft.json").read_text())
+    draft["caption"] = disclosure_last(cfg, draft["caption"])
+    cover = f"{_media_base()}/{item_id}/{draft['slides'][0]}" if draft.get("slides") else None
+    try:
+        pin_id = pinterest.publish_video(cfg, out / "reel.mp4", cover, draft, env("PINTEREST_NEW_REFRESH_FILE"))
+    except pinterest.PinterestError as e:
+        print(f"::error title=Pinterest pin failed::{item_id}: {str(e)[:500]}")
+        raise
+    pinned[item_id] = pin_id
+    write_state("pinterest", pinned)
+    print(f"Pinned {item_id}: https://www.pinterest.com/pin/{pin_id}/")
+    return 0
+
+
 def reply(cfg: dict) -> int:
     if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
         # Runs every 30 minutes; stay quiet until Instagram is connected.
@@ -366,7 +401,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "tiktok-due", "report", "winners", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "tiktok-due", "pinterest-due", "pinterest-connect", "report", "winners", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -398,6 +433,11 @@ def main() -> int:
         return youtube_due(cfg)
     if args.command == "tiktok-due":
         return tiktok_due(cfg)
+    if args.command == "pinterest-due":
+        return pinterest_due(cfg)
+    if args.command == "pinterest-connect":
+        print(pinterest.exchange_code(cfg, env("PINTEREST_CODE") or ""))
+        return 0
     if args.command == "report":
         if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
             print("Instagram secrets not set yet; skipping.")
