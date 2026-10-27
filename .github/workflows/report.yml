@@ -17,7 +17,7 @@ permissions:
   issues: write
 
 # No shared concurrency group: posting runs queue often and would cancel a pending report.
-# The report only writes reports/ and state/insights.json, so it cannot clash with them.
+# The report only writes reports/ and state/insights.json and state/hook_trend.json, so it cannot clash with them.
 
 jobs:
   report:

@@ -157,7 +157,7 @@ def repeat_section(data: dict | None = None) -> list[str]:
 
 def markdown(data: dict) -> str:
     md = [f"## Winners: reels since {data['since']}\n", *repeat_section(data)[:-1], "",
-          "### Every reel, best first\n",
+          *_hook_table(data), "### Every reel, best first\n",
           "Score is 0 to 100: the average share of other reels it beats on reach, saves, shares, watch time and shop taps. "
           "Reels under two days old are listed last and not scored against the others yet.\n",
           "| Reel | Lane | Hook | Score | Reach | Saves | Shares | Watch | Shop taps |",
@@ -167,6 +167,19 @@ def markdown(data: dict) -> str:
         md.append(f"| [{r['name']}]({r['url']}) {r['when'][5:10]} | {r['lane']} | {r['hook'] or ''} | {score} "
                   f"| {r['reach']:,.0f} | {r['saves']:.0f} | {r['shares']:.0f} | {r['watch_s']:.1f}s | {r['taps']} |")
     return "\n".join(md) + "\n"
+
+
+def _hook_table(data: dict) -> list[str]:
+    """Hook styles side by side, so the Sunday research can see which openings hold viewers."""
+    groups = data.get("groups", {}).get("Hook style") or []
+    if not groups:
+        return []
+    md = ["### By hook style (reels older than two days)\n",
+          "| Hook style | Reels | Avg score | Avg reach | Avg watch | Saves + shares | Shop taps |",
+          "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
+    md += [f"| {g['name']} | {g['reels']} | {g['score']:.0f} | {g['reach']:,} | {g['watch_s']:.1f}s | {g['saves_shares']} | {g['taps']} |"
+           for g in groups]
+    return md + [""]
 
 
 def page(data: dict) -> str:

@@ -5,6 +5,7 @@
   asin: B0194WDVHI
   name: Anker PowerCore 10000 Portable Charger
   lane: phone, travel and charging gadgets
+  hook_style: callout
   angle: The battery bank that fits in a pocket and saves the day when your phone hits one percent.
   key_facts:
   - 10,000 mAh portable charger from Anker
@@ -63,6 +64,7 @@
   asin: B0CJWJ8RYR
   name: Wyze Cam v4
   lane: home security and safety gadgets
+  hook_style: question
   angle: A small Wi-Fi camera with a built-in spotlight that watches the door or the dog while you are
     out.
   key_facts:
@@ -122,6 +124,7 @@
   asin: B00TP1BWMK
   name: Amazon Basics 6-Outlet Surge Protector
   lane: desk and productivity setup
+  hook_style: question
   angle: The boring desk upgrade that protects your laptop, monitor and chargers from power surges.
   key_facts:
   - 6-outlet surge protector power strip from Amazon Basics
@@ -179,6 +182,7 @@
   asin: B01MTB55WH
   name: Anker Soundcore 2 Bluetooth Speaker
   lane: other
+  hook_style: curiosity
   angle: A small waterproof Bluetooth speaker with big stereo sound for the kitchen, patio or shower.
   key_facts:
   - Portable Bluetooth speaker with 12W stereo sound
@@ -192,11 +196,11 @@
     photo_query: bluetooth speaker
     photo_ids: [319841, 3483646, 319841]
     beats:
-    - on_screen: Tiny speaker, big sound
-      voiceover: This little Bluetooth speaker puts out surprisingly big stereo sound.
+    - on_screen: This speaker survives the pool
+      voiceover: Knock this little speaker into the pool and it keeps on playing.
       broll_query: bluetooth speaker
-    - on_screen: Waterproof, 24 hours
-      voiceover: It is waterproof and plays for up to twenty-four hours.
+    - on_screen: Big sound, 24 hours
+      voiceover: It is waterproof, loud for its size, and plays for up to twenty-four hours.
       broll_query: backyard patio
     - on_screen: Comment SHOP or tap the link in bio
       voiceover: Comment SHOP and I will send you the link.
@@ -213,7 +217,7 @@
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
-      Small speaker, big sound. 🔊
+      This speaker survives a pool party. 🔊
 
       The Anker Soundcore 2 has 12W stereo sound, an IPX7 waterproof rating and up to 24 hours of playtime.
 
@@ -237,6 +241,7 @@
   asin: B004YAVF8I
   name: Logitech M185 Wireless Mouse
   lane: desk and productivity setup
+  hook_style: question
   angle: The simple, reliable wireless mouse that makes any laptop easier to use.
   key_facts:
   - Logitech wireless mouse
@@ -295,6 +300,7 @@
   asin: B091FXQQMQ
   name: Kasa Smart Plug Mini (2-pack)
   lane: other
+  hook_style: question
   angle: Turn any lamp or appliance into a smart one with one small plug.
   key_facts:
   - Wi-Fi smart plug, no hub required
@@ -353,6 +359,7 @@
   asin: B00X4SCCFG
   name: Amazon Basics Adjustable Monitor Riser
   lane: desk and productivity setup
+  hook_style: callout
   angle: Raise your screen to eye level, free up desk space and stop slouching.
   key_facts:
   - Adjustable computer monitor riser desk stand from Amazon Basics
@@ -410,6 +417,7 @@
   asin: B0C3HCD34R
   name: Soundcore by Anker Q20i Noise Cancelling Headphones
   lane: other
+  hook_style: question
   angle: Hybrid noise cancelling headphones that block the noise without a premium price tag.
   key_facts:
   - Hybrid active noise cancelling over-ear headphones from Soundcore by Anker
@@ -468,6 +476,7 @@
   asin: B0B3HSJ5NL
   name: Anker 525 Charging Station (7-in-1)
   lane: phone, travel and charging gadgets
+  hook_style: number
   angle: One power strip with USB-C and USB-A ports so every device charges from one spot on your desk.
   key_facts:
   - '7-in-1 power strip: 3 AC outlets, 2 USB-A and 2 USB-C ports'
@@ -481,11 +490,11 @@
     photo_query: usb charger plug socket
     photo_ids: [3285039, 7036075, 5318837]
     beats:
-    - on_screen: A mess of chargers
-      voiceover: Is your desk covered in bulky chargers?
+    - on_screen: 7 ports, 1 strip
+      voiceover: Seven ports on one strip, and the charger mess on your desk is gone.
       broll_query: laptop desk
-    - on_screen: One strip, seven ports
-      voiceover: This Anker strip has three outlets plus four USB ports in one.
+    - on_screen: 3 outlets, 4 USB ports
+      voiceover: This Anker strip has three outlets plus four USB ports on one cord.
       broll_query: desk power strip
     - on_screen: Comment SHOP or tap the link in bio
       voiceover: Comment SHOP and I will send you the link.
@@ -526,6 +535,7 @@
   asin: B0BP9SNVH9
   name: Amazon Fire TV Stick 4K Max
   lane: other
+  hook_style: question
   angle: Turn almost any TV into a smart TV for streaming in 4K with Wi-Fi 6E and Alexa on the remote.
   key_facts:
   - 4K streaming stick with Wi-Fi 6E support
@@ -584,6 +594,7 @@
   asin: B09J1SYX5B
   name: Logitech Lift Vertical Ergonomic Mouse (left-handed)
   lane: desk and productivity setup
+  hook_style: question
   angle: A vertical mouse that keeps your hand in a handshake position instead of twisted flat.
   key_facts:
   - Vertical ergonomic mouse from Logitech, left-handed model
@@ -641,6 +652,7 @@
   asin: B0BZV4QFP8
   name: Anker Soundcore Liberty 4 NC Earbuds
   lane: other
+  hook_style: callout
   angle: Noise cancelling earbuds that adapt to the sound around you and last a long time.
   key_facts:
   - Wireless earbuds with adaptive noise cancelling
@@ -654,8 +666,8 @@
     photo_query: wireless earbuds
     photo_ids: [7559937, 6933543, 2350507]
     beats:
-    - on_screen: Earbuds that adapt
-      voiceover: Earbuds that change how they cancel noise as you move.
+    - on_screen: Your commute is too loud
+      voiceover: Your commute is loud. These earbuds tune out the noise as it changes.
       broll_query: earbuds
     - on_screen: 50 hours of battery
       voiceover: These Anker earbuds give up to fifty hours with the case.
@@ -675,7 +687,7 @@
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
-      Noise cancelling that adapts to you. 🎧
+      Your commute is too loud. 🎧
 
       The Soundcore Liberty 4 NC has adaptive noise cancelling, up to 50 hours of battery with the case, and a wireless charging case.
 
@@ -699,6 +711,7 @@
   asin: B0BLRJ4R8F
   name: Amazon Basics Portable Laptop Stand
   lane: desk and productivity setup
+  hook_style: question
   angle: A foldable laptop stand that lifts your screen and goes in your bag.
   key_facts:
   - Portable ergonomic laptop stand from Amazon Basics
@@ -756,6 +769,7 @@
   asin: B0CH9JPNZM
   name: Anker 332 USB-C Hub (5-in-1)
   lane: phone, travel and charging gadgets
+  hook_style: question
   angle: One small hub that adds HDMI and extra USB ports to a laptop that has almost none.
   key_facts:
   - 5-in-1 USB-C hub with 4K HDMI

@@ -71,6 +71,7 @@ def build(days: int = 7) -> tuple[str, str]:
         md.append(f"| {lane} | {len(items)} | {_avg(items, 'reach'):,.0f} | {_rate(items):.1%} | {sum(r['dms'] for r in items)} |")
 
     md += experiments_section(rows)
+    md += hook_trend_section(rows, until)
 
     best, worst = ranked[0], ranked[-1]
     md.append("\n### For next week's picks\n")
@@ -98,7 +99,7 @@ def post_rows(since: datetime) -> list[dict]:
         rows.append({
             "id": post.get("id"),
             "asin": post.get("asin"),
-            "hook": hook_style(item) if reel else None,
+            "hook": hook_style(item, _snippet(media.get("caption", ""), 200)) if reel else None,
             "remix_of": item.get("remix_of"),
             "name": (post.get("name") or _snippet(media.get("caption", ""))).replace("|", "/"),
             "lane": item.get("lane") or "other",
@@ -183,29 +184,44 @@ def _gift_guides(rows: list) -> list[str]:
 
 
 # Hook styles the first beat is sorted into, so the report can say which kind of opening holds viewers.
+# Every week file entry sets hook_style; reels from before tagging get a guess from their first line.
 HOOK_STYLES = {
-    "question": "asks the viewer something",
-    "demo": "tells them to watch or look",
-    "number": "leads with a number",
-    "statement": "states a problem or a claim",
+    "callout": "names the viewer's own problem (\"Your phone is at 1 percent. Again.\")",
+    "question": "asks the viewer something they answer yes to",
+    "number": "leads with a concrete number",
+    "demo": "tells them to watch something happen",
+    "curiosity": "a surprising claim that makes them stay for the answer",
+    "statement": "plain description of the product; the weakest, kept only for old reels",
 }
+CURIOSITY_WORDS = ("nobody", "secret", "actually", "wait", "pov", "turns out", "not every", "you didn't know", "survives")
+NUMBER_WORDS = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "hundred", "thousand"}
 
 
-def hook_style(item: dict) -> str | None:
-    """The week file's hook_style if set, otherwise a guess from the first beat's text."""
+def hook_style(item: dict, fallback_text: str = "") -> str | None:
+    """The week file's hook_style if set, otherwise a guess from the first beat's text
+    (or from fallback_text, the caption's first line, for reels with no week file entry)."""
     if item.get("hook_style"):
         return item["hook_style"]
     beats = (item.get("content") or {}).get("beats") or []
-    if not beats:
+    screen, voice = (beats[0].get("on_screen", ""), beats[0].get("voiceover", "")) if beats else (fallback_text, fallback_text)
+    if not (screen or voice).strip():
         return None
-    screen, voice = beats[0].get("on_screen", ""), beats[0].get("voiceover", "")
-    if screen.rstrip().endswith("?") or voice.rstrip().endswith("?"):
+    return guess_hook_style(screen, voice)
+
+
+def guess_hook_style(screen: str, voice: str) -> str:
+    text = f"{screen} {voice}".lower()
+    words = [w.strip(".,!?:;\"'").lower() for w in screen.split()]
+    if "?" in screen or voice.rstrip().endswith("?"):
         return "question"
-    if voice.split(" ", 1)[0].strip(".,").lower() in {"watch", "look", "see"}:
+    if voice.split(" ", 1)[0].strip(".,").lower() in {"watch", "look", "see"} or (words and words[0] in {"watch", "look"}):
         return "demo"
-    numbers = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "hundred", "thousand"}
-    if any(ch.isdigit() for ch in screen) or numbers & {w.strip(".,!").lower() for w in screen.split()}:
+    if any(ch.isdigit() for ch in screen) or NUMBER_WORDS & set(words):
         return "number"
+    if any(w in text for w in CURIOSITY_WORDS):
+        return "curiosity"
+    if words and words[0] in {"your", "you", "you're", "stop", "still"}:
+        return "callout"
     return "statement"
 
 
@@ -245,6 +261,35 @@ def experiments_section(rows: list[dict]) -> list[str]:
     return md
 
 
+def hook_trend_section(rows: list[dict], until: datetime) -> list[str]:
+    """Saves this week's reels per hook style and shows the last four weeks side by side, so a style
+    is judged on several weeks rather than one. Reach is the main signal, watch time the tie-breaker."""
+    groups = defaultdict(list)
+    for r in rows:
+        if r["kind"] == "Reel":
+            groups[r["hook"] or "untagged"].append(r)
+    if not groups:
+        return []
+    week = {name: {"reels": len(items), "reach": round(_avg(items, "reach")),
+                   "watch_s": round(_avg([i for i in items if i["watch_s"]], "watch_s"), 1),
+                   "saves_shares": sum(i["saves"] + i["shares"] for i in items)} for name, items in groups.items()}
+    trend = [t for t in read_state("hook_trend", []) if t["date"] != f"{until:%Y-%m-%d}"]
+    trend.append({"date": f"{until:%Y-%m-%d}", "styles": week})
+    write_state("hook_trend", trend[-12:])
+    recent = trend[-4:]
+    styles = sorted({s for t in recent for s in t["styles"]},
+                    key=lambda s: -_avg([t["styles"][s] for t in recent if s in t["styles"]], "reach"))
+    md = ["\n### Hook styles, last four weeks\n",
+          "Each cell is avg reach / avg watch (reels). A style wins once it leads on reach for two or three weeks running.\n",
+          "| Hook style | " + " | ".join(f"Week to {t['date'][5:]}" for t in recent) + " |",
+          "| --- |" + " ---: |" * len(recent)]
+    for style in styles:
+        cells = [f"{c['reach']:,} / {c['watch_s']:.1f}s ({c['reels']})" if (c := t["styles"].get(style)) else "" for t in recent]
+        md.append(f"| {style} | " + " | ".join(cells) + " |")
+    md.append("")
+    return md
+
+
 def _save_top_products(hits: list[dict]) -> None:
     """The most tapped products this week, for the "Most tapped" row at the top of the shop page."""
     taps = sorted((h for h in hits if h.get("event") and str(h.get("path", "")).startswith("amazon-")), key=lambda h: h.get("count", 0), reverse=True)
@@ -270,6 +315,6 @@ def _rate(items: list[dict]) -> float:
     return sum(i["interactions"] for i in items) / reach if reach else 0
 
 
-def _snippet(caption: str) -> str:
+def _snippet(caption: str, length: int = 40) -> str:
     first = caption.strip().splitlines()[0] if caption.strip() else "Untitled post"
-    return (first[:40] + "...") if len(first) > 40 else first
+    return (first[:length] + "...") if len(first) > length else first
