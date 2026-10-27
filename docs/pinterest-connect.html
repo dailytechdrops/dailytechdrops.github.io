@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Connect Pinterest · Daily Tech Drops</title>
+<style>
+body{margin:0;background:#FBF6EE;color:#3B2F27;font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center}
+main{max-width:440px;margin:24px 16px;background:#fff;border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(59,47,39,.08);text-align:center}
+img{width:64px;height:64px}
+h1{font-size:24px;margin:12px 0 8px}
+p{color:#7A6A5D;margin:8px 0 18px}
+a.btn,button{display:inline-block;background:#E8792B;color:#fff;border:0;border-radius:999px;padding:12px 24px;font:600 17px system-ui,sans-serif;text-decoration:none;cursor:pointer}
+code{display:block;word-break:break-all;background:#FBF6EE;border-radius:12px;padding:12px;margin:0 0 16px;font-size:15px}
+.step{font-size:15px;color:#7A6A5D;margin-top:18px}
+</style></head><body><main>
+<img src="img/logo.png" alt="Daily Tech Drops logo">
+<div id="start">
+  <h1>Connect Pinterest</h1>
+  <p>Lets the Daily Tech Drops repo pin each new reel to our Pinterest boards.</p>
+  <a class="btn" id="go" href="#">Connect Pinterest</a>
+</div>
+<div id="done" hidden>
+  <h1>Almost done</h1>
+  <p>Copy this code, then paste it into the "Connect Pinterest" workflow and press Run.</p>
+  <code id="code"></code>
+  <button id="copy">Copy code</button>
+  <p class="step"><a href="https://github.com/kevingalus/daily-tech-drops/actions/workflows/pinterest-connect.yml">Open the workflow</a>. The code works for a few minutes only.</p>
+</div>
+</main>
+<script>
+const APP_ID = "1630232";
+const REDIRECT = "https://kevingalus.github.io/daily-tech-drops/pinterest-connect.html";
+const SCOPES = "boards:read,pins:read,pins:write,user_accounts:read";
+const q = new URLSearchParams(location.search);
+document.getElementById("go").href = "https://www.pinterest.com/oauth/?" + new URLSearchParams({
+  client_id: APP_ID, redirect_uri: REDIRECT, response_type: "code", scope: SCOPES, state: "dtd"
+});
+if (q.get("code")) {
+  document.getElementById("start").hidden = true;
+  document.getElementById("done").hidden = false;
+  document.getElementById("code").textContent = q.get("code");
+  document.getElementById("copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(q.get("code")); document.getElementById("copy").textContent = "Copied"; } catch (e) {}
+  };
+}
+</script>
+</body></html>
