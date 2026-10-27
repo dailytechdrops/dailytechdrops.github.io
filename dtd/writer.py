@@ -37,7 +37,10 @@ Voice: {voice}
 Rules:
 - Never state a price or a discount; prices change daily.
 - Never invent specs. Use only the facts provided; speak generally otherwise.
-- Hook in the first beat must stop the scroll: a problem, a risk, or a surprising fact.
+- The first beat is the hook and must stop the scroll in the first second: 3 to 7 words on screen, a first
+  voiceover sentence under 12 words, no brand or product name, no greeting. Open on the viewer's problem
+  ("Your phone is at 1 percent. Again."), a yes-question, a concrete number, something to watch, or a
+  surprising fact. Never a plain description of the product.
 - The final beat and final slide tell viewers to comment "{keyword}" to get the link.
 - The reel runs 10 to 15 seconds, never longer: 3 beats and about 30 words of voiceover in total.
 - Plain words, no emojis in on-screen text, at most 3 emojis in the caption."""

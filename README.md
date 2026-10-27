@@ -41,10 +41,32 @@ Remix entries carry `remix_of: <id of the first post>` and `hook_style:`, use a 
 post, reuse its `photo_ids`, and rewrite the caption opening. Pick remixes from the report's best reels (reach, then
 watch time); never remix the weakest. The shop page lists each product once.
 
-**Hook styles** (the report guesses one from the first beat when `hook_style` is not set):
-`question` ("Still fighting your trackpad?"), `demo` ("Watch this cable snap back"), `number` ("Three devices, one stand"),
-`statement` ("Never lose your keys again"). Spread the week's new products across all four until the report's
-"Experiments" tables show a style winning for two or three weeks in a row, then lean into it.
+**Hooks (from Oct 27 2026).** The first second decides whether anyone watches, so every entry gets a hook written
+to these rules and tagged with `hook_style:`, and the reports judge the styles over three to four weeks.
+
+- The first beat's `on_screen` is 3 to 7 words and its first voiceover sentence is under 12 words.
+- Open on the viewer, not the product: no brand or product name, no "check out", no greeting, never a price.
+- Be specific. "Your phone is at 1 percent. Again." beats "Never run out of battery."
+- The caption's first line carries the same hook, since it is what shows under the reel.
+- Every entry, new product or remix, sets `hook_style:` to one of the five tested styles:
+
+| Style | What it does | Example |
+| --- | --- | --- |
+| `callout` | Names the viewer's own problem | "Your desk is a cable mess" |
+| `question` | A specific question the viewer answers yes to | "Still fighting your trackpad?" |
+| `number` | Leads with a concrete, true number from the facts | "7 ports, 1 strip" |
+| `demo` | Tells them to watch something happen in the photos | "Watch this cable snap back" |
+| `curiosity` | A surprising claim they stay to see explained | "This speaker survives the pool" |
+
+`statement` (a plain description such as "Tiny speaker, big sound") was the weakest opening in October; it is kept
+only so old reels can be labelled, and the render step warns when an entry uses it or has no style. Spread each
+week's 14 new products across all five styles (at least two each, no more than four of one), and give each remix a
+different style than its first post. Reels from before tagging get a style guessed from their first line.
+
+**Judging hooks.** The weekly report has a "Hook styles, last four weeks" table (avg reach and watch per style, per
+week) and the winners dashboard has a "By hook style" table. Do not call a winner on one week. When one style leads
+on reach for two or three weeks running (target date: the Nov 22 report), use it for about half the new products
+and keep testing the others on the rest; drop a style that is last three weeks running.
 
 **Holiday plan, Nov to Dec** (never state prices or discounts, Associates rule; say "stocking stuffer", not "under $10"):
 - Nov 7 to Nov 20: one of the two new products a day framed as a gift idea, with "gift" in the caption's first line.

@@ -46,6 +46,9 @@ WAIT_AHEAD = timedelta(hours=5)
 def render(cfg: dict, week: Path) -> int:
     for item in load_week(week):
         out = OUTPUT_DIR / item["id"]
+        if item.get("hook_style") not in report.HOOK_STYLES or item.get("hook_style") == "statement":
+            # The weekly report compares hook styles, so every new entry needs one of the tested styles.
+            print(f"::warning title=Hook style::{item['id']}: set hook_style to one of callout, question, number, demo, curiosity")
         content = write_content(cfg, item)
         try:
             reel = render_reel(cfg, content, out / "work", item["name"])
