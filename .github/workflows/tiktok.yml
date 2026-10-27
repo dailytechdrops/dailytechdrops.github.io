@@ -2,7 +2,7 @@ name: TikTok
 
 # Every hour: post the newest reel already posted to Instagram to TikTok, through Buffer.
 # Separate from Post and reply so a TikTok problem never delays Instagram.
-# Until the repo variable TIKTOK_POSTING is "on", runs only check the Buffer connection.
+# Set the repo variable TIKTOK_POSTING to "off" to pause; then runs only check the Buffer connection.
 
 on:
   schedule:
@@ -42,7 +42,7 @@ jobs:
           AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          TIKTOK_POSTING: ${{ vars.TIKTOK_POSTING }}
+          TIKTOK_POSTING: ${{ vars.TIKTOK_POSTING || 'on' }}   # on unless the repo variable says off
           TIKTOK_ITEM: ${{ inputs.item }}
         run: python -m dtd tiktok-due
 

@@ -116,7 +116,7 @@ Settings > Secrets and variables > Actions.
 | --- | --- |
 | `MEDIA_BASE_URL` | Only if the carousel images are hosted somewhere other than this repo's `media` branch |
 | `KEYWORD_DMS` | `off` if you use Instagram's built-in keyword auto-reply instead |
-| `TIKTOK_POSTING` | `on` to post reels to TikTok. Until then the hourly TikTok run only checks the Buffer connection and prints what it would post |
+| `TIKTOK_POSTING` | `off` pauses TikTok (on by default since Oct 27 2026). While off, the hourly TikTok run only checks the Buffer connection and prints what it would post |
 
 ### 2. Meta app (lets the code post and DM)
 1. Instagram account must be **Professional** (Creator or Business).
