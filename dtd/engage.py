@@ -131,7 +131,8 @@ def _instagram(cfg: dict, words: list[str], done: dict, now: datetime, dry: bool
                 continue
             done[key] = {"at": now.isoformat(), "kind": kind}
             sent += 1
-    lines.append(f"Instagram: {read} comments read on {len(recent)} posts, {sent} replies sent.")
+    counted = sum(m.get("comments_count", 0) for m in recent)
+    lines.append(f"Instagram: {read} of {counted} comments readable on {len(recent)} posts, {sent} replies sent.")
     return lines
 
 

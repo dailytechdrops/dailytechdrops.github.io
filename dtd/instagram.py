@@ -118,7 +118,7 @@ def _publish(user: str, token: str, container_id: str, attempts: int = 5) -> str
 
 def recent_media(days: int = 7) -> list[dict]:
     user, token = _creds()
-    data = _call("GET", f"{API}/{user}/media", params={"fields": "id,timestamp", "limit": 25, "access_token": token})
+    data = _call("GET", f"{API}/{user}/media", params={"fields": "id,timestamp,comments_count", "limit": 25, "access_token": token})
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     return [m for m in data.get("data", []) if _ts(m["timestamp"]) >= cutoff]
 
