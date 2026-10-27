@@ -110,11 +110,13 @@ Settings > Secrets and variables > Actions.
 | `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
 | `GOATCOUNTER_TOKEN` | goatcounter.com (free) > Settings > API > new token with "Read statistics" | For shop page clicks in the weekly report |
 | `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
+| `BUFFER_API_KEY` | buffer.com (free plan) > Settings > API, with the TikTok account connected as a channel | For TikTok |
 
 | Variable | Value |
 | --- | --- |
 | `MEDIA_BASE_URL` | Only if the carousel images are hosted somewhere other than this repo's `media` branch |
 | `KEYWORD_DMS` | `off` if you use Instagram's built-in keyword auto-reply instead |
+| `TIKTOK_POSTING` | `on` to post reels to TikTok. Until then the hourly TikTok run only checks the Buffer connection and prints what it would post |
 
 ### 2. Meta app (lets the code post and DM)
 1. Instagram account must be **Professional** (Creator or Business).
@@ -125,6 +127,12 @@ Settings > Secrets and variables > Actions.
    `instagram_business_manage_insights` (for the weekly report).
 4. Copy the Instagram user ID and the token into the secrets above.
 5. While the app is in Development mode it works for your own account, which is all this needs.
+
+### TikTok goes through Buffer
+TikTok's own posting API keeps unaudited apps private, and TikTok's rules turn down apps that only post to the owner's
+accounts. Buffer is an approved TikTok partner with a free API, so `.github/workflows/tiktok.yml` sends each reel,
+hourly and after Instagram, to Buffer with "share now". TikTok captions cannot hold links, so the caption points to the
+bio link (the shop page). Buffer's free plan allows 3 channels and 10 queued posts each; we never queue, so it is enough.
 
 ### 3. Carousel images must be public
 Instagram downloads carousel images from a URL. Reels upload directly and do not need this.

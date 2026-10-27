@@ -7,7 +7,7 @@ from datetime import date, datetime, timedelta
 import requests
 
 from .config import EASTERN, env, load_all_weeks, read_state
-from . import facebook, threads, youtube
+from . import facebook, threads, tiktok, youtube
 
 # Dates things expire, from setup. Warned about three weeks ahead.
 EXPIRIES = {
@@ -43,6 +43,12 @@ def problems() -> list[str]:
             youtube._check_channel(youtube._access_token())
         except youtube.YouTubeError as e:
             found.append(f"YouTube Shorts are paused: the saved YouTube login is not for the Daily Tech Drops channel yet ({str(e)[:120]}).")
+
+    if tiktok.configured():
+        try:
+            tiktok.channel_id()
+        except (tiktok.TikTokError, requests.RequestException) as e:
+            found.append(f"TikTok posting is failing: Buffer cannot reach the TikTok account ({str(e)[:120]}). Reconnect TikTok in Buffer.")
 
     try:
         if requests.get(SHOP_URL, timeout=60).status_code != 200:
