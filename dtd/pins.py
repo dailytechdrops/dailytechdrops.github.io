@@ -22,11 +22,14 @@ def _photos(guide: dict, scratch: Path) -> list[tuple[Path, bool]]:
         c = item.get("content") or {}
         if item["asin"] not in first and (c.get("photo_ids") or c.get("photo_query")):
             first[item["asin"]] = c
-    shots = []
+    shots, used = [], set()
     for asin in guide["asins"]:
         c = first.get(asin)
-        if not c:
+        # Sister products often share their first photo; show each photo once.
+        key = (c.get("photo_ids") or [c.get("photo_query")])[0] if c else None
+        if not c or key in used:
             continue
+        used.add(key)
         shot = stock_photo(c.get("photo_query"), scratch / f"{guide['slug']}-{asin}.jpg", 0, c.get("photo_ids"))
         if shot:
             shots.append((shot, not c.get("photo_ids") and str(c.get("photo_query", "")).startswith("assets/photos/")))

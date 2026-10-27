@@ -28,7 +28,7 @@
   pin_description: Gift ideas for a safer, smarter home. Video doorbells, security cameras, smart locks and smart plugs that are easy to set up.
   show_from: 2026-11-01
   show_until: 2026-12-24
-  asins: [B0BZWRSRWV, B0BWWZXWPL, B0CJWJ8RYR, B0BCV3NBKY, B0BZ55JZ4S, B091FXQQMQ, B09B2SBHQK]
+  asins: [B0BZWRSRWV, B0CJWJ8RYR, B091FXQQMQ, B09B2SBHQK, B0BWWZXWPL, B0BCV3NBKY, B0BZ55JZ4S]
 
 - slug: everything
   title: Gifts for the person who has everything
