@@ -40,6 +40,25 @@ analytics:
   # product cards are tapped. The weekly report reads it with the GOATCOUNTER_TOKEN secret.
   goatcounter: dailytechdrops
 
+pinterest:
+  # Pinterest developer app "Daily Tech Drops Pin Poster" (Trial access approved Oct 27 2026).
+  # Secrets: PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN (workflow "Connect Pinterest").
+  app_id: "1630232"
+  redirect_uri: https://kevingalus.github.io/daily-tech-drops/pinterest-connect.html
+  # Each reel goes to the board for the first keyword found in its lane. Instagram's own
+  # auto-publish already fills "Daily Tech Drops: New Finds", so these pins go elsewhere.
+  boards:
+    desk: Desk Setup Gadgets
+    travel: Travel Tech
+    phone: Phone & Car Accessories
+    charging: Phone & Car Accessories
+    home: Home & Kitchen Gadgets
+    kitchen: Home & Kitchen Gadgets
+    robot: Gaming & Entertainment Gear
+    gaming: Gaming & Entertainment Gear
+    fun: Gaming & Entertainment Gear
+  default_board: Tech Gift Ideas
+
 instagram:
   comment_keyword: SHOP          # Viewers comment this word to get the link by DM
   comment_aliases: [LINK]        # Also answered, since people guess these
