@@ -124,7 +124,8 @@ def _repeat(judged: list[dict], groups: dict, products: list[dict], taps_ok: boo
         f"**{r['name']}** (score {r['score']:.0f}, reach {r['reach']:,.0f}, watch {r['watch_s']:.1f}s"
         f"{', ' + str(r['hook']) + ' hook' if r['hook'] else ''})" for r in top) + ".")
     for title in ("Lane", "Hook style", "Time of day", "First post or remix"):
-        ranked = [g for g in groups[title] if g["reels"] >= MIN_GROUP]
+        # "untagged" and "other" are reels from before tagging, so they are not something to repeat.
+        ranked = [g for g in groups[title] if g["reels"] >= MIN_GROUP and g["name"] not in ("untagged", "other")]
         if len(ranked) < 2:
             continue
         best, worst = ranked[0], ranked[-1]
