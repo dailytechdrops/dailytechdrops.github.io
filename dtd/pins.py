@@ -2,6 +2,7 @@
 cream card over a grid of four product photos (the same hand-picked photos as each product's reel), with the logo.
 The guide page uses it as its og:image, so a pin saved from the page shows this artwork."""
 
+import hashlib
 from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageOps
@@ -31,7 +32,9 @@ def _photos(guide: dict, scratch: Path) -> list[tuple[Path, bool]]:
             continue
         used.add(key)
         shot = stock_photo(c.get("photo_query"), scratch / f"{guide['slug']}-{asin}.jpg", 0, c.get("photo_ids"))
-        if shot:
+        digest = hashlib.md5(shot.read_bytes()).hexdigest() if shot else None
+        if shot and digest not in used:
+            used.add(digest)  # a photo search can land on a photo already shown
             shots.append((shot, not c.get("photo_ids") and str(c.get("photo_query", "")).startswith("assets/photos/")))
         if len(shots) == 4:
             break
