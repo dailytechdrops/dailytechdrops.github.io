@@ -282,6 +282,10 @@ def tiktok_due(cfg: dict) -> int:
     video_url = f"{_media_base()}/{item_id}/reel.mp4"
     if not tiktok.enabled():
         print(f"TikTok channel found in Buffer ({tiktok.channel_id()}). TIKTOK_POSTING is not on, so nothing was posted.")
+        try:
+            print(f"Buffer post modes: {tiktok.share_modes()}")
+        except tiktok.TikTokError as e:
+            print(f"Could not read Buffer post modes: {e}")
         print(f"Would post {item_id} from {video_url} with:\n{text}")
         return 0
     try:

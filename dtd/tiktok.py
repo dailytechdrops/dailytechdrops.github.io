@@ -32,6 +32,8 @@ def enabled() -> bool:
 
 
 def _gql(query: str, variables: dict | None = None) -> dict:
+    if not env("BUFFER_API_KEY").isascii():
+        raise TikTokError("BUFFER_API_KEY is not a real key (it has non-letter symbols, e.g. copied masked dots); paste the key again")
     r = requests.post(API, timeout=120, json={"query": query, "variables": variables or {}},
                       headers={"Authorization": f"Bearer {env('BUFFER_API_KEY')}"})
     if r.status_code >= 400:
@@ -52,6 +54,12 @@ def channel_id() -> str:
             if ch["service"].lower() == "tiktok":
                 return ch["id"]
     raise TikTokError("No TikTok channel is connected in Buffer")
+
+
+def share_modes() -> list[str]:
+    """What Buffer accepts as a post mode, read from its schema, to check shareNow before posting goes live."""
+    t = _gql('query { __type(name: "ShareMode") { enumValues { name } } }')["__type"]
+    return [v["name"] for v in (t or {}).get("enumValues", [])]
 
 
 def text_for_tiktok(caption: str, disclosure: str) -> str:
