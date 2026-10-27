@@ -118,7 +118,7 @@ def _publish(user: str, token: str, container_id: str, attempts: int = 5) -> str
 
 def recent_media(days: int = 7) -> list[dict]:
     user, token = _creds()
-    data = _call("GET", f"{API}/{user}/media", params={"fields": "id,timestamp", "limit": 25, "access_token": token})
+    data = _call("GET", f"{API}/{user}/media", params={"fields": "id,timestamp,comments_count", "limit": 25, "access_token": token})
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     return [m for m in data.get("data", []) if _ts(m["timestamp"]) >= cutoff]
 
@@ -126,6 +126,14 @@ def recent_media(days: int = 7) -> list[dict]:
 def comments(media_id: str) -> list[dict]:
     _, token = _creds()
     data = _call("GET", f"{API}/{media_id}/comments", params={"fields": "id,text,username,timestamp", "limit": 50, "access_token": token})
+    return data.get("data", [])
+
+
+def comments_with_replies(media_id: str) -> list[dict]:
+    """Top-level comments plus who already replied to each, so a comment someone (us, Meta Business
+    Suite, or Kevin by hand) already answered is never answered twice."""
+    _, token = _creds()
+    data = _call("GET", f"{API}/{media_id}/comments", params={"fields": "id,text,username,timestamp,replies{username}", "limit": 50, "access_token": token})
     return data.get("data", [])
 
 

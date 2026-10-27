@@ -7,6 +7,7 @@
   python -m dtd wait-next                              wait for a post due within the next few hours
   python -m dtd post-due                               post the next product whose time has come
   python -m dtd reply                                  DM the link to anyone who commented the keyword
+  python -m dtd engage                                 reply to comments and nudge people to comment SHOP
   python -m dtd report                                 write the weekly performance report to reports/
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd refresh-token                          print a refreshed Instagram token
@@ -317,7 +318,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "winners", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "report", "winners", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -342,6 +343,9 @@ def main() -> int:
         return post_due(cfg)
     if args.command == "reply":
         return reply(cfg)
+    if args.command == "engage":
+        from . import engage
+        return engage.run(cfg)
     if args.command == "youtube-due":
         return youtube_due(cfg)
     if args.command == "report":
