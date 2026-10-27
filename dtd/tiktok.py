@@ -14,7 +14,8 @@ import requests
 from .config import env
 
 API = "https://api.buffer.com"
-SHOP_LINE = "Every gadget we post is on our shop page. Link in bio."
+# No clickable bio link until 1,000 followers, so the shop page address is spelled out.
+SHOP_LINE = "Every gadget we post: kevingalus.github.io/daily-tech-drops"
 # TikTok captions allow 2,200 characters; stay well under it.
 MAX_TEXT = 2000
 
@@ -64,7 +65,7 @@ def share_modes() -> list[str]:
 
 def text_for_tiktok(caption: str, disclosure: str) -> str:
     """The Instagram caption, minus the comment-SHOP-for-a-DM lines (no DMs on TikTok, and
-    TikTok captions cannot hold links), plus a pointer to the bio link. Disclosure stays last."""
+    TikTok captions cannot hold links), plus the shop page address. Disclosure stays last."""
     lines = [l for l in caption.strip().splitlines() if l.strip() != disclosure]
     body = [l for l in lines if not ("SHOP" in l and "omment" in l)]
     while body and not body[-1].strip():
