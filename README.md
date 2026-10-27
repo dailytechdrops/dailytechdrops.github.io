@@ -131,8 +131,8 @@ Settings > Secrets and variables > Actions.
 ### TikTok goes through Buffer
 TikTok's own posting API keeps unaudited apps private, and TikTok's rules turn down apps that only post to the owner's
 accounts. Buffer is an approved TikTok partner with a free API, so `.github/workflows/tiktok.yml` sends each reel,
-hourly and after Instagram, to Buffer with "share now". TikTok captions cannot hold links, so the caption points to the
-bio link (the shop page). Buffer's free plan allows 3 channels and 10 queued posts each; we never queue, so it is enough.
+hourly and after Instagram, to Buffer with "share now". TikTok captions cannot hold links, so the caption spells out the
+shop page address (personal accounts get a bio link only at 1,000 followers). Buffer's free plan allows 3 channels and 10 queued posts each; we never queue, so it is enough.
 
 ### 3. Carousel images must be public
 Instagram downloads carousel images from a URL. Reels upload directly and do not need this.
