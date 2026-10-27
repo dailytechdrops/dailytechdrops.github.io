@@ -10,6 +10,7 @@
   python -m dtd engage                                 reply to comments and nudge people to comment SHOP
   python -m dtd report                                 write the weekly performance report to reports/
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
+  python -m dtd tiktok-due                             post the newest posted reel to TikTok (through Buffer)
   python -m dtd refresh-token                          print a refreshed Instagram token
   python -m dtd refresh-threads-token                  print a refreshed Threads token
 """
@@ -27,7 +28,7 @@ import zlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import facebook, instagram, report, shop, threads, youtube
+from . import facebook, instagram, report, shop, threads, tiktok, youtube
 from .carousel import render_carousel
 from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
@@ -39,6 +40,8 @@ STALE_AFTER = timedelta(hours=6)
 MAX_DM_ATTEMPTS = 3
 # Only reels posted this recently go to YouTube, so connecting the channel does not flood it with old posts.
 YOUTUBE_WINDOW = timedelta(days=3)
+# Same for TikTok.
+TIKTOK_WINDOW = timedelta(days=3)
 # A run waits for a post due within this long (the job's own time limit is set above it).
 WAIT_AHEAD = timedelta(hours=5)
 
@@ -158,17 +161,26 @@ def post_due(cfg: dict) -> int:
     return 0
 
 
-def _publish(cfg: dict, item_id: str, history: list) -> None:
+def _media(item_id: str) -> Path:
     out = OUTPUT_DIR / item_id
     if not out.exists():
         # Rendered media lives on the media branch; pull just this product's folder.
         OUTPUT_DIR.mkdir(exist_ok=True)
         archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
         subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
+    return out
+
+
+def _media_base() -> str:
+    return env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
+
+
+def _publish(cfg: dict, item_id: str, history: list) -> None:
+    out = _media(item_id)
     draft = json.loads((out / "draft.json").read_text())
     # Drafts rendered before Oct 25 2026 have the disclosure first; move it to the end.
     draft["caption"] = disclosure_last(cfg, draft["caption"])
-    base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', '')}/media"
+    base = _media_base()
     reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None
     if cfg["instagram"].get("post_carousel", True):
@@ -231,11 +243,7 @@ def youtube_due(cfg: dict) -> int:
         print("No new reels for YouTube.")
         return 0
     item_id = max(todo, key=lambda h: h["id"])["id"]
-    out = OUTPUT_DIR / item_id
-    if not out.exists():
-        OUTPUT_DIR.mkdir(exist_ok=True)
-        archive = subprocess.run(["git", "archive", "origin/media", item_id], capture_output=True, check=True)
-        subprocess.run(["tar", "-x", "-C", str(OUTPUT_DIR)], input=archive.stdout, check=True)
+    out = _media(item_id)
     draft = json.loads((out / "draft.json").read_text())
     privacy = env("YOUTUBE_PRIVACY") or "private"
     try:
@@ -251,6 +259,39 @@ def youtube_due(cfg: dict) -> int:
     uploaded[item_id] = video_id
     write_state("youtube", uploaded)
     print(f"Uploaded {item_id} to YouTube as {privacy}: https://youtube.com/shorts/{video_id}")
+    return 0
+
+
+def tiktok_due(cfg: dict) -> int:
+    """Posts reels already posted to Instagram to TikTok, one per run, newest first.
+    Runs on its own schedule so a TikTok problem can never hold up Instagram.
+    Until TIKTOK_POSTING is on, it only checks the Buffer connection and prints what it would post."""
+    if not tiktok.configured():
+        print("BUFFER_API_KEY not set yet; skipping TikTok.")
+        return 0
+    posted = read_state("tiktok", {})
+    cutoff = f"{datetime.now(EASTERN) - TIKTOK_WINDOW:%Y-%m-%d-%H%M}"
+    forced = env("TIKTOK_ITEM")
+    todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in posted and (h["id"] == forced if forced else h["id"] >= cutoff)]
+    if not todo:
+        print("No new reels for TikTok.")
+        return 0
+    item_id = max(todo, key=lambda h: h["id"])["id"]
+    draft = json.loads((_media(item_id) / "draft.json").read_text())
+    text = tiktok.text_for_tiktok(disclosure_last(cfg, draft["caption"]), cfg["instagram"]["disclosure"])
+    video_url = f"{_media_base()}/{item_id}/reel.mp4"
+    if not tiktok.enabled():
+        print(f"TikTok channel found in Buffer ({tiktok.channel_id()}). TIKTOK_POSTING is not on, so nothing was posted.")
+        print(f"Would post {item_id} from {video_url} with:\n{text}")
+        return 0
+    try:
+        post_id = tiktok.publish_video(video_url, text)
+    except tiktok.TikTokError as e:
+        print(f"::error title=TikTok post failed::{item_id}: {str(e)[:500]}")
+        raise
+    posted[item_id] = post_id
+    write_state("tiktok", posted)
+    print(f"Sent {item_id} to TikTok through Buffer (Buffer post {post_id})")
     return 0
 
 
@@ -321,7 +362,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "report", "winners", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "tiktok-due", "report", "winners", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -351,6 +392,8 @@ def main() -> int:
         return engage.run(cfg)
     if args.command == "youtube-due":
         return youtube_due(cfg)
+    if args.command == "tiktok-due":
+        return tiktok_due(cfg)
     if args.command == "report":
         if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
             print("Instagram secrets not set yet; skipping.")
