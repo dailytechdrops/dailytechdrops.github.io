@@ -64,6 +64,30 @@ instagram:
     - "Check your inbox {user}, it's on the way 📬"
     - "Done {user}! Link is in your DMs ✅"
 
+engagement:
+  # Public replies to comments on our posts (python -m dtd engage, workflow "Comment replies").
+  # Comments that say SHOP or LINK are left to the Meta Business Suite auto-DM, so nothing is sent twice.
+  # No prices and no links in these replies (Amazon Associates rules), so no disclosure is needed.
+  # {user} is @their_name on Instagram and empty on Facebook. Set enabled: false to pause.
+  enabled: true
+  facebook: true
+  replies:
+    price:
+      - "Prices change often on Amazon {user}, so comment SHOP and we will DM you the link to check today's price 📩"
+      - "Great question {user}! Amazon prices move a lot, so comment SHOP and we will send you the link to see the current price 🙌"
+    want:
+      - "Comment SHOP {user} and we will DM you the Amazon link 📩"
+      - "Easy {user}! Just comment SHOP and the link lands in your DMs 📬"
+      - "We got you {user}! Comment SHOP and we will send the link straight to your DMs 🙌"
+    question:
+      - "Good question {user}! The Amazon listing has all the details. Comment SHOP and we will DM you the link 📩"
+      - "Great question {user}! Comment SHOP and we will send you the Amazon link so you can check the full specs 🙌"
+    praise:
+      - "Glad you like it {user}! 🙌"
+      - "Right?! Thanks {user} 🔥"
+      - "Thanks {user}! Comment SHOP if you want the link 📩"
+      - "Appreciate you {user}! More finds drop every day 📦"
+
 schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
   posts_per_day: 3               # 3 reels a day from Oct 26 2026 (Kevin)

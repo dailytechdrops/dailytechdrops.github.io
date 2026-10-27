@@ -14,6 +14,7 @@ then posts at its scheduled time, and anyone who comments **LINK** gets the affi
 | On that pull request | `Render week` | Renders every reel and carousel, stores them on the `media` branch, comments a preview |
 | You merge | | The week is approved |
 | Every 30 min | `Post and reply` | Posts the next product whose time has come; DMs the link to keyword comments |
+| Every 30 min | `Comment replies` | Short friendly reply to new comments, nudging people to comment SHOP (SHOP comments are left to the Meta Business Suite auto-DM) |
 | Sunday late morning | `Weekly report` | Measures the last 7 days per post and lane, saves `reports/latest.md` for the Sunday research, opens an issue with the report |
 | Every morning | `Winners dashboard` | Ranks every reel from the last 30 days by reach, saves, shares, watch time and shop taps at [winners.html](https://kevingalus.github.io/daily-tech-drops/winners.html); saves `reports/winners.md` |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |

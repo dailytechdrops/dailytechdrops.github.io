@@ -129,6 +129,14 @@ def comments(media_id: str) -> list[dict]:
     return data.get("data", [])
 
 
+def comments_with_replies(media_id: str) -> list[dict]:
+    """Top-level comments plus who already replied to each, so a comment someone (us, Meta Business
+    Suite, or Kevin by hand) already answered is never answered twice."""
+    _, token = _creds()
+    data = _call("GET", f"{API}/{media_id}/comments", params={"fields": "id,text,username,timestamp,replies{username}", "limit": 50, "access_token": token})
+    return data.get("data", [])
+
+
 def private_reply(comment_id: str, text: str) -> None:
     """Sends a DM to the commenter. Instagram allows one per comment, within 7 days."""
     user, token = _creds()
