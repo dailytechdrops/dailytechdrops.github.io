@@ -134,7 +134,7 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
     rows = hits.json().get("hits") or []
     _save_top_products(rows)
     visits = sum(h.get("count", 0) for h in rows if not h.get("event"))
-    taps = sorted((h for h in rows if h.get("event") and str(h.get("path", "")).startswith("amazon-")), key=lambda h: h.get("count", 0), reverse=True)
+    taps = sorted((h for h in rows if h.get("event") and str(h.get("path", "")).startswith(("amazon-", "gift-"))), key=lambda h: h.get("count", 0), reverse=True)
     reels = sum(h.get("count", 0) for h in rows if h.get("event") and str(h.get("path", "")).startswith("reel-"))
     md.append(f"**Visits:** {visits}  ·  **Taps to Amazon:** {sum(h.get('count', 0) for h in taps)}  ·  **Reel plays:** {reels}\n")
     sources = [r for r in (refs.json().get("stats") or []) if r.get("count")]
@@ -146,7 +146,26 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
         for h in taps[:15]:
             md.append(f"| {(h.get('title') or h['path']).replace('|', '/')} | {h.get('count', 0)} |")
         md.append("")
+    md += _gift_guides(rows)
     return md
+
+
+def _gift_guides(rows: list) -> list[str]:
+    """Per holiday gift guide: page visits, taps on its tile on the shop page, taps through to Amazon
+    from the guide page, and Pinterest saves started from it. Event names come from dtd/shop.py."""
+    from .shop import load_guides
+    out = []
+    for g in load_guides():
+        s = g["slug"]
+        count = lambda test: sum(h.get("count", 0) for h in rows if test(h))  # noqa: E731
+        visits = count(lambda h: not h.get("event") and str(h.get("path", "")).endswith((f"/gifts/{s}", f"/gifts/{s}.html")))
+        tiles = count(lambda h: h.get("event") and h.get("path") == f"guide-{s}")
+        amazon = count(lambda h: h.get("event") and str(h.get("path", "")).startswith(f"gift-{s}-"))
+        pins = count(lambda h: h.get("event") and h.get("path") == f"pin-{s}")
+        out.append(f"| {g['title']} | {visits} | {tiles} | {amazon} | {pins} |")
+    if not out:
+        return []
+    return ["#### Gift guides\n", "| Guide | Visits | Opened from shop | Taps to Amazon | Pinterest saves |", "| --- | ---: | ---: | ---: | ---: |", *out, ""]
 
 
 # Hook styles the first beat is sorted into, so the report can say which kind of opening holds viewers.
