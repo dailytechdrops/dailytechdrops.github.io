@@ -98,13 +98,15 @@ def run(cfg: dict) -> int:
 
 def _instagram(cfg: dict, words: list[str], done: dict, now: datetime, dry: bool) -> list[str]:
     handle = cfg["brand"]["handle"].lower()
-    lines, sent = [], 0
-    for media in instagram.recent_media(days=7):
+    lines, sent, read = [], 0, 0
+    recent = instagram.recent_media(days=7)
+    for media in recent:
         try:
             found = instagram.comments_with_replies(media["id"])
         except instagram.InstagramError as e:
             lines.append(f"IG {media['id']}: could not read comments: {e}")
             continue
+        read += len(found)
         for c in found:
             key = f"ig:{c['id']}"
             user = c.get("username", "")
@@ -129,7 +131,7 @@ def _instagram(cfg: dict, words: list[str], done: dict, now: datetime, dry: bool
                 continue
             done[key] = {"at": now.isoformat(), "kind": kind}
             sent += 1
-    lines.append(f"Instagram: {sent} replies sent.")
+    lines.append(f"Instagram: {read} comments read on {len(recent)} posts, {sent} replies sent.")
     return lines
 
 
