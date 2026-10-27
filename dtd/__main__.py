@@ -317,7 +317,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "youtube-due", "report", "winners", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -350,6 +350,12 @@ def main() -> int:
             return 1
         report.run()
         return 0
+    if args.command == "winners":
+        if not (env("IG_USER_ID") and env("IG_ACCESS_TOKEN")):
+            print("Instagram secrets not set yet; skipping.")
+            return 1
+        from . import winners
+        return winners.run()
     if args.command == "refresh-threads-token":
         print(threads.refresh_token())
         return 0

@@ -1,0 +1,50 @@
+name: Winners dashboard
+
+# Every morning: ranks every reel from the last 30 days by reach, saves, shares, watch time
+# and shop taps, and rewrites docs/winners.html (the dashboard), reports/winners.md and
+# state/winners.json. The weekly report also refreshes it right before it runs.
+# On a pull request that changes it, only test-runs and shows the result in the run summary.
+
+on:
+  schedule:
+    - cron: "40 11 * * *"   # 7:40am ET in summer, 6:40am in winter
+  workflow_dispatch:
+  pull_request:
+    paths: ["dtd/winners.py", "dtd/report.py", ".github/workflows/winners.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  winners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Rank the reels
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: |
+          python -m dtd winners
+          cat reports/winners.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save the dashboard
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/winners.html reports/winners.md state/winners.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Winners dashboard"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push

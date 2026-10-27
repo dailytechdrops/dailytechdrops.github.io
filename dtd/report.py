@@ -22,37 +22,7 @@ def build(days: int = 7) -> tuple[str, str]:
     """Returns (title, markdown)."""
     until = datetime.now(EASTERN)
     since = until - timedelta(days=days)
-    history = read_state("history", [])
-    by_media = {m: h for h in history for m in h.get("media_ids", [])}
-    items = {i["id"]: i for i in load_all_weeks()}
-
-    rows = []
-    for media in instagram.media_since(since):
-        reel = media.get("media_product_type") == "REELS"
-        stats = instagram.media_insights(media["id"], REEL_METRICS if reel else POST_METRICS)
-        post = by_media.get(media["id"], {})
-        reach = stats.get("reach", 0)
-        item = items.get(post.get("id"), {})
-        rows.append({
-            "id": post.get("id"),
-            "asin": post.get("asin"),
-            "hook": hook_style(item) if reel else None,
-            "remix_of": item.get("remix_of"),
-            "name": (post.get("name") or _snippet(media.get("caption", ""))).replace("|", "/"),
-            "lane": item.get("lane") or "other",
-            "kind": "Reel" if reel else {"CAROUSEL_ALBUM": "Carousel", "IMAGE": "Photo"}.get(media.get("media_type"), "Post"),
-            "when": instagram._ts(media["timestamp"]).astimezone(EASTERN),
-            "url": media.get("permalink", ""),
-            "reach": reach,
-            "views": stats.get("views", 0),
-            "saves": stats.get("saved", 0),
-            "shares": stats.get("shares", 0),
-            "interactions": stats.get("total_interactions", media.get("like_count", 0) + media.get("comments_count", 0)),
-            "watch_s": stats.get("ig_reels_avg_watch_time", 0) / 1000,
-            "dms": post.get("dms", 0),
-        })
-    for r in rows:
-        r["eng"] = r["interactions"] / r["reach"] if r["reach"] else 0
+    rows = post_rows(since)
 
     acct = instagram.account()
     totals = instagram.account_insights(ACCOUNT_METRICS, since, until)
@@ -71,6 +41,8 @@ def build(days: int = 7) -> tuple[str, str]:
         f"**Accounts reached:** {totals.get('reach', 0):,.0f}  ·  **Views:** {totals.get('views', 0):,.0f}  ·  "
         f"**Engaged:** {totals.get('accounts_engaged', 0):,.0f}  ·  **Bio link taps:** {totals.get('profile_links_taps', 0):,.0f}\n"
     )
+    from .winners import repeat_section
+    md += repeat_section()
     md += shop_section(since, until)
     if not rows:
         md.append("No posts in the last 7 days.")
@@ -110,6 +82,43 @@ def build(days: int = 7) -> tuple[str, str]:
     return title, "\n".join(md) + "\n"
 
 
+def post_rows(since: datetime) -> list[dict]:
+    """Every Instagram post since then with its lifetime stats, matched to its week file entry."""
+    history = read_state("history", [])
+    by_media = {m: h for h in history for m in h.get("media_ids", [])}
+    items = {i["id"]: i for i in load_all_weeks()}
+
+    rows = []
+    for media in instagram.media_since(since):
+        reel = media.get("media_product_type") == "REELS"
+        stats = instagram.media_insights(media["id"], REEL_METRICS if reel else POST_METRICS)
+        post = by_media.get(media["id"], {})
+        reach = stats.get("reach", 0)
+        item = items.get(post.get("id"), {})
+        rows.append({
+            "id": post.get("id"),
+            "asin": post.get("asin"),
+            "hook": hook_style(item) if reel else None,
+            "remix_of": item.get("remix_of"),
+            "name": (post.get("name") or _snippet(media.get("caption", ""))).replace("|", "/"),
+            "lane": item.get("lane") or "other",
+            "kind": "Reel" if reel else {"CAROUSEL_ALBUM": "Carousel", "IMAGE": "Photo"}.get(media.get("media_type"), "Post"),
+            "when": instagram._ts(media["timestamp"]).astimezone(EASTERN),
+            "url": media.get("permalink", ""),
+            "reach": reach,
+            "views": stats.get("views", 0),
+            "saves": stats.get("saved", 0),
+            "shares": stats.get("shares", 0),
+            "interactions": stats.get("total_interactions", media.get("like_count", 0) + media.get("comments_count", 0)),
+            "watch_s": stats.get("ig_reels_avg_watch_time", 0) / 1000,
+            "dms": post.get("dms", 0),
+        })
+    for r in rows:
+        r["eng"] = r["interactions"] / r["reach"] if r["reach"] else 0
+    return rows
+
+
+
 def shop_section(since: datetime, until: datetime) -> list[str]:
     """Shop page visits, where they came from, and which product cards were tapped through
     to Amazon, from GoatCounter. A tap is the last step we can see before Amazon; the
@@ -120,24 +129,18 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
     if not (code and token):
         md.append("Shop page stats are not connected yet (needs the GOATCOUNTER_TOKEN secret).\n")
         return md
-    api = f"https://{code}.goatcounter.com/api/v0"
-    params = {"start": f"{since:%Y-%m-%d}", "end": f"{until:%Y-%m-%d}", "limit": 100}
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     try:
-        hits = requests.get(f"{api}/stats/hits", params=params, headers=headers, timeout=60)
-        hits.raise_for_status()
-        refs = requests.get(f"{api}/stats/toprefs", params=params, headers=headers, timeout=60)
-        refs.raise_for_status()
+        rows = goatcounter("hits", since, until).get("hits") or []
+        refs = goatcounter("toprefs", since, until)
     except requests.RequestException as e:
         md.append(f"Could not read shop page stats this week: {str(e)[:200]}\n")
         return md
-    rows = hits.json().get("hits") or []
     _save_top_products(rows)
     visits = sum(h.get("count", 0) for h in rows if not h.get("event"))
     taps = sorted((h for h in rows if h.get("event") and str(h.get("path", "")).startswith(("amazon-", "gift-"))), key=lambda h: h.get("count", 0), reverse=True)
     reels = sum(h.get("count", 0) for h in rows if h.get("event") and str(h.get("path", "")).startswith("reel-"))
     md.append(f"**Visits:** {visits}  ·  **Taps to Amazon:** {sum(h.get('count', 0) for h in taps)}  ·  **Reel plays:** {reels}\n")
-    sources = [r for r in (refs.json().get("stats") or []) if r.get("count")]
+    sources = [r for r in (refs.get("stats") or []) if r.get("count")]
     if sources:
         md.append("Came from: " + ", ".join(f"{r.get('name') or 'direct or app'} {r['count']}" for r in sources[:6]) + "\n")
     if taps:
@@ -148,6 +151,17 @@ def shop_section(since: datetime, until: datetime) -> list[str]:
         md.append("")
     md += _gift_guides(rows)
     return md
+
+
+def goatcounter(stat: str, since: datetime, until: datetime) -> dict:
+    """One GoatCounter stats call (hits, toprefs, ...) over the window. Raises on HTTP errors."""
+    code = (load_config().get("analytics") or {}).get("goatcounter")
+    api = f"https://{code}.goatcounter.com/api/v0"
+    params = {"start": f"{since:%Y-%m-%d}", "end": f"{until:%Y-%m-%d}", "limit": 100}
+    headers = {"Authorization": f"Bearer {env('GOATCOUNTER_TOKEN')}", "Content-Type": "application/json"}
+    resp = requests.get(f"{api}/stats/{stat}", params=params, headers=headers, timeout=60)
+    resp.raise_for_status()
+    return resp.json()
 
 
 def _gift_guides(rows: list) -> list[str]:
