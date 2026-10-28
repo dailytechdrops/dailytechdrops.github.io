@@ -152,7 +152,7 @@ def repeat_section(data: dict | None = None) -> list[str]:
         return []
     return [f"### What to repeat (last {DAYS} days, from the winners dashboard)\n",
             *[f"- {line}" for line in data["repeat"]],
-            "\nFull ranking: https://kevingalus.github.io/daily-tech-drops/winners.html\n"]
+            "\nFull ranking: https://dailytechdrops.github.io/winners.html\n"]
 
 
 def markdown(data: dict) -> str:

@@ -15,7 +15,7 @@ EXPIRIES = {
     "Facebook data access for the Page token": date(2027, 1, 17),
 }
 MIN_DAYS_SCHEDULED = 3
-SHOP_URL = "https://kevingalus.github.io/daily-tech-drops/"
+SHOP_URL = "https://dailytechdrops.github.io/"
 
 
 def problems() -> list[str]:

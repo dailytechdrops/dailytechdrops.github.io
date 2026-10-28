@@ -16,8 +16,8 @@ then posts at its scheduled time, and anyone who comments **LINK** gets the affi
 | Every 30 min | `Post and reply` | Posts the next product whose time has come; DMs the link to keyword comments |
 | Every 30 min | `Comment replies` | Short friendly reply to new comments, nudging people to comment SHOP (SHOP comments are left to the Meta Business Suite auto-DM) |
 | Sunday late morning | `Weekly report` | Measures the last 7 days per post and lane, saves `reports/latest.md` for the Sunday research, opens an issue with the report |
-| Every morning | `Winners dashboard` | Ranks every reel from the last 30 days by reach, saves, shares, watch time and shop taps at [winners.html](https://kevingalus.github.io/daily-tech-drops/winners.html); saves `reports/winners.md` |
-| Every morning | `Comment targets` | Picks about 12 recent reels from tech, desk setup and gadget accounts, each with a comment to paste, at [comments.html](https://kevingalus.github.io/daily-tech-drops/comments.html). Nothing is posted to other accounts automatically |
+| Every morning | `Winners dashboard` | Ranks every reel from the last 30 days by reach, saves, shares, watch time and shop taps at [winners.html](https://dailytechdrops.github.io/winners.html); saves `reports/winners.md` |
+| Every morning | `Comment targets` | Picks about 12 recent reels from tech, desk setup and gadget accounts, each with a comment to paste, at [comments.html](https://dailytechdrops.github.io/comments.html). Nothing is posted to other accounts automatically |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |
 
 **Sunday research, read this:** if `reports/latest.md` exists, it is last week's performance report. Weight the new
@@ -110,7 +110,7 @@ Settings > Secrets and variables > Actions.
 | `ANTHROPIC_API_KEY` | console.anthropic.com (paid) | No. Only for products without pre-written content |
 | `ELEVENLABS_API_KEY` | elevenlabs.io (paid for commercial use) | No. Only if `voice.provider` is `elevenlabs` |
 | `GOATCOUNTER_TOKEN` | goatcounter.com (free) > Settings > API > new token with "Read statistics" | For shop page clicks in the weekly report |
-| `GH_PAT` | GitHub fine-grained token, this repo only, "Secrets: read and write" | For the monthly token refresh |
+| `GH_PAT` | GitHub fine-grained token (resource owner: the dailytechdrops organization), this repo only, "Secrets: read and write" | For the monthly token refresh |
 | `BUFFER_API_KEY` | buffer.com (free plan) > Settings > API, with the TikTok account connected as a channel | For TikTok |
 
 | Variable | Value |

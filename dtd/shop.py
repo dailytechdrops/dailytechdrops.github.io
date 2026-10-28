@@ -101,7 +101,9 @@ def build(cfg: dict, history: list) -> None:
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     base = env("MEDIA_BASE_URL") or f"https://raw.githubusercontent.com/{repo}/media"
     owner, _, name = repo.partition("/")
-    site = f"https://{owner}.github.io/{name}/" if owner else ""
+    # A repo named <owner>.github.io is served at the domain root, any other repo under /<name>/.
+    root = f"https://{owner.lower()}.github.io/"
+    site = (root if f"{owner}.github.io".lower() == name.lower() else f"{root}{name}/") if owner else ""
     handle = cfg["brand"]["handle"]
     cards, top, seen = [], [], set()
     wanted = read_state("shop_top", [])

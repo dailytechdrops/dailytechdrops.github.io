@@ -22,7 +22,7 @@ CHANNELS_URL = "https://www.googleapis.com/youtube/v3/channels"
 # The Daily Tech Drops channel. A token approved on the wrong Google identity would post to
 # Kevin's personal channel, so uploads stop unless the token belongs to this one.
 CHANNEL_ID = "UCy1Yy5FrwXYzNveAf-Pbnvg"
-SHOP_URL = "https://kevingalus.github.io/daily-tech-drops/"
+SHOP_URL = "https://dailytechdrops.github.io/"
 # YouTube rejects titles over 100 characters.
 MAX_TITLE = 100
 
