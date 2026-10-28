@@ -313,10 +313,12 @@ def pinterest_due(cfg: dict) -> int:
     cutoff = f"{datetime.now(EASTERN) - PINTEREST_WINDOW:%Y-%m-%d-%H%M}"
     forced = env("PINTEREST_ITEM")
     todo = [h for h in read_state("history", []) if not h.get("skipped") and h["id"] not in pinned and (h["id"] == forced if forced else h["id"] >= cutoff)]
+    # Refreshed every run, so the saved refresh token never goes stale on quiet days. Pinterest
+    # hands out a new refresh token each time, so this is the only place that asks for one.
+    token = pinterest.access_token(cfg, env("PINTEREST_NEW_REFRESH_FILE"))
+    _save_pinterest_followers(token)
     if not todo:
         print("No new reels for Pinterest.")
-        # Still refresh, so the saved refresh token never goes stale on quiet days.
-        pinterest.access_token(cfg, env("PINTEREST_NEW_REFRESH_FILE"))
         return 0
     item_id = max(todo, key=lambda h: h["id"])["id"]
     out = _media(item_id)
@@ -324,7 +326,7 @@ def pinterest_due(cfg: dict) -> int:
     draft["caption"] = disclosure_last(cfg, draft["caption"])
     cover = f"{_media_base()}/{item_id}/{draft['slides'][0]}" if draft.get("slides") else None
     try:
-        pin_id = pinterest.publish_video(cfg, out / "reel.mp4", cover, draft, env("PINTEREST_NEW_REFRESH_FILE"))
+        pin_id = pinterest.publish_video(cfg, out / "reel.mp4", cover, draft, token=token)
     except pinterest.PinterestError as e:
         print(f"::error title=Pinterest pin failed::{item_id}: {str(e)[:500]}")
         raise
@@ -332,6 +334,16 @@ def pinterest_due(cfg: dict) -> int:
     write_state("pinterest", pinned)
     print(f"Pinned {item_id}: https://www.pinterest.com/pin/{pin_id}/")
     return 0
+
+
+def _save_pinterest_followers(token: str) -> None:
+    """For the weekly report's Followers table. Dated by day, so state changes at most daily."""
+    try:
+        count = pinterest.follower_count(token)
+    except pinterest.PinterestError as e:
+        print(f"Could not read the Pinterest follower count: {str(e)[:300]}")
+        return
+    write_state("pinterest_account", {"followers": count, "date": f"{datetime.now(EASTERN):%Y-%m-%d}"})
 
 
 def reply(cfg: dict) -> int:

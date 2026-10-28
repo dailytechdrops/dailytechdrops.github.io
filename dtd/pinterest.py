@@ -112,8 +112,13 @@ def _upload_video(video: Path, token: str) -> str:
         time.sleep(10)
 
 
-def publish_video(cfg: dict, video: Path, cover_url: str | None, draft: dict, new_refresh_file: str | None = None) -> str:
-    token = access_token(cfg, new_refresh_file)
+def follower_count(token: str) -> int:
+    """Needs the user_accounts:read scope, which the Connect page asks for."""
+    return int(_call("GET", "/user_account", token).get("follower_count", 0))
+
+
+def publish_video(cfg: dict, video: Path, cover_url: str | None, draft: dict, new_refresh_file: str | None = None, token: str | None = None) -> str:
+    token = token or access_token(cfg, new_refresh_file)
     board = board_for(cfg, draft.get("lane"), token)
     media_id = _upload_video(video, token)
     source = {"source_type": "video_id", "media_id": media_id}
