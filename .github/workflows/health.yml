@@ -51,3 +51,4 @@ jobs:
           else
             gh issue create --repo "${{ github.repository }}" --title "$TITLE" --body "$BODY"
           fi
+# Schedule re-registered after the move to the dailytechdrops org (Oct 28 2026).
