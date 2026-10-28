@@ -15,7 +15,7 @@ from .config import env
 
 API = "https://api.buffer.com"
 # No clickable bio link until 1,000 followers, so the shop page address is spelled out.
-SHOP_LINE = "Every gadget we post: kevingalus.github.io/daily-tech-drops"
+SHOP_LINE = "Every gadget we post: dailytechdrops.github.io"
 # TikTok captions allow 2,200 characters; stay well under it.
 MAX_TEXT = 2000
 

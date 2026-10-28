@@ -1,7 +1,7 @@
 name: Comment targets
 
 # Every morning: picks about 12 recent reels from tech, desk setup and gadget accounts, each with a
-# comment to paste, and rewrites docs/comments.html (kevingalus.github.io/daily-tech-drops/comments.html)
+# comment to paste, and rewrites docs/comments.html (dailytechdrops.github.io/comments.html)
 # and state/comment_targets.json. Nothing is posted to other accounts. Rules: dtd/targets.py, config.yaml.
 # On a pull request that changes it, only test-runs and shows the list in the run summary.
 

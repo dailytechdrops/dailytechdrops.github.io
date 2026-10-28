@@ -18,7 +18,7 @@ import requests
 from .config import env
 
 API = "https://api.pinterest.com/v5"
-SHOP_URL = "https://kevingalus.github.io/daily-tech-drops/"
+SHOP_URL = "https://dailytechdrops.github.io/"
 # Pinterest caps titles at 100 characters and descriptions at 800.
 MAX_TITLE = 100
 MAX_DESCRIPTION = 800

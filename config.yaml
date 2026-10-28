@@ -44,7 +44,7 @@ pinterest:
   # Pinterest developer app "Daily Tech Drops Pin Poster" (Trial access approved Oct 27 2026).
   # Secrets: PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN (workflow "Connect Pinterest").
   app_id: "1630232"
-  redirect_uri: https://kevingalus.github.io/daily-tech-drops/pinterest-connect.html
+  redirect_uri: https://dailytechdrops.github.io/pinterest-connect.html
   # Each reel goes to the board for the first keyword found in its lane. Instagram's own
   # auto-publish already fills "Daily Tech Drops: New Finds", so these pins go elsewhere.
   boards:
