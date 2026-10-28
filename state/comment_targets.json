@@ -1,0 +1,128 @@
+{
+  "accounts": {
+    "coolmaterial": "2026-10-28",
+    "dave2d": "2026-10-28",
+    "designmilk": "2026-10-28",
+    "flossycarter": "2026-10-28",
+    "gadgetflow": "2026-10-28",
+    "grovemade": "2026-10-28",
+    "nomadgoods": "2026-10-28",
+    "orbitkey": "2026-10-28",
+    "sara_dietschy": "2026-10-28",
+    "satechi": "2026-10-28",
+    "yankodesign": "2026-10-28",
+    "zollotech": "2026-10-28"
+  },
+  "last": {
+    "day": "Wednesday October 28",
+    "found": 0,
+    "mode": "accounts",
+    "notes": {
+      "api": "the Facebook Page has no linked Instagram account visible to this token",
+      "hashtags": {},
+      "skipped_accounts": []
+    },
+    "targets": [
+      {
+        "about": "",
+        "comment": "This is such a clever find, saving this one for later!",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/gadgetflow/reels/",
+        "source": "account",
+        "username": "gadgetflow"
+      },
+      {
+        "about": "",
+        "comment": "Never knew this existed, great pick. Does it work well day to day?",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/yankodesign/reels/",
+        "source": "account",
+        "username": "yankodesign"
+      },
+      {
+        "about": "",
+        "comment": "Love this setup, the details make it. Thanks for sharing!",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/flossycarter/reels/",
+        "source": "account",
+        "username": "flossycarter"
+      },
+      {
+        "about": "",
+        "comment": "Okay this is genuinely useful. Saving it!",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/grovemade/reels/",
+        "source": "account",
+        "username": "grovemade"
+      },
+      {
+        "about": "",
+        "comment": "Such a smart idea, how long have you been using it?",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/sara_dietschy/reels/",
+        "source": "account",
+        "username": "sara_dietschy"
+      },
+      {
+        "about": "",
+        "comment": "The little details on this are so well thought out.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/orbitkey/reels/",
+        "source": "account",
+        "username": "orbitkey"
+      },
+      {
+        "about": "",
+        "comment": "This would fix a daily annoyance for me, great find.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/coolmaterial/reels/",
+        "source": "account",
+        "username": "coolmaterial"
+      },
+      {
+        "about": "",
+        "comment": "Clean setup! What made you pick this one?",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/zollotech/reels/",
+        "source": "account",
+        "username": "zollotech"
+      },
+      {
+        "about": "",
+        "comment": "Did not expect this to look this good, nice pick.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/satechi/reels/",
+        "source": "account",
+        "username": "satechi"
+      },
+      {
+        "about": "",
+        "comment": "Adding this to my list, thanks for the honest look.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/dave2d/reels/",
+        "source": "account",
+        "username": "dave2d"
+      },
+      {
+        "about": "",
+        "comment": "Love finds like this. Does it hold up after a few weeks?",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/nomadgoods/reels/",
+        "source": "account",
+        "username": "nomadgoods"
+      },
+      {
+        "about": "",
+        "comment": "This is the kind of upgrade that makes a real difference.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/designmilk/reels/",
+        "source": "account",
+        "username": "designmilk"
+      }
+    ],
+    "updated": "2026-10-28 10:32"
+  },
+  "next_account": 12,
+  "next_comment": 12,
+  "permalinks": {}
+}
