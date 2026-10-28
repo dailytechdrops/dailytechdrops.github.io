@@ -11,7 +11,7 @@ from . import facebook, threads, tiktok, youtube
 
 # Dates things expire, from setup. Warned about three weeks ahead.
 EXPIRIES = {
-    "GH_PAT (the token that lets the monthly Instagram token refresh store itself)": date(2027, 1, 18),
+    "GH_PAT (the token that lets the monthly Instagram token refresh store itself)": date(2027, 10, 29),
     "Facebook data access for the Page token": date(2027, 1, 17),
 }
 MIN_DAYS_SCHEDULED = 3
