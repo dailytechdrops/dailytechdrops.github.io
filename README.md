@@ -17,6 +17,7 @@ then posts at its scheduled time, and anyone who comments **LINK** gets the affi
 | Every 30 min | `Comment replies` | Short friendly reply to new comments, nudging people to comment SHOP (SHOP comments are left to the Meta Business Suite auto-DM) |
 | Sunday late morning | `Weekly report` | Measures the last 7 days per post and lane, saves `reports/latest.md` for the Sunday research, opens an issue with the report |
 | Every morning | `Winners dashboard` | Ranks every reel from the last 30 days by reach, saves, shares, watch time and shop taps at [winners.html](https://kevingalus.github.io/daily-tech-drops/winners.html); saves `reports/winners.md` |
+| Every morning | `Comment targets` | Picks about 12 recent reels from tech, desk setup and gadget accounts, each with a comment to paste, at [comments.html](https://kevingalus.github.io/daily-tech-drops/comments.html). Nothing is posted to other accounts automatically |
 | 1st of the month | `Refresh Instagram token` | Renews the 60-day Instagram token |
 
 **Sunday research, read this:** if `reports/latest.md` exists, it is last week's performance report. Weight the new

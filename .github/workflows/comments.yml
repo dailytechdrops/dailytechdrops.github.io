@@ -1,0 +1,49 @@
+name: Comment targets
+
+# Every morning: picks about 12 recent reels from tech, desk setup and gadget accounts, each with a
+# comment to paste, and rewrites docs/comments.html (kevingalus.github.io/daily-tech-drops/comments.html)
+# and state/comment_targets.json. Nothing is posted to other accounts. Rules: dtd/targets.py, config.yaml.
+# On a pull request that changes it, only test-runs and shows the list in the run summary.
+
+on:
+  schedule:
+    - cron: "5 12 * * *"   # 8:05am ET in summer, 7:05am in winter
+  workflow_dispatch:
+  pull_request:
+    paths: ["dtd/targets.py", ".github/workflows/comments.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Pick today's reels
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python -m dtd targets | tee targets.log
+          { echo '```'; cat targets.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save the list
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/comments.html state/comment_targets.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Comment list"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push
