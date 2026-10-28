@@ -65,3 +65,4 @@ jobs:
           git push
           TITLE=$(head -1 reports/latest.md | sed 's/^## //')
           gh issue create --title "$TITLE" --body-file reports/latest.md --assignee "${{ github.repository_owner }}"
+# Schedule re-registered after the move to the dailytechdrops org (Oct 28 2026).

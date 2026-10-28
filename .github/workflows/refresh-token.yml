@@ -36,3 +36,4 @@ jobs:
           NEW=$(python -m dtd refresh-threads-token)
           echo "::add-mask::$NEW"
           gh secret set THREADS_ACCESS_TOKEN --repo "${{ github.repository }}" --body "$NEW"
+# Schedule re-registered after the move to the dailytechdrops org (Oct 28 2026).
