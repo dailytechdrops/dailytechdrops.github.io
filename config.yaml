@@ -118,14 +118,13 @@ comment_targets:
   min_followers: 3000      # tiny accounts send little traffic back
   max_followers: 2000000   # comments on the giants are buried within minutes
   # Checked through Instagram's Business Discovery. Only creator or business accounts can be looked up;
-  # any that cannot are listed at the bottom of the page so they can be swapped out.
+  # any that cannot are listed at the bottom of the page so they can be swapped out. Without the API
+  # the page rotates through this list in order, so niche and mid-size accounts come first.
   accounts: [
-    gadgetflow, yankodesign, coolmaterial, uncrate, designmilk, techinsider, interestingengineering,
-    mkbhd, unboxtherapy, ijustine, mrwhosetheboss, austinevans, flossycarter, sara_dietschy, zollotech,
-    dave2d, techburner, techwithbrett, theverge, engadget, gizmodo, cnet, 9to5mac,
-    setupspawn, desksetup, deskhaus, minimal_desksetups, workspacegoals, battlestations, setups,
-    grovemade, orbitkey, satechi, nanoleaf, keychron, elgato, ankerofficial, ugreen_official, govee.official,
-    bellroy, nomadgoods, peakdesign, tomtoc_official, ringforbusiness, eufy_official,
+    gadgetflow, yankodesign, flossycarter, grovemade, sara_dietschy, orbitkey, coolmaterial, zollotech,
+    satechi, dave2d, nomadgoods, designmilk, keychron, austinevans, peakdesign, uncrate, nanoleaf,
+    bellroy, 9to5mac, elgato, techburner, gizmodo, engadget, ijustine, unboxtherapy, theverge,
+    mrwhosetheboss, cnet, techinsider, mkbhd, interestingengineering,
   ]
   # Hashtags whose newest videos are also checked (Instagram allows 30 different hashtags a week).
   hashtags: [desksetup, techgadgets, gadgets, setupinspiration, cooltech]
