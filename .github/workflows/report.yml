@@ -10,14 +10,14 @@ on:
     - cron: "0 16 * * 0"   # 12pm ET in summer, 11am in winter
   workflow_dispatch:
   pull_request:
-    paths: ["dtd/report.py", "dtd/winners.py", "dtd/instagram.py", ".github/workflows/report.yml"]
+    paths: ["dtd/report.py", "dtd/followers.py", "dtd/winners.py", "dtd/instagram.py", ".github/workflows/report.yml"]
 
 permissions:
   contents: write
   issues: write
 
 # No shared concurrency group: posting runs queue often and would cancel a pending report.
-# The report only writes reports/ and state/insights.json and state/hook_trend.json, so it cannot clash with them.
+# The report only writes reports/ and state/insights.json, state/hook_trend.json and state/followers.json, so it cannot clash with them.
 
 jobs:
   report:
@@ -38,6 +38,15 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          # Follower counts for every channel (Pinterest's is saved by the hourly Pinterest run).
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
           python -m dtd winners
           python -m dtd report

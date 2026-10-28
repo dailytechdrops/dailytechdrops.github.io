@@ -35,12 +35,14 @@ def build(days: int = 7) -> tuple[str, str]:
     title = f"Weekly report: {since:%b %d} to {until:%b %d}"
     md = [f"## {title}\n"]
     change = f" ({followers - previous:+d} this week)" if previous is not None else ""
-    md.append(f"**Followers:** {followers}{change}  ")
+    md.append(f"**Instagram followers:** {followers}{change}  ")
     md.append(f"**Posts:** {len(rows)}  ·  **Link DMs sent:** {sum(r['dms'] for r in rows)}  ")
     md.append(
         f"**Accounts reached:** {totals.get('reach', 0):,.0f}  ·  **Views:** {totals.get('views', 0):,.0f}  ·  "
         f"**Engaged:** {totals.get('accounts_engaged', 0):,.0f}  ·  **Bio link taps:** {totals.get('profile_links_taps', 0):,.0f}\n"
     )
+    from .followers import section as followers_section
+    md += followers_section()
     from .winners import repeat_section
     md += repeat_section()
     md += shop_section(since, until)
