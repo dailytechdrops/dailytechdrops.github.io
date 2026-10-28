@@ -107,6 +107,44 @@ engagement:
       - "Thanks {user}! Comment SHOP if you want the link 📩"
       - "Appreciate you {user}! More finds drop every day 📦"
 
+comment_targets:
+  # Daily list of other accounts' reels worth a comment (python -m dtd targets, workflow "Comment targets"),
+  # at docs/comments.html. Nothing is posted automatically: Kevin opens each reel and pastes the comment,
+  # since automated comments on other accounts are an Instagram spam signal.
+  # Comments never carry links, prices, "follow me" or "check my page". Instagram flags the same text
+  # posted over and over, so the list never repeats a line within a day.
+  per_day: 12
+  max_age_days: 3          # only reels this recent, so the comment lands while people still watch
+  min_followers: 3000      # tiny accounts send little traffic back
+  max_followers: 2000000   # comments on the giants are buried within minutes
+  # Checked through Instagram's Business Discovery. Only creator or business accounts can be looked up;
+  # any that cannot are listed at the bottom of the page so they can be swapped out. Without the API
+  # the page rotates through this list in order, so niche and mid-size accounts come first.
+  accounts: [
+    gadgetflow, yankodesign, flossycarter, grovemade, sara_dietschy, orbitkey, coolmaterial, zollotech,
+    satechi, dave2d, nomadgoods, designmilk, keychron, austinevans, peakdesign, uncrate, nanoleaf,
+    bellroy, 9to5mac, elgato, techburner, gizmodo, engadget, ijustine, unboxtherapy, theverge,
+    mrwhosetheboss, cnet, techinsider, mkbhd, interestingengineering,
+  ]
+  # Hashtags whose newest videos are also checked (Instagram allows 30 different hashtags a week).
+  hashtags: [desksetup, techgadgets, gadgets, setupinspiration, cooltech]
+  comments:
+    - "This is such a clever find, saving this one for later!"
+    - "Never knew this existed, great pick. Does it work well day to day?"
+    - "Love this setup, the details make it. Thanks for sharing!"
+    - "Okay this is genuinely useful. Saving it!"
+    - "Such a smart idea, how long have you been using it?"
+    - "The little details on this are so well thought out."
+    - "This would fix a daily annoyance for me, great find."
+    - "Clean setup! What made you pick this one?"
+    - "Did not expect this to look this good, nice pick."
+    - "Adding this to my list, thanks for the honest look."
+    - "Love finds like this. Does it hold up after a few weeks?"
+    - "This is the kind of upgrade that makes a real difference."
+    - "Really well shot, and the product looks great too."
+    - "Simple and clever, my favorite combination."
+    - "This made my feed better today, thanks for sharing!"
+
 schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
   posts_per_day: 3               # 3 reels a day from Oct 26 2026 (Kevin)
