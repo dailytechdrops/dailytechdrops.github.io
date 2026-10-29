@@ -154,6 +154,7 @@ schedule:
   test_times: ["15:30", "08:00", "13:30", "21:30"]
 
 reel:
+  look: natural                  # natural: real footage of people (clip_ids) and captions without a card | card: the Oct 26 look
   width: 1080
   height: 1920
   fps: 30

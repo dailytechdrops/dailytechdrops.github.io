@@ -158,6 +158,13 @@ Each entry in `weeks/<monday>.yaml` has a `slot` ("YYYY-MM-DD HH:MM", Eastern), 
 the beats, slides, caption, hashtags and DM text. See `weeks/2026-10-26.yaml` for the shape.
 Posts never state prices because prices change daily.
 
+**Natural look (Oct 29 2026).** Reels show real people, not still slideshows. Each `content` block sets
+`clip_ids: [hook, reason, 0]`: Pixabay video ids of people in the moment the product fixes (light, daytime,
+no green screens or screens-only shots; vertical "T" clips crop best). Pick them with the Photo sheets
+workflow: give it a `.txt` of people searches (one per line) to get labelled video sheets. The end card shows
+the actual product when `product_photo: assets/products/<name>.jpg` is set (a clean photo on white, trimmed).
+`reel.look: natural` in `config.yaml` drops the caption card; `card` brings back the Oct 26 look.
+
 ## Running locally
 ```bash
 pip install -r requirements.txt   # plus ffmpeg on your PATH

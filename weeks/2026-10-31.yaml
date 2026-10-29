@@ -80,6 +80,8 @@
   content:
     photo_query: home security camera
     photo_ids: [4955338, 3728625, 5501660]
+    clip_ids: [119799, 237643, 0]
+    product_photo: assets/products/wyze-cam-v4.jpg
     beats:
     - on_screen: Who is at your door?
       voiceover: Want to know who is at your door while you are out?
@@ -138,6 +140,8 @@
   content:
     photo_query: power strip plugs cables
     photo_ids: [2587598, 3285039, 3285039]
+    clip_ids: [224831, 86867, 0]
+    product_photo: assets/products/amazon-basics-surge-protector.jpg
     beats:
     - on_screen: Plugged into the wall?
       voiceover: Is your computer plugged straight into the wall?
@@ -197,6 +201,7 @@
   content:
     photo_query: bluetooth speaker
     photo_ids: [319841, 3483646, 319841]
+    clip_ids: [202134, 172681, 0]
     beats:
     - on_screen: This speaker survives the pool
       voiceover: Knock this little speaker into the pool and it keeps on playing.
@@ -256,6 +261,7 @@
   content:
     photo_query: wireless computer mouse
     photo_ids: [5318837, 1999471, 2324120]
+    clip_ids: [4954, 1046, 0]
     beats:
     - on_screen: Still using the trackpad?
       voiceover: Still fighting your laptop trackpad all day?
@@ -315,6 +321,7 @@
   content:
     photo_query: smart plug outlet
     photo_ids: [2607283, 4715347, 4243898]
+    clip_ids: [233390, 245932, 0]
     beats:
     - on_screen: Did you leave the lamp on?
       voiceover: Did you leave the lamp on? You can check from your phone.
@@ -373,6 +380,7 @@
   content:
     photo_query: computer monitor screen workspace
     photo_ids: [4233915, 2568270, 2568270]
+    clip_ids: [215751, 377601, 0]
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -432,6 +440,7 @@
   content:
     photo_query: wireless headphones
     photo_ids: [8398212, 6787497, 6787507]
+    clip_ids: [161062, 172681, 0]
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -491,6 +500,7 @@
   content:
     photo_query: usb charger plug socket
     photo_ids: [3285039, 7036075, 5318837]
+    clip_ids: [130647, 1046, 0]
     beats:
     - on_screen: 7 ports, 1 strip
       voiceover: Seven ports on one strip, and the charger mess on your desk is gone.
@@ -550,6 +560,7 @@
   content:
     photo_query: television remote living room
     photo_ids: [4148876, 2741799, 642138]
+    clip_ids: [245932, 237643, 0]
     beats:
     - on_screen: Your TV is not smart?
       voiceover: Is your TV stuck in the past? It does not have to be.
@@ -608,6 +619,7 @@
   content:
     photo_query: computer mouse hand
     photo_ids: [1850268, 2324120, 2587598]
+    clip_ids: [4954, 130645, 0]
     beats:
     - on_screen: Wrist sore from the mouse?
       voiceover: Does your wrist ache after a long day at the mouse?
@@ -667,6 +679,7 @@
   content:
     photo_query: wireless earbuds
     photo_ids: [7559937, 6933543, 2350507]
+    clip_ids: [3608, 29331, 0]
     beats:
     - on_screen: Your commute is too loud
       voiceover: Your commute is loud. These earbuds tune out the noise as it changes.
@@ -725,6 +738,7 @@
   content:
     photo_query: laptop stand desk
     photo_ids: [2583442, 7571376, 5318837]
+    clip_ids: [183450, 203260, 0]
     beats:
     - on_screen: Hunched over your laptop?
       voiceover: Hunched over your laptop all day?
@@ -783,6 +797,7 @@
   content:
     photo_query: laptop usb ports
     photo_ids: [829332, 7036075, 2572036]
+    clip_ids: [1655, 224831, 0]
     beats:
     - on_screen: Laptop out of ports?
       voiceover: Laptop out of ports again?

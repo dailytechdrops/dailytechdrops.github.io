@@ -78,6 +78,7 @@
   - smartwatch charging
   content:
     photo_ids: [3435343, 2568973, 2571409]  # stock fallback until the brand approves its photos
+    clip_ids: [30870, 130650, 0]
     beats:
     - on_screen: Three cables, one cord
       voiceover: Three chargers in your bag? This is one cord instead.
@@ -133,6 +134,7 @@
   - delivery driver
   content:
     photo_ids: [9170093, 5630886, 4784803]  # stock fallback until the brand approves its photos
+    clip_ids: [3627, 30872, 0]
     beats:
     - on_screen: Would you wear a camera?
       voiceover: Would you wear a camera that weighs less than a key?
