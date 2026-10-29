@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .config import ROOT
-from .media_sources import duration, stock_clip, stock_photo, tts
+from .media_sources import duration, pinned_clip, stock_clip, stock_photo, tts
 from .writer import DropContent
 
 
@@ -37,7 +37,14 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
         if is_hook:
             seg_len += 0.2  # a beat of breathing room before the first word lands
         shot = photos[i % len(photos)] if photos else None
-        clip = None if shot else stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
+        clip = None
+        pinned = content.clip_ids[i] if i < len(content.clip_ids) and not is_cta else 0
+        if pinned:
+            # Real footage of people using this kind of product, picked by hand, beats a still photo.
+            clip = pinned_clip(pinned, workdir / f"clip_{i}.mp4")
+            shot = None if clip else shot
+        if not shot and not clip:
+            clip = stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
         overlay = workdir / f"overlay_{i}.png"
         seg = workdir / f"seg_{i}.mp4"
         if is_cta and photos:
@@ -47,7 +54,8 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
             _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
             label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
-            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label)
+            natural = (content.look or rc.get("look", "card")) == "natural"
+            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label, natural=natural)
             _segment(rc, clip, overlay, voice, seg_len, seg, shot, motion=i, brand=brand,
                      voice_delay=0.35 if is_hook else 0.15)
         segments.append(seg)
@@ -197,9 +205,15 @@ def brand_overlay(cfg: dict, out: Path) -> None:
     img.save(out)
 
 
-def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bool = False, label: str = "") -> None:
-    """A soft white card with the beat's line in sentence case, and a small orange tag above it."""
+def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bool = False, label: str = "",
+                    natural: bool = False) -> None:
+    """A soft white card with the beat's line in sentence case, and a small orange tag above it.
+    The natural look drops the card: white text with a soft shadow in the upper third, the way
+    people caption their own videos, so the footage stays the subject."""
     rc = cfg["reel"]
+    if natural:
+        _natural_caption(rc, text, out, hook or cta, label)
+        return
     w, h = rc["width"], rc["height"]
     accent = _rgba(rc["accent_color"], 255)
     ink = _rgba(rc.get("ink_color", "#3B2F27"), 255)
@@ -238,6 +252,35 @@ def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bo
     else:
         # Otherwise a thin orange rule at the top of the card ties the beat to the brand.
         draw.rounded_rectangle([w / 2 - 40, box[1] + 22, w / 2 + 40, box[1] + 30], radius=4, fill=accent)
+    img.save(out)
+
+
+def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> None:
+    w, h = rc["width"], rc["height"]
+    size = 76 if big else 66
+    font = _font(rc["font"], size)
+    text_layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(text_layer)
+    lines = _wrap(draw, text, font, w - 200)
+    line_h = int(size * 1.16)
+    top = int(h * 0.22)
+    for n, line in enumerate(lines):
+        lw = draw.textlength(line, font=font)
+        draw.text(((w - lw) / 2, top + n * line_h), line, font=font, fill=(255, 255, 255, 255))
+    # A soft dark glow behind the letters keeps them readable on bright footage without a box.
+    alpha = text_layer.getchannel("A")
+    glow = Image.new("RGBA", (w, h), (30, 22, 16, 0))
+    glow.putalpha(alpha.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(14)).point(lambda a: int(a * 0.55)))
+    img = Image.alpha_composite(glow, text_layer)
+    if label:
+        # The product name as a small, quiet line under the caption, not a badge.
+        tag_font = _font(rc["body_font"], 36)
+        d = ImageDraw.Draw(img)
+        lw = d.textlength(label, font=tag_font)
+        y = top + len(lines) * line_h + 18
+        pill = [(w - lw) / 2 - 24, y, (w + lw) / 2 + 24, y + tag_font.size + 22]
+        d.rounded_rectangle(pill, radius=(pill[3] - pill[1]) / 2, fill=_rgba(rc["accent_color"], 230))
+        d.text(((w - lw) / 2, y + 9), label, font=tag_font, fill=(255, 255, 255, 255))
     img.save(out)
 
 

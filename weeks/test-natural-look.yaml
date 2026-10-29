@@ -1,0 +1,67 @@
+- slot: 2026-01-01 00:00
+  asin: B0194WDVHI
+  name: Anker PowerCore 10000 Portable Charger
+  lane: phone, travel and charging gadgets
+  hook_style: callout
+  angle: The battery bank that fits in a pocket and saves the day when your phone
+    hits one percent.
+  key_facts:
+  - 10,000 mAh portable charger from Anker
+  - Small enough for a pocket or a bag
+  - A long-running best seller
+  broll:
+  - phone battery low
+  - power bank pocket
+  - travel bag
+  content:
+    photo_query: hand holding smartphone
+    photo_ids:
+    - 7832257
+    - 2396278
+    - 7276658
+    beats:
+    - on_screen: Phone at 1 percent again
+      voiceover: Your phone is at one percent and there is no outlet in sight.
+      broll_query: woman phone battery
+    - on_screen: Pocket-size backup power
+      voiceover: This pocket-size Anker power bank gives it a fresh charge anywhere.
+      broll_query: charging phone power bank
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: person using smartphone
+    carousel:
+    - title: Phone at 1 percent?
+      body: Keep a backup in your pocket.
+    - title: 10,000 mAh
+      body: Enough to top up a phone more than once.
+    - title: Pocket size
+      body: Small enough to forget it is there.
+    - title: A long-time favorite
+      body: One of Anker's best-known power banks.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Never hunt for an outlet again. 🔋
+
+
+      The Anker PowerCore 10000 is a 10,000 mAh power bank small enough for a pocket
+      or a bag, so your phone always has a backup.
+
+
+      Tip: charge it the night before a trip so it is full when you leave.
+
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.'
+    hashtags:
+    - powerbank
+    - anker
+    - travelgear
+    - phonecharger
+    - techgadgets
+    - amazonfinds
+    - everydaycarry
+    - gadgets
+    dm_message: 'Here is the Anker PowerCore 10000 Portable Charger: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    look: natural

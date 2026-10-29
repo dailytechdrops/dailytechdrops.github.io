@@ -122,6 +122,25 @@ def _pixabay(query: str, out: Path, used: set[int]) -> Path | None:
     return out
 
 
+def pinned_clip(vid: int, out: Path) -> Path | None:
+    """A Pixabay video picked by hand (by id), at the sharpest size up to 1080p, or None."""
+    if not env("PIXABAY_API_KEY"):
+        return None
+    r = _get("https://pixabay.com/api/videos/", params={"key": env("PIXABAY_API_KEY"), "id": vid}, timeout=60)
+    r.raise_for_status()
+    hits = r.json().get("hits", [])
+    if not hits:
+        return None
+    videos = hits[0].get("videos", {})
+    url = next((videos[s]["url"] for s in ("large", "medium", "small") if (videos.get(s) or {}).get("url")), None)
+    if not url:
+        return None
+    data = _get(url, timeout=180)
+    data.raise_for_status()
+    out.write_bytes(data.content)
+    return out
+
+
 # Pixabay tags that mean the picture shows a different brand, or an old or black and white look.
 _BAD_TAGS = {"apple", "macbook", "iphone", "vintage", "retro", "old", "antique", "black and white", "monochrome", "buzzer", "padlock", "car", "vehicle", "electric car", "charging station", "flower", "flowers", "mountain", "hiking", "bottle", "drink", "virus", "malware", "biohazard", "danger", "hacker", "cinnamon", "spice", "food",
              "online", "dating", "valentine", "social media", "illustration"}
