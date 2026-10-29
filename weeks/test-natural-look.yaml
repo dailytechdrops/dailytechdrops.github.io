@@ -19,6 +19,7 @@
     - 7832257
     - 2396278
     - 7276658
+    clip_ids: [83868, 208770, 0]
     beats:
     - on_screen: Phone at 1 percent again
       voiceover: Your phone is at one percent and there is no outlet in sight.
