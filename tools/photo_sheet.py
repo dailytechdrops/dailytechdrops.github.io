@@ -33,7 +33,9 @@ def search_videos(key: str, query: str) -> list[dict]:
     hits = [h for h in r.json().get("hits", []) if (h["videos"].get("large") or {}).get("width") or (h["videos"].get("medium") or {}).get("width")]
     for h in hits:
         v = h["videos"].get("large") if (h["videos"].get("large") or {}).get("url") else h["videos"]["medium"]
-        h["webformatURL"], h["tall"] = v["thumbnail"], v["height"] > v["width"]
+        thumbs = [(h["videos"].get(s) or {}).get("thumbnail") for s in ("large", "medium", "small", "tiny")]
+        h["webformatURL"], h["tall"] = next((t for t in thumbs if t), ""), v["height"] > v["width"]
+    hits = [h for h in hits if h["webformatURL"]]
     return sorted(hits, key=lambda h: not h["tall"])[:COLS]
 
 

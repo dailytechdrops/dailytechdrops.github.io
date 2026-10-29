@@ -50,7 +50,11 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
         if is_cta and photos:
             # The call to action is a clean branded end card around a photo of the product type.
             card = workdir / "endcard.png"
-            end_card(cfg, photos[i % len(photos)], name, card)
+            product = ROOT / content.product_photo if content.product_photo else None
+            if product and product.exists():
+                end_card(cfg, product, name, card, contain=True)
+            else:
+                end_card(cfg, photos[i % len(photos)], name, card)
             _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
             label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
@@ -284,8 +288,9 @@ def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> N
     img.save(out)
 
 
-def end_card(cfg: dict, photo: Path, name: str, out: Path) -> None:
-    """The last beat: warm cream card, framed product photo, product name and the comment call to action."""
+def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False) -> None:
+    """The last beat: warm cream card, framed product photo, product name and the comment call to action.
+    contain shows a real product shot whole on the white frame instead of cropping it to fill."""
     rc = cfg["reel"]
     w, h = rc["width"], rc["height"]
     accent = _rgba(rc["accent_color"], 255)
@@ -302,7 +307,12 @@ def end_card(cfg: dict, photo: Path, name: str, out: Path) -> None:
     fw, fh = 760, 860
     fx, fy = (w - fw) // 2, 290
     _card(bg, [fx - 14, fy - 14, fx + fw + 14, fy + fh + 14], radius=48, fill=(255, 255, 255, 255), shadow=60)
-    pic = ImageOps.fit(Image.open(photo).convert("RGB"), (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
+    if contain:
+        pic = Image.new("RGB", (fw, fh), (255, 255, 255))
+        shot = ImageOps.contain(Image.open(photo).convert("RGB"), (fw - 100, fh - 100), Image.LANCZOS)
+        pic.paste(shot, ((fw - shot.width) // 2, (fh - shot.height) // 2))
+    else:
+        pic = ImageOps.fit(Image.open(photo).convert("RGB"), (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
     mask = Image.new("L", (fw, fh), 0)
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, fw, fh], radius=36, fill=255)
     bg.paste(pic, (fx, fy), mask)
