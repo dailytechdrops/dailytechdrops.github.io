@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       week:
-        description: "Week file, e.g. weeks/2026-11-07.yaml"
+        description: "Week file, e.g. weeks/2026-11-07.yaml, or a .txt of video searches (one per line)"
         required: true
       videos:
         description: "Video candidates (for clip_ids) instead of photos"
@@ -29,7 +29,11 @@ jobs:
       - run: pip install pyyaml requests pillow
       - env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-        run: python tools/photo_sheet.py ${{ inputs.videos && '--videos' || '' }} "${{ inputs.week }}"
+        run: |
+          case "${{ inputs.week }}" in
+            *.txt) python tools/photo_sheet.py --queries "${{ inputs.week }}" ;;
+            *) python tools/photo_sheet.py ${{ inputs.videos && '--videos' || '' }} "${{ inputs.week }}" ;;
+          esac
       - run: |
           git config user.name "daily-tech-drops-bot"
           git config user.email "actions@users.noreply.github.com"
