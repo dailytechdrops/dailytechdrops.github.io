@@ -30,6 +30,7 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
     brand_overlay(cfg, brand)
     photos = _photos(content, workdir)
 
+    product = ROOT / content.product_photo if content.product_photo else None
     for i, beat in enumerate(content.beats):
         is_hook, is_cta = i == 0, i == len(content.beats) - 1
         voice = tts(cfg, beat.voiceover, workdir / f"voice_{i}.mp3")
@@ -50,7 +51,6 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
         if is_cta and photos:
             # The call to action is a clean branded end card around a photo of the product type.
             card = workdir / "endcard.png"
-            product = ROOT / content.product_photo if content.product_photo else None
             if product and product.exists():
                 end_card(cfg, product, name, card, contain=True)
             else:
@@ -60,8 +60,13 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
             label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
             natural = (content.look or rc.get("look", "card")) == "natural"
             caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label, natural=natural)
+            cut_in = None
+            if i == 1 and product and product.exists():
+                # The reason beat cuts from the people footage to the real product as the voice names it.
+                cut_in = workdir / "product_frame.png"
+                product_frame(cfg, product, cut_in)
             _segment(rc, clip, overlay, voice, seg_len, seg, shot, motion=i, brand=brand,
-                     voice_delay=0.35 if is_hook else 0.15)
+                     voice_delay=0.35 if is_hook else 0.15, cut_in=cut_in)
         segments.append(seg)
         lengths.append(seg_len)
 
@@ -105,7 +110,7 @@ def _photos(content: DropContent, workdir: Path) -> list[Path]:
 
 def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | None, seg_len: float, out: Path,
              photo: Path | None = None, motion: int = 0, brand: Path | None = None, endcard: bool = False,
-             voice_delay: float = 0.15) -> None:
+             voice_delay: float = 0.15, cut_in: Path | None = None) -> None:
     w, h, fps = rc["width"], rc["height"], rc["fps"]
     frames = int(seg_len * fps) + 1
     args = []
@@ -140,6 +145,14 @@ def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | No
         args += ["-loop", "1", "-i", str(brand)]
         chain.append(f"[{last}][{n}:v]overlay=0:0[b]")
         last, n = "b", n + 1
+    if cut_in:
+        # The product card fades in and rises into place 40% into the beat, over the footage.
+        st, d = round(seg_len * 0.4, 2), 0.4
+        args += ["-loop", "1", "-i", str(cut_in)]
+        rise = f"if(lt(t,{st}),60,if(lt(t,{st + d}),60*pow(1-(t-{st})/{d},3),0))"
+        chain.append(f"[{n}:v]format=rgba,fade=t=in:st={st}:d={d}:alpha=1[pf]")
+        chain.append(f"[{last}][pf]overlay=x=0:y='{rise}':eval=frame[p]")
+        last, n = "p", n + 1
     if overlay:
         # The caption card fades in and rises into place just after the cut.
         args += ["-loop", "1", "-i", str(overlay)]
@@ -256,6 +269,28 @@ def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bo
     else:
         # Otherwise a thin orange rule at the top of the card ties the beat to the brand.
         draw.rounded_rectangle([w / 2 - 40, box[1] + 22, w / 2 + 40, box[1] + 30], radius=4, fill=accent)
+    img.save(out)
+
+
+def product_frame(cfg: dict, photo: Path, out: Path) -> None:
+    """A white card with the real product, floating over the people footage in the lower middle
+    (clear of the caption above), so the person and the product share the frame."""
+    rc = cfg["reel"]
+    w, h = rc["width"], rc["height"]
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    src = Image.open(photo).convert("RGB")
+    corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
+    cw, ch, cy = 700, 700, int(h * 0.60)
+    x0, y0 = (w - cw) // 2, cy - ch // 2
+    _card(img, [x0, y0, x0 + cw, y0 + ch], radius=44, fill=(255, 255, 255, 255), shadow=90)
+    if min(min(c) for c in corners) > 235:
+        shot = ImageOps.contain(src, (cw - 90, ch - 90), Image.LANCZOS)
+        img.paste(shot, ((w - shot.width) // 2, cy - shot.height // 2))
+    else:
+        shot = ImageOps.fit(src, (cw - 24, ch - 24), Image.LANCZOS)
+        m = Image.new("L", shot.size, 0)
+        ImageDraw.Draw(m).rounded_rectangle([0, 0, *shot.size], radius=34, fill=255)
+        img.paste(shot, (x0 + 12, y0 + 12), m)
     img.save(out)
 
 
