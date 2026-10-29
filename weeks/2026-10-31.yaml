@@ -202,6 +202,7 @@
     photo_query: bluetooth speaker
     photo_ids: [319841, 3483646, 319841]
     clip_ids: [202134, 172681, 0]
+    product_photo: assets/products/soundcore-2-speaker.jpg
     beats:
     - on_screen: This speaker survives the pool
       voiceover: Knock this little speaker into the pool and it keeps on playing.
@@ -262,6 +263,7 @@
     photo_query: wireless computer mouse
     photo_ids: [5318837, 1999471, 2324120]
     clip_ids: [4954, 1046, 0]
+    product_photo: assets/products/logitech-m185-mouse.jpg
     beats:
     - on_screen: Still using the trackpad?
       voiceover: Still fighting your laptop trackpad all day?
@@ -322,6 +324,7 @@
     photo_query: smart plug outlet
     photo_ids: [2607283, 4715347, 4243898]
     clip_ids: [233390, 245932, 0]
+    product_photo: assets/products/kasa-smart-plug-mini.jpg
     beats:
     - on_screen: Did you leave the lamp on?
       voiceover: Did you leave the lamp on? You can check from your phone.

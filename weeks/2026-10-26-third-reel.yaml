@@ -146,6 +146,7 @@
     - 5076561
     - 4679225
     clip_ids: [30872, 174008, 0]
+    product_photo: assets/products/apple-airtag-4-pack.jpg
     beats:
     - on_screen: Where did you leave your keys?
       voiceover: Where did you leave your keys this time?
@@ -210,6 +211,7 @@
     - 2565479
     - 2565479
     clip_ids: [151297, 130645, 0]
+    product_photo: assets/products/echo-show-5.jpg
     beats:
     - on_screen: A 5.5 inch screen by your bed
       voiceover: A five and a half inch screen for your nightstand.
@@ -468,6 +470,7 @@
     - 2654109
     - 4233900
     clip_ids: [149, 130645, 0]
+    product_photo: assets/products/logitech-mx-keys-s.jpg
     beats:
     - on_screen: Typing in the dark?
       voiceover: Ever try typing in the dark and miss every key?
@@ -531,6 +534,7 @@
     - 7832257
     - 5123473
     clip_ids: [86866, 233390, 0]
+    product_photo: assets/products/anker-nano-45w-retractable.jpg
     beats:
     - on_screen: Rated for 20,000 bends
       voiceover: This cable is rated for over twenty thousand bends.
