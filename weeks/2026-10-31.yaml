@@ -384,6 +384,7 @@
     photo_query: computer monitor screen workspace
     photo_ids: [4233915, 2568270, 2568270]
     clip_ids: [215751, 377601, 0]
+    product_photo: assets/products/amazon-basics-monitor-riser.jpg
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -444,6 +445,7 @@
     photo_query: wireless headphones
     photo_ids: [8398212, 6787497, 6787507]
     clip_ids: [161062, 172681, 0]
+    product_photo: assets/products/soundcore-q20i.jpg
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -504,6 +506,7 @@
     photo_query: usb charger plug socket
     photo_ids: [3285039, 7036075, 5318837]
     clip_ids: [130647, 1046, 0]
+    product_photo: assets/products/anker-525-charging-station.jpg
     beats:
     - on_screen: 7 ports, 1 strip
       voiceover: Seven ports on one strip, and the charger mess on your desk is gone.
@@ -564,6 +567,7 @@
     photo_query: television remote living room
     photo_ids: [4148876, 2741799, 642138]
     clip_ids: [245932, 237643, 0]
+    product_photo: assets/products/fire-tv-stick-4k-max.jpg
     beats:
     - on_screen: Your TV is not smart?
       voiceover: Is your TV stuck in the past? It does not have to be.
@@ -623,6 +627,7 @@
     photo_query: computer mouse hand
     photo_ids: [1850268, 2324120, 2587598]
     clip_ids: [4954, 130645, 0]
+    product_photo: assets/products/logitech-lift-left.jpg
     beats:
     - on_screen: Wrist sore from the mouse?
       voiceover: Does your wrist ache after a long day at the mouse?
@@ -683,6 +688,7 @@
     photo_query: wireless earbuds
     photo_ids: [7559937, 6933543, 2350507]
     clip_ids: [3608, 29331, 0]
+    product_photo: assets/products/soundcore-liberty-4-nc.jpg
     beats:
     - on_screen: Your commute is too loud
       voiceover: Your commute is loud. These earbuds tune out the noise as it changes.
@@ -742,6 +748,7 @@
     photo_query: laptop stand desk
     photo_ids: [2583442, 7571376, 5318837]
     clip_ids: [183450, 203260, 0]
+    product_photo: assets/products/amazon-basics-laptop-stand.jpg
     beats:
     - on_screen: Hunched over your laptop?
       voiceover: Hunched over your laptop all day?
@@ -801,6 +808,7 @@
     photo_query: laptop usb ports
     photo_ids: [829332, 7036075, 2572036]
     clip_ids: [1655, 224831, 0]
+    product_photo: assets/products/anker-332-usb-c-hub.jpg
     beats:
     - on_screen: Laptop out of ports?
       voiceover: Laptop out of ports again?

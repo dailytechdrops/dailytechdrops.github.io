@@ -275,6 +275,7 @@
     - 2568270
     - 2604260
     clip_ids: [1028, 215751, 0]
+    product_photo: assets/products/scandinavian-hub-cable-trays.jpg
     beats:
     - on_screen: Two trays, zero cable mess
       voiceover: Two steel trays, and the cable mess under your desk is gone.
@@ -340,6 +341,7 @@
     - 3146387
     - 5682222
     clip_ids: [142641, 83868, 0]
+    product_photo: assets/products/anker-nano-30w-cable.jpg
     beats:
     - on_screen: Never pack a charging cable again
       voiceover: Never pack a separate charging cable again.
@@ -405,6 +407,7 @@
     - 7546818
     - 2796210
     clip_ids: [253998, 245932, 0]
+    product_photo: assets/products/blink-mini-2.jpg
     beats:
     - on_screen: Watch your home after dark
       voiceover: Watch this tiny camera keep an eye on home after dark, in color.

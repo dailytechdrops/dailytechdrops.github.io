@@ -265,7 +265,12 @@ def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> N
     font = _font(rc["font"], size)
     text_layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     draw = ImageDraw.Draw(text_layer)
-    lines = _wrap(draw, text, font, w - 200)
+    # Kept inside the middle 78% so app buttons and edge crops (TikTok, Shorts) never clip it.
+    lines = _wrap(draw, text, font, int(w * 0.78))
+    while max(draw.textlength(l, font=font) for l in lines) > w * 0.78 and font.size > 44:
+        font = _font(rc["font"], font.size - 4)
+        size = font.size
+        lines = _wrap(draw, text, font, int(w * 0.78))
     line_h = int(size * 1.16)
     top = int(h * 0.22)
     for n, line in enumerate(lines):
@@ -280,6 +285,8 @@ def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> N
         # The product name as a small, quiet line under the caption, not a badge.
         tag_font = _font(rc["body_font"], 36)
         d = ImageDraw.Draw(img)
+        while d.textlength(label, font=tag_font) > w * 0.70 and tag_font.size > 22:
+            tag_font = _font(rc["body_font"], tag_font.size - 2)
         lw = d.textlength(label, font=tag_font)
         y = top + len(lines) * line_h + 18
         pill = [(w - lw) / 2 - 24, y, (w + lw) / 2 + 24, y + tag_font.size + 22]
@@ -307,12 +314,15 @@ def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False
     fw, fh = 760, 860
     fx, fy = (w - fw) // 2, 290
     _card(bg, [fx - 14, fy - 14, fx + fw + 14, fy + fh + 14], radius=48, fill=(255, 255, 255, 255), shadow=60)
-    if contain:
+    src = Image.open(photo).convert("RGB")
+    corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
+    if contain and min(min(c) for c in corners) > 235:
+        # A cut-out product shot on white sits whole on the white frame; a scene photo fills it instead.
         pic = Image.new("RGB", (fw, fh), (255, 255, 255))
-        shot = ImageOps.contain(Image.open(photo).convert("RGB"), (fw - 100, fh - 100), Image.LANCZOS)
+        shot = ImageOps.contain(src, (fw - 100, fh - 100), Image.LANCZOS)
         pic.paste(shot, ((fw - shot.width) // 2, (fh - shot.height) // 2))
     else:
-        pic = ImageOps.fit(Image.open(photo).convert("RGB"), (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
+        pic = ImageOps.fit(src, (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
     mask = Image.new("L", (fw, fh), 0)
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, fw, fh], radius=36, fill=255)
     bg.paste(pic, (fx, fy), mask)
