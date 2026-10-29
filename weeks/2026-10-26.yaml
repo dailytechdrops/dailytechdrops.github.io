@@ -833,6 +833,8 @@
   content:
     photo_query: alarm clock bedside table
     photo_ids: [8382954, 6830011, 5084284]
+    clip_ids: [151295, 151297, 0]
+    product_photo: assets/products/echo-dot-clock.jpg
     beats:
       - on_screen: A clock that glows and listens
         voiceover: This little speaker doubles as a glowing clock.
@@ -898,6 +900,8 @@
   content:
     photo_query: backlit keyboard desk night
     photo_ids: [549080, 2654109, 4233900]
+    clip_ids: [3174, 377601, 0]
+    product_photo: assets/products/logitech-mx-keys-s.jpg
     beats:
       - on_screen: The keys light up as you reach
         voiceover: Watch the keys light up the moment your hands get close.
@@ -961,6 +965,8 @@
   content:
     photo_query: usb c cable travel bag
     photo_ids: [4498741, 7832257, 5123473]
+    clip_ids: [3608, 211636, 0]
+    product_photo: assets/products/anker-nano-45w-retractable.jpg
     beats:
       - on_screen: The cable pulls out and snaps back
         voiceover: Watch this cable pull out, and then snap right back in.

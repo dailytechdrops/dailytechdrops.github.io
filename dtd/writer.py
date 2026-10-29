@@ -29,6 +29,9 @@ class DropContent(BaseModel):
     dm_message: str = Field(description="Friendly DM text sent with the link; must include {link}")
     photo_query: str | None = Field(default=None, description="2 to 4 word stock photo search showing the kind of product, used on carousel slide 1 and in the first second of the reel")
     photo_ids: list[int] = Field(default_factory=list, description="Pixabay photo ids picked by hand, one per reel beat and carousel slide in order; they win over photo_query")
+    clip_ids: list[int] = Field(default_factory=list, description="Pixabay video ids picked by hand, one per reel beat; 0 keeps that beat on its photo. Real footage of people beats stills")
+    product_photo: str | None = Field(default=None, description="Path to a photo of the actual product (e.g. assets/products/x.jpg), shown whole on the end card")
+    look: str | None = Field(default=None, description="natural: captions as plain text on the footage, no card; empty uses config reel.look")
     label: str | None = Field(default=None, description="Orange tag on the hook, e.g. Gift idea; empty means Today's drop")
 
 

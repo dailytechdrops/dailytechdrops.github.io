@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .config import ROOT
-from .media_sources import duration, stock_clip, stock_photo, tts
+from .media_sources import duration, pinned_clip, stock_clip, stock_photo, tts
 from .writer import DropContent
 
 
@@ -30,6 +30,7 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
     brand_overlay(cfg, brand)
     photos = _photos(content, workdir)
 
+    product = ROOT / content.product_photo if content.product_photo else None
     for i, beat in enumerate(content.beats):
         is_hook, is_cta = i == 0, i == len(content.beats) - 1
         voice = tts(cfg, beat.voiceover, workdir / f"voice_{i}.mp3")
@@ -37,19 +38,35 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
         if is_hook:
             seg_len += 0.2  # a beat of breathing room before the first word lands
         shot = photos[i % len(photos)] if photos else None
-        clip = None if shot else stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
+        clip = None
+        pinned = content.clip_ids[i] if i < len(content.clip_ids) and not is_cta else 0
+        if pinned:
+            # Real footage of people using this kind of product, picked by hand, beats a still photo.
+            clip = pinned_clip(pinned, workdir / f"clip_{i}.mp4")
+            shot = None if clip else shot
+        if not shot and not clip:
+            clip = stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
         overlay = workdir / f"overlay_{i}.png"
         seg = workdir / f"seg_{i}.mp4"
         if is_cta and photos:
             # The call to action is a clean branded end card around a photo of the product type.
             card = workdir / "endcard.png"
-            end_card(cfg, photos[i % len(photos)], name, card)
+            if product and product.exists():
+                end_card(cfg, product, name, card, contain=True)
+            else:
+                end_card(cfg, photos[i % len(photos)], name, card)
             _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
             label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
-            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label)
+            natural = (content.look or rc.get("look", "card")) == "natural"
+            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label, natural=natural)
+            cut_in = None
+            if i == 1 and product and product.exists():
+                # The reason beat cuts from the people footage to the real product as the voice names it.
+                cut_in = workdir / "product_frame.png"
+                product_frame(cfg, product, cut_in)
             _segment(rc, clip, overlay, voice, seg_len, seg, shot, motion=i, brand=brand,
-                     voice_delay=0.35 if is_hook else 0.15)
+                     voice_delay=0.35 if is_hook else 0.15, cut_in=cut_in)
         segments.append(seg)
         lengths.append(seg_len)
 
@@ -93,7 +110,7 @@ def _photos(content: DropContent, workdir: Path) -> list[Path]:
 
 def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | None, seg_len: float, out: Path,
              photo: Path | None = None, motion: int = 0, brand: Path | None = None, endcard: bool = False,
-             voice_delay: float = 0.15) -> None:
+             voice_delay: float = 0.15, cut_in: Path | None = None) -> None:
     w, h, fps = rc["width"], rc["height"], rc["fps"]
     frames = int(seg_len * fps) + 1
     args = []
@@ -128,6 +145,14 @@ def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | No
         args += ["-loop", "1", "-i", str(brand)]
         chain.append(f"[{last}][{n}:v]overlay=0:0[b]")
         last, n = "b", n + 1
+    if cut_in:
+        # The product card fades in and rises into place 40% into the beat, over the footage.
+        st, d = round(seg_len * 0.4, 2), 0.4
+        args += ["-loop", "1", "-i", str(cut_in)]
+        rise = f"if(lt(t,{st}),60,if(lt(t,{st + d}),60*pow(1-(t-{st})/{d},3),0))"
+        chain.append(f"[{n}:v]format=rgba,fade=t=in:st={st}:d={d}:alpha=1[pf]")
+        chain.append(f"[{last}][pf]overlay=x=0:y='{rise}':eval=frame[p]")
+        last, n = "p", n + 1
     if overlay:
         # The caption card fades in and rises into place just after the cut.
         args += ["-loop", "1", "-i", str(overlay)]
@@ -197,9 +222,15 @@ def brand_overlay(cfg: dict, out: Path) -> None:
     img.save(out)
 
 
-def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bool = False, label: str = "") -> None:
-    """A soft white card with the beat's line in sentence case, and a small orange tag above it."""
+def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bool = False, label: str = "",
+                    natural: bool = False) -> None:
+    """A soft white card with the beat's line in sentence case, and a small orange tag above it.
+    The natural look drops the card: white text with a soft shadow in the upper third, the way
+    people caption their own videos, so the footage stays the subject."""
     rc = cfg["reel"]
+    if natural:
+        _natural_caption(rc, text, out, hook or cta, label)
+        return
     w, h = rc["width"], rc["height"]
     accent = _rgba(rc["accent_color"], 255)
     ink = _rgba(rc.get("ink_color", "#3B2F27"), 255)
@@ -241,8 +272,67 @@ def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bo
     img.save(out)
 
 
-def end_card(cfg: dict, photo: Path, name: str, out: Path) -> None:
-    """The last beat: warm cream card, framed product photo, product name and the comment call to action."""
+def product_frame(cfg: dict, photo: Path, out: Path) -> None:
+    """A white card with the real product, floating over the people footage in the lower middle
+    (clear of the caption above), so the person and the product share the frame."""
+    rc = cfg["reel"]
+    w, h = rc["width"], rc["height"]
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    src = Image.open(photo).convert("RGB")
+    corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
+    cw, ch, cy = 700, 700, int(h * 0.60)
+    x0, y0 = (w - cw) // 2, cy - ch // 2
+    _card(img, [x0, y0, x0 + cw, y0 + ch], radius=44, fill=(255, 255, 255, 255), shadow=90)
+    if min(min(c) for c in corners) > 235:
+        shot = ImageOps.contain(src, (cw - 90, ch - 90), Image.LANCZOS)
+        img.paste(shot, ((w - shot.width) // 2, cy - shot.height // 2))
+    else:
+        shot = ImageOps.fit(src, (cw - 24, ch - 24), Image.LANCZOS)
+        m = Image.new("L", shot.size, 0)
+        ImageDraw.Draw(m).rounded_rectangle([0, 0, *shot.size], radius=34, fill=255)
+        img.paste(shot, (x0 + 12, y0 + 12), m)
+    img.save(out)
+
+
+def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> None:
+    w, h = rc["width"], rc["height"]
+    size = 76 if big else 66
+    font = _font(rc["font"], size)
+    text_layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(text_layer)
+    # Kept inside the middle 78% so app buttons and edge crops (TikTok, Shorts) never clip it.
+    lines = _wrap(draw, text, font, int(w * 0.78))
+    while max(draw.textlength(l, font=font) for l in lines) > w * 0.78 and font.size > 44:
+        font = _font(rc["font"], font.size - 4)
+        size = font.size
+        lines = _wrap(draw, text, font, int(w * 0.78))
+    line_h = int(size * 1.16)
+    top = int(h * 0.22)
+    for n, line in enumerate(lines):
+        lw = draw.textlength(line, font=font)
+        draw.text(((w - lw) / 2, top + n * line_h), line, font=font, fill=(255, 255, 255, 255))
+    # A soft dark glow behind the letters keeps them readable on bright footage without a box.
+    alpha = text_layer.getchannel("A")
+    glow = Image.new("RGBA", (w, h), (30, 22, 16, 0))
+    glow.putalpha(alpha.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(14)).point(lambda a: int(a * 0.55)))
+    img = Image.alpha_composite(glow, text_layer)
+    if label:
+        # The product name as a small, quiet line under the caption, not a badge.
+        tag_font = _font(rc["body_font"], 36)
+        d = ImageDraw.Draw(img)
+        while d.textlength(label, font=tag_font) > w * 0.70 and tag_font.size > 22:
+            tag_font = _font(rc["body_font"], tag_font.size - 2)
+        lw = d.textlength(label, font=tag_font)
+        y = top + len(lines) * line_h + 18
+        pill = [(w - lw) / 2 - 24, y, (w + lw) / 2 + 24, y + tag_font.size + 22]
+        d.rounded_rectangle(pill, radius=(pill[3] - pill[1]) / 2, fill=_rgba(rc["accent_color"], 230))
+        d.text(((w - lw) / 2, y + 9), label, font=tag_font, fill=(255, 255, 255, 255))
+    img.save(out)
+
+
+def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False) -> None:
+    """The last beat: warm cream card, framed product photo, product name and the comment call to action.
+    contain shows a real product shot whole on the white frame instead of cropping it to fill."""
     rc = cfg["reel"]
     w, h = rc["width"], rc["height"]
     accent = _rgba(rc["accent_color"], 255)
@@ -259,7 +349,15 @@ def end_card(cfg: dict, photo: Path, name: str, out: Path) -> None:
     fw, fh = 760, 860
     fx, fy = (w - fw) // 2, 290
     _card(bg, [fx - 14, fy - 14, fx + fw + 14, fy + fh + 14], radius=48, fill=(255, 255, 255, 255), shadow=60)
-    pic = ImageOps.fit(Image.open(photo).convert("RGB"), (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
+    src = Image.open(photo).convert("RGB")
+    corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
+    if contain and min(min(c) for c in corners) > 235:
+        # A cut-out product shot on white sits whole on the white frame; a scene photo fills it instead.
+        pic = Image.new("RGB", (fw, fh), (255, 255, 255))
+        shot = ImageOps.contain(src, (fw - 100, fh - 100), Image.LANCZOS)
+        pic.paste(shot, ((fw - shot.width) // 2, (fh - shot.height) // 2))
+    else:
+        pic = ImageOps.fit(src, (fw, fh), Image.LANCZOS, centering=(0.5, 0.45))
     mask = Image.new("L", (fw, fh), 0)
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, fw, fh], radius=36, fill=255)
     bg.paste(pic, (fx, fy), mask)

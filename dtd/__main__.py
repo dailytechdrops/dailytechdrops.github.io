@@ -52,7 +52,12 @@ WAIT_AHEAD = timedelta(hours=5)
 
 
 def render(cfg: dict, week: Path) -> int:
+    now = datetime.now(EASTERN)
     for item in load_week(week):
+        if item["when"] < now:
+            # Already posted (or skipped); re-rendering a week after a look change only redoes what is still to come.
+            print(f"Skipping {item['id']}: its slot has passed")
+            continue
         out = OUTPUT_DIR / item["id"]
         if item.get("hook_style") not in report.HOOK_STYLES or item.get("hook_style") == "statement":
             # The weekly report compares hook styles, so every new entry needs one of the tested styles.

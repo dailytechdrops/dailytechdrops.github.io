@@ -274,10 +274,10 @@
       As an Amazon Associate I earn from qualifying purchases.
     label: Gift idea
 - slot: 2026-11-11 15:30
-  asin: B0194WDVHI
-  name: Anker PowerCore 10000 Portable Charger
+  asin: B0CZ9M6X8Q
+  name: Anker Power Bank 10K with Built-In USB-C Cable
   lane: phone, travel and charging gadgets
-  remix_of: 2026-10-31-1130-B0194WDVHI
+  remix_of: 2026-10-31-1130-B0CZ9M6X8Q
   hook_style: question
   gift_guide: traveler
   angle: Gift framing for the gift guide for the traveler. The battery bank that fits in a pocket and saves the day when your
@@ -285,7 +285,7 @@
   key_facts:
   - 10,000 mAh portable charger from Anker
   - Small enough for a pocket or a bag
-  - A long-running best seller
+  - Built-in USB-C cable and a battery display
   broll:
   - phone battery low
   - power bank pocket
@@ -313,14 +313,14 @@
       body: Enough to top up a phone more than once.
     - title: Pocket size
       body: Small enough to forget it is there.
-    - title: A long-time favorite
-      body: One of Anker's best-known power banks.
+    - title: Cable built in
+      body: Built-in USB-C cable, so no cord to forget.
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
       Gift idea for the friend whose phone is always dying. 🎁
 
-      The Anker PowerCore 10000 is a 10,000 mAh power bank small enough for a pocket or a bag.
+      The Anker 10K power bank is a 10,000 mAh power bank small enough for a pocket or a bag.
 
       More ideas like this are in our gift guide for the traveler, on the shop page in our bio. Prices change often, so check Amazon for today's price.
 
@@ -335,7 +335,7 @@
     - techgadgets
     - amazonfinds
     dm_message: |-
-      Here is the Anker PowerCore 10000 Portable Charger: {link}
+      Here is the Anker Power Bank 10K with Built-In USB-C Cable: {link}
 
       As an Amazon Associate I earn from qualifying purchases.
     label: Gift idea

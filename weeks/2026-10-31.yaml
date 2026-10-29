@@ -2,15 +2,15 @@
 # Facts are limited to the listing titles; verify each ASIN on Amazon (see PR checklist). Photos are honest category stock photos.
 
 - slot: 2026-10-31 11:30
-  asin: B0194WDVHI
-  name: Anker PowerCore 10000 Portable Charger
+  asin: B0CZ9M6X8Q
+  name: Anker Power Bank 10K with Built-In USB-C Cable
   lane: phone, travel and charging gadgets
   hook_style: callout
   angle: The battery bank that fits in a pocket and saves the day when your phone hits one percent.
   key_facts:
   - 10,000 mAh portable charger from Anker
   - Small enough for a pocket or a bag
-  - A long-running best seller
+  - Built-in USB-C cable and a battery display
   broll:
   - phone battery low
   - power bank pocket
@@ -18,6 +18,8 @@
   content:
     photo_query: smartphone portable charger
     photo_ids: [7832257, 2396278, 7276658]
+    clip_ids: [83868, 208770, 0]
+    product_photo: assets/products/anker-power-bank-10k-cable.jpg
     beats:
     - on_screen: Phone at 1 percent again
       voiceover: Your phone is at one percent and there is no outlet in sight.
@@ -35,14 +37,14 @@
       body: Enough to top up a phone more than once.
     - title: Pocket size
       body: Small enough to forget it is there.
-    - title: A long-time favorite
-      body: One of Anker's best-known power banks.
+    - title: Cable built in
+      body: Built-in USB-C cable, so no cord to forget.
     - title: Comment SHOP
       body: I will DM you the Amazon link.
     caption: |-
       Never hunt for an outlet again. 🔋
 
-      The Anker PowerCore 10000 is a 10,000 mAh power bank small enough for a pocket or a bag, so your phone always has a backup.
+      This Anker 10,000 mAh power bank has its own USB-C cable built in and is small enough for a pocket or a bag, so your phone always has a backup.
 
       Tip: charge it the night before a trip so it is full when you leave.
 
@@ -57,7 +59,7 @@
     - everydaycarry
     - gadgets
     dm_message: |-
-      Here is the Anker PowerCore 10000 Portable Charger: {link}
+      Here is the Anker Power Bank 10K with Built-In USB-C Cable: {link}
 
       As an Amazon Associate I earn from qualifying purchases.
 - slot: 2026-10-31 19:00
@@ -78,6 +80,8 @@
   content:
     photo_query: home security camera
     photo_ids: [4955338, 3728625, 5501660]
+    clip_ids: [119799, 237643, 0]
+    product_photo: assets/products/wyze-cam-v4.jpg
     beats:
     - on_screen: Who is at your door?
       voiceover: Want to know who is at your door while you are out?
@@ -136,6 +140,8 @@
   content:
     photo_query: power strip plugs cables
     photo_ids: [2587598, 3285039, 3285039]
+    clip_ids: [224831, 86867, 0]
+    product_photo: assets/products/amazon-basics-surge-protector.jpg
     beats:
     - on_screen: Plugged into the wall?
       voiceover: Is your computer plugged straight into the wall?
@@ -195,6 +201,8 @@
   content:
     photo_query: bluetooth speaker
     photo_ids: [319841, 3483646, 319841]
+    clip_ids: [202134, 172681, 0]
+    product_photo: assets/products/soundcore-2-speaker.jpg
     beats:
     - on_screen: This speaker survives the pool
       voiceover: Knock this little speaker into the pool and it keeps on playing.
@@ -254,6 +262,8 @@
   content:
     photo_query: wireless computer mouse
     photo_ids: [5318837, 1999471, 2324120]
+    clip_ids: [4954, 1046, 0]
+    product_photo: assets/products/logitech-m185-mouse.jpg
     beats:
     - on_screen: Still using the trackpad?
       voiceover: Still fighting your laptop trackpad all day?
@@ -313,6 +323,8 @@
   content:
     photo_query: smart plug outlet
     photo_ids: [2607283, 4715347, 4243898]
+    clip_ids: [233390, 245932, 0]
+    product_photo: assets/products/kasa-smart-plug-mini.jpg
     beats:
     - on_screen: Did you leave the lamp on?
       voiceover: Did you leave the lamp on? You can check from your phone.
@@ -371,6 +383,8 @@
   content:
     photo_query: computer monitor screen workspace
     photo_ids: [4233915, 2568270, 2568270]
+    clip_ids: [215751, 377601, 0]
+    product_photo: assets/products/amazon-basics-monitor-riser.jpg
     beats:
     - on_screen: Your screen is too low
       voiceover: If your screen is too low, your neck pays for it.
@@ -430,6 +444,8 @@
   content:
     photo_query: wireless headphones
     photo_ids: [8398212, 6787497, 6787507]
+    clip_ids: [161062, 172681, 0]
+    product_photo: assets/products/soundcore-q20i.jpg
     beats:
     - on_screen: Too much background noise?
       voiceover: Too much noise to focus? Noise cancelling fixes that.
@@ -489,6 +505,8 @@
   content:
     photo_query: usb charger plug socket
     photo_ids: [3285039, 7036075, 5318837]
+    clip_ids: [130647, 1046, 0]
+    product_photo: assets/products/anker-525-charging-station.jpg
     beats:
     - on_screen: 7 ports, 1 strip
       voiceover: Seven ports on one strip, and the charger mess on your desk is gone.
@@ -548,6 +566,8 @@
   content:
     photo_query: television remote living room
     photo_ids: [4148876, 2741799, 642138]
+    clip_ids: [245932, 237643, 0]
+    product_photo: assets/products/fire-tv-stick-4k-max.jpg
     beats:
     - on_screen: Your TV is not smart?
       voiceover: Is your TV stuck in the past? It does not have to be.
@@ -606,6 +626,8 @@
   content:
     photo_query: computer mouse hand
     photo_ids: [1850268, 2324120, 2587598]
+    clip_ids: [4954, 130645, 0]
+    product_photo: assets/products/logitech-lift-left.jpg
     beats:
     - on_screen: Wrist sore from the mouse?
       voiceover: Does your wrist ache after a long day at the mouse?
@@ -665,6 +687,8 @@
   content:
     photo_query: wireless earbuds
     photo_ids: [7559937, 6933543, 2350507]
+    clip_ids: [3608, 29331, 0]
+    product_photo: assets/products/soundcore-liberty-4-nc.jpg
     beats:
     - on_screen: Your commute is too loud
       voiceover: Your commute is loud. These earbuds tune out the noise as it changes.
@@ -723,6 +747,8 @@
   content:
     photo_query: laptop stand desk
     photo_ids: [2583442, 7571376, 5318837]
+    clip_ids: [183450, 203260, 0]
+    product_photo: assets/products/amazon-basics-laptop-stand.jpg
     beats:
     - on_screen: Hunched over your laptop?
       voiceover: Hunched over your laptop all day?
@@ -781,6 +807,8 @@
   content:
     photo_query: laptop usb ports
     photo_ids: [829332, 7036075, 2572036]
+    clip_ids: [1655, 224831, 0]
+    product_photo: assets/products/anker-332-usb-c-hub.jpg
     beats:
     - on_screen: Laptop out of ports?
       voiceover: Laptop out of ports again?
