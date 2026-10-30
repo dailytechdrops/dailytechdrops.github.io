@@ -36,7 +36,7 @@ fills each day like this:
 | --- | --- | --- |
 | 11:30 ET | New product | Fixed time, so week-over-week numbers compare |
 | 19:00 ET | New product | Fixed time |
-| Test time, rotating `schedule.test_times` one per day | **Remix**: a product posted at least 2 days earlier, with a new hook | Tests hook styles on the same product and photos, tests posting times, and gives winners a second run |
+| Test time, rotating `schedule.test_times` one per day (**paused Oct 30 2026**) | **Remix**: a product posted at least 2 days earlier, with a new hook | Tests hook styles on the same product and photos, tests posting times, and gives winners a second run |
 
 Remix entries carry `remix_of: <id of the first post>` and `hook_style:`, use a different hook style than the first
 post, reuse its `photo_ids`, and rewrite the caption opening. Pick remixes from the report's best reels (reach, then
@@ -76,7 +76,8 @@ and keep testing the others on the rest; drop a style that is last three weeks r
 - Dec 2 to Dec 15: gifts by person (for the desk worker, the traveler, the gamer, the person who has everything).
 - Dec 16 to Dec 21: stocking stuffers and small gifts that still ship in time; mention Prime shipping only as "check the delivery date".
 - Remix slots in Nov and Dec favor the year's most tapped products from the shop page.
-  Nov 7 to Nov 20 remixes are already written as gift reels (`weeks/2026-11-07-gift-reels.yaml`).
+  Remixes are paused as of Oct 30 2026 (Kevin): post 2 new products a day and write no third-slot remixes.
+  The Nov 7 to Nov 20 gift remixes wait in `paused/2026-11-07-gift-reels.yaml`.
 
 **Gift guides:** `gift_guides.yaml` lists five guides (desk worker, traveler, safer home, the person who has
 everything, stocking stuffers), grouped by who the gift is for and spanning every price range. Each is a page at
