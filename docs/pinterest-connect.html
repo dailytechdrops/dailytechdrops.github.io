@@ -30,7 +30,7 @@ code{display:block;word-break:break-all;background:#FBF6EE;border-radius:12px;pa
 <script>
 const APP_ID = "1630232";
 const REDIRECT = "https://dailytechdrops.github.io/pinterest-connect.html";
-const SCOPES = "boards:read,pins:read,pins:write,user_accounts:read";
+const SCOPES = "boards:read,boards:write,pins:read,pins:write,user_accounts:read";
 const q = new URLSearchParams(location.search);
 document.getElementById("go").href = "https://www.pinterest.com/oauth/?" + new URLSearchParams({
   client_id: APP_ID, redirect_uri: REDIRECT, response_type: "code", scope: SCOPES, state: "dtd"
