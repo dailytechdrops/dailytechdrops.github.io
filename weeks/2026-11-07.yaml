@@ -19,6 +19,8 @@
   content:
     label: Gift idea
     photo_query: instant camera photo
+    photo_ids: [3072499, 5128423, 8199065]
+    clip_ids: [251587, 234920, 0]
     product_photo: assets/products/fujifilm-instax-mini-12.jpg
     beats:
     - on_screen: Prints the photo in seconds
@@ -79,6 +81,8 @@
   content:
     label: Gift idea
     photo_query: home security camera indoor
+    photo_ids: [4936814, 8436843, 6032824]
+    clip_ids: [278894, 86867, 0]
     product_photo: assets/products/ring-indoor-cam-2nd-gen.jpg
     beats:
     - on_screen: Who is home right now?
@@ -139,6 +143,8 @@
   content:
     label: Stocking stuffer
     photo_query: phone charging power bank
+    photo_ids: [1785522, 10362029, 7565225]
+    clip_ids: [174003, 233390, 0]
     product_photo: assets/products/anker-nano-power-bank-22w.jpg
     beats:
     - on_screen: A charger that plugs into your phone
@@ -199,6 +205,8 @@
   content:
     label: Gift idea
     photo_query: computer mouse desk
+    photo_ids: [2568270, 4484283, 7093440]
+    clip_ids: [223892, 368623, 0]
     product_photo: assets/products/logitech-mx-anywhere-3s.jpg
     beats:
     - on_screen: One mouse, three computers
@@ -259,6 +267,8 @@
   content:
     label: Stocking stuffer
     photo_query: keys lost tracker
+    photo_ids: [1683101, 10274921, 4900643]
+    clip_ids: [272620, 12040, 0]
     product_photo: assets/products/tile-mate-2022.jpg
     beats:
     - on_screen: Lost your keys again?
@@ -319,6 +329,8 @@
   content:
     label: Gift idea
     photo_query: headphones listening music
+    photo_ids: [10453367, 1845578, 3983404]
+    clip_ids: [161062, 240659, 0]
     product_photo: assets/products/soundcore-space-one.jpg
     beats:
     - on_screen: Headphones that adapt to your noise
@@ -380,6 +392,8 @@
   content:
     label: Gift idea
     photo_query: external hard drive storage
+    photo_ids: [2569404, 7136991, 4721550]
+    clip_ids: [1028, 50176, 0]
     product_photo: assets/products/sandisk-extreme-portable-ssd.jpg
     beats:
     - on_screen: A backup that survives rainstorms
@@ -440,6 +454,8 @@
   content:
     label: Gift idea
     photo_query: home security camera door
+    photo_ids: [5156165, 4925927, 2490949]
+    clip_ids: [131330, 20459, 0]
     product_photo: assets/products/tapo-c120-security-camera.jpg
     beats:
     - on_screen: Four megapixels watching your door
@@ -500,6 +516,8 @@
   content:
     label: Gift idea
     photo_query: smart speaker small room
+    photo_ids: [5190757, 10505991, 4597415]
+    clip_ids: [86867, 233390, 0]
     product_photo: assets/products/echo-pop.jpg
     beats:
     - on_screen: Alexa in a tiny half sphere
@@ -560,6 +578,8 @@
   content:
     label: Gift idea
     photo_query: portable speaker backpack
+    photo_ids: [10489603, 7832746, 6817376]
+    clip_ids: [214780, 214778, 0]
     product_photo: assets/products/jbl-clip-4.jpg
     beats:
     - on_screen: Clip it to anything
@@ -620,6 +640,8 @@
   content:
     label: Gift idea
     photo_query: video call webcam
+    photo_ids: [5906362, 7520691, 8398212]
+    clip_ids: [86866, 370570, 0]
     product_photo: assets/products/logitech-c920s-webcam.jpg
     beats:
     - on_screen: Bad on video calls?
@@ -681,6 +703,8 @@
   content:
     label: Gift idea
     photo_query: laptop travel charger
+    photo_ids: [4721542, 2583442, 9618421]
+    clip_ids: [1028, 10822, 0]
     product_photo: assets/products/anker-prime-power-bank-200w.jpg
     beats:
     - on_screen: 200 watts in your bag
@@ -741,6 +765,8 @@
   content:
     label: Stocking stuffer
     photo_query: small bluetooth speaker
+    photo_ids: [2295052, 5736160, 4436103]
+    clip_ids: [363873, 1275, 0]
     product_photo: assets/products/jbl-go-3.jpg
     beats:
     - on_screen: Tiny speaker, surprisingly big sound
@@ -801,6 +827,8 @@
   content:
     label: Gift idea
     photo_query: reading book bed
+    photo_ids: [4597415, 4491444, 2593500]
+    clip_ids: [34474, 34473, 0]
     product_photo: assets/products/kindle-paperwhite-2024.jpg
     beats:
     - on_screen: Read in bed with no glare
