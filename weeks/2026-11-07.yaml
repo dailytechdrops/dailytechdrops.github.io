@@ -1,0 +1,845 @@
+# Weekly picks Nov 7 to Nov 13 2026. Researched Nov 1 2026. Reels are 3 beats (about 30 words, 10 to 15 seconds). Gift framing per the Nov holiday plan.
+# Facts are limited to listing titles; verify each ASIN on Amazon (see PR checklist). Photos are honest category stock photos.
+
+- slot: 2026-11-07 11:30
+  asin: B0BWNZLQ69
+  name: Fujifilm Instax Mini 12 Instant Camera
+  lane: gifts and fun gadgets
+  hook_style: demo
+  gift_guide: everything
+  angle: An instant camera that turns a snapshot into a keepsake you can hold.
+  key_facts:
+  - Instant film camera from Fujifilm
+  - Prints small credit-card-size photos
+  - Compact and easy to use
+  broll:
+  - instant camera
+  - friends taking photos
+  - instant camera photo
+  content:
+    label: Gift idea
+    photo_query: instant camera photo
+    product_photo: assets/products/fujifilm-instax-mini-12.jpg
+    beats:
+    - on_screen: Prints the photo in seconds
+      voiceover: Snap it and the photo prints in your hand.
+      broll_query: instant camera photo
+    - on_screen: Instant prints
+      voiceover: This Fujifilm Instax Mini 12 is a gift that people actually keep.
+      broll_query: friends taking photos
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: instant camera photo
+    carousel:
+    - title: Prints the photo in seconds
+      body: Point, press, and a small print slides out.
+    - title: Instant prints
+      body: A photo you can hold and stick on a wall.
+    - title: Keepsake photos
+      body: Good for parties, trips and desks.
+    - title: Easy to use
+      body: Simple enough for anyone to use.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Prints the photo in seconds. A gift idea worth a look. 🎁
+
+      This Fujifilm Instax Mini 12 prints small instant photos, which makes it an easy gift for anyone who likes keepsakes.
+
+      Tip: buy a spare film pack so the fun does not stop mid-party.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - instax
+    - instantcamera
+    - giftidea
+    - fujifilm
+    - amazonfinds
+    dm_message: |-
+      Here is the Fujifilm Instax Mini 12 Instant Camera: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-07 19:00
+  asin: B0B6GLQJMV
+  name: Ring Indoor Cam (2nd Gen)
+  lane: home security and safety gadgets
+  hook_style: question
+  gift_guide: home
+  angle: A small indoor camera that shows what the dog, the kids or the front room are up to.
+  key_facts:
+  - Plug-in indoor camera from Ring
+  - 1080p HD video with color night vision
+  - Includes a privacy cover
+  broll:
+  - home security
+  - living room pet
+  - home security camera indoor
+  content:
+    label: Gift idea
+    photo_query: home security camera indoor
+    product_photo: assets/products/ring-indoor-cam-2nd-gen.jpg
+    beats:
+    - on_screen: Who is home right now?
+      voiceover: Who is home right now, and what is the dog doing?
+      broll_query: home security camera indoor
+    - on_screen: Plug-in indoor cam
+      voiceover: This Ring indoor camera plugs in and shows you, with a privacy cover when you want it.
+      broll_query: living room pet
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home security camera indoor
+    carousel:
+    - title: Who is home right now?
+      body: Check in on home from your phone.
+    - title: Plug-in indoor cam
+      body: Plugs into an outlet, no battery to charge.
+    - title: Color night vision
+      body: See clearly even in the dark.
+    - title: Privacy cover included
+      body: A cover you can close for privacy.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Who is home right now?. A gift idea worth a look. 🎁
+
+      This Ring Indoor Cam is a practical gift for anyone with pets, kids or an empty house to keep an eye on.
+
+      Tip: place it high on a shelf for the widest view of the room.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - ringcamera
+    - homesecurity
+    - giftidea
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the Ring Indoor Cam (2nd Gen): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-08 11:30
+  asin: B0C6XK77HJ
+  name: Anker Nano Power Bank (22.5W, Built-In USB-C Connector)
+  lane: phone, travel and charging gadgets
+  hook_style: callout
+  gift_guide: stocking
+  angle: A tiny power bank with no cable to lose, because the plug is built in.
+  key_facts:
+  - 5,000 mAh power bank from Anker
+  - Built-in foldable USB-C connector
+  - Up to 22.5W output
+  broll:
+  - phone charging
+  - pocket phone
+  - phone charging power bank
+  content:
+    label: Stocking stuffer
+    photo_query: phone charging power bank
+    product_photo: assets/products/anker-nano-power-bank-22w.jpg
+    beats:
+    - on_screen: A charger that plugs into your phone
+      voiceover: A charger that plugs straight into your phone, no cable needed.
+      broll_query: phone charging power bank
+    - on_screen: No cable to lose
+      voiceover: This Anker Nano power bank is a great stocking stuffer for anyone with a USB-C phone.
+      broll_query: pocket phone
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: phone charging power bank
+    carousel:
+    - title: A charger that plugs into your phone
+      body: The USB-C plug is built in.
+    - title: No cable to lose
+      body: Nothing to tangle or forget.
+    - title: Small enough for a pocket
+      body: Slim enough for a pocket.
+    - title: Stocking stuffer
+      body: A small gift that gets used daily.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A charger that plugs into your phone. A stocking stuffer worth a look. 🎁
+
+      This Anker Nano power bank has its USB-C connector built in, so it is a small gift that never needs a cable.
+
+      Tip: it only fits phones that charge over USB-C.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - powerbank
+    - anker
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Nano Power Bank (22.5W, Built-In USB-C Connector): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-08 19:00
+  asin: B0BPY4ZQXG
+  name: Logitech MX Anywhere 3S Wireless Mouse
+  lane: desk and productivity gadgets
+  hook_style: number
+  gift_guide: desk
+  angle: A compact travel-friendly mouse that jumps between a laptop, desktop and tablet.
+  key_facts:
+  - Compact wireless mouse from Logitech
+  - Pairs with up to three devices
+  - Quiet clicks and a rechargeable battery
+  broll:
+  - computer mouse
+  - laptop workspace
+  - computer mouse desk
+  content:
+    label: Gift idea
+    photo_query: computer mouse desk
+    product_photo: assets/products/logitech-mx-anywhere-3s.jpg
+    beats:
+    - on_screen: One mouse, three computers
+      voiceover: One mouse can control three different computers.
+      broll_query: computer mouse desk
+    - on_screen: Pairs with 3 devices
+      voiceover: This Logitech MX Anywhere 3S switches with one button, and it makes a great desk gift.
+      broll_query: laptop workspace
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: computer mouse desk
+    carousel:
+    - title: One mouse, three computers
+      body: Switch between devices with one press.
+    - title: Pairs with 3 devices
+      body: Small enough for a laptop bag.
+    - title: Quiet clicks
+      body: Clicks are much quieter.
+    - title: Rechargeable
+      body: Charges over USB-C.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      One mouse, three computers. A gift idea worth a look. 🎁
+
+      This Logitech MX Anywhere 3S is a compact, quiet mouse that makes a thoughtful desk gift for anyone who works across devices.
+
+      Tip: give each device its own channel button when you set it up.
+
+      See more gift picks in the desk guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - logitech
+    - deskmouse
+    - giftidea
+    - desksetup
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Anywhere 3S Wireless Mouse: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-09 11:30
+  asin: B09998MBFM
+  name: Tile Mate (2022) Bluetooth Tracker
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  gift_guide: stocking
+  angle: A small tag that makes the daily key hunt a thing of the past.
+  key_facts:
+  - Bluetooth item tracker from Tile
+  - Helps you find keys, bags and more
+  - Water-resistant design
+  broll:
+  - keys lost
+  - keys on table
+  - keys lost tracker
+  content:
+    label: Stocking stuffer
+    photo_query: keys lost tracker
+    product_photo: assets/products/tile-mate-2022.jpg
+    beats:
+    - on_screen: Lost your keys again?
+      voiceover: Lost your keys again? Make your phone ring them.
+      broll_query: keys lost tracker
+    - on_screen: Bluetooth tracker
+      voiceover: This Tile Mate clips to keys or a bag and is an easy stocking stuffer.
+      broll_query: keys on table
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: keys lost tracker
+    carousel:
+    - title: Lost your keys again?
+      body: Ring your keys from your phone.
+    - title: Bluetooth tracker
+      body: Attach it to keys, a bag or a remote.
+    - title: Clip it on anything
+      body: Small and light.
+    - title: Stocking stuffer
+      body: A gift that solves a daily problem.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Lost your keys again?. A stocking stuffer worth a look. 🎁
+
+      This Tile Mate helps you find keys and bags from your phone, which makes it a smart stocking stuffer.
+
+      Tip: attach one to the thing you lose most often.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - tilemate
+    - keyfinder
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the Tile Mate (2022) Bluetooth Tracker: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-09 19:00
+  asin: B0C6KKQ7ND
+  name: Soundcore Space One Noise Cancelling Headphones
+  lane: audio and gifts
+  hook_style: curiosity
+  gift_guide: everything
+  angle: Over-ear headphones that tune the noise cancelling to wherever you are.
+  key_facts:
+  - Over-ear headphones from Soundcore by Anker
+  - Adaptive active noise cancelling
+  - Long battery life
+  broll:
+  - headphones listening
+  - woman headphones commute
+  - headphones listening music
+  content:
+    label: Gift idea
+    photo_query: headphones listening music
+    product_photo: assets/products/soundcore-space-one.jpg
+    beats:
+    - on_screen: Headphones that adapt to your noise
+      voiceover: These headphones listen to your surroundings and adjust.
+      broll_query: headphones listening music
+    - on_screen: Adaptive noise cancelling
+      voiceover: The Soundcore Space One adapts its noise cancelling, and it is a gift most people would
+        love.
+      broll_query: woman headphones commute
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: headphones listening music
+    carousel:
+    - title: Headphones that adapt to your noise
+      body: Noise cancelling adjusts to your surroundings.
+    - title: Adaptive noise cancelling
+      body: Soft over-ear fit.
+    - title: Over-ear comfort
+      body: Made for long listening sessions.
+    - title: Long battery life
+      body: A strong gift idea for commuters.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Headphones that adapt to your noise. A gift idea worth a look. 🎁
+
+      The Soundcore Space One adjusts its noise cancelling to the room around you, which makes it a great gift for commuters and travelers.
+
+      Tip: open the Soundcore app to tune the sound to your taste.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - soundcore
+    - headphones
+    - giftidea
+    - noisecancelling
+    - amazonfinds
+    dm_message: |-
+      Here is the Soundcore Space One Noise Cancelling Headphones: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-10 11:30
+  asin: B08GTYFC37
+  name: SanDisk Extreme Portable SSD
+  lane: desk and productivity gadgets
+  hook_style: callout
+  gift_guide: desk
+  angle: A tough pocket-size drive for photos and files you cannot lose.
+  key_facts:
+  - Portable SSD from SanDisk
+  - Water and dust resistant
+  - Small enough for a pocket
+  broll:
+  - external hard
+  - photographer laptop
+  - external hard drive storage
+  content:
+    label: Gift idea
+    photo_query: external hard drive storage
+    product_photo: assets/products/sandisk-extreme-portable-ssd.jpg
+    beats:
+    - on_screen: A backup that survives rainstorms
+      voiceover: A backup drive that shrugs off water and dust.
+      broll_query: external hard drive storage
+    - on_screen: Water and dust resistant
+      voiceover: This SanDisk Extreme SSD is a gift for anyone with photos they cannot lose.
+      broll_query: photographer laptop
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: external hard drive storage
+    carousel:
+    - title: A backup that survives rainstorms
+      body: Built to handle rough days.
+    - title: Water and dust resistant
+      body: Water and dust resistance.
+    - title: Pocket size
+      body: Smaller than a deck of cards.
+    - title: Fast transfers
+      body: Fast enough for big photo libraries.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A backup that survives rainstorms. A gift idea worth a look. 🎁
+
+      This SanDisk Extreme Portable SSD is a tough, pocket-size drive that makes a practical gift for photographers and creators.
+
+      Tip: keep one copy of your photos on it and one somewhere else.
+
+      See more gift picks in the desk guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - sandisk
+    - portablessd
+    - giftidea
+    - backup
+    - amazonfinds
+    dm_message: |-
+      Here is the SanDisk Extreme Portable SSD: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-10 19:00
+  asin: B0CH45HPZT
+  name: Tapo C120 2K Indoor/Outdoor Security Camera
+  lane: home security and safety gadgets
+  hook_style: number
+  gift_guide: home
+  angle: A sharp 2K camera for the front door, the garage or the yard.
+  key_facts:
+  - 2K 4MP wired camera from TP-Link Tapo
+  - For indoor or outdoor use
+  - Color night vision
+  broll:
+  - home security
+  - front door porch
+  - home security camera door
+  content:
+    label: Gift idea
+    photo_query: home security camera door
+    product_photo: assets/products/tapo-c120-security-camera.jpg
+    beats:
+    - on_screen: Four megapixels watching your door
+      voiceover: Four megapixels of clear video, watching your front door.
+      broll_query: home security camera door
+    - on_screen: 2K video
+      voiceover: This Tapo C120 works indoors or outdoors, and it is a gift that brings peace of mind.
+      broll_query: front door porch
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home security camera door
+    carousel:
+    - title: Four megapixels watching your door
+      body: Sharp 2K video from your phone.
+    - title: 2K video
+      body: Works inside or outside.
+    - title: Indoor or outdoor
+      body: Color night vision.
+    - title: Night vision
+      body: A gift for peace of mind.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Four megapixels watching your door. A gift idea worth a look. 🎁
+
+      The Tapo C120 is a 2K camera that works indoors or outdoors, a gift that gives someone a little extra peace of mind.
+
+      Tip: mount it a bit higher than head height for a clean view.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - tapo
+    - securitycamera
+    - giftidea
+    - homesecurity
+    - amazonfinds
+    dm_message: |-
+      Here is the Tapo C120 2K Indoor/Outdoor Security Camera: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-11 11:30
+  asin: B09ZXLRRHY
+  name: Amazon Echo Pop (Glacier White)
+  lane: smart home gadgets
+  hook_style: curiosity
+  gift_guide: home
+  angle: A small Alexa speaker that fits on a shelf, a nightstand or a dorm desk.
+  key_facts:
+  - Compact smart speaker with Alexa
+  - Full sound in a small design
+  - Works with other smart home devices
+  broll:
+  - smart speaker
+  - bedroom shelf
+  - smart speaker small room
+  content:
+    label: Gift idea
+    photo_query: smart speaker small room
+    product_photo: assets/products/echo-pop.jpg
+    beats:
+    - on_screen: Alexa in a tiny half sphere
+      voiceover: This tiny half-sphere speaker has Alexa built in.
+      broll_query: smart speaker small room
+    - on_screen: Compact Alexa speaker
+      voiceover: The Echo Pop fits any nightstand or shelf, so it makes an easy gift.
+      broll_query: bedroom shelf
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: smart speaker small room
+    carousel:
+    - title: Alexa in a tiny half sphere
+      body: Ask for music, timers and weather.
+    - title: Compact Alexa speaker
+      body: Small enough for any shelf.
+    - title: Full sound
+      body: Sound that fills a room.
+    - title: Smart home control
+      body: Controls compatible smart devices.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Alexa in a tiny half sphere. A gift idea worth a look. 🎁
+
+      The Echo Pop puts Alexa in a small speaker that fits almost anywhere, an easy gift for dorms, bedrooms and kitchens.
+
+      Tip: say 'Alexa, good morning' to set up a daily routine.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - echopop
+    - alexa
+    - giftidea
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the Amazon Echo Pop (Glacier White): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-11 19:00
+  asin: B08PHSLRM7
+  name: JBL Clip 4 Portable Bluetooth Speaker
+  lane: audio and gifts
+  hook_style: demo
+  gift_guide: traveler
+  angle: A small waterproof speaker you can clip to a backpack and take anywhere.
+  key_facts:
+  - Portable Bluetooth speaker from JBL
+  - Built-in carabiner clip
+  - Waterproof design
+  broll:
+  - portable speaker
+  - hiking backpack
+  - portable speaker backpack
+  content:
+    label: Gift idea
+    photo_query: portable speaker backpack
+    product_photo: assets/products/jbl-clip-4.jpg
+    beats:
+    - on_screen: Clip it to anything
+      voiceover: Clip this speaker to your bag and go.
+      broll_query: portable speaker backpack
+    - on_screen: Built-in carabiner
+      voiceover: The JBL Clip 4 is waterproof, so it is a great gift for travelers.
+      broll_query: hiking backpack
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: portable speaker backpack
+    carousel:
+    - title: Clip it to anything
+      body: The carabiner clips to a bag or belt loop.
+    - title: Built-in carabiner
+      body: Splash and rain ready.
+    - title: Waterproof
+      body: Music on a hike or at the pool.
+    - title: Take it anywhere
+      body: A gift for travelers.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Clip it to anything. A gift idea worth a look. 🎁
+
+      The JBL Clip 4 is a waterproof speaker with a built-in clip, a great gift for hikers and travelers.
+
+      Tip: charge it before a trip so it is ready for the first hike.
+
+      See more gift picks in the traveler guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - jbl
+    - bluetoothspeaker
+    - giftidea
+    - travelgear
+    - amazonfinds
+    dm_message: |-
+      Here is the JBL Clip 4 Portable Bluetooth Speaker: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-12 11:30
+  asin: B07MM4V7NR
+  name: Logitech C920s HD Pro Webcam
+  lane: desk and productivity gadgets
+  hook_style: question
+  gift_guide: desk
+  angle: A real webcam makes a laptop camera look like a hand-me-down.
+  key_facts:
+  - 1080p webcam from Logitech
+  - Built-in privacy shutter
+  - Works with most video call apps
+  broll:
+  - video call
+  - video call home office
+  - video call webcam
+  content:
+    label: Gift idea
+    photo_query: video call webcam
+    product_photo: assets/products/logitech-c920s-webcam.jpg
+    beats:
+    - on_screen: Bad on video calls?
+      voiceover: Do you look bad on video calls?
+      broll_query: video call webcam
+    - on_screen: 1080p video
+      voiceover: A Logitech C920s webcam is sharper than most laptop cameras, and it makes a good desk
+        gift.
+      broll_query: video call home office
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: video call webcam
+    carousel:
+    - title: Bad on video calls?
+      body: Sharper than most laptop cameras.
+    - title: 1080p video
+      body: Full 1080p video.
+    - title: Privacy shutter
+      body: A shutter you can close.
+    - title: Plug and play
+      body: Plug it in and go.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Bad on video calls?. A gift idea worth a look. 🎁
+
+      The Logitech C920s is a 1080p webcam with a privacy shutter, a practical gift for anyone who works from home.
+
+      Tip: put the webcam at eye level for the most flattering angle.
+
+      See more gift picks in the desk guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - logitech
+    - webcam
+    - giftidea
+    - workfromhome
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech C920s HD Pro Webcam: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-12 19:00
+  asin: B0BYNZXFM2
+  name: Anker Prime Power Bank (20,000mAh, 200W)
+  lane: phone, travel and charging gadgets
+  hook_style: number
+  gift_guide: traveler
+  angle: A big power bank that can charge a laptop and a phone at the same time.
+  key_facts:
+  - 20,000 mAh power bank from Anker
+  - Up to 200W total output
+  - Multiple USB-C ports for several devices
+  broll:
+  - laptop travel
+  - airport charging laptop
+  - laptop travel charger
+  content:
+    label: Gift idea
+    photo_query: laptop travel charger
+    product_photo: assets/products/anker-prime-power-bank-200w.jpg
+    beats:
+    - on_screen: 200 watts in your bag
+      voiceover: 200 watts of power in a bag, enough for your laptop.
+      broll_query: laptop travel charger
+    - on_screen: 20,000 mAh
+      voiceover: This Anker Prime power bank charges several devices at once, a gift for any traveler.
+      broll_query: airport charging laptop
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: laptop travel charger
+    carousel:
+    - title: 200 watts in your bag
+      body: A battery that can charge a laptop.
+    - title: 20,000 mAh
+      body: 20,000 mAh of capacity.
+    - title: Charges several devices
+      body: Multiple ports for multiple devices.
+    - title: Great for travel
+      body: A gift for frequent flyers.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      200 watts in your bag. A gift idea worth a look. 🎁
+
+      This Anker Prime power bank has up to 200W of output and multiple ports, a gift for the traveler who charges everything.
+
+      Tip: check the airline rules for power bank size before you fly.
+
+      See more gift picks in the traveler guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - anker
+    - powerbank
+    - giftidea
+    - travelgear
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Prime Power Bank (20,000mAh, 200W): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-13 11:30
+  asin: B08MYFM4DF
+  name: JBL Go 3 Portable Waterproof Speaker
+  lane: audio and gifts
+  hook_style: callout
+  gift_guide: stocking
+  angle: A pocket-size Bluetooth speaker that is easy to give and easy to love.
+  key_facts:
+  - Ultra-portable Bluetooth speaker from JBL
+  - Waterproof and dustproof design
+  - Comes in many colors
+  broll:
+  - small bluetooth
+  - party music friends
+  - small bluetooth speaker
+  content:
+    label: Stocking stuffer
+    photo_query: small bluetooth speaker
+    product_photo: assets/products/jbl-go-3.jpg
+    beats:
+    - on_screen: Tiny speaker, surprisingly big sound
+      voiceover: A tiny speaker with surprisingly big sound.
+      broll_query: small bluetooth speaker
+    - on_screen: Waterproof
+      voiceover: The JBL Go 3 is waterproof and comes in lots of colors, so it makes a fun stocking stuffer.
+      broll_query: party music friends
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: small bluetooth speaker
+    carousel:
+    - title: Tiny speaker, surprisingly big sound
+      body: Small enough to toss in a bag.
+    - title: Waterproof
+      body: Waterproof and dustproof.
+    - title: Many colors
+      body: Pick the color they will love.
+    - title: Stocking stuffer
+      body: An easy stocking stuffer.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Tiny speaker, surprisingly big sound. A stocking stuffer worth a look. 🎁
+
+      The JBL Go 3 is a tiny waterproof speaker that comes in plenty of colors, a fun stocking stuffer.
+
+      Tip: pair two Go speakers for a wider sound.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - jbl
+    - jblgo3
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the JBL Go 3 Portable Waterproof Speaker: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-13 19:00
+  asin: B0CFPJYX7P
+  name: Kindle Paperwhite 16GB (12th Generation, 2024)
+  lane: gifts and fun gadgets
+  hook_style: demo
+  gift_guide: everything
+  angle: An e-reader that puts a whole library in one slim, glare-free device.
+  key_facts:
+  - E-reader from Amazon, 16GB
+  - Glare-free screen with adjustable light
+  - Waterproof design
+  broll:
+  - reading book
+  - reading book bed
+  - reading book bed
+  content:
+    label: Gift idea
+    photo_query: reading book bed
+    product_photo: assets/products/kindle-paperwhite-2024.jpg
+    beats:
+    - on_screen: Read in bed with no glare
+      voiceover: Read in bed or by the pool, with no screen glare.
+      broll_query: reading book bed
+    - on_screen: Glare-free screen
+      voiceover: The Kindle Paperwhite holds a whole library, and it makes a great gift for book lovers.
+      broll_query: reading book bed
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: reading book bed
+    carousel:
+    - title: Read in bed with no glare
+      body: A screen that reads like paper.
+    - title: Glare-free screen
+      body: Light adjusts for any room.
+    - title: Adjustable light
+      body: Holds thousands of books.
+    - title: Whole library inside
+      body: A gift for readers.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Read in bed with no glare. A gift idea worth a look. 🎁
+
+      The Kindle Paperwhite has a glare-free screen and an adjustable light, a great gift for anyone who loves to read.
+
+      Tip: check your library for free Kindle borrowing.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - kindle
+    - paperwhite
+    - giftidea
+    - booklovers
+    - amazonfinds
+    dm_message: |-
+      Here is the Kindle Paperwhite 16GB (12th Generation, 2024): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
