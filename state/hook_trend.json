@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-11-01",
+    "styles": {
+      "callout": {
+        "reach": 4,
+        "reels": 1,
+        "saves_shares": 0,
+        "watch_s": 4.6
+      },
+      "demo": {
+        "reach": 10,
+        "reels": 5,
+        "saves_shares": 0,
+        "watch_s": 2.9
+      },
+      "number": {
+        "reach": 47,
+        "reels": 3,
+        "saves_shares": 0,
+        "watch_s": 2.9
+      },
+      "question": {
+        "reach": 39,
+        "reels": 5,
+        "saves_shares": 1,
+        "watch_s": 3.9
+      },
+      "statement": {
+        "reach": 42,
+        "reels": 6,
+        "saves_shares": 0,
+        "watch_s": 4.4
+      }
+    }
+  }
+]
