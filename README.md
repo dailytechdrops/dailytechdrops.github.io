@@ -166,6 +166,12 @@ workflow: give it a `.txt` of people searches (one per line) to get labelled vid
 the actual product when `product_photo: assets/products/<name>.jpg` is set (a clean photo on white, trimmed).
 `reel.look: natural` in `config.yaml` drops the caption card; `card` brings back the Oct 26 look.
 
+**Studio look (Nov 1 2026, current).** After reels went follower-only (1 to 8 views from Oct 26), Kevin chose
+reels with no stock footage or stock photos: `reel.look: studio` puts the real `product_photo` on a warm
+background drawn for each reel and beat (seeded by the product, so no two reels share a frame), with the
+caption up top and the end card as before. Every new entry needs `product_photo`; `clip_ids` and
+`photo_ids` are ignored for the reel. Never reuse a product's visuals in a second reel.
+
 ## Running locally
 ```bash
 pip install -r requirements.txt   # plus ffmpeg on your PATH
