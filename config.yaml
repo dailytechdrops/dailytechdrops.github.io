@@ -156,7 +156,9 @@ schedule:
   test_times: ["15:30", "08:00", "13:30", "21:30"]
 
 reel:
-  look: natural                  # natural: real footage of people (clip_ids) and captions without a card | card: the Oct 26 look
+  # studio (Nov 1 2026, Kevin): only the real product photo on backgrounds drawn per reel, no stock footage or
+  # photos, since reels reusing stock went follower-only (1-8 views). natural: people footage (clip_ids) | card: Oct 26 look
+  look: studio
   width: 1080
   height: 1920
   fps: 30

@@ -1,6 +1,10 @@
 """Renders the vertical reel: one segment per beat (photo with a slow camera move, footage, or a
 branded gradient, with an animated caption card and voiceover), then crossfades the beats together
-and mixes in music that ducks under the voice. With photos, the last beat is a branded end card."""
+and mixes in music that ducks under the voice. With photos, the last beat is a branded end card.
+
+The studio look uses no stock footage or stock photos at all: every beat is the real product photo set
+on a background drawn here, seeded by the product so no two reels share a frame. Instagram stops
+recommending accounts whose reels reuse footage found elsewhere (Oct 30 2026: views fell to 1-8)."""
 
 import random
 import subprocess
@@ -28,9 +32,15 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
     segments, lengths = [], []
     brand = workdir / "brand.png"
     brand_overlay(cfg, brand)
-    photos = _photos(content, workdir)
+    look = content.look or rc.get("look", "card")
+    studio = look == "studio"
+    photos = [] if studio else _photos(content, workdir)
 
     product = ROOT / content.product_photo if content.product_photo else None
+    if product and not product.exists():
+        product = None
+    if studio and not product:
+        print(f"::warning title=No product photo::{name}: the studio look needs content.product_photo; beats show only the background")
     for i, beat in enumerate(content.beats):
         is_hook, is_cta = i == 0, i == len(content.beats) - 1
         voice = tts(cfg, beat.voiceover, workdir / f"voice_{i}.mp3")
@@ -44,29 +54,38 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
             # Real footage of people using this kind of product, picked by hand, beats a still photo.
             clip = pinned_clip(pinned, workdir / f"clip_{i}.mp4")
             shot = None if clip else shot
-        if not shot and not clip:
+        if studio:
+            shot, clip = None, None
+            if not is_cta:
+                shot = workdir / f"studio_{i}.png"
+                studio_frame(cfg, product, shot, variant=i, seed=f"{name}|{i}")
+        if not shot and not clip and not studio:
             clip = stock_clip(beat.broll_query, workdir / f"clip_{i}.mp4", used_videos)
         overlay = workdir / f"overlay_{i}.png"
         seg = workdir / f"seg_{i}.mp4"
-        if is_cta and photos:
+        if is_cta and (photos or studio):
             # The call to action is a clean branded end card around a photo of the product type.
             card = workdir / "endcard.png"
-            if product and product.exists():
+            if product:
                 end_card(cfg, product, name, card, contain=True)
+            elif studio:
+                studio_frame(cfg, None, card, variant=i, seed=f"{name}|{i}")
             else:
                 end_card(cfg, photos[i % len(photos)], name, card)
             _segment(rc, None, None, voice, seg_len, seg, card, motion=i, brand=brand, endcard=True, voice_delay=0.15)
         else:
             label = _short_name(name) if i == 1 else ((content.label or "Today's drop") if is_hook else "")
-            natural = (content.look or rc.get("look", "card")) == "natural"
-            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label, natural=natural)
+            natural = look == "natural"
+            # In the studio look the product owns the lower half, so the caption sits up top.
+            caption_overlay(cfg, beat.on_screen, overlay, hook=is_hook, cta=is_cta, label=label, natural=natural,
+                            centre=0.30 if studio else 0.60)
             cut_in = None
-            if i == 1 and product and product.exists():
+            if i == 1 and product and not studio:
                 # The reason beat cuts from the people footage to the real product as the voice names it.
                 cut_in = workdir / "product_frame.png"
                 product_frame(cfg, product, cut_in)
             _segment(rc, clip, overlay, voice, seg_len, seg, shot, motion=i, brand=brand,
-                     voice_delay=0.35 if is_hook else 0.15, cut_in=cut_in)
+                     voice_delay=0.35 if is_hook else 0.15, cut_in=cut_in, grade=not studio)
         segments.append(seg)
         lengths.append(seg_len)
 
@@ -110,7 +129,7 @@ def _photos(content: DropContent, workdir: Path) -> list[Path]:
 
 def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | None, seg_len: float, out: Path,
              photo: Path | None = None, motion: int = 0, brand: Path | None = None, endcard: bool = False,
-             voice_delay: float = 0.15, cut_in: Path | None = None) -> None:
+             voice_delay: float = 0.15, cut_in: Path | None = None, grade: bool = True) -> None:
     w, h, fps = rc["width"], rc["height"], rc["fps"]
     frames = int(seg_len * fps) + 1
     args = []
@@ -129,9 +148,9 @@ def _segment(rc: dict, clip: Path | None, overlay: Path | None, voice: Path | No
             drift = 1 if motion % 4 == 1 else -1
             x, y = f"iw/2-iw/zoom/2+{drift}*iw*0.02*({ease}-0.5)", "ih/2-ih/zoom/2"
         args += ["-i", str(photo)]
-        grade = "" if endcard else f",{GRADE}"
+        tone = f",{GRADE}" if grade and not endcard else ""
         bg = (f"[0:v]scale={big_w}:{big_h}:force_original_aspect_ratio=increase:flags=lanczos,crop={big_w}:{big_h},"
-              f"zoompan=z='{zoom}':x='{x}':y='{y}':d={frames}:s={w}x{h}:fps={fps},setsar=1{grade}[bg]")
+              f"zoompan=z='{zoom}':x='{x}':y='{y}':d={frames}:s={w}x{h}:fps={fps},setsar=1{tone}[bg]")
     elif clip:
         args += ["-stream_loop", "-1", "-i", str(clip)]
         bg = f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps},{GRADE}[bg]"
@@ -223,7 +242,7 @@ def brand_overlay(cfg: dict, out: Path) -> None:
 
 
 def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bool = False, label: str = "",
-                    natural: bool = False) -> None:
+                    natural: bool = False, centre: float = 0.60) -> None:
     """A soft white card with the beat's line in sentence case, and a small orange tag above it.
     The natural look drops the card: white text with a soft shadow in the upper third, the way
     people caption their own videos, so the footage stays the subject."""
@@ -245,8 +264,8 @@ def caption_overlay(cfg: dict, text: str, out: Path, hook: bool = False, cta: bo
     pad_x, pad_y = 56, 46
     widest = max(draw.textlength(l, font=font) for l in lines)
     card_w = max(widest + pad_x * 2, 560)
-    # Lower middle of the frame: clear of the handle at the top and Instagram's caption at the bottom.
-    centre = int(h * 0.60)
+    # Lower middle of the frame by default: clear of the handle at the top and Instagram's caption at the bottom.
+    centre = int(h * centre)
     top = centre - (block_h + pad_y * 2) // 2
     box = [(w - card_w) / 2, top, (w + card_w) / 2, top + block_h + pad_y * 2]
     _card(img, box, radius=40, fill=(255, 255, 255, 240), shadow=70)
@@ -292,6 +311,56 @@ def product_frame(cfg: dict, photo: Path, out: Path) -> None:
         ImageDraw.Draw(m).rounded_rectangle([0, 0, *shot.size], radius=34, fill=255)
         img.paste(shot, (x0 + 12, y0 + 12), m)
     img.save(out)
+
+
+# Soft warm pairs for the studio background (top, bottom). Light and airy; never black or green.
+STUDIO_TINTS = [
+    ("#FBF6EE", "#F6D9BF"), ("#FDF8F1", "#F3DCCB"), ("#FBF4EC", "#EFD6C4"), ("#FCF7F0", "#F7E3C6"),
+    ("#FAF5EF", "#EBDCD3"), ("#FBF7F2", "#F2D8CF"), ("#F9F6F1", "#E4E0DA"), ("#FCF6EE", "#F5CFB0"),
+]
+
+
+def studio_frame(cfg: dict, photo: Path | None, out: Path, variant: int = 0, seed: str = "") -> None:
+    """A still for the studio look: a warm gradient with soft light blobs, drawn fresh for each reel
+    and beat, with the real product on a white card in the lower half. The hook shows the whole
+    product; the next beat moves in closer on a bigger card, so the two beats never look alike."""
+    rc = cfg["reel"]
+    s = 2  # drawn at twice the size so the slow camera move stays sharp
+    w, h = rc["width"] * s, rc["height"] * s
+    rnd = random.Random(seed)
+    top, bottom = (_rgba(c, 255)[:3] for c in rnd.choice(STUDIO_TINTS))
+    grad = Image.new("RGB", (1, 256))
+    for y in range(256):
+        f = y / 255
+        grad.putpixel((0, y), tuple(int(top[k] + (bottom[k] - top[k]) * f) for k in range(3)))
+    img = grad.resize((w, h), Image.BICUBIC).convert("RGBA")
+    accent = _rgba(rc["accent_color"], 255)[:3]
+    blobs = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(blobs)
+    for n in range(3):
+        r = rnd.randint(260, 520) * s
+        cx, cy = rnd.randint(0, w), rnd.randint(int(h * 0.15), int(h * 0.95))
+        tint = accent if n == 0 else (255, 255, 255)
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(*tint, 46 if n == 0 else 120))
+    img.alpha_composite(blobs.filter(ImageFilter.GaussianBlur(160 * s)))
+    if photo:
+        src = Image.open(photo).convert("RGB")
+        corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
+        size = (720 if variant == 0 else 860) * s
+        cy = int(h * (0.62 if variant == 0 else 0.60))
+        x0, y0 = (w - size) // 2, cy - size // 2
+        _card(img, [x0, y0, x0 + size, y0 + size], radius=48 * s, fill=(255, 255, 255, 255), shadow=80)
+        if min(min(c) for c in corners) > 235:
+            # A cut-out shot on white: whole on the hook, filling more of the card on the next beat.
+            margin = (90 if variant == 0 else 40) * s
+            shot = ImageOps.contain(src, (size - margin, size - margin), Image.LANCZOS)
+            img.paste(shot, ((w - shot.width) // 2, cy - shot.height // 2))
+        else:
+            shot = ImageOps.fit(src, (size - 24 * s, size - 24 * s), Image.LANCZOS)
+            m = Image.new("L", shot.size, 0)
+            ImageDraw.Draw(m).rounded_rectangle([0, 0, *shot.size], radius=36 * s, fill=255)
+            img.paste(shot, (x0 + 12 * s, y0 + 12 * s), m)
+    img.convert("RGB").save(out)
 
 
 def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> None:
