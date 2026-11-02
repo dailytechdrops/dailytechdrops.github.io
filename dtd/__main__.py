@@ -336,6 +336,11 @@ def pinterest_due(cfg: dict) -> int:
     try:
         pin_id = pinterest.publish_video(cfg, out / "reel.mp4", cover, draft, token=token)
     except pinterest.PinterestError as e:
+        if "Trial access" in str(e):
+            # The Pinterest app needs Standard access before it may pin in production.
+            # Skip quietly so the hourly run stays green and keeps the refresh token alive.
+            print(f"::warning title=Pinterest needs Standard access::{item_id} not pinned; app is on Trial access.")
+            return 0
         print(f"::error title=Pinterest pin failed::{item_id}: {str(e)[:500]}")
         raise
     pinned[item_id] = pin_id
