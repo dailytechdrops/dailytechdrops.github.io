@@ -1,6 +1,6 @@
 # Re-rendered Nov 1 2026 in the studio look (config reel.look): product photo only, no stock footage.
 # Nov 2 2026: the 7pm reels of Nov 5 and 6 are list reels (content.format: list), 3 products each; the movie
-# night list reel moved up to Nov 1 10pm ET as a test (Kevin).
+# night list reel moved up to Nov 1 8:45pm ET as a test (Kevin).
 # Weekly picks Oct 31 to Nov 6 2026. Researched Oct 25 2026. Reels are 3 beats (about 30 words, 10 to 15 seconds).
 # Facts are limited to the listing titles; verify each ASIN on Amazon (see PR checklist). Photos are honest category stock photos.
 
@@ -552,7 +552,7 @@
       Here is the Anker 525 Charging Station (7-in-1): {link}
 
       As an Amazon Associate I earn from qualifying purchases.
-- slot: 2026-11-01 22:00
+- slot: 2026-11-01 20:45
   asin: B0BP9SNVH9
   name: Amazon Fire TV Stick 4K Max
   lane: other
