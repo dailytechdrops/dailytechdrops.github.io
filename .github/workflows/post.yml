@@ -20,7 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340   # room to wait up to 5 hours for the next post (see wait-next)
     steps:
+      # Check out the branch tip, not the commit that queued this run, so a run that waited
+      # behind another sees its post history (Nov 1 2026 a stale run posted a reel twice).
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
