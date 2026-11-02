@@ -89,7 +89,9 @@ def render(cfg: dict, week: Path) -> int:
             "lane": item.get("lane"),
             "link": link,
             "caption": full_caption(cfg, content),
-            "dm_message": content.dm_message.replace("{link}", link),
+            # {link} is this entry's product; {link:ASIN} names any other (list reels link all of theirs).
+            "dm_message": re.sub(r"\{link:([A-Z0-9]{10})\}", lambda m: affiliate_link(cfg, m.group(1)),
+                                 content.dm_message.replace("{link}", link)),
             "slides": [p.name for p in slides],
         }
         (out / "draft.json").write_text(json.dumps(draft, indent=2))

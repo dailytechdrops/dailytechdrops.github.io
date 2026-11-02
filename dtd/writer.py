@@ -13,7 +13,8 @@ from .config import env
 class Beat(BaseModel):
     on_screen: str = Field(description="Caption shown on screen, 3 to 8 words")
     voiceover: str = Field(description="What the narrator says during this beat, one or two short sentences")
-    broll_query: str = Field(description="2 to 4 word stock footage search for this beat")
+    broll_query: str = Field(default="", description="2 to 4 word stock footage search for this beat")
+    product_photo: str | None = Field(default=None, description="List reels: the product shown in this beat (assets/products/x.jpg)")
 
 
 class Slide(BaseModel):
@@ -33,6 +34,7 @@ class DropContent(BaseModel):
     product_photo: str | None = Field(default=None, description="Path to a photo of the actual product (e.g. assets/products/x.jpg), shown whole on the end card")
     look: str | None = Field(default=None, description="natural: captions as plain text on the footage, no card; empty uses config reel.look")
     label: str | None = Field(default=None, description="Orange tag on the hook, e.g. Gift idea; empty means Today's drop")
+    format: str | None = Field(default=None, description="list: a fast 3-product list reel (hook, one beat per product with its own product_photo, end card), music only, no voiceover")
 
 
 SYSTEM = """You write short-form Instagram content for {brand}, an Amazon tech affiliate account.

@@ -27,6 +27,8 @@ GRADE = "eq=brightness=0.025:contrast=0.95:saturation=1.05,colorbalance=rm=0.025
 
 def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") -> Path:
     workdir.mkdir(parents=True, exist_ok=True)
+    if content.format == "list":
+        return render_list_reel(cfg, content, workdir, name)
     rc = cfg["reel"]
     used_videos: set[int] = set()
     segments, lengths = [], []
@@ -89,6 +91,71 @@ def render_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") 
         segments.append(seg)
         lengths.append(seg_len)
 
+    return _finish(rc, content, workdir, segments, lengths)
+
+
+# Seconds on screen per beat of a list reel: quick enough that the next product lands before people swipe.
+LIST_HOOK, LIST_ITEM, LIST_END = 1.7, 1.9, 2.0
+
+
+def render_list_reel(cfg: dict, content: DropContent, workdir: Path, name: str = "") -> Path:
+    """A fast list reel: a hook frame with every product, one short beat per product with a 1/3 tag,
+    then an end card with all of them. Music only, no voiceover, about 8 seconds, so people watch it
+    through and loop it. Every frame is drawn here from the real product photos; no stock."""
+    rc = cfg["reel"]
+    brand = workdir / "brand.png"
+    brand_overlay(cfg, brand)
+    beats = content.beats
+    items = [b for b in beats[1:-1] if b.product_photo and (ROOT / b.product_photo).exists()]
+    photos = [ROOT / b.product_photo for b in items]
+    segments, lengths = [], []
+    for i, beat in enumerate(beats):
+        is_hook, is_cta = i == 0, i == len(beats) - 1
+        seg = workdir / f"seg_{i}.mp4"
+        frame = workdir / f"frame_{i}.png"
+        if is_cta:
+            collage = workdir / "collage.png"
+            product_collage(photos, collage)
+            # The label ("Movie night upgrades") names the set; the entry's own name is only its first product.
+            end_card(cfg, collage, content.label or name, frame, contain=True, links=True)
+            _segment(rc, None, None, None, LIST_END + FADE, seg, frame, motion=i, brand=brand, endcard=True)
+            segments.append(seg)
+            lengths.append(LIST_END + FADE)
+            continue
+        overlay = workdir / f"overlay_{i}.png"
+        if is_hook:
+            studio_frame(cfg, None, frame, variant=0, seed=f"{name}|{i}", collage=photos)
+            caption_overlay(cfg, beat.on_screen, overlay, hook=True, label=content.label or "", centre=0.30)
+            seg_len = LIST_HOOK + FADE
+        else:
+            photo = ROOT / beat.product_photo if beat.product_photo else None
+            studio_frame(cfg, photo if photo and photo.exists() else None, frame, variant=0, seed=f"{name}|{i}")
+            caption_overlay(cfg, beat.on_screen, overlay, label=f"{i} of {len(beats) - 2}", centre=0.30)
+            seg_len = LIST_ITEM + FADE
+        _segment(rc, None, overlay, None, seg_len, seg, frame, motion=i, brand=brand, grade=False)
+        segments.append(seg)
+        lengths.append(seg_len)
+    return _finish(rc, content, workdir, segments, lengths)
+
+
+def product_collage(photos: list[Path], out: Path) -> None:
+    """Up to four product shots side by side on white, for the hook and the list reel's end card."""
+    size = 900
+    img = Image.new("RGB", (size, size), (255, 255, 255))
+    n = max(1, min(len(photos), 4))
+    cols = 2 if n > 1 else 1
+    rows = (n + cols - 1) // cols
+    cell_w, cell_h = size // cols, size // rows
+    for k, photo in enumerate(photos[:4]):
+        shot = ImageOps.contain(Image.open(photo).convert("RGB"), (cell_w - 60, cell_h - 60), Image.LANCZOS)
+        r, c = divmod(k, cols)
+        # An odd last product sits centred on its row.
+        left = (size - cell_w) // 2 if (n % 2 and k == n - 1 and cols == 2) else c * cell_w
+        img.paste(shot, (left + (cell_w - shot.width) // 2, r * cell_h + (cell_h - shot.height) // 2))
+    img.save(out, quality=95)
+
+
+def _finish(rc: dict, content: DropContent, workdir: Path, segments: list[Path], lengths: list[float]) -> Path:
     joined = workdir / "joined.mp4"
     _join(segments, lengths, joined)
     total = sum(lengths) - FADE * (len(lengths) - 1)
@@ -320,7 +387,8 @@ STUDIO_TINTS = [
 ]
 
 
-def studio_frame(cfg: dict, photo: Path | None, out: Path, variant: int = 0, seed: str = "") -> None:
+def studio_frame(cfg: dict, photo: Path | None, out: Path, variant: int = 0, seed: str = "",
+                 collage: list[Path] | None = None) -> None:
     """A still for the studio look: a warm gradient with soft light blobs, drawn fresh for each reel
     and beat, with the real product on a white card in the lower half. The hook shows the whole
     product; the next beat moves in closer on a bigger card, so the two beats never look alike."""
@@ -343,6 +411,11 @@ def studio_frame(cfg: dict, photo: Path | None, out: Path, variant: int = 0, see
         tint = accent if n == 0 else (255, 255, 255)
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(*tint, 46 if n == 0 else 120))
     img.alpha_composite(blobs.filter(ImageFilter.GaussianBlur(160 * s)))
+    if collage:
+        # The list reel's hook: every product at once on one card, so the first frame already shows them.
+        sheet = out.with_name(out.stem + "_collage.png")
+        product_collage(collage, sheet)
+        photo = sheet
     if photo:
         src = Image.open(photo).convert("RGB")
         corners = [src.getpixel((x, y)) for x in (2, src.width - 3) for y in (2, src.height - 3)]
@@ -399,7 +472,7 @@ def _natural_caption(rc: dict, text: str, out: Path, big: bool, label: str) -> N
     img.save(out)
 
 
-def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False) -> None:
+def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False, links: bool = False) -> None:
     """The last beat: warm cream card, framed product photo, product name and the comment call to action.
     contain shows a real product shot whole on the white frame instead of cropping it to fill."""
     rc = cfg["reel"]
@@ -447,7 +520,7 @@ def end_card(cfg: dict, photo: Path, name: str, out: Path, contain: bool = False
     draw = ImageDraw.Draw(bg)
     draw.text(((w - cw) / 2, y + 22), msg, font=cta, fill=(255, 255, 255, 255))
     sub = _font(rc["body_font"], 40)
-    line = "and I will DM you the link"
+    line = "and I will DM you the links" if links else "and I will DM you the link"
     sw = draw.textlength(line, font=sub)
     draw.text(((w - sw) / 2, pill[3] + 26), line, font=sub, fill=muted)
     bg.convert("RGB").save(out, quality=95)
