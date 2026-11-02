@@ -1,4 +1,5 @@
 # Re-rendered Nov 1 2026 in the studio look (config reel.look): product photo only, no stock footage.
+# Nov 2 2026: the 7pm reels of Nov 4, 5 and 6 are list reels (content.format: list), 3 products each.
 # Weekly picks Oct 31 to Nov 6 2026. Researched Oct 25 2026. Reels are 3 beats (about 30 words, 10 to 15 seconds).
 # Facts are limited to the listing titles; verify each ASIN on Amazon (see PR checklist). Photos are honest category stock photos.
 
@@ -554,7 +555,7 @@
   asin: B0BP9SNVH9
   name: Amazon Fire TV Stick 4K Max
   lane: other
-  hook_style: question
+  hook_style: number
   angle: Turn almost any TV into a smart TV for streaming in 4K with Wi-Fi 6E and Alexa on the remote.
   key_facts:
   - 4K streaming stick with Wi-Fi 6E support
@@ -565,52 +566,56 @@
   - remote control
   - movie night
   content:
-    photo_query: television remote living room
-    photo_ids: [4148876, 2741799, 642138]
-    clip_ids: [245932, 237643, 0]
+    format: list
+    label: Movie night upgrades
     product_photo: assets/products/fire-tv-stick-4k-max.jpg
     beats:
-    - on_screen: Your TV is not smart?
-      voiceover: Is your TV stuck in the past? It does not have to be.
-      broll_query: living room tv
-    - on_screen: Streaming in 4K
-      voiceover: This stick plugs into the HDMI port and streams in 4K with Alexa on the remote.
-      broll_query: remote control
-    - on_screen: Comment SHOP or tap the link in bio
-      voiceover: Comment SHOP and I will send you the link.
-      broll_query: movie night
+    - on_screen: 3 upgrades for movie night
+      voiceover: ''
+    - on_screen: Faster streaming, 4K
+      voiceover: ''
+      product_photo: assets/products/fire-tv-stick-4k-max.jpg
+    - on_screen: Bigger sound, tiny speaker
+      voiceover: ''
+      product_photo: assets/products/soundcore-2-speaker.jpg
+    - on_screen: Lamp off from the couch
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
     carousel:
-    - title: TV stuck in the past?
-      body: Make it smart in minutes.
-    - title: 4K streaming
-      body: Plugs into any HDMI port.
-    - title: Wi-Fi 6E support
-      body: Built for fast, smooth streaming.
-    - title: Alexa voice remote
-      body: Just say what you want to watch.
+    - title: 3 upgrades for movie night
+      body: Faster streaming, 4K; Bigger sound, tiny speaker; Lamp off from the couch
     - title: Comment SHOP
-      body: I will DM you the Amazon link.
-    caption: |-
-      Make any TV a smart TV. 📺
+      body: I will DM you all three Amazon links.
+    caption: '3 upgrades for movie night. 🍿
 
-      The Fire TV Stick 4K Max plugs into your TV's HDMI port for 4K streaming, Wi-Fi 6E support and an Alexa Voice Remote.
 
-      Tip: use the remote's voice button to search by title instead of typing.
+      1. Amazon Fire TV Stick 4K Max: fast 4K streaming with Wi-Fi 6E.
 
-      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+      2. Anker Soundcore 2: a small Bluetooth speaker with big sound.
+
+      3. Kasa Smart Plug Mini: turn the lamp off from the couch with your phone or voice.
+
+
+      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
     hashtags:
-    - firetv
-    - streaming
-    - smarttv
-    - alexa
-    - techgadgets
-    - amazonfinds
     - movienight
-    - gadgets
-    dm_message: |-
-      Here is the Amazon Fire TV Stick 4K Max: {link}
+    - firetvstick
+    - smarthome
+    - amazonfinds
+    - techgadgets
+    dm_message: 'Here are all three:
 
-      As an Amazon Associate I earn from qualifying purchases.
+      1. Fire TV Stick 4K Max: {link:B0BP9SNVH9}
+
+      2. Soundcore 2 speaker: {link:B01MTB55WH}
+
+      3. Kasa Smart Plug Mini: {link:B091FXQQMQ}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+
 - slot: 2026-11-05 11:30
   asin: B09J1SYX5B
   name: Logitech Lift Vertical Ergonomic Mouse (left-handed)
@@ -675,7 +680,7 @@
   asin: B0BZV4QFP8
   name: Anker Soundcore Liberty 4 NC Earbuds
   lane: other
-  hook_style: callout
+  hook_style: number
   angle: Noise cancelling earbuds that adapt to the sound around you and last a long time.
   key_facts:
   - Wireless earbuds with adaptive noise cancelling
@@ -686,52 +691,56 @@
   - commute
   - gym
   content:
-    photo_query: wireless earbuds
-    photo_ids: [7559937, 6933543, 2350507]
-    clip_ids: [3608, 29331, 0]
+    format: list
+    label: Commute upgrades
     product_photo: assets/products/soundcore-liberty-4-nc.jpg
     beats:
-    - on_screen: Your commute is too loud
-      voiceover: Your commute is loud. These earbuds tune out the noise as it changes.
-      broll_query: earbuds
-    - on_screen: 50 hours of battery
-      voiceover: These Anker earbuds give up to fifty hours with the case.
-      broll_query: commute
-    - on_screen: Comment SHOP or tap the link in bio
-      voiceover: Comment SHOP and I will send you the link.
-      broll_query: gym
+    - on_screen: 3 things that fix your commute
+      voiceover: ''
+    - on_screen: Quiet the train
+      voiceover: ''
+      product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    - on_screen: Charge with no cable to forget
+      voiceover: ''
+      product_photo: assets/products/anker-power-bank-10k-cable.jpg
+    - on_screen: One cord for watch and phone
+      voiceover: ''
+      product_photo: assets/products/shsixin-watch-cable.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
     carousel:
-    - title: Earbuds that adapt
-      body: Noise cancelling that adjusts to you.
-    - title: Adaptive noise cancelling
-      body: Fits quiet rooms and loud streets.
-    - title: Long battery life
-      body: Up to 50 hours with the case.
-    - title: Wireless charging case
-      body: Drop it on a pad to top up.
+    - title: 3 things that fix your commute
+      body: Quiet the train; Charge with no cable to forget; One cord for watch and phone
     - title: Comment SHOP
-      body: I will DM you the Amazon link.
-    caption: |-
-      Your commute is too loud. 🎧
+      body: I will DM you all three Amazon links.
+    caption: '3 things that fix your commute. 🎧
 
-      The Soundcore Liberty 4 NC has adaptive noise cancelling, up to 50 hours of battery with the case, and a wireless charging case.
 
-      Tip: try different ear tip sizes. The right fit improves noise cancelling.
+      1. Soundcore Liberty 4 NC: noise cancelling earbuds for the train or the plane.
 
-      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+      2. Anker Power Bank 10K: the USB-C cable is built in, so there is nothing to forget.
+
+      3. A 3-in-1 braided cable: one cord charges an Apple Watch, an iPhone and USB-C.
+
+
+      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
     hashtags:
+    - commute
+    - traveltech
     - earbuds
-    - soundcore
-    - anker
-    - noisecancelling
-    - techgadgets
     - amazonfinds
-    - wirelessearbuds
-    - gadgets
-    dm_message: |-
-      Here is the Anker Soundcore Liberty 4 NC Earbuds: {link}
+    - techgadgets
+    dm_message: 'Here are all three:
 
-      As an Amazon Associate I earn from qualifying purchases.
+      1. Soundcore Liberty 4 NC earbuds: {link:B0BZV4QFP8}
+
+      2. Anker Power Bank 10K with cable: {link:B0CZ9M6X8Q}
+
+      3. 3-in-1 watch and phone cable: {link:B0C19CBT2N}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+
 - slot: 2026-11-06 11:30
   asin: B0BLRJ4R8F
   name: Amazon Basics Portable Laptop Stand
@@ -796,7 +805,7 @@
   asin: B0CH9JPNZM
   name: Anker 332 USB-C Hub (5-in-1)
   lane: phone, travel and charging gadgets
-  hook_style: question
+  hook_style: number
   angle: One small hub that adds HDMI and extra USB ports to a laptop that has almost none.
   key_facts:
   - 5-in-1 USB-C hub with 4K HDMI
@@ -806,49 +815,53 @@
   - usb hub
   - home office desk
   content:
-    photo_query: laptop usb ports
-    photo_ids: [829332, 7036075, 2572036]
-    clip_ids: [1655, 224831, 0]
-    product_photo: assets/products/anker-332-usb-c-hub.jpg
+    format: list
+    label: Desk upgrades
+    product_photo: assets/products/logitech-mx-keys-s.jpg
     beats:
-    - on_screen: Laptop out of ports?
-      voiceover: Laptop out of ports again?
-      broll_query: laptop ports
-    - on_screen: HDMI plus USB ports
-      voiceover: This hub adds 4K HDMI and extra USB ports through one USB-C port.
-      broll_query: usb hub
-    - on_screen: Comment SHOP or tap the link in bio
-      voiceover: Comment SHOP and I will send you the link.
-      broll_query: home office desk
+    - on_screen: 3 desk upgrades that feel like cheating
+      voiceover: ''
+    - on_screen: Quiet keys that light up
+      voiceover: ''
+      product_photo: assets/products/logitech-mx-keys-s.jpg
+    - on_screen: Every cable off the floor
+      voiceover: ''
+      product_photo: assets/products/scandinavian-hub-cable-trays.jpg
+    - on_screen: One hub, every port
+      voiceover: ''
+      product_photo: assets/products/anker-332-usb-c-hub.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
     carousel:
-    - title: Out of ports?
-      body: One hub fixes it.
-    - title: 4K HDMI
-      body: Connect a monitor or TV.
-    - title: Extra USB ports
-      body: One USB-C and two USB-A at 5Gbps.
-    - title: Small and light
-      body: Easy to toss in your bag.
+    - title: 3 desk upgrades that feel like cheating
+      body: Quiet keys that light up; Every cable off the floor; One hub, every port
     - title: Comment SHOP
-      body: I will DM you the Amazon link.
-    caption: |-
-      Add the ports your laptop forgot. 🔌
+      body: I will DM you all three Amazon links.
+    caption: '3 desk upgrades that feel like cheating. 🖥️
 
-      The Anker 332 USB-C hub adds 4K HDMI, a 5Gbps USB-C data port and two 5Gbps USB-A ports through a single USB-C connection.
 
-      Tip: check that your laptop's USB-C port supports video output before you rely on HDMI.
+      1. Logitech MX Keys S: quiet, backlit keys that switch between three devices.
 
-      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+      2. Scandinavian Hub cable trays: every cable off the floor and under the desk.
+
+      3. Anker 332 USB-C hub: HDMI, USB and USB-C from one port.
+
+
+      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
     hashtags:
-    - usbchub
-    - anker
-    - laptopaccessories
     - desksetup
-    - techgadgets
+    - wfh
+    - setupinspiration
     - amazonfinds
-    - homeoffice
-    - gadgets
-    dm_message: |-
-      Here is the Anker 332 USB-C Hub (5-in-1): {link}
+    - techgadgets
+    dm_message: 'Here are all three:
 
-      As an Amazon Associate I earn from qualifying purchases.
+      1. Logitech MX Keys S: {link:B0BKW3LB2B}
+
+      2. Scandinavian Hub cable trays: {link:B07BCHKHTG}
+
+      3. Anker 332 USB-C hub: {link:B0CH9JPNZM}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+
