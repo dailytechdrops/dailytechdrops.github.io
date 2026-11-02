@@ -29,7 +29,8 @@ code{display:block;word-break:break-all;background:#FBF6EE;border-radius:12px;pa
 </main>
 <script>
 const APP_ID = "1630232";
-const REDIRECT = "https://dailytechdrops.github.io/pinterest-connect.html";
+// Pinterest only accepts the address registered in the app (the old site); its 404 page forwards here with the code.
+const REDIRECT = "https://kevingalus.github.io/daily-tech-drops/pinterest-connect.html";
 const SCOPES = "boards:read,boards:write,pins:read,pins:write,user_accounts:read";
 const q = new URLSearchParams(location.search);
 document.getElementById("go").href = "https://www.pinterest.com/oauth/?" + new URLSearchParams({
