@@ -7,6 +7,10 @@ name: TikTok
 on:
   schedule:
     - cron: "47 * * * *"
+  # GitHub often skips or delays hourly schedules by hours, so also run right after each post.
+  workflow_run:
+    workflows: ["Post and reply"]
+    types: [completed]
   workflow_dispatch:
     inputs:
       item:
