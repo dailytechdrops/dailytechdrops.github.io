@@ -1,39 +1,39 @@
 {
   "accounts": {
-    "9to5mac": "2026-11-01",
-    "austinevans": "2026-10-31",
-    "bellroy": "2026-11-01",
+    "9to5mac": "2026-11-03",
+    "austinevans": "2026-11-03",
+    "bellroy": "2026-11-03",
     "cnet": "2026-11-01",
     "coolmaterial": "2026-11-02",
     "dave2d": "2026-11-02",
-    "designmilk": "2026-10-31",
-    "elgato": "2026-11-01",
+    "designmilk": "2026-11-03",
+    "elgato": "2026-11-03",
     "engadget": "2026-11-01",
     "flossycarter": "2026-11-02",
     "gadgetflow": "2026-11-02",
-    "gizmodo": "2026-11-01",
+    "gizmodo": "2026-11-03",
     "grovemade": "2026-11-02",
     "ijustine": "2026-11-01",
     "interestingengineering": "2026-11-02",
-    "keychron": "2026-10-31",
+    "keychron": "2026-11-03",
     "mkbhd": "2026-11-02",
     "mrwhosetheboss": "2026-11-01",
-    "nanoleaf": "2026-10-31",
-    "nomadgoods": "2026-10-31",
+    "nanoleaf": "2026-11-03",
+    "nomadgoods": "2026-11-03",
     "orbitkey": "2026-11-02",
-    "peakdesign": "2026-10-31",
+    "peakdesign": "2026-11-03",
     "sara_dietschy": "2026-11-02",
     "satechi": "2026-11-02",
-    "techburner": "2026-11-01",
+    "techburner": "2026-11-03",
     "techinsider": "2026-11-01",
     "theverge": "2026-11-01",
     "unboxtherapy": "2026-11-01",
-    "uncrate": "2026-10-31",
+    "uncrate": "2026-11-03",
     "yankodesign": "2026-11-02",
     "zollotech": "2026-11-02"
   },
   "last": {
-    "day": "Monday November 2",
+    "day": "Tuesday November 3",
     "found": 0,
     "mode": "accounts",
     "notes": {
@@ -44,104 +44,104 @@
     "targets": [
       {
         "about": "",
+        "comment": "Really well shot, and the product looks great too.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/nomadgoods/reels/",
+        "source": "account",
+        "username": "nomadgoods"
+      },
+      {
+        "about": "",
+        "comment": "Simple and clever, my favorite combination.",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/designmilk/reels/",
+        "source": "account",
+        "username": "designmilk"
+      },
+      {
+        "about": "",
+        "comment": "This made my feed better today, thanks for sharing!",
+        "fallback": true,
+        "permalink": "https://www.instagram.com/keychron/reels/",
+        "source": "account",
+        "username": "keychron"
+      },
+      {
+        "about": "",
         "comment": "This is such a clever find, saving this one for later!",
         "fallback": true,
-        "permalink": "https://www.instagram.com/mkbhd/reels/",
+        "permalink": "https://www.instagram.com/austinevans/reels/",
         "source": "account",
-        "username": "mkbhd"
+        "username": "austinevans"
       },
       {
         "about": "",
         "comment": "Never knew this existed, great pick. Does it work well day to day?",
         "fallback": true,
-        "permalink": "https://www.instagram.com/interestingengineering/reels/",
+        "permalink": "https://www.instagram.com/peakdesign/reels/",
         "source": "account",
-        "username": "interestingengineering"
+        "username": "peakdesign"
       },
       {
         "about": "",
         "comment": "Love this setup, the details make it. Thanks for sharing!",
         "fallback": true,
-        "permalink": "https://www.instagram.com/gadgetflow/reels/",
+        "permalink": "https://www.instagram.com/uncrate/reels/",
         "source": "account",
-        "username": "gadgetflow"
+        "username": "uncrate"
       },
       {
         "about": "",
         "comment": "Okay this is genuinely useful. Saving it!",
         "fallback": true,
-        "permalink": "https://www.instagram.com/yankodesign/reels/",
+        "permalink": "https://www.instagram.com/nanoleaf/reels/",
         "source": "account",
-        "username": "yankodesign"
+        "username": "nanoleaf"
       },
       {
         "about": "",
         "comment": "Such a smart idea, how long have you been using it?",
         "fallback": true,
-        "permalink": "https://www.instagram.com/flossycarter/reels/",
+        "permalink": "https://www.instagram.com/bellroy/reels/",
         "source": "account",
-        "username": "flossycarter"
+        "username": "bellroy"
       },
       {
         "about": "",
         "comment": "The little details on this are so well thought out.",
         "fallback": true,
-        "permalink": "https://www.instagram.com/grovemade/reels/",
+        "permalink": "https://www.instagram.com/9to5mac/reels/",
         "source": "account",
-        "username": "grovemade"
+        "username": "9to5mac"
       },
       {
         "about": "",
         "comment": "This would fix a daily annoyance for me, great find.",
         "fallback": true,
-        "permalink": "https://www.instagram.com/sara_dietschy/reels/",
+        "permalink": "https://www.instagram.com/elgato/reels/",
         "source": "account",
-        "username": "sara_dietschy"
+        "username": "elgato"
       },
       {
         "about": "",
         "comment": "Clean setup! What made you pick this one?",
         "fallback": true,
-        "permalink": "https://www.instagram.com/orbitkey/reels/",
+        "permalink": "https://www.instagram.com/techburner/reels/",
         "source": "account",
-        "username": "orbitkey"
+        "username": "techburner"
       },
       {
         "about": "",
         "comment": "Did not expect this to look this good, nice pick.",
         "fallback": true,
-        "permalink": "https://www.instagram.com/coolmaterial/reels/",
+        "permalink": "https://www.instagram.com/gizmodo/reels/",
         "source": "account",
-        "username": "coolmaterial"
-      },
-      {
-        "about": "",
-        "comment": "Adding this to my list, thanks for the honest look.",
-        "fallback": true,
-        "permalink": "https://www.instagram.com/zollotech/reels/",
-        "source": "account",
-        "username": "zollotech"
-      },
-      {
-        "about": "",
-        "comment": "Love finds like this. Does it hold up after a few weeks?",
-        "fallback": true,
-        "permalink": "https://www.instagram.com/satechi/reels/",
-        "source": "account",
-        "username": "satechi"
-      },
-      {
-        "about": "",
-        "comment": "This is the kind of upgrade that makes a real difference.",
-        "fallback": true,
-        "permalink": "https://www.instagram.com/dave2d/reels/",
-        "source": "account",
-        "username": "dave2d"
+        "username": "gizmodo"
       }
     ],
-    "updated": "2026-11-02 16:27"
+    "updated": "2026-11-03 14:10"
   },
-  "next_account": 10,
-  "next_comment": 12,
+  "next_account": 22,
+  "next_comment": 9,
   "permalinks": {}
 }
