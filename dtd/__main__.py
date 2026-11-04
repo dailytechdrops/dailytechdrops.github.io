@@ -62,7 +62,11 @@ def render(cfg: dict, week: Path) -> int:
         if item.get("hook_style") not in report.HOOK_STYLES or item.get("hook_style") == "statement":
             # The weekly report compares hook styles, so every new entry needs one of the tested styles.
             print(f"::warning title=Hook style::{item['id']}: set hook_style to one of callout, question, number, demo, curiosity")
-        content = write_content(cfg, item)
+        try:
+            content = write_content(cfg, item)
+        except Exception as e:
+            print(f"::error title=Write failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
+            raise
         try:
             reel = render_reel(cfg, content, out / "work", item["name"])
         except Exception as e:
@@ -79,7 +83,11 @@ def render(cfg: dict, week: Path) -> int:
                 alt["voice"]["provider"], alt["voice"]["piper_voice"] = "piper", voice
             voice = voice.replace(":", "-")
             render_reel(alt, content, out / "work" / voice, item["name"]).rename(out / f"reel-{voice}.mp4")
-        slides = render_carousel(cfg, content, out)
+        try:
+            slides = render_carousel(cfg, content, out)
+        except Exception as e:
+            print(f"::error title=Carousel failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
+            raise
         link = affiliate_link(cfg, item["asin"])
         draft = {
             "id": item["id"],

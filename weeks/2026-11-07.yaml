@@ -1,0 +1,857 @@
+# Weekly picks Nov 7 to Nov 13 2026: gift-framed LIST reels (Kevin chose list reels for every slot, Nov 4 2026).
+# Each reel shows 3 products with real product photos; the first product is the entry's asin (shop page, gift guide).
+# Facts come from listing titles and earlier verified entries. Never a price.
+
+- slot: 2026-11-07 11:30
+  asin: B0BWWZXWPL
+  name: "Blink Mini 2 Security Camera (White)"
+  lane: home security and safety gadgets
+  hook_style: number
+  gift_guide: home
+  angle: "Three gift ideas in one reel: Blink Mini 2 camera, Echo Dot with Clock, Kasa Smart Plug Mini (2-pack)."
+  key_facts:
+  - "Blink Mini 2 camera: a small plug-in camera to check on pets and kids from your phone"
+  - "Echo Dot with Clock: an Alexa speaker with an LED clock on the front"
+  - "Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/blink-mini-2.jpg
+    beats:
+    - on_screen: "3 gifts for a smarter home"
+      voiceover: ''
+    - on_screen: "Check on the pets from anywhere"
+      voiceover: ''
+      product_photo: assets/products/blink-mini-2.jpg
+    - on_screen: "Alexa plus a bedside clock"
+      voiceover: ''
+      product_photo: assets/products/echo-dot-clock.jpg
+    - on_screen: "Lamps on by voice"
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "3 gifts for a smarter home"
+      body: "Check on the pets from anywhere; Alexa plus a bedside clock; Lamps on by voice"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      3 gifts for a smarter home. 🏠
+
+      1. Blink Mini 2 camera: a small plug-in camera to check on pets and kids from your phone.
+      2. Echo Dot with Clock: an Alexa speaker with an LED clock on the front.
+      3. Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice.
+
+      See more picks in the home gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - smarthome
+    - homegadgets
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Blink Mini 2 camera: {link:B0BWWZXWPL}
+      2. Echo Dot with Clock: {link:B09B8VN8YQ}
+      3. Kasa Smart Plug Mini (2-pack): {link:B091FXQQMQ}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-07 19:00
+  asin: B09B8VN8YQ
+  name: "Amazon Echo Dot with Clock (5th Gen)"
+  lane: smart home
+  hook_style: curiosity
+  gift_guide: home
+  angle: "Three gift ideas in one reel: Echo Dot with Clock, Anker 525 charging station, Echo Show 5."
+  key_facts:
+  - "Echo Dot with Clock: an Alexa speaker with an LED clock on the front"
+  - "Anker 525 charging station: outlets and USB ports in one small desktop station"
+  - "Echo Show 5: a small Alexa screen for the clock, weather and video calls"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/echo-dot-clock.jpg
+    beats:
+    - on_screen: "The nightstand gift nobody expects"
+      voiceover: ''
+    - on_screen: "Alexa plus a bedside clock"
+      voiceover: ''
+      product_photo: assets/products/echo-dot-clock.jpg
+    - on_screen: "Every charger in one spot"
+      voiceover: ''
+      product_photo: assets/products/anker-525-charging-station.jpg
+    - on_screen: "A screen for clock and calls"
+      voiceover: ''
+      product_photo: assets/products/echo-show-5.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "The nightstand gift nobody expects"
+      body: "Alexa plus a bedside clock; Every charger in one spot; A screen for clock and calls"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      The nightstand gift nobody expects. 🛏️
+
+      1. Echo Dot with Clock: an Alexa speaker with an LED clock on the front.
+      2. Anker 525 charging station: outlets and USB ports in one small desktop station.
+      3. Echo Show 5: a small Alexa screen for the clock, weather and video calls.
+
+      See more picks in the home gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - nightstand
+    - alexa
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Echo Dot with Clock: {link:B09B8VN8YQ}
+      2. Anker 525 charging station: {link:B0B3HSJ5NL}
+      3. Echo Show 5: {link:B09B2SBHQK}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-08 11:30
+  asin: B0D54JZTHY
+  name: "Apple AirTag (4 Pack)"
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  gift_guide: traveler
+  angle: "Three gift ideas in one reel: Apple AirTag 4 pack, Anker Nano power bank with retractable cable, Soundcore Liberty 4 NC earbuds."
+  key_facts:
+  - "Apple AirTag 4 pack: find keys, bags and luggage in the Find My app"
+  - "Anker Nano power bank with retractable cable: a pocket power bank with a cable that pulls out and retracts"
+  - "Soundcore Liberty 4 NC earbuds: noise cancelling earbuds for planes, trains and the gym"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/apple-airtag-4-pack.jpg
+    beats:
+    - on_screen: "Shopping for a traveler?"
+      voiceover: ''
+    - on_screen: "Never lose the luggage"
+      voiceover: ''
+      product_photo: assets/products/apple-airtag-4-pack.jpg
+    - on_screen: "Charger with its own cable"
+      voiceover: ''
+      product_photo: assets/products/anker-nano-45w-retractable.jpg
+    - on_screen: "Quiet on the plane"
+      voiceover: ''
+      product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Shopping for a traveler?"
+      body: "Never lose the luggage; Charger with its own cable; Quiet on the plane"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Shopping for a traveler? Gift ideas inside. ✈️
+
+      1. Apple AirTag 4 pack: find keys, bags and luggage in the Find My app.
+      2. Anker Nano power bank with retractable cable: a pocket power bank with a cable that pulls out and retracts.
+      3. Soundcore Liberty 4 NC earbuds: noise cancelling earbuds for planes, trains and the gym.
+
+      See more picks in the traveler gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - traveltech
+    - travelgifts
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Apple AirTag 4 pack: {link:B0D54JZTHY}
+      2. Anker Nano power bank with retractable cable: {link:B0DGKWTQQC}
+      3. Soundcore Liberty 4 NC earbuds: {link:B0BZV4QFP8}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-08 19:00
+  asin: B0BKW3LB2B
+  name: "Logitech MX Keys S Wireless Keyboard"
+  lane: desk and productivity setup
+  hook_style: callout
+  gift_guide: desk
+  angle: "Three gift ideas in one reel: Logitech MX Keys S keyboard, Anker 332 USB-C hub, Amazon Basics monitor riser."
+  key_facts:
+  - "Logitech MX Keys S keyboard: quiet backlit keys that switch between three devices"
+  - "Anker 332 USB-C hub: HDMI and extra USB ports from one USB-C port"
+  - "Amazon Basics monitor riser: raises the monitor so the neck stays straight"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/logitech-mx-keys-s.jpg
+    beats:
+    - on_screen: "Your desk worker needs these"
+      voiceover: ''
+    - on_screen: "Quiet keys that light up"
+      voiceover: ''
+      product_photo: assets/products/logitech-mx-keys-s.jpg
+    - on_screen: "Every port from one plug"
+      voiceover: ''
+      product_photo: assets/products/anker-332-usb-c-hub.jpg
+    - on_screen: "Screen up, neck straight"
+      voiceover: ''
+      product_photo: assets/products/amazon-basics-monitor-riser.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Your desk worker needs these"
+      body: "Quiet keys that light up; Every port from one plug; Screen up, neck straight"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Your desk worker needs these. Gift ideas inside. 🖥️
+
+      1. Logitech MX Keys S keyboard: quiet backlit keys that switch between three devices.
+      2. Anker 332 USB-C hub: HDMI and extra USB ports from one USB-C port.
+      3. Amazon Basics monitor riser: raises the monitor so the neck stays straight.
+
+      See more picks in the desk gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - desksetup
+    - wfh
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Logitech MX Keys S keyboard: {link:B0BKW3LB2B}
+      2. Anker 332 USB-C hub: {link:B0CH9JPNZM}
+      3. Amazon Basics monitor riser: {link:B00X4SCCFG}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-09 11:30
+  asin: B0C19CBT2N
+  name: "ShSiXin 3-in-1 Apple Watch Charging Cable"
+  lane: phone, travel and charging gadgets
+  hook_style: number
+  gift_guide: stocking
+  angle: "Three gift ideas in one reel: 3-in-1 watch and phone cable, Logitech M185 mouse, Anker Nano power bank with built-in cable."
+  key_facts:
+  - "3-in-1 watch and phone cable: one braided cord for an Apple Watch, an iPhone and USB-C"
+  - "Logitech M185 mouse: a simple wireless mouse with a tiny USB receiver"
+  - "Anker Nano power bank with built-in cable: a small power bank with the USB-C cable built in"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Stocking stuffer
+    product_photo: assets/products/shsixin-watch-cable.jpg
+    beats:
+    - on_screen: "3 stocking stuffers they will use daily"
+      voiceover: ''
+    - on_screen: "One cord, three devices"
+      voiceover: ''
+      product_photo: assets/products/shsixin-watch-cable.jpg
+    - on_screen: "A mouse that just works"
+      voiceover: ''
+      product_photo: assets/products/logitech-m185-mouse.jpg
+    - on_screen: "Phone charge, no cable to pack"
+      voiceover: ''
+      product_photo: assets/products/anker-nano-30w-cable.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "3 stocking stuffers they will use daily"
+      body: "One cord, three devices; A mouse that just works; Phone charge, no cable to pack"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      3 stocking stuffers they will use daily. 🧦
+
+      1. 3-in-1 watch and phone cable: one braided cord for an Apple Watch, an iPhone and USB-C.
+      2. Logitech M185 mouse: a simple wireless mouse with a tiny USB receiver.
+      3. Anker Nano power bank with built-in cable: a small power bank with the USB-C cable built in.
+
+      See more picks in the stocking stuffer gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - stockingstuffers
+    - giftideas
+    - techgifts
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. 3-in-1 watch and phone cable: {link:B0C19CBT2N}
+      2. Logitech M185 mouse: {link:B004YAVF8I}
+      3. Anker Nano power bank with built-in cable: {link:B0C9CJKCH3}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-09 19:00
+  asin: B0BZV4QFP8
+  name: "Anker Soundcore Liberty 4 NC Earbuds"
+  lane: other
+  hook_style: question
+  gift_guide: everything
+  angle: "Three gift ideas in one reel: Soundcore Liberty 4 NC earbuds, Soundcore Q20i headphones, Soundcore 2 speaker."
+  key_facts:
+  - "Soundcore Liberty 4 NC earbuds: noise cancelling earbuds for planes, trains and the gym"
+  - "Soundcore Q20i headphones: over-ear noise cancelling headphones"
+  - "Soundcore 2 speaker: a small Bluetooth speaker with big sound"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    beats:
+    - on_screen: "Gift for a music lover?"
+      voiceover: ''
+    - on_screen: "Quiet on the plane"
+      voiceover: ''
+      product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    - on_screen: "Quiet study sessions"
+      voiceover: ''
+      product_photo: assets/products/soundcore-q20i.jpg
+    - on_screen: "Big sound, small speaker"
+      voiceover: ''
+      product_photo: assets/products/soundcore-2-speaker.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Gift for a music lover?"
+      body: "Quiet on the plane; Quiet study sessions; Big sound, small speaker"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Gift for a music lover? 🎧
+
+      1. Soundcore Liberty 4 NC earbuds: noise cancelling earbuds for planes, trains and the gym.
+      2. Soundcore Q20i headphones: over-ear noise cancelling headphones.
+      3. Soundcore 2 speaker: a small Bluetooth speaker with big sound.
+
+      See more picks in the everything gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - musiclover
+    - headphones
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Soundcore Liberty 4 NC earbuds: {link:B0BZV4QFP8}
+      2. Soundcore Q20i headphones: {link:B0C3HCD34R}
+      3. Soundcore 2 speaker: {link:B01MTB55WH}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-10 11:30
+  asin: B0CJWJ8RYR
+  name: "Wyze Cam v4"
+  lane: home security and safety gadgets
+  hook_style: callout
+  gift_guide: home
+  angle: "Three gift ideas in one reel: Wyze Cam v4, Amazon Basics surge protector, Kasa Smart Plug Mini (2-pack)."
+  key_facts:
+  - "Wyze Cam v4: an indoor or outdoor camera with color night vision"
+  - "Amazon Basics surge protector: six protected outlets for the TV or desk"
+  - "Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/wyze-cam-v4.jpg
+    beats:
+    - on_screen: "New homeowner on your list?"
+      voiceover: ''
+    - on_screen: "Color video at night"
+      voiceover: ''
+      product_photo: assets/products/wyze-cam-v4.jpg
+    - on_screen: "Protect the TV and router"
+      voiceover: ''
+      product_photo: assets/products/amazon-basics-surge-protector.jpg
+    - on_screen: "Lamps on by voice"
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "New homeowner on your list?"
+      body: "Color video at night; Protect the TV and router; Lamps on by voice"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      New homeowner on your list? Gift ideas inside. 🔑
+
+      1. Wyze Cam v4: an indoor or outdoor camera with color night vision.
+      2. Amazon Basics surge protector: six protected outlets for the TV or desk.
+      3. Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice.
+
+      See more picks in the home gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - newhome
+    - smarthome
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Wyze Cam v4: {link:B0CJWJ8RYR}
+      2. Amazon Basics surge protector: {link:B00TP1BWMK}
+      3. Kasa Smart Plug Mini (2-pack): {link:B091FXQQMQ}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-10 19:00
+  asin: B0DGKWTQQC
+  name: "Anker Nano Power Bank (10K, 45W, retractable cable)"
+  lane: phone, travel and charging gadgets
+  hook_style: demo
+  gift_guide: traveler
+  angle: "Three gift ideas in one reel: Anker Nano power bank with retractable cable, Soundcore Q20i headphones, 3-in-1 watch and phone cable."
+  key_facts:
+  - "Anker Nano power bank with retractable cable: a pocket power bank with a cable that pulls out and retracts"
+  - "Soundcore Q20i headphones: over-ear noise cancelling headphones"
+  - "3-in-1 watch and phone cable: one braided cord for an Apple Watch, an iPhone and USB-C"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/anker-nano-45w-retractable.jpg
+    beats:
+    - on_screen: "Watch this carry-on get smarter"
+      voiceover: ''
+    - on_screen: "Charger with its own cable"
+      voiceover: ''
+      product_photo: assets/products/anker-nano-45w-retractable.jpg
+    - on_screen: "Quiet study sessions"
+      voiceover: ''
+      product_photo: assets/products/soundcore-q20i.jpg
+    - on_screen: "One cord, three devices"
+      voiceover: ''
+      product_photo: assets/products/shsixin-watch-cable.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Watch this carry-on get smarter"
+      body: "Charger with its own cable; Quiet study sessions; One cord, three devices"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Watch this carry-on get smarter. Gift ideas inside. 🧳
+
+      1. Anker Nano power bank with retractable cable: a pocket power bank with a cable that pulls out and retracts.
+      2. Soundcore Q20i headphones: over-ear noise cancelling headphones.
+      3. 3-in-1 watch and phone cable: one braided cord for an Apple Watch, an iPhone and USB-C.
+
+      See more picks in the traveler gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - traveltech
+    - carryon
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Anker Nano power bank with retractable cable: {link:B0DGKWTQQC}
+      2. Soundcore Q20i headphones: {link:B0C3HCD34R}
+      3. 3-in-1 watch and phone cable: {link:B0C19CBT2N}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-11 11:30
+  asin: B0BP9SNVH9
+  name: "Amazon Fire TV Stick 4K Max"
+  lane: smart home
+  hook_style: number
+  gift_guide: everything
+  angle: "Three gift ideas in one reel: Fire TV Stick 4K Max, Echo Show 5, Soundcore 2 speaker."
+  key_facts:
+  - "Fire TV Stick 4K Max: 4K streaming with Wi-Fi 6E and an Alexa remote"
+  - "Echo Show 5: a small Alexa screen for the clock, weather and video calls"
+  - "Soundcore 2 speaker: a small Bluetooth speaker with big sound"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/fire-tv-stick-4k-max.jpg
+    beats:
+    - on_screen: "3 gifts for the couch"
+      voiceover: ''
+    - on_screen: "Any TV becomes smart"
+      voiceover: ''
+      product_photo: assets/products/fire-tv-stick-4k-max.jpg
+    - on_screen: "A screen for clock and calls"
+      voiceover: ''
+      product_photo: assets/products/echo-show-5.jpg
+    - on_screen: "Big sound, small speaker"
+      voiceover: ''
+      product_photo: assets/products/soundcore-2-speaker.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "3 gifts for the couch"
+      body: "Any TV becomes smart; A screen for clock and calls; Big sound, small speaker"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      3 gifts for the couch. 🍿
+
+      1. Fire TV Stick 4K Max: 4K streaming with Wi-Fi 6E and an Alexa remote.
+      2. Echo Show 5: a small Alexa screen for the clock, weather and video calls.
+      3. Soundcore 2 speaker: a small Bluetooth speaker with big sound.
+
+      See more picks in the everything gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - movienight
+    - firetv
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Fire TV Stick 4K Max: {link:B0BP9SNVH9}
+      2. Echo Show 5: {link:B09B2SBHQK}
+      3. Soundcore 2 speaker: {link:B01MTB55WH}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-11 19:00
+  asin: B01MTB55WH
+  name: "Anker Soundcore 2 Bluetooth Speaker"
+  lane: other
+  hook_style: curiosity
+  gift_guide: stocking
+  angle: "Three gift ideas in one reel: Soundcore 2 speaker, Apple AirTag 4 pack, Kasa Smart Plug Mini (2-pack)."
+  key_facts:
+  - "Soundcore 2 speaker: a small Bluetooth speaker with big sound"
+  - "Apple AirTag 4 pack: find keys, bags and luggage in the Find My app"
+  - "Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Stocking stuffer
+    product_photo: assets/products/soundcore-2-speaker.jpg
+    beats:
+    - on_screen: "Small gifts that get used every day"
+      voiceover: ''
+    - on_screen: "Big sound, small speaker"
+      voiceover: ''
+      product_photo: assets/products/soundcore-2-speaker.jpg
+    - on_screen: "Never lose the luggage"
+      voiceover: ''
+      product_photo: assets/products/apple-airtag-4-pack.jpg
+    - on_screen: "Lamps on by voice"
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Small gifts that get used every day"
+      body: "Big sound, small speaker; Never lose the luggage; Lamps on by voice"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Small gifts that get used every day. 🎁
+
+      1. Soundcore 2 speaker: a small Bluetooth speaker with big sound.
+      2. Apple AirTag 4 pack: find keys, bags and luggage in the Find My app.
+      3. Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice.
+
+      See more picks in the stocking stuffer gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - stockingstuffers
+    - giftideas
+    - smallgifts
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Soundcore 2 speaker: {link:B01MTB55WH}
+      2. Apple AirTag 4 pack: {link:B0D54JZTHY}
+      3. Kasa Smart Plug Mini (2-pack): {link:B091FXQQMQ}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-12 11:30
+  asin: B0C3HCD34R
+  name: "Soundcore by Anker Q20i Noise Cancelling Headphones"
+  lane: desk and productivity setup
+  hook_style: callout
+  gift_guide: everything
+  angle: "Three gift ideas in one reel: Soundcore Q20i headphones, Amazon Basics laptop stand, Logitech M185 mouse."
+  key_facts:
+  - "Soundcore Q20i headphones: over-ear noise cancelling headphones"
+  - "Amazon Basics laptop stand: lifts the laptop to eye level and folds into a bag"
+  - "Logitech M185 mouse: a simple wireless mouse with a tiny USB receiver"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/soundcore-q20i.jpg
+    beats:
+    - on_screen: "Your student will thank you"
+      voiceover: ''
+    - on_screen: "Quiet study sessions"
+      voiceover: ''
+      product_photo: assets/products/soundcore-q20i.jpg
+    - on_screen: "Laptop at eye level"
+      voiceover: ''
+      product_photo: assets/products/amazon-basics-laptop-stand.jpg
+    - on_screen: "A mouse that just works"
+      voiceover: ''
+      product_photo: assets/products/logitech-m185-mouse.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Your student will thank you"
+      body: "Quiet study sessions; Laptop at eye level; A mouse that just works"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Your student will thank you. Gift ideas inside. 🎓
+
+      1. Soundcore Q20i headphones: over-ear noise cancelling headphones.
+      2. Amazon Basics laptop stand: lifts the laptop to eye level and folds into a bag.
+      3. Logitech M185 mouse: a simple wireless mouse with a tiny USB receiver.
+
+      See more picks in the everything gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - studentlife
+    - collegegifts
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Soundcore Q20i headphones: {link:B0C3HCD34R}
+      2. Amazon Basics laptop stand: {link:B0BLRJ4R8F}
+      3. Logitech M185 mouse: {link:B004YAVF8I}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-12 19:00
+  asin: B07BCHKHTG
+  name: "Scandinavian Hub Under-Desk Cable Management Trays (set of 2)"
+  lane: desk and productivity setup
+  hook_style: demo
+  gift_guide: desk
+  angle: "Three gift ideas in one reel: Scandinavian Hub cable trays, Anker 525 charging station, Anker 332 USB-C hub."
+  key_facts:
+  - "Scandinavian Hub cable trays: trays that hide every cable under the desk"
+  - "Anker 525 charging station: outlets and USB ports in one small desktop station"
+  - "Anker 332 USB-C hub: HDMI and extra USB ports from one USB-C port"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/scandinavian-hub-cable-trays.jpg
+    beats:
+    - on_screen: "Watch a messy desk disappear"
+      voiceover: ''
+    - on_screen: "Every cable off the floor"
+      voiceover: ''
+      product_photo: assets/products/scandinavian-hub-cable-trays.jpg
+    - on_screen: "Every charger in one spot"
+      voiceover: ''
+      product_photo: assets/products/anker-525-charging-station.jpg
+    - on_screen: "Every port from one plug"
+      voiceover: ''
+      product_photo: assets/products/anker-332-usb-c-hub.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Watch a messy desk disappear"
+      body: "Every cable off the floor; Every charger in one spot; Every port from one plug"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Watch a messy desk disappear. Gift ideas inside. 🧹
+
+      1. Scandinavian Hub cable trays: trays that hide every cable under the desk.
+      2. Anker 525 charging station: outlets and USB ports in one small desktop station.
+      3. Anker 332 USB-C hub: HDMI and extra USB ports from one USB-C port.
+
+      See more picks in the desk gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - desksetup
+    - cablemanagement
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Scandinavian Hub cable trays: {link:B07BCHKHTG}
+      2. Anker 525 charging station: {link:B0B3HSJ5NL}
+      3. Anker 332 USB-C hub: {link:B0CH9JPNZM}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-13 11:30
+  asin: B0C9CJKCH3
+  name: "Anker Nano Power Bank (10K, 30W, built-in USB-C cable)"
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  gift_guide: stocking
+  angle: "Three gift ideas in one reel: Anker Nano power bank with built-in cable, Apple AirTag 4 pack, Kasa Smart Plug Mini (2-pack)."
+  key_facts:
+  - "Anker Nano power bank with built-in cable: a small power bank with the USB-C cable built in"
+  - "Apple AirTag 4 pack: find keys, bags and luggage in the Find My app"
+  - "Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Stocking stuffer
+    product_photo: assets/products/anker-nano-30w-cable.jpg
+    beats:
+    - on_screen: "Stuck on stocking stuffers?"
+      voiceover: ''
+    - on_screen: "Phone charge, no cable to pack"
+      voiceover: ''
+      product_photo: assets/products/anker-nano-30w-cable.jpg
+    - on_screen: "Never lose the luggage"
+      voiceover: ''
+      product_photo: assets/products/apple-airtag-4-pack.jpg
+    - on_screen: "Lamps on by voice"
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "Stuck on stocking stuffers?"
+      body: "Phone charge, no cable to pack; Never lose the luggage; Lamps on by voice"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      Stuck on stocking stuffers? 🧦
+
+      1. Anker Nano power bank with built-in cable: a small power bank with the USB-C cable built in.
+      2. Apple AirTag 4 pack: find keys, bags and luggage in the Find My app.
+      3. Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice.
+
+      See more picks in the stocking stuffer gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - stockingstuffers
+    - giftideas
+    - techgifts
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Anker Nano power bank with built-in cable: {link:B0C9CJKCH3}
+      2. Apple AirTag 4 pack: {link:B0D54JZTHY}
+      3. Kasa Smart Plug Mini (2-pack): {link:B091FXQQMQ}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-13 19:00
+  asin: B091FXQQMQ
+  name: "Kasa Smart Plug Mini (2-pack)"
+  lane: smart home
+  hook_style: number
+  gift_guide: home
+  angle: "Three gift ideas in one reel: Kasa Smart Plug Mini (2-pack), Echo Show 5, Amazon Basics surge protector."
+  key_facts:
+  - "Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice"
+  - "Echo Show 5: a small Alexa screen for the clock, weather and video calls"
+  - "Amazon Basics surge protector: six protected outlets for the TV or desk"
+  broll:
+  - gift ideas
+  content:
+    format: list
+    label: Gift idea
+    product_photo: assets/products/kasa-smart-plug-mini.jpg
+    beats:
+    - on_screen: "3 gifts for a smart home starter"
+      voiceover: ''
+    - on_screen: "Lamps on by voice"
+      voiceover: ''
+      product_photo: assets/products/kasa-smart-plug-mini.jpg
+    - on_screen: "A screen for clock and calls"
+      voiceover: ''
+      product_photo: assets/products/echo-show-5.jpg
+    - on_screen: "Protect the TV and router"
+      voiceover: ''
+      product_photo: assets/products/amazon-basics-surge-protector.jpg
+    - on_screen: Comment SHOP for all 3
+      voiceover: ''
+    carousel:
+    - title: "3 gifts for a smart home starter"
+      body: "Lamps on by voice; A screen for clock and calls; Protect the TV and router"
+    - title: Comment SHOP
+      body: I will DM you all three Amazon links.
+    caption: |-
+      3 gifts for a smart home starter. 💡
+
+      1. Kasa Smart Plug Mini (2-pack): turn lamps on and off from the phone or by voice.
+      2. Echo Show 5: a small Alexa screen for the clock, weather and video calls.
+      3. Amazon Basics surge protector: six protected outlets for the TV or desk.
+
+      See more picks in the home gift guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you all three Amazon links.
+    hashtags:
+    - giftideas
+    - smarthome
+    - alexa
+    - amazonfinds
+    - techgadgets
+    dm_message: |-
+      Here are all three:
+
+      1. Kasa Smart Plug Mini (2-pack): {link:B091FXQQMQ}
+      2. Echo Show 5: {link:B09B2SBHQK}
+      3. Amazon Basics surge protector: {link:B00TP1BWMK}
+
+      As an Amazon Associate I earn from qualifying purchases.
