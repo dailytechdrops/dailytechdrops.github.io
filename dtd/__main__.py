@@ -444,6 +444,10 @@ def main() -> int:
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
     cfg = load_config()
+    if cfg.get("posting", {}).get("paused") and args.command in ("post-due", "wait-next", "site-prep", "youtube-due", "tiktok-due", "pinterest-due"):
+        # Kevin paused every post (Nov 4 2026) until the Amazon Associates account is reinstated.
+        print("::notice title=Posting paused::config.yaml posting.paused is true; nothing was posted.")
+        return 0
     if args.command == "render":
         return render(cfg, args.week)
     if args.command == "preview":

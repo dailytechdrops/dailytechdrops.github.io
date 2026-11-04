@@ -1,0 +1,25 @@
+# Nov 5 11:30 list reel as an AI story (Kevin, Nov 4). Calm motion only: no jumping, running or hands moving products.
+name: desk-pain
+budget_credits: 90
+shots:
+- id: shot1
+  product_photo: assets/products/logitech-lift-left.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a vertical ergonomic wireless mouse, on a clean light oak desk next to
+    a laptop keyboard and a coffee mug, bright home office, soft morning window light, shallow depth of field.
+    The mouse keeps exactly the shape, color and logo of @product. No people, no text, no screens.
+  motion: "Slow push-in on the vertical mouse on the desk, morning light shifts gently. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."
+- id: shot2
+  product_photo: assets/products/amazon-basics-laptop-stand.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a silver laptop stand, holding an open laptop at eye level on a tidy
+    light oak desk, plant in the background, bright airy home office, soft daylight. The stand keeps exactly the
+    shape and color of @product. No people, no text, the laptop screen is dark.
+  motion: "Slow sideways camera glide past the laptop on its stand, soft daylight. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."
+- id: shot3
+  product_photo: assets/products/amazon-basics-monitor-riser.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a monitor riser, lifting a computer monitor on a clean light oak desk,
+    a small plant and a notebook beside it, warm late-afternoon light, cozy home office. The riser keeps exactly the
+    shape and color of @product. No people, no text, the monitor screen is dark.
+  motion: "Slow push-in toward the monitor riser, warm light moves slowly across the desk. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."

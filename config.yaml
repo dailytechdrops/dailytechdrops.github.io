@@ -193,3 +193,8 @@ lanes:
   - phone, travel and charging gadgets
   - home security and safety gadgets (trackers, detectors, locks)
   - robots, clocks and fun tech
+
+# Kevin, Nov 4 2026: hold ALL posts (Instagram, Facebook, Threads, TikTok, YouTube, Pinterest) until the Amazon
+# Associates account is reinstated (Amazon closed store ID thegadgetgrab-20 on Nov 2). Set to false to resume.
+posting:
+  paused: true

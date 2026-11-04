@@ -1,0 +1,25 @@
+# Nov 5 19:00 list reel as an AI story (Kevin, Nov 4). Calm motion only.
+name: commute
+budget_credits: 90
+shots:
+- id: shot1
+  product_photo: assets/products/soundcore-liberty-4-nc.jpg
+  still: >-
+    Photorealistic vertical photo of @product, wireless earbuds in their open charging case, resting on a train seat
+    tray table by the window, soft morning light, blurred countryside outside. The earbuds and case keep exactly the
+    shape, color and logo of @product. No people, no text, no screens.
+  motion: "Very slow push-in on the earbud case, light flickers softly through the train window. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."
+- id: shot2
+  product_photo: assets/products/anker-power-bank-10k-cable.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a compact power bank with its built-in cable, on top of a canvas
+    backpack on a cafe table, coffee cup beside it, warm daylight. The power bank keeps exactly the shape, color and
+    logo of @product. No people, no text, no screens.
+  motion: "Slow push-in on the power bank on the backpack, warm daylight. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."
+- id: shot3
+  product_photo: assets/products/shsixin-watch-cable.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a braided 3-in-1 charging cable, neatly coiled on a wooden nightstand
+    beside a smartwatch and a phone lying face down, soft evening lamp light. The cable keeps exactly the look of
+    @product. No people, no text, no screens.
+  motion: "Slow push-in on the coiled cable, lamp light glows softly. Static or very slow camera, nothing moves except soft light and a gentle slow push-in. The product keeps exactly the same shape, color and logo. No people, no hands, no text, no screens."

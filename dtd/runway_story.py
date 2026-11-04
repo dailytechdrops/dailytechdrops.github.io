@@ -1,6 +1,6 @@
 """Make the shots of an AI story video with the Runway API (stories/<name>.yaml).
 
-Each shot: a still from gen4_image with the real product photo as the @product reference, then a
+Each shot: a still from gen4_image with the real product photo (per shot product_photo, else the story's) as the @product reference, then a
 5 second gen4_turbo clip animated from that still. Outputs go to out/<name>/. A hard credit cap
 (budget_credits) stops the run before any request that would exceed it. Shots already present in
 out/<name>/ (fetched from the media branch) are skipped, so a rerun only redoes what was removed.
@@ -43,7 +43,7 @@ def main(name: str) -> None:
     ledger = out / "credits.json"
     spent = json.loads(ledger.read_text())["spent"] if ledger.exists() else 0
     cap = spec["budget_credits"]
-    ref = data_uri(Path(spec["product_photo"]))
+    default_photo = spec.get("product_photo")
 
     def charge(n: int) -> None:
         nonlocal spent
@@ -55,6 +55,7 @@ def main(name: str) -> None:
     for shot in spec["shots"]:
         still, clip = out / f"{shot['id']}.jpg", out / f"{shot['id']}.mp4"
         if not still.exists():
+            ref = data_uri(Path(shot.get("product_photo") or default_photo))
             charge(COST_STILL)
             url = run("text_to_image", {"model": "gen4_image", "ratio": "720:1280", "promptText": shot["still"],
                                         "referenceImages": [{"uri": ref, "tag": "product"}]})
