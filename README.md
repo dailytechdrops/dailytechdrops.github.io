@@ -178,6 +178,15 @@ music only, about 10 seconds, so it is watched through and loops. `content.label
 card. The DM lists every product with `{link:ASIN}` placeholders (campaign links still apply). Keep the entry's
 `asin`/`name` as the first product, which the shop page lists.
 
+**AI story videos (Runway, Nov 4 2026).** A scripted story is `stories/<name>.yaml`: one shot per scene with a
+`still` prompt, a `motion` prompt, the product photo it shows, optional `person_from: shot1` (same person in every
+shot) and `must:` lines for what the product has to look like (e.g. "true wireless earbuds, no cords"). Kevin
+approves the script before any spend. Guard rails in `dtd/runway_story.py` add product-accuracy and calm-motion
+rules to every prompt, and refuse a story with risky motion (jump, run, walk, lift, carry, ...) before any credits go.
+Run the Runway story workflow with `stills_only` on first (5 credits a shot), check the stills, then run again
+with it off for the clips (25 each). Build the reel with `tools/story_reel.py`, check its frames, and set the
+entry's `content.reel_file`; captions say "AI-generated video".
+
 ## Running locally
 ```bash
 pip install -r requirements.txt   # plus ffmpeg on your PATH
