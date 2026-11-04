@@ -34,6 +34,7 @@ class DropContent(BaseModel):
     product_photo: str | None = Field(default=None, description="Path to a photo of the actual product (e.g. assets/products/x.jpg), shown whole on the end card")
     look: str | None = Field(default=None, description="natural: captions as plain text on the footage, no card; empty uses config reel.look")
     label: str | None = Field(default=None, description="Orange tag on the hook, e.g. Gift idea; empty means Today's drop")
+    reel_file: str | None = Field(default=None, description="Path to a finished reel (e.g. assets/reels/x.mp4) posted as is instead of rendering one, for hand-edited AI story videos")
     format: str | None = Field(default=None, description="list: a fast 3-product list reel (hook, one beat per product with its own product_photo, end card), music only, no voiceover")
 
 

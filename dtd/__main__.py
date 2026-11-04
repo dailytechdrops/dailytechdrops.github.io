@@ -67,12 +67,17 @@ def render(cfg: dict, week: Path) -> int:
         except Exception as e:
             print(f"::error title=Write failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
             raise
-        try:
-            reel = render_reel(cfg, content, out / "work", item["name"])
-        except Exception as e:
-            print(f"::error title=Reel failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
-            raise
-        reel.rename(out / "reel.mp4")
+        if content.reel_file:
+            # A finished, hand-edited reel (AI story videos): post it as is.
+            out.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(content.reel_file, out / "reel.mp4")
+        else:
+            try:
+                reel = render_reel(cfg, content, out / "work", item["name"])
+            except Exception as e:
+                print(f"::error title=Reel failed for {item['id']}::{type(e).__name__}: {str(e)[-600:]}".replace("\n", " | "))
+                raise
+            reel.rename(out / "reel.mp4")
         # Optional extra reels in other free voices, for comparing before choosing one.
         # Names are Piper voices, or kokoro:<voice> for Kokoro.
         for voice in os.environ.get("EXTRA_VOICES", "").split():
@@ -439,6 +444,10 @@ def main() -> int:
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
     cfg = load_config()
+    if cfg.get("posting", {}).get("paused") and args.command in ("post-due", "wait-next", "site-prep", "youtube-due", "tiktok-due", "pinterest-due"):
+        # Kevin paused every post (Nov 4 2026) until the Amazon Associates account is reinstated.
+        print("::notice title=Posting paused::config.yaml posting.paused is true; nothing was posted.")
+        return 0
     if args.command == "render":
         return render(cfg, args.week)
     if args.command == "preview":
