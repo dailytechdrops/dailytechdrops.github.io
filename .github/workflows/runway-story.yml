@@ -2,7 +2,8 @@ name: Runway story
 
 # Manual only: makes the AI shots for stories/<name>.yaml with the Runway API (secret RUNWAY_API_KEY)
 # and saves them on the media branch under runway/<name>/. Hard credit cap per story in its yaml.
-# To redo a shot, run again with input redo (e.g. shot1.jpg,shot1.mp4); the credit ledger keeps counting.
+# Run with stills_only first (the default), check the stills, then run again with it off for the clips.
+# Guard rails (dtd/runway_story.py) refuse risky motion before any spend. To redo a shot, run again with input redo (e.g. shot1.jpg,shot1.mp4); the credit ledger keeps counting.
 
 on:
   workflow_dispatch:
@@ -13,6 +14,10 @@ on:
       redo:
         description: "Optional: files to make again, e.g. shot1.jpg,shot1.mp4,shot2.mp4"
         required: false
+      stills_only:
+        description: "Make only the stills (5 credits each) so they can be checked before paying for clips"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -38,6 +43,7 @@ jobs:
       - name: Make shots
         env:
           RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          STILLS_ONLY: ${{ inputs.stills_only && '1' || '0' }}
         run: python -m dtd.runway_story "${{ inputs.name }}"
       - name: Keep a copy as a run artifact (survives a failed push)
         if: always()
