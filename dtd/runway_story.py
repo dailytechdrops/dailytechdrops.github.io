@@ -24,6 +24,7 @@ def run(endpoint: str, body: dict) -> str:
     if r.status_code >= 300:
         sys.exit(f"{endpoint} failed {r.status_code}: {r.text[:400]}")
     task = r.json()["id"]
+    print(f"runway task {task} ({endpoint})", flush=True)   # lets a lost output be fetched again by id
     for _ in range(120):
         time.sleep(5)
         t = requests.get(f"{API}/tasks/{task}", headers=HEAD, timeout=30).json()
