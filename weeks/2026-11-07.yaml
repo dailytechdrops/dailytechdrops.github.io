@@ -1,0 +1,815 @@
+# Weekly picks Nov 7 to Nov 13 2026. Rebuilt Nov 1 from products that already have photos in assets/products (studio look needs the real product photo).
+# Gift framing per the Nov holiday plan. Facts come from listing titles and earlier verified entries. Repeats of earlier products, new gift angle.
+
+- slot: 2026-11-07 11:30
+  asin: B0BWWZXWPL
+  name: Blink Mini 2 Security Camera (White)
+  lane: home security and safety gadgets
+  hook_style: question
+  gift_guide: home
+  angle: A small plug-in camera that lets you check on pets, kids or the front room.
+  key_facts:
+  - 1080p HD video
+  - Color night view with a built-in spotlight
+  - Two-way audio
+  broll:
+  - home security camera pet
+  content:
+    label: Gift idea
+    photo_query: home security camera pet
+    product_photo: assets/products/blink-mini-2.jpg
+    beats:
+    - on_screen: What is the dog doing?
+      voiceover: What is the dog doing while you are out?
+      broll_query: home security camera pet
+    - on_screen: Plug-in indoor cam
+      voiceover: This Blink Mini 2 plugs in and shows you, and it makes a thoughtful gift.
+      broll_query: home security camera pet
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: home security camera pet
+    carousel:
+    - title: What is the dog doing?
+      body: Check in from your phone.
+    - title: Plug-in indoor cam
+      body: Plugs into an outlet.
+    - title: Color night view
+      body: Built-in spotlight for dark rooms.
+    - title: Two-way audio
+      body: Talk to the dog or the kids.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      What is the dog doing?. A gift idea worth a look. 🎁
+
+      The Blink Mini 2 is a small plug-in camera with color night view and two-way audio, a practical gift for pet owners.
+
+      Tip: some saved clips need a Blink plan, sold separately.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - blinkcamera
+    - homesecurity
+    - giftidea
+    - petcam
+    - amazonfinds
+    dm_message: |-
+      Here is the Blink Mini 2 Security Camera (White): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-07 19:00
+  asin: B09B8VN8YQ
+  name: Amazon Echo Dot with Clock (5th Gen)
+  lane: smart home gadgets
+  hook_style: curiosity
+  gift_guide: home
+  angle: A nightstand clock that is also a smart speaker.
+  key_facts:
+  - Smart speaker with Alexa and an LED display
+  - Display shows the time, alarms, weather and song titles
+  - Tap controls on top
+  broll:
+  - smart speaker clock nightstand
+  content:
+    label: Gift idea
+    photo_query: smart speaker clock nightstand
+    product_photo: assets/products/echo-dot-clock.jpg
+    beats:
+    - on_screen: A clock that answers questions
+      voiceover: This clock on the nightstand can also answer questions.
+      broll_query: smart speaker clock nightstand
+    - on_screen: Clock plus speaker
+      voiceover: The Echo Dot with Clock shows the time and has Alexa built in, so it makes an easy gift.
+      broll_query: smart speaker clock nightstand
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: smart speaker clock nightstand
+    carousel:
+    - title: A clock that answers questions
+      body: The display shows time, alarms and weather.
+    - title: Clock plus speaker
+      body: Ask Alexa for music, timers and more.
+    - title: Alexa built in
+      body: Tap the top to snooze.
+    - title: Easy gift
+      body: Fits any nightstand or desk.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A clock that answers questions. A gift idea worth a look. 🎁
+
+      The Echo Dot with Clock is a smart speaker with a clear time display, a gift that works in any bedroom or kitchen.
+
+      Tip: ask Alexa to set a morning routine.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - echodot
+    - alexa
+    - giftidea
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the Amazon Echo Dot with Clock (5th Gen): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-08 11:30
+  asin: B0D54JZTHY
+  name: Apple AirTag (4 Pack)
+  lane: phone, travel and charging gadgets
+  hook_style: number
+  gift_guide: traveler
+  angle: Four trackers cover the keys, the bag, the backpack and the luggage.
+  key_facts:
+  - Tracks items in the Find My app on iPhone and iPad
+  - Works with Apple's Find My network
+  - Replaceable battery, and batteries are included
+  - Comes as a pack of four
+  broll:
+  - luggage keys tracker travel
+  content:
+    label: Gift idea
+    photo_query: luggage keys tracker travel
+    product_photo: assets/products/apple-airtag-4-pack.jpg
+    beats:
+    - on_screen: Four trackers for your stuff
+      voiceover: Four trackers cover your keys, your bag and your luggage.
+      broll_query: luggage keys tracker travel
+    - on_screen: Find My network
+      voiceover: The Apple AirTag four pack is a gift for any traveler with an iPhone.
+      broll_query: luggage keys tracker travel
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: luggage keys tracker travel
+    carousel:
+    - title: Four trackers for your stuff
+      body: Find items in the Find My app.
+    - title: Find My network
+      body: Works with Apple's Find My network.
+    - title: Replaceable battery
+      body: Batteries are included.
+    - title: Pack of four
+      body: One pack covers everything.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Four trackers for your stuff. A gift idea worth a look. 🎁
+
+      The Apple AirTag four pack is a helpful gift for travelers who use an iPhone.
+
+      Tip: AirTags need an iPhone or iPad to set up.
+
+      See more gift picks in the traveler guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - airtag
+    - apple
+    - giftidea
+    - travelgear
+    - amazonfinds
+    dm_message: |-
+      Here is the Apple AirTag (4 Pack): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-08 19:00
+  asin: B0BKW3LB2B
+  name: Logitech MX Keys S Wireless Keyboard
+  lane: desk and productivity gadgets
+  hook_style: demo
+  gift_guide: desk
+  angle: A keyboard that lights up the moment your hands get close.
+  key_facts:
+  - Backlit keys that light up as your hands approach
+  - Low profile keys shaped for comfortable, quiet typing
+  - Pairs with up to 3 devices
+  broll:
+  - wireless keyboard desk
+  content:
+    label: Gift idea
+    photo_query: wireless keyboard desk
+    product_photo: assets/products/logitech-mx-keys-s.jpg
+    beats:
+    - on_screen: Keys that light up on approach
+      voiceover: Watch the keys light up as your hands get close.
+      broll_query: wireless keyboard desk
+    - on_screen: Smart backlight
+      voiceover: The Logitech MX Keys S is quiet and pairs with three devices, a great desk gift.
+      broll_query: wireless keyboard desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: wireless keyboard desk
+    carousel:
+    - title: Keys that light up on approach
+      body: Backlight turns on as you approach.
+    - title: Smart backlight
+      body: Low profile keys.
+    - title: Quiet typing
+      body: Quiet to type on.
+    - title: Three devices
+      body: Switch between three devices.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Keys that light up on approach. A gift idea worth a look. 🎁
+
+      The Logitech MX Keys S is a backlit, quiet keyboard that makes a great gift for anyone who types all day.
+
+      Tip: switch off the backlight to stretch the battery.
+
+      See more gift picks in the desk guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - logitech
+    - mxkeys
+    - giftidea
+    - desksetup
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Keys S Wireless Keyboard: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-09 11:30
+  asin: B0C19CBT2N
+  name: ShSiXin 3-in-1 Apple Watch Charging Cable
+  lane: charging and power
+  hook_style: callout
+  gift_guide: stocking
+  angle: One braided cable that charges a watch and a phone.
+  key_facts:
+  - 3-in-1 cable, MFi certified
+  - Magnetic Apple Watch puck, Lightning and USB-C tips
+  - Braided nylon, 4 feet
+  broll:
+  - apple watch charging cable
+  content:
+    label: Stocking stuffer
+    photo_query: apple watch charging cable
+    product_photo: assets/products/shsixin-watch-cable.jpg
+    beats:
+    - on_screen: One cable for watch and phone
+      voiceover: One cable charges your watch and your phone.
+      broll_query: apple watch charging cable
+    - on_screen: Watch plus phone
+      voiceover: This 3-in-1 cable is a handy stocking stuffer for Apple Watch owners.
+      broll_query: apple watch charging cable
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: apple watch charging cable
+    carousel:
+    - title: One cable for watch and phone
+      body: Magnetic puck for Apple Watch.
+    - title: Watch plus phone
+      body: Lightning and USB-C tips.
+    - title: Braided nylon
+      body: Four feet of braided nylon.
+    - title: Stocking stuffer
+      body: A small gift that gets used.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      One cable for watch and phone. A stocking stuffer worth a look. 🎁
+
+      This 3-in-1 cable charges an Apple Watch and a phone, a handy stocking stuffer.
+
+      Tip: it is a great travel cable, one cord for everything.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - applewatch
+    - chargingcable
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the ShSiXin 3-in-1 Apple Watch Charging Cable: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-09 19:00
+  asin: B0BZV4QFP8
+  name: Anker Soundcore Liberty 4 NC Earbuds
+  lane: audio and gifts
+  hook_style: number
+  gift_guide: everything
+  angle: Noise cancelling earbuds with a case that keeps them going for days.
+  key_facts:
+  - Wireless earbuds with adaptive noise cancelling
+  - Up to 50 hours of battery with the case
+  - Wireless charging case
+  broll:
+  - wireless earbuds music
+  content:
+    label: Gift idea
+    photo_query: wireless earbuds music
+    product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    beats:
+    - on_screen: Up to 50 hours of music
+      voiceover: These earbuds play up to fifty hours with the case.
+      broll_query: wireless earbuds music
+    - on_screen: Noise cancelling
+      voiceover: The Soundcore Liberty 4 NC adds noise cancelling, and it makes a great gift.
+      broll_query: wireless earbuds music
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: wireless earbuds music
+    carousel:
+    - title: Up to 50 hours of music
+      body: Up to 50 hours with the case.
+    - title: Noise cancelling
+      body: Adaptive noise cancelling.
+    - title: Wireless charging case
+      body: Wireless charging case.
+    - title: Great gift
+      body: A gift for music lovers.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Up to 50 hours of music. A gift idea worth a look. 🎁
+
+      The Soundcore Liberty 4 NC earbuds have adaptive noise cancelling and a long-lasting case, a gift for music lovers.
+
+      Tip: open the Soundcore app to tune the sound.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - soundcore
+    - earbuds
+    - giftidea
+    - noisecancelling
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Soundcore Liberty 4 NC Earbuds: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-10 11:30
+  asin: B0CJWJ8RYR
+  name: Wyze Cam v4
+  lane: home security and safety gadgets
+  hook_style: question
+  gift_guide: home
+  angle: A small Wi-Fi camera with a built-in spotlight that watches the door while you are out.
+  key_facts:
+  - Wi-Fi security camera for indoor or outdoor use
+  - Built-in spotlight
+  - Two-way audio and color night vision
+  broll:
+  - front door security camera
+  content:
+    label: Gift idea
+    photo_query: front door security camera
+    product_photo: assets/products/wyze-cam-v4.jpg
+    beats:
+    - on_screen: Who is at your door?
+      voiceover: Who is at your front door right now?
+      broll_query: front door security camera
+    - on_screen: Wi-Fi camera
+      voiceover: The Wyze Cam v4 has a built-in spotlight, and it makes a practical gift.
+      broll_query: front door security camera
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: front door security camera
+    carousel:
+    - title: Who is at your door?
+      body: Check the door from your phone.
+    - title: Wi-Fi camera
+      body: Indoor or outdoor use.
+    - title: Built-in spotlight
+      body: Built-in spotlight.
+    - title: Two-way audio
+      body: Talk to visitors.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Who is at your door?. A gift idea worth a look. 🎁
+
+      The Wyze Cam v4 is a small Wi-Fi camera with a spotlight and two-way audio, a practical gift for peace of mind.
+
+      Tip: mount it a little above head height.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - wyze
+    - securitycamera
+    - giftidea
+    - homesecurity
+    - amazonfinds
+    dm_message: |-
+      Here is the Wyze Cam v4: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-10 19:00
+  asin: B0DGKWTQQC
+  name: Anker Nano Power Bank (10K, 45W, retractable cable)
+  lane: phone, travel and charging gadgets
+  hook_style: curiosity
+  gift_guide: traveler
+  angle: A power bank that hides its own cable inside.
+  key_facts:
+  - 10,000mAh with a built-in 2.3 ft retractable USB-C cable
+  - 45W max output
+  broll:
+  - phone charger travel
+  content:
+    label: Gift idea
+    photo_query: phone charger travel
+    product_photo: assets/products/anker-nano-45w-retractable.jpg
+    beats:
+    - on_screen: A charger with a cable inside
+      voiceover: This power bank hides its own cable inside.
+      broll_query: phone charger travel
+    - on_screen: Retractable cable
+      voiceover: The Anker Nano 45W is a clever gift for any traveler.
+      broll_query: phone charger travel
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: phone charger travel
+    carousel:
+    - title: A charger with a cable inside
+      body: A cable that slides out and back.
+    - title: Retractable cable
+      body: 10,000mAh of power.
+    - title: 10,000mAh
+      body: 45W max output.
+    - title: Travel gift
+      body: A clever gift for travelers.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      A charger with a cable inside. A gift idea worth a look. 🎁
+
+      The Anker Nano power bank has a retractable USB-C cable built in, a clever gift for travelers.
+
+      Tip: it fits phones that charge over USB-C.
+
+      See more gift picks in the traveler guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - anker
+    - powerbank
+    - giftidea
+    - travelgear
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Nano Power Bank (10K, 45W, retractable cable): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-11 11:30
+  asin: B0BP9SNVH9
+  name: Amazon Fire TV Stick 4K Max
+  lane: entertainment gadgets
+  hook_style: callout
+  gift_guide: everything
+  angle: A small stick that adds streaming to any TV with an HDMI port.
+  key_facts:
+  - 4K streaming stick with Wi-Fi 6E support
+  - Alexa Voice Remote
+  - Plugs into the TV's HDMI port
+  broll:
+  - television streaming living room
+  content:
+    label: Gift idea
+    photo_query: television streaming living room
+    product_photo: assets/products/fire-tv-stick-4k-max.jpg
+    beats:
+    - on_screen: Turn any TV into a smart TV
+      voiceover: Plug this stick in and any TV becomes a smart TV.
+      broll_query: television streaming living room
+    - on_screen: 4K streaming
+      voiceover: The Fire TV Stick 4K Max has an Alexa remote, so it makes an easy gift.
+      broll_query: television streaming living room
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: television streaming living room
+    carousel:
+    - title: Turn any TV into a smart TV
+      body: Plugs into any HDMI port.
+    - title: 4K streaming
+      body: 4K streaming.
+    - title: Alexa Voice Remote
+      body: Alexa Voice Remote.
+    - title: Easy gift
+      body: An easy gift for movie night.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Turn any TV into a smart TV. A gift idea worth a look. 🎁
+
+      The Fire TV Stick 4K Max adds 4K streaming and an Alexa remote to almost any TV, an easy gift.
+
+      Tip: use the voice remote to search by actor or title.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - firetv
+    - streaming
+    - giftidea
+    - movienight
+    - amazonfinds
+    dm_message: |-
+      Here is the Amazon Fire TV Stick 4K Max: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-11 19:00
+  asin: B01MTB55WH
+  name: Anker Soundcore 2 Bluetooth Speaker
+  lane: audio and gifts
+  hook_style: demo
+  gift_guide: stocking
+  angle: A waterproof speaker that goes from the shower to the pool.
+  key_facts:
+  - Portable Bluetooth speaker with 12W stereo sound
+  - IPX7 waterproof
+  - Up to 24 hours of playtime
+  broll:
+  - portable speaker outdoors
+  content:
+    label: Stocking stuffer
+    photo_query: portable speaker outdoors
+    product_photo: assets/products/soundcore-2-speaker.jpg
+    beats:
+    - on_screen: Music that survives a splash
+      voiceover: This speaker keeps playing even after a splash.
+      broll_query: portable speaker outdoors
+    - on_screen: IPX7 waterproof
+      voiceover: The Soundcore 2 is IPX7 waterproof, so it makes a great stocking stuffer.
+      broll_query: portable speaker outdoors
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: portable speaker outdoors
+    carousel:
+    - title: Music that survives a splash
+      body: Waterproof to IPX7.
+    - title: IPX7 waterproof
+      body: 12W stereo sound.
+    - title: 12W stereo sound
+      body: Up to 24 hours of playtime.
+    - title: Up to 24 hours
+      body: A gift that works anywhere.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Music that survives a splash. A stocking stuffer worth a look. 🎁
+
+      The Soundcore 2 is a waterproof Bluetooth speaker with up to 24 hours of playtime, a great stocking stuffer.
+
+      Tip: rinse it with fresh water after the pool.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - soundcore
+    - bluetoothspeaker
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Soundcore 2 Bluetooth Speaker: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-12 11:30
+  asin: B0C3HCD34R
+  name: Soundcore by Anker Q20i Noise Cancelling Headphones
+  lane: audio and gifts
+  hook_style: question
+  gift_guide: everything
+  angle: Over-ear noise cancelling headphones that quiet the commute.
+  key_facts:
+  - Hybrid active noise cancelling over-ear headphones from Soundcore by Anker
+  - Wireless Bluetooth
+  - Long battery life
+  broll:
+  - headphones commute
+  content:
+    label: Gift idea
+    photo_query: headphones commute
+    product_photo: assets/products/soundcore-q20i.jpg
+    beats:
+    - on_screen: Need quiet on the commute?
+      voiceover: Want some quiet on the commute?
+      broll_query: headphones commute
+    - on_screen: Noise cancelling
+      voiceover: The Soundcore Q20i has active noise cancelling, and it is a gift most people would love.
+      broll_query: headphones commute
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: headphones commute
+    carousel:
+    - title: Need quiet on the commute?
+      body: Active noise cancelling.
+    - title: Noise cancelling
+      body: Comfortable over-ear fit.
+    - title: Over-ear fit
+      body: Wireless Bluetooth.
+    - title: Long battery life
+      body: A gift for commuters.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Need quiet on the commute?. A gift idea worth a look. 🎁
+
+      The Soundcore Q20i has hybrid noise cancelling and long battery life, a gift for commuters and travelers.
+
+      Tip: keep noise cancelling on during flights.
+
+      See more gift picks in the everything guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - soundcore
+    - headphones
+    - giftidea
+    - noisecancelling
+    - amazonfinds
+    dm_message: |-
+      Here is the Soundcore by Anker Q20i Noise Cancelling Headphones: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-12 19:00
+  asin: B07BCHKHTG
+  name: Scandinavian Hub Under-Desk Cable Management Trays (set of 2)
+  lane: desk and productivity gadgets
+  hook_style: callout
+  gift_guide: desk
+  angle: Two trays that hold the power strips and cables out of sight.
+  key_facts:
+  - Set of two powder-coated steel cable trays
+  - Screws on under the desk
+  - Holds power strips and cables out of sight
+  broll:
+  - desk cables under desk
+  content:
+    label: Gift idea
+    photo_query: desk cables under desk
+    product_photo: assets/products/scandinavian-hub-cable-trays.jpg
+    beats:
+    - on_screen: Hide the cable mess
+      voiceover: Hide the whole cable mess under your desk.
+      broll_query: desk cables under desk
+    - on_screen: Under-desk trays
+      voiceover: These cable trays hold power strips out of sight, a gift for any desk.
+      broll_query: desk cables under desk
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: desk cables under desk
+    carousel:
+    - title: Hide the cable mess
+      body: Hold power strips under the desk.
+    - title: Under-desk trays
+      body: Set of two steel trays.
+    - title: Set of two
+      body: Screws on easily.
+    - title: Desk gift
+      body: A tidy desk gift.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Hide the cable mess. A gift idea worth a look. 🎁
+
+      These Scandinavian Hub cable trays hide power strips and cables under the desk, a tidy gift for a home office.
+
+      Tip: label each cable before you tuck it away.
+
+      See more gift picks in the desk guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - cablemanagement
+    - desksetup
+    - giftidea
+    - homeoffice
+    - amazonfinds
+    dm_message: |-
+      Here is the Scandinavian Hub Under-Desk Cable Management Trays (set of 2): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-13 11:30
+  asin: B0C9CJKCH3
+  name: Anker Nano Power Bank (10K, 30W, built-in USB-C cable)
+  lane: phone, travel and charging gadgets
+  hook_style: number
+  gift_guide: stocking
+  angle: A 10,000mAh power bank with its own cable and fast charging.
+  key_facts:
+  - 10,000mAh with a built-in USB-C cable
+  - 30W fast charging
+  - Also has a USB-C port and a USB-A port
+  broll:
+  - phone charging power bank
+  content:
+    label: Stocking stuffer
+    photo_query: phone charging power bank
+    product_photo: assets/products/anker-nano-30w-cable.jpg
+    beats:
+    - on_screen: 30 watts and a built-in cable
+      voiceover: Thirty watts of fast charging, with the cable built in.
+      broll_query: phone charging power bank
+    - on_screen: Built-in cable
+      voiceover: This Anker Nano power bank is a handy stocking stuffer.
+      broll_query: phone charging power bank
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: phone charging power bank
+    carousel:
+    - title: 30 watts and a built-in cable
+      body: Built-in USB-C cable.
+    - title: Built-in cable
+      body: 30W fast charging.
+    - title: 10,000mAh
+      body: Extra USB-C and USB-A ports.
+    - title: Stocking stuffer
+      body: A handy stocking stuffer.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      30 watts and a built-in cable. A stocking stuffer worth a look. 🎁
+
+      This Anker Nano power bank has 30W fast charging and its own USB-C cable, a handy stocking stuffer.
+
+      Tip: charge it the night before a trip.
+
+      See more gift picks in the stocking stuffer guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - anker
+    - powerbank
+    - stockingstuffer
+    - giftidea
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker Nano Power Bank (10K, 30W, built-in USB-C cable): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+- slot: 2026-11-13 19:00
+  asin: B091FXQQMQ
+  name: Kasa Smart Plug Mini (2-pack)
+  lane: smart home gadgets
+  hook_style: demo
+  gift_guide: home
+  angle: A smart plug that turns any lamp into a smart lamp.
+  key_facts:
+  - Wi-Fi smart plug, no hub required
+  - Works with 2.4 GHz Wi-Fi
+  - Control from a phone app or by voice
+  broll:
+  - lamp living room evening
+  content:
+    label: Gift idea
+    photo_query: lamp living room evening
+    product_photo: assets/products/kasa-smart-plug-mini.jpg
+    beats:
+    - on_screen: Turn lamps on with your voice
+      voiceover: Say the word and the lamp comes on.
+      broll_query: lamp living room evening
+    - on_screen: No hub needed
+      voiceover: These Kasa plugs turn any lamp smart, an easy first smart home gift.
+      broll_query: lamp living room evening
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: Comment SHOP and I will send you the link.
+      broll_query: lamp living room evening
+    carousel:
+    - title: Turn lamps on with your voice
+      body: Works with a phone app or voice.
+    - title: No hub needed
+      body: No hub required.
+    - title: Phone or voice control
+      body: Plug in any lamp.
+    - title: Two-pack
+      body: A two-pack gift.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Turn lamps on with your voice. A gift idea worth a look. 🎁
+
+      These Kasa smart plugs turn any lamp into a smart lamp without a hub, an easy smart home gift.
+
+      Tip: set a schedule so the lights are on when you get home.
+
+      See more gift picks in the home guide on the shop page, link in bio.
+
+      Comment SHOP and I will DM you the Amazon link.
+    hashtags:
+    - kasa
+    - smartplug
+    - giftidea
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the Kasa Smart Plug Mini (2-pack): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
