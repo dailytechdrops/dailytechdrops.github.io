@@ -72,6 +72,12 @@ def main() -> None:
             caption_overlay(cfg, beat.on_screen, overlay, hook=True, label=content.label or "", centre=0.30)
             _segment(rc, None, overlay, None, LIST_HOOK + FADE, seg, frame, motion=0, brand=brand, grade=False)
             lengths.append(LIST_HOOK + FADE)
+        elif shots[i - 1] == "photo":
+            # No usable clip for this product: its studio photo beat, as in a plain list reel.
+            studio_frame(cfg, ROOT / beat.product_photo, frame, variant=0, seed=f"{item['name']}|{i}")
+            caption_overlay(cfg, beat.on_screen, overlay, label=f"{i} of {len(beats) - 2}", centre=0.30)
+            _segment(rc, None, overlay, None, a.beat + FADE, seg, frame, motion=i, brand=brand, grade=False)
+            lengths.append(a.beat + FADE)
         else:
             seg_len = a.beat + FADE
             start = starts[i - 1] if i - 1 < len(starts) else 0.0

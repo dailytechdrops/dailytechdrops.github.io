@@ -703,6 +703,7 @@
     format: list
     label: Commute upgrades
     product_photo: assets/products/soundcore-liberty-4-nc.jpg
+    reel_file: assets/reels/commute.mp4   # AI story video approved by Kevin Nov 4 2026
     beats:
     - on_screen: 3 things that fix your commute
       voiceover: ''
@@ -723,6 +724,9 @@
     - title: Comment SHOP
       body: I will DM you all three Amazon links.
     caption: '3 things that fix your commute. 🎧
+
+
+      AI-generated video.
 
 
       1. Soundcore Liberty 4 NC: noise cancelling earbuds for the train or the plane.
