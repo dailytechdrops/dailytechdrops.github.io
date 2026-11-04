@@ -33,7 +33,7 @@ from pathlib import Path
 
 from . import facebook, instagram, pinterest, report, shop, threads, tiktok, youtube
 from .carousel import render_carousel
-from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, load_all_weeks, load_config, load_week, read_state, write_state
+from .config import EASTERN, OUTPUT_DIR, affiliate_link, channel_link, env, retag, load_all_weeks, load_config, load_week, read_state, write_state
 from .reel import render_reel
 from .writer import disclosure_last, full_caption, write_content
 
@@ -186,6 +186,15 @@ def post_due(cfg: dict) -> int:
     return 0
 
 
+def _load_draft(cfg: dict, path: Path) -> dict:
+    """A rendered draft, with any link under a retired store ID swapped to the current tag."""
+    draft = json.loads(path.read_text())
+    for key in ("link", "dm_message", "caption"):
+        if isinstance(draft.get(key), str):
+            draft[key] = retag(cfg, draft[key])
+    return draft
+
+
 def _media(item_id: str) -> Path:
     out = OUTPUT_DIR / item_id
     if not out.exists():
@@ -202,7 +211,7 @@ def _media_base() -> str:
 
 def _publish(cfg: dict, item_id: str, history: list) -> None:
     out = _media(item_id)
-    draft = json.loads((out / "draft.json").read_text())
+    draft = _load_draft(cfg, out / "draft.json")
     # Drafts rendered before Oct 25 2026 have the disclosure first; move it to the end.
     draft["caption"] = disclosure_last(cfg, draft["caption"])
     base = _media_base()
@@ -269,7 +278,7 @@ def youtube_due(cfg: dict) -> int:
         return 0
     item_id = max(todo, key=lambda h: h["id"])["id"]
     out = _media(item_id)
-    draft = json.loads((out / "draft.json").read_text())
+    draft = _load_draft(cfg, out / "draft.json")
     privacy = env("YOUTUBE_PRIVACY") or "private"
     try:
         video_id = youtube.upload_short(out / "reel.mp4", youtube.title_for(draft["name"]), youtube.description_for(cfg, draft), privacy)
@@ -302,7 +311,7 @@ def tiktok_due(cfg: dict) -> int:
         print("No new reels for TikTok.")
         return 0
     item_id = max(todo, key=lambda h: h["id"])["id"]
-    draft = json.loads((_media(item_id) / "draft.json").read_text())
+    draft = _load_draft(cfg, _media(item_id) / "draft.json")
     text = tiktok.text_for_tiktok(disclosure_last(cfg, draft["caption"]), cfg["instagram"]["disclosure"])
     video_url = f"{_media_base()}/{item_id}/reel.mp4"
     if not tiktok.enabled():
@@ -343,7 +352,7 @@ def pinterest_due(cfg: dict) -> int:
         return 0
     item_id = max(todo, key=lambda h: h["id"])["id"]
     out = _media(item_id)
-    draft = json.loads((out / "draft.json").read_text())
+    draft = _load_draft(cfg, out / "draft.json")
     draft["caption"] = disclosure_last(cfg, draft["caption"])
     cover = f"{_media_base()}/{item_id}/{draft['slides'][0]}" if draft.get("slides") else None
     try:
@@ -425,9 +434,9 @@ def reply(cfg: dict) -> int:
 def _dm_text(cfg: dict, post: dict, user: str) -> str:
     template = cfg["instagram"].get("dm_template")
     if not template:
-        return post["dm_message"]
+        return retag(cfg, post["dm_message"])
     greeting = f"@{user}" if user else "there"
-    return template.format(user=greeting, name=post["name"], link=post["link"]).strip()
+    return template.format(user=greeting, name=post["name"], link=retag(cfg, post["link"])).strip()
 
 
 def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:

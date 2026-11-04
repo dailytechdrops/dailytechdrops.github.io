@@ -18,8 +18,9 @@ EASTERN = ZoneInfo("America/New_York")
 
 def load_config() -> dict:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text())
-    # Secrets override file values when present.
-    cfg["amazon"]["tag"] = os.environ.get("AMAZON_TAG") or cfg["amazon"]["tag"]
+    # The tag in config.yaml wins: it is public in every link anyway, and keeping it in the file means
+    # a new Associates store ID takes effect without touching the AMAZON_TAG secret (Nov 4 2026).
+    cfg["amazon"]["tag"] = cfg["amazon"]["tag"] or os.environ.get("AMAZON_TAG", "")
     return cfg
 
 
@@ -65,11 +66,26 @@ def affiliate_link(cfg: dict, asin: str) -> str:
     return f"{base}?tag={tag}" if tag else base
 
 
+def retag(cfg: dict, text: str) -> str:
+    """Rewrites links saved under a closed store ID (amazon.retired_tags) to the current tag, so
+    reels rendered and products posted before a store ID change keep earning. A Creator Connections
+    link from a retired store becomes the plain tagged product link, since its campaign died with it."""
+    retired = cfg["amazon"].get("retired_tags") or []
+    tag = cfg["amazon"]["tag"]
+    if not text or not retired or not tag:
+        return text
+    old = "|".join(re.escape(t) for t in retired)
+    text = re.sub(rf"https://[^\s\"']*?/dp/([A-Z0-9]{{10}})\?[^\s\"']*?campaignId=[^\s\"']*?tag=(?:{old})[^\s\"']*",
+                  lambda m: affiliate_link(cfg, m.group(1)), text)
+    return re.sub(rf"([?&]tag=)(?:{old})(?=&|$|[\s\"'<)])", rf"\g<1>{tag}", text)
+
+
 def channel_link(cfg: dict, link: str, channel: str) -> str:
     """Swaps the base tag for the channel's own tracking ID (amazon.channel_tags), so the
     Associates reports show whether a sale came from the shop page, Facebook or YouTube.
     Channels without their own ID keep the base tag, so no link ever loses its tag.
     Campaign links are left exactly as Amazon issued them, so the bonus still tracks."""
+    link = retag(cfg, link)
     tag = (cfg["amazon"].get("channel_tags") or {}).get(channel)
     base = cfg["amazon"]["tag"]
     if not tag or not base or link in (cfg["amazon"].get("campaign_links") or {}).values():
