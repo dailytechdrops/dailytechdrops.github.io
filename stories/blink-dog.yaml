@@ -1,0 +1,31 @@
+# AI story video test (Nov 4 2026, Kevin approved one video, cap 125 Runway credits).
+# Each shot: a still made with gen4_image using the real product photo as @product, then animated with gen4_turbo.
+name: blink-dog
+budget_credits: 125
+product_photo: assets/products/blink-mini-2.jpg
+shots:
+- id: shot1
+  still: >-
+    Photorealistic vertical photo. A person's hand placing @product, a small white indoor security camera,
+    on a light oak shelf in a cozy, bright, lived-in living room, soft morning window light, plants and books
+    on the shelf, shallow depth of field. The camera keeps exactly the shape, color and logo of @product.
+    No text, no screens.
+  motion: >-
+    The hand gently sets the small white camera down on the shelf and slowly pulls away out of frame.
+    Natural handheld feel, soft morning light. The camera does not change shape. No text.
+- id: shot2
+  still: >-
+    Photorealistic vertical photo of a cozy empty living room in warm afternoon light, a light gray couch with
+    throw pillows, a golden retriever standing on the rug looking toward the couch, and @product, a small white
+    camera, sitting on a wooden shelf in the upper corner of the frame. No people, no text, no screens.
+  motion: >-
+    The golden retriever glances around, then hops up onto the gray couch and curls up on the cushions.
+    Static camera, natural motion, warm afternoon light. No people. No text.
+- id: shot3
+  still: >-
+    Photorealistic vertical close-up photo of @product, a small white indoor security camera, on a wooden shelf,
+    warm golden evening light, softly blurred cozy living room behind it. The camera keeps exactly the shape,
+    color and logo of @product. No text, no screens.
+  motion: >-
+    Very slow push-in on the small white camera, the evening light slowly turns warmer. The camera does not
+    change shape or logo. No text.

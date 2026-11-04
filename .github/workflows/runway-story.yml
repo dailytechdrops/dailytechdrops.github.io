@@ -1,0 +1,51 @@
+name: Runway story
+
+# Manual only: makes the AI shots for stories/<name>.yaml with the Runway API (secret RUNWAY_API_KEY)
+# and saves them on the media branch under runway/<name>/. Hard credit cap per story in its yaml.
+# To redo one shot, delete its .jpg/.mp4 on the media branch and run again.
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Story file name in stories/, e.g. blink-dog"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pyyaml
+      - name: Fetch earlier shots
+        run: |
+          git fetch origin media --depth 1 || true
+          mkdir -p "out/${{ inputs.name }}"
+          git archive origin/media "runway/${{ inputs.name }}" 2>/dev/null | tar -x -C out --strip-components=1 || true
+      - name: Make shots
+        env:
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+        run: python -m dtd.runway_story "${{ inputs.name }}"
+      - name: Save to media branch
+        if: always()
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          [ -d "out/${{ inputs.name }}" ] || exit 0
+          git worktree add -B media /tmp/media origin/media
+          mkdir -p "/tmp/media/runway/${{ inputs.name }}"
+          cp -r out/"${{ inputs.name }}"/. "/tmp/media/runway/${{ inputs.name }}/"
+          cd /tmp/media
+          git add "runway/${{ inputs.name }}"
+          git diff --cached --quiet && exit 0
+          git commit -m "Runway shots for ${{ inputs.name }}"
+          git push origin media
