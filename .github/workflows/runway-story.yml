@@ -2,7 +2,7 @@ name: Runway story
 
 # Manual only: makes the AI shots for stories/<name>.yaml with the Runway API (secret RUNWAY_API_KEY)
 # and saves them on the media branch under runway/<name>/. Hard credit cap per story in its yaml.
-# To redo one shot, delete its .jpg/.mp4 on the media branch and run again.
+# To redo a shot, run again with input redo (e.g. shot1.jpg,shot1.mp4); the credit ledger keeps counting.
 
 on:
   workflow_dispatch:
@@ -10,6 +10,9 @@ on:
       name:
         description: "Story file name in stories/, e.g. blink-dog"
         required: true
+      redo:
+        description: "Optional: files to make again, e.g. shot1.jpg,shot1.mp4,shot2.mp4"
+        required: false
 
 permissions:
   contents: write
@@ -31,6 +34,7 @@ jobs:
           git fetch origin media --depth 1 || true
           mkdir -p "out/${{ inputs.name }}"
           git archive origin/media "runway/${{ inputs.name }}" 2>/dev/null | tar -x -C out --strip-components=1 || true
+          for f in $(echo "${{ inputs.redo }}" | tr ',' ' '); do rm -f "out/${{ inputs.name }}/$f"; done
       - name: Make shots
         env:
           RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
