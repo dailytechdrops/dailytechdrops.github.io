@@ -1,0 +1,47 @@
+# Nov 4 2026: first AI story video test (Runway, stories/blink-dog.yaml), approved by Kevin for 7pm tonight.
+# content.reel_file posts the hand-edited reel as is; the carousel slides still render for the Story and shop page.
+- slot: 2026-11-04 19:00
+  asin: B0BWWZXWPL
+  name: Blink Mini 2 Security Camera (White)
+  lane: home security gadgets
+  hook_style: curiosity
+  angle: A small plug-in camera that lets you see what the dog gets up to while you are out.
+  key_facts:
+  - Plug-in indoor camera from Blink
+  - 1080p HD video with color night view
+  - Two-way audio
+  broll:
+  - dog on couch
+  content:
+    reel_file: assets/reels/blink-dog-story.mp4
+    product_photo: assets/products/blink-mini-2.jpg
+    beats:
+    - on_screen: What does the dog do when you leave?
+      voiceover: ''
+    - on_screen: Not allowed on the couch
+      voiceover: ''
+    - on_screen: Comment SHOP or tap the link in bio
+      voiceover: ''
+    carousel:
+    - title: What does the dog do when you leave?
+      body: A small plug-in camera shows you.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      What does the dog do when you leave? 🐶
+
+      The Blink Mini 2 is a small plug-in indoor camera with 1080p video, color night view and two-way audio, so you can check in from your phone.
+
+      AI-generated video. The camera shown is the real Blink Mini 2.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - blinkcamera
+    - petcam
+    - dogsofinstagram
+    - homesecurity
+    - amazonfinds
+    dm_message: |-
+      Here is the Blink Mini 2 camera: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
