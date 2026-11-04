@@ -32,6 +32,8 @@ def main() -> None:
     ap.add_argument("--start", default="", help="seconds into each clip to start, comma separated")
     ap.add_argument("--beat", type=float, default=2.6, help="seconds per product beat")
     ap.add_argument("--slow", type=float, default=1.0, help="slow each clip down by this factor")
+    ap.add_argument("--hook", default="", help="optional clip for the hook beat (e.g. shot1), start seconds after a colon")
+    ap.add_argument("--shots", default="", help="clip per product beat, comma separated (default shot1,shot2,...)")
     a = ap.parse_args()
 
     cfg = load_config()
@@ -46,6 +48,7 @@ def main() -> None:
     beats = content.beats
     photos = [ROOT / b.product_photo for b in beats[1:-1] if b.product_photo]
     starts = [float(s) for s in a.start.split(",")] if a.start else []
+    shots = a.shots.split(",") if a.shots else [f"shot{k}" for k in range(1, len(beats) - 1)]
     segments, lengths = [], []
     for i, beat in enumerate(beats):
         seg, frame, overlay = work / f"seg_{i}.mp4", work / f"frame_{i}.png", work / f"overlay_{i}.png"
@@ -55,6 +58,15 @@ def main() -> None:
             end_card(cfg, collage, content.label or item["name"], frame, contain=True, links=True)
             _segment(rc, None, None, None, LIST_END + FADE, seg, frame, motion=i, brand=brand, endcard=True)
             lengths.append(LIST_END + FADE)
+        elif i == 0 and a.hook:
+            name, _, st = a.hook.partition(":")
+            clip = work / "clip_0.mp4"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", st or "0", "-i", str(a.clips / f"{name}.mp4"),
+                            "-vf", f"setpts={a.slow}*PTS", "-an", "-t", f"{a.beat + FADE + 0.2:.2f}", "-c:v", "libx264",
+                            "-crf", "14", str(clip)], check=True)
+            caption_overlay(cfg, beat.on_screen, overlay, hook=True, label=content.label or "", centre=0.30)
+            _segment(rc, clip, overlay, None, a.beat + FADE, seg, brand=brand)
+            lengths.append(a.beat + FADE)
         elif i == 0:
             studio_frame(cfg, None, frame, variant=0, seed=f"{item['name']}|0", collage=photos)
             caption_overlay(cfg, beat.on_screen, overlay, hook=True, label=content.label or "", centre=0.30)
@@ -64,7 +76,7 @@ def main() -> None:
             seg_len = a.beat + FADE
             start = starts[i - 1] if i - 1 < len(starts) else 0.0
             clip = work / f"clip_{i}.mp4"
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start}", "-i", str(a.clips / f"shot{i}.mp4"),
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start}", "-i", str(a.clips / f"{shots[i - 1]}.mp4"),
                             "-vf", f"setpts={a.slow}*PTS", "-an", "-t", f"{seg_len + 0.2:.2f}", "-c:v", "libx264",
                             "-crf", "14", str(clip)], check=True)
             caption_overlay(cfg, beat.on_screen, overlay, label=f"{i} of {len(beats) - 2}", centre=0.30)
