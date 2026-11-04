@@ -634,6 +634,7 @@
     format: list
     label: Comfort at your desk
     product_photo: assets/products/logitech-lift-left.jpg
+    reel_file: assets/reels/desk-pain.mp4   # AI story video approved by Kevin Nov 4 2026
     beats:
     - on_screen: 3 fixes for desk pain
       voiceover: ''
@@ -654,6 +655,9 @@
     - title: Comment SHOP
       body: I will DM you all three Amazon links.
     caption: '3 fixes for desk pain. 🪑
+
+
+      AI-generated video.
 
 
       1. Logitech Lift: a vertical mouse that keeps your wrist in a handshake position (left-handed model).

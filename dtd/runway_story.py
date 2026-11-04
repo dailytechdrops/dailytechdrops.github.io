@@ -55,10 +55,13 @@ def main(name: str) -> None:
     for shot in spec["shots"]:
         still, clip = out / f"{shot['id']}.jpg", out / f"{shot['id']}.mp4"
         if not still.exists():
-            ref = data_uri(Path(shot.get("product_photo") or default_photo))
+            refs = [{"uri": data_uri(Path(shot.get("product_photo") or default_photo)), "tag": "product"}]
+            if shot.get("person_from"):
+                # Keeps the same person across shots: an earlier still is a second reference, tagged @person.
+                refs.append({"uri": data_uri(out / f"{shot['person_from']}.jpg"), "tag": "person"})
             charge(COST_STILL)
             url = run("text_to_image", {"model": "gen4_image", "ratio": "720:1280", "promptText": shot["still"],
-                                        "referenceImages": [{"uri": ref, "tag": "product"}]})
+                                        "referenceImages": refs})
             still.write_bytes(requests.get(url, timeout=120).content)
             print(f"{shot['id']}: still made ({spent}/{cap} credits)")
         if not clip.exists():

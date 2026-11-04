@@ -1,0 +1,54 @@
+# Nov 5 11:30 "3 fixes for desk pain", scripted story approved by Kevin Nov 4 2026.
+# One woman carried through all four shots (person_from). Seated, slow motion only: no standing,
+# walking, lifting or carrying products, so nothing morphs.
+name: desk-pain-v2
+budget_credits: 120
+product_photo: assets/products/logitech-lift-left.jpg
+shots:
+- id: shot1
+  still: >-
+    Photorealistic vertical photo, eye-level medium shot of a woman in her early 30s with shoulder-length brown hair,
+    wearing a soft cream knit sweater, sitting at a light oak desk in a bright, airy home office with white walls and
+    a plant. She is hunched forward over a laptop lying flat and low on the desk, shoulders raised, one hand pressed
+    to the back of her neck, looking tired. Soft morning window light, natural colors, shallow depth of field.
+    No text, the laptop screen is dark.
+  motion: >-
+    Locked-off static camera. The woman slowly tilts her head to one side to stretch her neck and gently rubs the
+    back of her neck with one hand, then lets out a small tired breath. She stays seated. Subtle, slow, natural
+    movement only. No standing, no fast movement, no camera movement.
+- id: shot2
+  person_from: shot1
+  product_photo: assets/products/logitech-lift-left.jpg
+  still: >-
+    Photorealistic vertical close-up photo of a woman's right hand resting relaxed on @product, a vertical ergonomic
+    wireless mouse, wrist upright in a handshake position, on a light oak desk beside a laptop. She wears the same
+    cream knit sweater sleeve as @person. Soft morning window light, shallow depth of field, clean and bright.
+    The mouse keeps exactly the shape, color and logo of @product. Five natural fingers. No text.
+  motion: >-
+    Very slow sideways camera drift. The hand stays resting on the mouse and glides it smoothly a few centimeters
+    across the desk, then stops. Fingers stay still on the mouse. The mouse keeps exactly the same shape, color and
+    logo. Slow, calm, minimal motion. No text.
+- id: shot3
+  person_from: shot1
+  product_photo: assets/products/amazon-basics-laptop-stand.jpg
+  still: >-
+    Photorealistic vertical medium photo of @person, the same woman in the cream knit sweater, sitting upright and
+    relaxed at the light oak desk. Her open laptop sits on @product, a silver laptop stand, so the screen is at her
+    eye level. A separate keyboard is in front of her. Bright airy home office, plant, soft daylight. The stand keeps
+    exactly the shape and color of @product. No text, the laptop screen shows a soft blurred document.
+  motion: >-
+    Camera rises very slowly from desk level up to the screen at her eye level. The woman sits upright, takes a calm
+    breath and her shoulders relax down. She stays seated, head level. Slow, gentle motion only. The stand keeps
+    exactly the same shape and color. No text.
+- id: shot4
+  person_from: shot1
+  product_photo: assets/products/amazon-basics-monitor-riser.jpg
+  still: >-
+    Photorealistic vertical wide photo of @person, the same woman in the cream knit sweater, sitting back comfortably
+    in her desk chair, head level, looking at a computer monitor raised on @product, a monitor riser, on a tidy light
+    oak desk with a plant and a coffee mug. Warm morning light falls across the desk. Bright, airy, calm. The riser
+    keeps exactly the shape and color of @product. No text, the monitor shows a soft blurred spreadsheet.
+  motion: >-
+    Slow gentle push-in toward the desk. The woman leans back slightly in her chair and smiles a little, relaxed.
+    Morning light glows softly across the desk. She stays seated. Slow, calm motion only. The riser keeps exactly
+    the same shape and color. No text.
