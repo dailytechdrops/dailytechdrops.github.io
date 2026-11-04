@@ -1,0 +1,50 @@
+# Nov 5 19:00 "3 things that fix your commute", scripted story (Kevin, Nov 4 2026).
+# One man carried through shots 1 to 3 (person_from). Seated, slow motion only.
+name: commute-v2
+budget_credits: 120
+product_photo: assets/products/soundcore-liberty-4-nc.jpg
+shots:
+- id: shot1
+  still: >-
+    Photorealistic vertical photo, eye-level medium shot of a man in his mid 30s with short dark hair and light stubble,
+    wearing a navy jacket over a grey t-shirt, sitting by the window on a busy modern commuter train in the morning.
+    He looks tired and a little stressed, gazing ahead. Other passengers are softly blurred around him. Bright soft
+    window light, natural colors, clean and airy. No text, no visible phone screens.
+  motion: >-
+    Locked-off static camera. The man sits still, slowly exhales and lets his head rest back against the seat,
+    looking tired. Soft window light flickers gently as the train moves. He stays seated. Subtle, slow, natural
+    movement only. No standing, no fast movement, no camera movement.
+- id: shot2
+  person_from: shot1
+  product_photo: assets/products/soundcore-liberty-4-nc.jpg
+  still: >-
+    Photorealistic vertical close-up photo of @person, the same man in the navy jacket, seated by the train window,
+    wearing small wireless earbuds from @product in his ears. The open charging case of @product rests on the tray
+    table in front of him. His eyes are open, calm. Soft morning window light. The earbuds and case keep exactly the
+    shape, color and logo of @product. No text.
+  motion: >-
+    Static camera with a very slow gentle push-in. The man slowly closes his eyes and his face relaxes into a small
+    peaceful smile. Soft window light flickers gently. He stays seated, head still. Slow, calm, minimal motion.
+    The earbuds and case keep exactly the same shape and color. No text.
+- id: shot3
+  person_from: shot1
+  product_photo: assets/products/anker-power-bank-10k-cable.jpg
+  still: >-
+    Photorealistic vertical close-up photo of a train tray table by the window: @product, a compact power bank, lies
+    flat with its built-in USB-C cable plugged into a smartphone lying face down beside it. A man's hand in a navy
+    jacket sleeve rests relaxed on the table next to them. Soft morning light, blurred countryside outside.
+    The power bank keeps exactly the shape, color and logo of @product. Five natural fingers. No text, no screens.
+  motion: >-
+    Very slow push-in toward the power bank and phone. The hand stays still, resting. Soft window light and shadows
+    drift slowly across the table as the train moves. Nothing else moves. The power bank keeps exactly the same shape,
+    color and logo. No text.
+- id: shot4
+  product_photo: assets/products/shsixin-watch-cable.jpg
+  still: >-
+    Photorealistic vertical photo of a wooden nightstand at home in the evening: @product, a braided 3-in-1 charging
+    cable, charges a smartwatch lying on its magnetic puck and a smartphone lying face down. A warm table lamp glows
+    beside them, cozy bedroom softly blurred behind. The cable keeps exactly the look of @product. No people,
+    no text, no screens.
+  motion: >-
+    Slow gentle push-in toward the watch and phone on the nightstand. The warm lamp light glows softly. Nothing else
+    moves. The cable keeps exactly the same look. No people, no hands, no text.

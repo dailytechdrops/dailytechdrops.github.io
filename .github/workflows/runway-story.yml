@@ -39,6 +39,13 @@ jobs:
         env:
           RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
         run: python -m dtd.runway_story "${{ inputs.name }}"
+      - name: Keep a copy as a run artifact (survives a failed push)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runway-${{ inputs.name }}
+          path: out/${{ inputs.name }}
+          retention-days: 14
       - name: Save to media branch
         if: always()
         run: |
@@ -52,4 +59,6 @@ jobs:
           git add "runway/${{ inputs.name }}"
           git diff --cached --quiet && exit 0
           git commit -m "Runway shots for ${{ inputs.name }}"
-          git push origin media
+          # The render workflow also writes the media branch; retry on top of its latest commit.
+          for i in 1 2 3 4; do git push origin media && exit 0; sleep 5; git pull --rebase origin media || true; done
+          exit 1
