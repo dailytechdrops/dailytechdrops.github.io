@@ -18,11 +18,14 @@ shots:
 - id: shot2
   product_photo: assets/products/soundcore-q20i.jpg
   person_from: shot1
+  must:
+  - black wireless over-ear headphones with a silver accent on the headband slider and one round logo disc on each ear cup
+  - no cable, no wire and no cord anywhere
   still: >-
     Vertical photo that looks filmed on an iPhone, handheld, natural indoor light with slight grain: the same woman
-    from @person seated at the same cafe table, now wearing @product, white over-ear headphones, calm and focused,
-    eyes on the laptop, side view, hands out of frame, background crowd blurred. The headphones keep exactly the
-    shape, color and logo of @product. Slightly imperfect framing like a real phone video. No text.
+    from @person seated at the same cafe table, now wearing @product, calm and focused, eyes on the laptop, side
+    view, hands out of frame, background crowd blurred. The headphones keep exactly the shape, color and logo of
+    @product. Slightly imperfect framing like a real phone video. No text.
   motion: >-
     Handheld phone feel with a very slight natural sway. She stays seated, calm, only blinks and breathes. The
     headphones keep exactly the same shape, color and logo. Nothing else moves. No text.
