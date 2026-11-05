@@ -754,129 +754,105 @@
 
       As an Amazon Associate I earn from qualifying purchases.'
 
+# Nov 5 2026: Kevin went back to ONE product per reel with AI video (Runway) to test the theory. This one is the Anker 525
+# story (stories/anker-station.yaml): problem hook, outlets full, discovery, clean desk, Comment SHOP. Approved by Kevin Nov 5.
 - slot: 2026-11-06 11:30
-  asin: B0BWWZXWPL
-  name: Blink Mini 2 Security Camera (White)
-  lane: home security gadgets
-  hook_style: number
-  angle: Three small gadgets that keep an eye on your home and your things.
-  key_facts:
-  - Blink Mini 2 is a plug-in indoor camera that works with Alexa
-  - Wyze Cam v4 is an indoor and outdoor camera with color night vision
-  - AirTag 4 pack finds keys, bags and luggage in the Find My app
-  broll:
-  - home security
-  content:
-    format: list
-    label: Peace of mind
-    product_photo: assets/products/blink-mini-2.jpg
-    beats:
-    - on_screen: 3 gadgets for peace of mind
-      voiceover: ''
-    - on_screen: See inside from anywhere
-      voiceover: ''
-      product_photo: assets/products/blink-mini-2.jpg
-    - on_screen: Color video, even at night
-      voiceover: ''
-      product_photo: assets/products/wyze-cam-v4.jpg
-    - on_screen: Never lose keys again
-      voiceover: ''
-      product_photo: assets/products/apple-airtag-4-pack.jpg
-    - on_screen: Comment SHOP for all 3
-      voiceover: ''
-    carousel:
-    - title: 3 gadgets for peace of mind
-      body: See inside from anywhere; Color video, even at night; Never lose keys again
-    - title: Comment SHOP
-      body: I will DM you all three Amazon links.
-    caption: '3 gadgets for peace of mind. 🏠
-
-
-      1. Blink Mini 2: a small plug-in camera so you can check on home from your phone.
-
-      2. Wyze Cam v4: indoor or outdoor, with color night vision.
-
-      3. Apple AirTag 4 pack: find keys, bags and luggage in the Find My app.
-
-
-      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
-    hashtags:
-    - homesecurity
-    - smarthome
-    - airtag
-    - amazonfinds
-    - techgadgets
-    dm_message: 'Here are all three:
-
-      1. Blink Mini 2 camera: {link:B0BWWZXWPL}
-
-      2. Wyze Cam v4: {link:B0CJWJ8RYR}
-
-      3. Apple AirTag 4 pack: {link:B0D54JZTHY}
-
-
-      As an Amazon Associate I earn from qualifying purchases.'
-- slot: 2026-11-06 19:00
-  asin: B0CH9JPNZM
-  name: Anker 332 USB-C Hub (5-in-1)
+  asin: B0B3HSJ5NL
+  name: Anker 525 Charging Station (7-in-1)
   lane: phone, travel and charging gadgets
-  hook_style: number
-  angle: One small hub that adds HDMI and extra USB ports to a laptop that has almost none.
+  hook_style: question
+  angle: Too many chargers on your desk? One station with outlets, USB-A and USB-C replaces the pile.
   key_facts:
-  - 5-in-1 USB-C hub with 4K HDMI
-  - 5Gbps USB-C data port and two 5Gbps USB-A ports
+  - '7-in-1 power strip: 3 AC outlets, 2 USB-A and 2 USB-C ports'
+  - Up to 65W power delivery
+  - 5 ft cord
   broll:
-  - laptop ports
-  - usb hub
-  - home office desk
+  - desk power strip
   content:
-    format: list
-    label: Desk upgrades
-    product_photo: assets/products/logitech-mx-keys-s.jpg
+    product_photo: assets/products/anker-525-charging-station.jpg
+    reel_file: assets/reels/anker-station.mp4   # AI video approved by Kevin Nov 5 2026
     beats:
-    - on_screen: 3 desk upgrades that feel like cheating
+    - on_screen: Too many chargers on your desk?
       voiceover: ''
-    - on_screen: Quiet keys that light up
+    - on_screen: Outlets full. Cables everywhere.
       voiceover: ''
-      product_photo: assets/products/logitech-mx-keys-s.jpg
-    - on_screen: Every cable off the floor
+    - on_screen: This one fixes it
       voiceover: ''
-      product_photo: assets/products/scandinavian-hub-cable-trays.jpg
-    - on_screen: One hub, every port
+    - on_screen: Clean desk. Everything charging.
       voiceover: ''
-      product_photo: assets/products/anker-332-usb-c-hub.jpg
-    - on_screen: Comment SHOP for all 3
+    - on_screen: Comment SHOP
       voiceover: ''
     carousel:
-    - title: 3 desk upgrades that feel like cheating
-      body: Quiet keys that light up; Every cable off the floor; One hub, every port
+    - title: Too many chargers?
+      body: One station for the whole desk.
     - title: Comment SHOP
-      body: I will DM you all three Amazon links.
-    caption: '3 desk upgrades that feel like cheating. 🖥️
+      body: I will DM you the Amazon link.
+    caption: |-
+      Too many chargers on your desk? 🔌
 
+      The Anker 525 charging station packs 3 AC outlets, 2 USB-A ports and 2 USB-C ports with up to 65W of power delivery into one small station, so the pile of adapters goes away.
 
-      1. Logitech MX Keys S: quiet, backlit keys that switch between three devices.
+      AI-generated video.
 
-      2. Scandinavian Hub cable trays: every cable off the floor and under the desk.
-
-      3. Anker 332 USB-C hub: HDMI, USB and USB-C from one port.
-
-
-      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
     hashtags:
     - desksetup
-    - wfh
-    - setupinspiration
-    - amazonfinds
+    - anker
+    - phonecharger
     - techgadgets
-    dm_message: 'Here are all three:
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker 525 Charging Station: {link}
 
-      1. Logitech MX Keys S: {link:B0BKW3LB2B}
+      As an Amazon Associate I earn from qualifying purchases.
 
-      2. Scandinavian Hub cable trays: {link:B07BCHKHTG}
+# Nov 5 2026: single-product AI reel (stories/kasa-plug.yaml), approved by Kevin Nov 5.
+- slot: 2026-11-06 19:00
+  asin: B091FXQQMQ
+  name: Kasa Smart Plug Mini (2-pack)
+  lane: smart home upgrades
+  hook_style: question
+  angle: Forgot the lights again? A smart plug turns any lamp on and off from the phone, on a schedule or by voice.
+  key_facts:
+  - Mini Wi-Fi smart plug, 2-pack
+  - Control lamps and small appliances from the phone or by voice with Alexa or Google
+  - Schedules turn lights on and off automatically
+  broll:
+  - lamp
+  content:
+    product_photo: assets/products/kasa-smart-plug-mini.jpg
+    reel_file: assets/reels/kasa-plug.mp4   # AI video approved by Kevin Nov 5 2026
+    beats:
+    - on_screen: Forgot the lights again?
+      voiceover: ''
+    - on_screen: Lamp on all night. Empty room.
+      voiceover: ''
+    - on_screen: A smart plug fixes it
+      voiceover: ''
+    - on_screen: Lights on a schedule or by voice
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Forgot the lights?
+      body: A smart plug does it for you.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Forgot the lights again? 💡
 
-      3. Anker 332 USB-C hub: {link:B0CH9JPNZM}
+      The Kasa Smart Plug Mini turns any lamp on and off from your phone, on a schedule or by voice, so nothing stays on in an empty room.
 
+      AI-generated video.
 
-      As an Amazon Associate I earn from qualifying purchases.'
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - smarthome
+    - smartplug
+    - kasa
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Kasa Smart Plug Mini (2-pack): {link}
 
+      As an Amazon Associate I earn from qualifying purchases.

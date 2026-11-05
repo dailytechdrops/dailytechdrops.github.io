@@ -2,3 +2,4 @@ output/
 voices/
 __pycache__/
 *.pyc
+out/

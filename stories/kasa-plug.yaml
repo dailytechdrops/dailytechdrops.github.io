@@ -1,0 +1,44 @@
+# Nov 6 19:00 single-product reel: Kasa Smart Plug Mini, "Forgot the lights again?". Approved direction by Kevin Nov 5 2026.
+# No people, no hands, slow camera only, so nothing morphs.
+name: kasa-plug
+budget_credits: 150
+product_photo: assets/products/kasa-smart-plug-mini.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a cozy empty living room in late afternoon: a table lamp glowing on a wooden
+    side table beside a sofa, even though bright daylight comes through the window. Nobody is home, a coat hangs by
+    the door in the background. Warm natural colors, shallow depth of field. No people, no text, screens dark.
+  motion: >-
+    Slow steady push-in toward the glowing lamp. Soft daylight shifts gently across the room. Nothing else moves.
+    No people, no text.
+- id: shot2
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a bedroom at night, empty and quiet: a bedside lamp is still switched on and
+    glowing warm beside a neatly made bed, a clock-less wooden nightstand, curtains drawn. Cozy but wasteful, nobody
+    in the room. Shallow depth of field. No people, no text, no screens.
+  motion: >-
+    Slow gentle push-in toward the glowing bedside lamp. The warm light stays steady. Nothing else moves.
+    No people, no text.
+- id: shot3
+  product_photo: assets/products/kasa-smart-plug-mini.jpg
+  still: >-
+    Photorealistic vertical close-up photo of @product, a white mini smart plug, plugged into a wall outlet behind a
+    wooden side table, a table lamp's cord plugged into it. A smartphone lies face down on the table beside the lamp.
+    Soft warm evening light, shallow depth of field. The smart plug keeps exactly the shape, color, logo and
+    button of @product. No people, no text, screens dark.
+  motion: >-
+    Slow steady push-in toward the smart plug on the wall. Soft light stays steady. Nothing else moves.
+    The smart plug keeps exactly the same shape, color and logo. No people, no hands, no text.
+- id: shot4
+  product_photo: assets/products/kasa-smart-plug-mini.jpg
+  still: >-
+    Photorealistic vertical wide photo of a cozy living room at dusk, a table lamp glowing warmly on a side table
+    beside a sofa with a soft blanket, a white mini smart plug visible in the wall outlet behind the table.
+    Warm inviting evening light, calm, tidy. Nobody in the room. The plug keeps the shape of @product.
+    No people, no text, screens dark.
+  motion: >-
+    Slow gentle push-in toward the glowing lamp and sofa. The warm light glows softly and steadily. Nothing else
+    moves. No people, no hands, no text.
