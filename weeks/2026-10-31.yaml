@@ -622,7 +622,7 @@
   asin: B09J1SYX5B
   name: Logitech Lift Vertical Ergonomic Mouse (left-handed)
   lane: desk and productivity setup
-  hook_style: number
+  hook_style: question
   angle: Three desk changes that take the strain off your wrist, neck and back.
   key_facts:
   - Logitech Lift is a vertical wireless mouse, left-handed model
@@ -632,42 +632,42 @@
   - home office desk
   content:
     format: list
-    label: Comfort at your desk
+    label: Desk fixes I wish I found sooner
     product_photo: assets/products/logitech-lift-left.jpg
     reel_file: assets/reels/desk-pain.mp4   # AI story video approved by Kevin Nov 4 2026
     beats:
-    - on_screen: 3 fixes for desk pain
+    - on_screen: Neck aching by 3pm?
       voiceover: ''
-    - on_screen: Wrist stays in a handshake
+    - on_screen: Wrist relaxed, not twisted
       voiceover: ''
       product_photo: assets/products/logitech-lift-left.jpg
-    - on_screen: Laptop up at eye level
+    - on_screen: Screen at eye level
       voiceover: ''
       product_photo: assets/products/amazon-basics-laptop-stand.jpg
-    - on_screen: Monitor up, neck straight
+    - on_screen: Head up, shoulders down
       voiceover: ''
       product_photo: assets/products/amazon-basics-monitor-riser.jpg
-    - on_screen: Comment SHOP for all 3
+    - on_screen: Comment SHOP and I will send you the link
       voiceover: ''
     carousel:
-    - title: 3 fixes for desk pain
-      body: Wrist stays in a handshake; Laptop up at eye level; Monitor up, neck straight
+    - title: Neck aching by 3pm?
+      body: Wrist relaxed, not twisted; Screen at eye level; Head up, shoulders down
     - title: Comment SHOP
-      body: I will DM you all three Amazon links.
-    caption: '3 fixes for desk pain. 🪑
+      body: I will send you the link.
+    caption: 'Neck aching by 3pm? It might be your desk, not you. 🪑
 
 
       AI-generated video.
 
 
-      1. Logitech Lift: a vertical mouse that keeps your wrist in a handshake position (left-handed model).
+      1. Wrist relaxed, not twisted: the Logitech Lift vertical mouse (left-handed model).
 
-      2. Amazon Basics laptop stand: lifts the screen to eye level and folds into your bag.
+      2. Screen at eye level: the Amazon Basics laptop stand, which folds flat for your bag.
 
-      3. Amazon Basics monitor riser: raises the monitor so your neck stays straight.
+      3. Head up, shoulders down: the Amazon Basics monitor riser.
 
 
-      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
+      Comment SHOP and I will send you the link.'
     hashtags:
     - desksetup
     - ergonomics
