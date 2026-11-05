@@ -5,9 +5,11 @@ config.yaml comment_targets.per_day recent reels from tech, desk setup and gadge
 gives each a comment from the rotating list. Kevin opens each reel and pastes the comment.
 Nothing is posted from here: automated comments on other accounts are an Instagram spam signal.
 
-Reels come from Business Discovery (named creator and business accounts) and hashtag search,
-both on the Facebook Graph API through the Facebook Page linked to @daily_tech_drops
-(FB_PAGE_ID, FB_PAGE_TOKEN). If neither works, the page still lists accounts to visit.
+Reels come from Business Discovery (named creator and business accounts) and hashtag search.
+First choice is the Facebook Graph API through the Facebook Page linked to @daily_tech_drops
+(FB_PAGE_ID, FB_PAGE_TOKEN). If the Page token cannot see the Instagram account, Business
+Discovery is tried with the Instagram login token (IG_USER_ID, IG_ACCESS_TOKEN); hashtag search
+is not available that way. If neither works, the page still lists accounts to visit.
 
 Writes docs/comments.html (on GitHub Pages next to the shop page) and state/comment_targets.json.
 """
@@ -22,6 +24,7 @@ import requests
 from .config import EASTERN, ROOT, env, read_state, write_state
 from .facebook import API, page_token
 
+IG_API = "https://graph.instagram.com/v23.0"
 MEDIA_FIELDS = "permalink,media_type,media_product_type,timestamp,like_count,comments_count,caption"
 SKIP_WORDS = re.compile(r"\b(giveaway|contest|win a|sweepstakes|cyber ?security|hacker|malware)\b", re.I)
 KEEP_DAYS = 14        # a reel is never listed twice; an account rests a day after being listed
@@ -42,28 +45,36 @@ def _get(url: str, **params) -> dict:
     return r.json()
 
 
-def _connect() -> tuple[str, str]:
-    """The Instagram account id behind the Facebook Page, and a token that can query it."""
+def _connect() -> tuple[str, str, str]:
+    """The Instagram account id, a token that can query it, and the API base to use: through the
+    Facebook Page when its token can see the account, else the Instagram login credentials."""
     page, token = env("FB_PAGE_ID"), env("FB_PAGE_TOKEN")
-    if not (page and token):
-        raise TargetsError("FB_PAGE_ID and FB_PAGE_TOKEN are not set")
-    token = page_token(page, token)
-    ig = _get(f"{API}/{page}", fields="instagram_business_account", access_token=token).get("instagram_business_account", {}).get("id")
-    if not ig:
-        raise TargetsError("the Facebook Page has no linked Instagram account visible to this token")
-    return ig, token
+    why = "FB_PAGE_ID and FB_PAGE_TOKEN are not set"
+    if page and token:
+        try:
+            token = page_token(page, token)
+            ig = _get(f"{API}/{page}", fields="instagram_business_account", access_token=token).get("instagram_business_account", {}).get("id")
+            if ig:
+                return ig, token, API
+            why = "the Facebook Page has no linked Instagram account visible to this token"
+        except Exception as e:  # noqa: BLE001 - any failure here just means trying the other route
+            why = str(e)[:300]
+    user, ig_token = env("IG_USER_ID"), env("IG_ACCESS_TOKEN")
+    if user and ig_token:
+        return user, ig_token, IG_API
+    raise TargetsError(why)
 
 
-def _account(ig: str, token: str, username: str) -> dict:
+def _account(api: str, ig: str, token: str, username: str) -> dict:
     fields = f"business_discovery.username({username}){{username,name,followers_count,media.limit(12){{{MEDIA_FIELDS}}}}}"
-    return _get(f"{API}/{ig}", fields=fields, access_token=token)["business_discovery"]
+    return _get(f"{api}/{ig}", fields=fields, access_token=token)["business_discovery"]
 
 
-def _hashtag(ig: str, token: str, tag: str) -> list[dict]:
-    found = _get(f"{API}/ig_hashtag_search", user_id=ig, q=tag, access_token=token).get("data") or []
+def _hashtag(api: str, ig: str, token: str, tag: str) -> list[dict]:
+    found = _get(f"{api}/ig_hashtag_search", user_id=ig, q=tag, access_token=token).get("data") or []
     if not found:
         return []
-    return _get(f"{API}/{found[0]['id']}/recent_media", user_id=ig, fields=MEDIA_FIELDS.replace(",media_product_type", ""),
+    return _get(f"{api}/{found[0]['id']}/recent_media", user_id=ig, fields=MEDIA_FIELDS.replace(",media_product_type", ""),
                 limit=30, access_token=token).get("data") or []
 
 
@@ -84,7 +95,7 @@ def collect(tc: dict, now: datetime) -> tuple[list[dict], dict]:
     """Every recent reel found, plus notes on what could not be checked."""
     notes = {"api": None, "skipped_accounts": [], "hashtags": {}}
     try:
-        ig, token = _connect()
+        ig, token, api = _connect()
     except TargetsError as e:
         notes["api"] = str(e)
         return [], notes
@@ -92,7 +103,7 @@ def collect(tc: dict, now: datetime) -> tuple[list[dict], dict]:
     found = []
     for name in tc["accounts"]:
         try:
-            acct = _account(ig, token, name)
+            acct = _account(api, ig, token, name)
         except TargetsError as e:
             notes["skipped_accounts"].append({"username": name, "why": str(e)[:160]})
             if len(notes["skipped_accounts"]) == len(tc["accounts"]):
@@ -107,7 +118,7 @@ def collect(tc: dict, now: datetime) -> tuple[list[dict], dict]:
             found.append({**m, "username": acct["username"], "followers": followers, "source": "account"})
     for tag in tc.get("hashtags") or []:
         try:
-            media = _hashtag(ig, token, tag)
+            media = _hashtag(api, ig, token, tag)
         except TargetsError as e:
             notes["hashtags"][tag] = str(e)[:160]
             continue
