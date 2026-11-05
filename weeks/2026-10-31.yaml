@@ -689,7 +689,7 @@
   asin: B0BZV4QFP8
   name: Anker Soundcore Liberty 4 NC Earbuds
   lane: other
-  hook_style: number
+  hook_style: question
   angle: Noise cancelling earbuds that adapt to the sound around you and last a long time.
   key_facts:
   - Wireless earbuds with adaptive noise cancelling
@@ -701,42 +701,42 @@
   - gym
   content:
     format: list
-    label: Commute upgrades
+    label: Commute fixes I wish I found sooner
     product_photo: assets/products/soundcore-liberty-4-nc.jpg
     reel_file: assets/reels/commute.mp4   # AI story video approved by Kevin Nov 4 2026
     beats:
-    - on_screen: 3 things that fix your commute
+    - on_screen: Phone at 2% on the train?
       voiceover: ''
-    - on_screen: Quiet the train
+    - on_screen: Quiet the whole train
       voiceover: ''
       product_photo: assets/products/soundcore-liberty-4-nc.jpg
-    - on_screen: Charge with no cable to forget
+    - on_screen: Charges with no cable to forget
       voiceover: ''
       product_photo: assets/products/anker-power-bank-10k-cable.jpg
     - on_screen: One cord for watch and phone
       voiceover: ''
       product_photo: assets/products/shsixin-watch-cable.jpg
-    - on_screen: Comment SHOP for all 3
+    - on_screen: Comment SHOP and I will send you the link
       voiceover: ''
     carousel:
-    - title: 3 things that fix your commute
-      body: Quiet the train; Charge with no cable to forget; One cord for watch and phone
+    - title: Phone at 2% on the train?
+      body: Quiet the whole train; Charges with no cable to forget; One cord for watch and phone
     - title: Comment SHOP
-      body: I will DM you all three Amazon links.
-    caption: '3 things that fix your commute. 🎧
+      body: I will send you the link.
+    caption: 'Phone at 2% on the train? Your commute does not have to be like this. 🎧
 
 
       AI-generated video.
 
 
-      1. Soundcore Liberty 4 NC: noise cancelling earbuds for the train or the plane.
+      1. Quiet the whole train: the Soundcore Liberty 4 NC noise cancelling earbuds.
 
-      2. Anker Power Bank 10K: the USB-C cable is built in, so there is nothing to forget.
+      2. Charges with no cable to forget: the Anker Power Bank 10K with the USB-C cable built in.
 
-      3. A 3-in-1 braided cable: one cord charges an Apple Watch, an iPhone and USB-C.
+      3. One cord for watch and phone: a 3-in-1 braided cable for Apple Watch, iPhone and USB-C.
 
 
-      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
+      Comment SHOP and I will send you the link.'
     hashtags:
     - commute
     - traveltech
