@@ -1,0 +1,12 @@
+name: m185-mouse
+budget_credits: 0
+product_photo: assets/products/logitech-m185-mouse.jpg
+reel:
+  name: Logitech M185 mouse
+  product_photo: assets/products/logitech-m185-mouse.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {kind: photo, photo: assets/products/logitech-m185-mouse.jpg, voiceover: "Still using a trackpad?"}
+  - {kind: photo, photo: assets/products/logitech-m185-mouse.jpg, voiceover: "My wrist and my patience were done."}
+  - {kind: photo, photo: assets/products/logitech-m185-mouse.jpg, voiceover: "This Logitech mouse plugs in with a tiny receiver."}
+  - {kind: photo, photo: assets/products/logitech-m185-mouse.jpg, voiceover: "No setup, and it just works."}

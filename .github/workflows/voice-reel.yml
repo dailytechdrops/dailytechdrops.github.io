@@ -36,7 +36,7 @@ jobs:
         run: |
           git fetch origin media --depth 1
           mkdir -p "out/${{ inputs.name }}"
-          git archive origin/media "runway/${{ inputs.name }}" | tar -x -C out --strip-components=1
+          git archive origin/media "runway/${{ inputs.name }}" 2>/dev/null | tar -x -C out --strip-components=1 || true
       - name: Build the reel
         run: python tools/product_reel.py "${{ inputs.name }}" --out "out/${{ inputs.name }}-voiced.mp4"
       - uses: actions/upload-artifact@v4

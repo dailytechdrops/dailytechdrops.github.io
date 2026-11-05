@@ -61,7 +61,8 @@ def main() -> None:
                             "-crf", "14", str(clip)], check=True)
             _segment(rc, clip, overlay, voice, length, seg, brand=brand)
         else:
-            _segment(rc, None, overlay, voice, length, seg, photo=shots / f"{beat['shot']}.jpg", motion=i, brand=brand)
+            photo = ROOT / beat["photo"] if beat.get("photo") else shots / f"{beat['shot']}.jpg"
+            _segment(rc, None, overlay, voice, length, seg, photo=photo, motion=i, brand=brand)
         segments.append(seg)
         lengths.append(length)
     frame, seg = work / "end.png", work / "seg_end.mp4"

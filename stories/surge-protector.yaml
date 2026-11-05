@@ -1,0 +1,12 @@
+name: surge-protector
+budget_credits: 0
+product_photo: assets/products/amazon-basics-surge-protector.jpg
+reel:
+  name: Amazon Basics surge protector
+  product_photo: assets/products/amazon-basics-surge-protector.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {kind: photo, photo: assets/products/amazon-basics-surge-protector.jpg, voiceover: "Running out of outlets again?"}
+  - {kind: photo, photo: assets/products/amazon-basics-surge-protector.jpg, voiceover: "Everything I own needs power."}
+  - {kind: photo, photo: assets/products/amazon-basics-surge-protector.jpg, voiceover: "This surge protector adds six protected outlets."}
+  - {kind: photo, photo: assets/products/amazon-basics-surge-protector.jpg, voiceover: "One plug in the wall, and my desk is covered."}

@@ -1,0 +1,33 @@
+name: echo-dot-clock
+budget_credits: 70
+product_photo: assets/products/echo-dot-clock.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a rumpled unmade bed in a bedroom, bright late-morning sunlight already streaming across the sheets, a plain wooden nightstand with a glass of water, shot from the foot of the bed. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the bed. Sunlight shifts gently across the sheets. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/echo-dot-clock.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a small round fabric speaker with a glowing clock display, on a wooden nightstand beside a lamp and a book, soft dawn light. It keeps exactly the shape, color and clock display of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+- id: shot3
+  product_photo: assets/products/echo-dot-clock.jpg
+  still: >-
+    Photorealistic vertical wide photo of a calm tidy bedroom at sunrise with @product, a small round fabric speaker with a clock display, on the nightstand, soft warm light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+reel:
+  name: Echo Dot with Clock
+  product_photo: assets/products/echo-dot-clock.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "I overslept again."}
+  - {shot: shot1, kind: clip, start: 2.4, voiceover: "Sun was already up and so was everyone else."}
+  - {shot: shot2, kind: photo, voiceover: "Then I put this Echo Dot with a clock next to my bed."}
+  - {shot: shot3, kind: photo, voiceover: "Now an alarm wakes me and the time is right there."}
