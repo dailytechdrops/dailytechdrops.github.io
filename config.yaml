@@ -148,8 +148,9 @@ schedule:
   # Used when the Sunday research fills a week. Times are Eastern.
   # 3 reels a day from Oct 26 2026; back to 2 on Oct 30 2026 (Kevin): views fell from ~100 to 1-5
   # after remixes began, so remixes are paused (paused/) until reach recovers.
-  posts_per_day: 2
-  times: ["11:30", "19:00"]      # the two fixed daily slots
+  posts_per_day: 3
+  # Nov 5 2026 (Kevin): 3 reels a day at 11:30, 15:30 and 19:30 ET, on every connected platform.
+  times: ["11:30", "15:30", "19:30"]      # the three fixed daily slots
   # The third reel is the posting-time test: it rotates through these, one per day in order,
   # and the weekly report compares reach by time of day.
   test_times: ["15:30", "08:00", "13:30", "21:30"]

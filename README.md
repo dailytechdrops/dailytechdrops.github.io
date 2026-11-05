@@ -35,7 +35,8 @@ fills each day like this:
 | Slot | What | Why |
 | --- | --- | --- |
 | 11:30 ET | New product | Fixed time, so week-over-week numbers compare |
-| 19:00 ET | New product | Fixed time |
+| 15:30 ET | New product | Fixed time (added Nov 5 2026) |
+| 19:30 ET | New product | Fixed time (moved from 19:00 Nov 5 2026) |
 | Test time, rotating `schedule.test_times` one per day (**paused Oct 30 2026**) | **Remix**: a product posted at least 2 days earlier, with a new hook | Tests hook styles on the same product and photos, tests posting times, and gives winners a second run |
 
 Remix entries carry `remix_of: <id of the first post>` and `hook_style:`, use a different hook style than the first
