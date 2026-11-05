@@ -1,0 +1,18 @@
+# Nov 5 19:00 "Phone at 2% on the train?" problem shot (discovery rules, Kevin Nov 5 2026).
+# The product beats reuse commute-v2 shot3 (power bank) and shot4 (nightstand cable); this is the new problem shot only.
+name: commute-v3
+budget_credits: 35
+product_photo: assets/products/anker-power-bank-10k-cable.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/shsixin-watch-cable.jpg
+  still: >-
+    Photorealistic vertical close-up photo of a train tray table by the window in soft morning light: a smartphone
+    lying face down, a messy tangled knot of black charging cables and wired earphones beside it, and a person's hand
+    in a navy jacket sleeve resting tiredly on the table. Blurred countryside outside. No faces, no text, no screens
+    lit. Everything looks ordinary and unbranded.
+  must:
+  - no product logos on the cables
+  motion: >-
+    Very slow push-in toward the tray table. The hand stays still, resting. Soft window light and shadows drift
+    slowly across the table as the train moves. Nothing else moves.
