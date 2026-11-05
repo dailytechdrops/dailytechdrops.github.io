@@ -51,7 +51,7 @@ reel:
   product_photo: assets/products/anker-525-charging-station.jpg
   end_voiceover: "Comment SHOP and I will send you the link."
   beats:
-  - {shot: shot1, kind: clip, voiceover: "I kept tripping over all these chargers."}
-  - {shot: shot2, kind: clip, voiceover: "Every outlet on my desk was full."}
-  - {shot: shot3, kind: clip, voiceover: "Then I found this Anker charging station."}
-  - {shot: shot4, kind: clip, voiceover: "Now everything charges from one spot."}
+  - {shot: shot1, kind: clip, voiceover: "Too many chargers on my desk."}
+  - {shot: shot2, kind: clip, voiceover: "Every outlet was full."}
+  - {shot: shot3, kind: clip, voiceover: "Then I found this Anker station."}
+  - {shot: shot4, kind: clip, voiceover: "Now everything charges in one spot."}
