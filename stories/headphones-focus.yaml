@@ -1,8 +1,8 @@
 # People test, phone-filmed look (Nov 5 2026): "Can't focus with the noise?" with Soundcore Q20i headphones.
-# Test only, not in the posting queue. No hands in frame, person seated, almost no motion.
-# Stills first (5 credits each), then 2 clips (25 each). Cap 60.
+# Test only, not in the posting queue. Hybrid: shot1 = person (problem), shot3 = the real product placed in the
+# same cafe, no person wearing it (Runway drew a cable and wrong logo on a worn product, Nov 5). Cap 70.
 name: headphones-focus
-budget_credits: 60
+budget_credits: 70
 product_photo: assets/products/soundcore-q20i.jpg
 shots:
 - id: shot1
@@ -15,17 +15,16 @@ shots:
   motion: >-
     Handheld phone feel with a very slight natural sway. The woman stays seated and only blinks and breathes. Blurred
     background people stay soft. Nothing else moves. No text.
-- id: shot2
+- id: shot3
   product_photo: assets/products/soundcore-q20i.jpg
-  person_from: shot1
   must:
   - black wireless over-ear headphones with a silver accent on the headband slider and one round logo disc on each ear cup
   - no cable, no wire and no cord anywhere
   still: >-
-    Vertical photo that looks filmed on an iPhone, handheld, natural indoor light with slight grain: the same woman
-    from @person seated at the same cafe table, now wearing @product, calm and focused, eyes on the laptop, side
-    view, hands out of frame, background crowd blurred. The headphones keep exactly the shape, color and logo of
-    @product. Slightly imperfect framing like a real phone video. No text.
+    Vertical photo that looks filmed on an iPhone, handheld, natural indoor light with slight grain: @product resting
+    on a light wooden table at a busy campus cafe beside a closed laptop and a notebook, no person in frame, blurred
+    students in the background. The headphones keep exactly the shape, color and logo of @product. Slightly
+    imperfect framing like a real phone video. No text.
   motion: >-
-    Handheld phone feel with a very slight natural sway. She stays seated, calm, only blinks and breathes. The
-    headphones keep exactly the same shape, color and logo. Nothing else moves. No text.
+    Handheld phone feel with a very slight natural sway and a slow gentle push-in toward the headphones. Nothing
+    else moves. The headphones keep exactly the same shape, color and logo. No people, no hands, no text.
