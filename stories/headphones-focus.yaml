@@ -28,3 +28,13 @@ shots:
   motion: >-
     Handheld phone feel with a very slight natural sway and a slow gentle push-in toward the headphones. Nothing
     else moves. The headphones keep exactly the same shape, color and logo. No people, no hands, no text.
+# How the reel is assembled (tools/product_reel.py): first-person voiceover, no on-screen text except the end card.
+reel:
+  name: Soundcore Q20i headphones
+  product_photo: assets/products/soundcore-q20i.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "I could not focus in this cafe at all."}
+  - {shot: shot1, kind: clip, start: 2.6, voiceover: "Every conversation was louder than my work."}
+  - {shot: shot3, kind: clip, start: 0.3, voiceover: "Then I tried these Soundcore headphones."}
+  - {shot: shot3, kind: clip, start: 2.6, voiceover: "Noise cancelling, and the whole cafe just faded out."}
