@@ -754,68 +754,58 @@
 
       As an Amazon Associate I earn from qualifying purchases.'
 
+# Nov 5 2026: Kevin went back to ONE product per reel with AI video (Runway) to test the theory. This one is the Anker 525
+# story (stories/anker-station.yaml): problem hook, outlets full, discovery, clean desk, Comment SHOP. Approved by Kevin Nov 5.
 - slot: 2026-11-06 11:30
-  asin: B0BWWZXWPL
-  name: Blink Mini 2 Security Camera (White)
-  lane: home security gadgets
-  hook_style: number
-  angle: Three small gadgets that keep an eye on your home and your things.
+  asin: B0B3HSJ5NL
+  name: Anker 525 Charging Station (7-in-1)
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  angle: Too many chargers on your desk? One station with outlets, USB-A and USB-C replaces the pile.
   key_facts:
-  - Blink Mini 2 is a plug-in indoor camera that works with Alexa
-  - Wyze Cam v4 is an indoor and outdoor camera with color night vision
-  - AirTag 4 pack finds keys, bags and luggage in the Find My app
+  - '7-in-1 power strip: 3 AC outlets, 2 USB-A and 2 USB-C ports'
+  - Up to 65W power delivery
+  - 5 ft cord
   broll:
-  - home security
+  - desk power strip
   content:
-    format: list
-    label: Peace of mind
-    product_photo: assets/products/blink-mini-2.jpg
+    product_photo: assets/products/anker-525-charging-station.jpg
+    reel_file: assets/reels/anker-station.mp4   # AI video approved by Kevin Nov 5 2026
     beats:
-    - on_screen: 3 gadgets for peace of mind
+    - on_screen: Too many chargers on your desk?
       voiceover: ''
-    - on_screen: See inside from anywhere
+    - on_screen: Outlets full. Cables everywhere.
       voiceover: ''
-      product_photo: assets/products/blink-mini-2.jpg
-    - on_screen: Color video, even at night
+    - on_screen: This one fixes it
       voiceover: ''
-      product_photo: assets/products/wyze-cam-v4.jpg
-    - on_screen: Never lose keys again
+    - on_screen: Clean desk. Everything charging.
       voiceover: ''
-      product_photo: assets/products/apple-airtag-4-pack.jpg
-    - on_screen: Comment SHOP for all 3
+    - on_screen: Comment SHOP
       voiceover: ''
     carousel:
-    - title: 3 gadgets for peace of mind
-      body: See inside from anywhere; Color video, even at night; Never lose keys again
+    - title: Too many chargers?
+      body: One station for the whole desk.
     - title: Comment SHOP
-      body: I will DM you all three Amazon links.
-    caption: '3 gadgets for peace of mind. 🏠
+      body: I will DM you the Amazon link.
+    caption: |-
+      Too many chargers on your desk? 🔌
 
+      The Anker 525 charging station packs 3 AC outlets, 2 USB-A ports and 2 USB-C ports with up to 65W of power delivery into one small station, so the pile of adapters goes away.
 
-      1. Blink Mini 2: a small plug-in camera so you can check on home from your phone.
+      AI-generated video.
 
-      2. Wyze Cam v4: indoor or outdoor, with color night vision.
-
-      3. Apple AirTag 4 pack: find keys, bags and luggage in the Find My app.
-
-
-      Comment SHOP and I will DM you all three Amazon links, or tap the link in bio.'
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
     hashtags:
-    - homesecurity
-    - smarthome
-    - airtag
-    - amazonfinds
+    - desksetup
+    - anker
+    - phonecharger
     - techgadgets
-    dm_message: 'Here are all three:
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker 525 Charging Station: {link}
 
-      1. Blink Mini 2 camera: {link:B0BWWZXWPL}
+      As an Amazon Associate I earn from qualifying purchases.
 
-      2. Wyze Cam v4: {link:B0CJWJ8RYR}
-
-      3. Apple AirTag 4 pack: {link:B0D54JZTHY}
-
-
-      As an Amazon Associate I earn from qualifying purchases.'
 - slot: 2026-11-06 19:00
   asin: B0CH9JPNZM
   name: Anker 332 USB-C Hub (5-in-1)
