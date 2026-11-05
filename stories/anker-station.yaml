@@ -45,3 +45,13 @@ shots:
   motion: >-
     Slow gentle push-in toward the tidy desk. Warm morning light glows softly. Nothing else moves. The charging
     station keeps exactly the same shape, color and logo. No people, no hands, no text.
+# How the reel is assembled (tools/product_reel.py): first-person voiceover, no on-screen text except the end card.
+reel:
+  name: Anker 525 charging station
+  product_photo: assets/products/anker-525-charging-station.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, voiceover: "I kept tripping over all these chargers."}
+  - {shot: shot2, kind: clip, voiceover: "Every outlet on my desk was full."}
+  - {shot: shot3, kind: clip, voiceover: "Then I found this Anker charging station."}
+  - {shot: shot4, kind: clip, voiceover: "Now everything charges from one spot."}
