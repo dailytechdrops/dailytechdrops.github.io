@@ -1,0 +1,41 @@
+# Nov 5 2026 extra test reel (Kevin): Apple AirTag 4 pack, "Keys gone again?". No people, no hands, slow push-ins only.
+name: airtag
+budget_credits: 150
+product_photo: assets/products/apple-airtag-4-pack.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a tidy home entryway in the morning: a wooden console table by the front door
+    with a small empty ceramic dish, a few envelopes and a plant, a jacket hanging on a wall hook, soft daylight
+    from a side window. The dish is empty, nothing in it. No people, no text, no keys.
+  motion: >-
+    Slow steady push-in toward the empty dish on the console table. Soft daylight shifts gently. Nothing else
+    moves. No people, no text.
+- id: shot2
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a living room sofa with the cushions pulled off and stacked beside it,
+    a crumpled blanket and a coat thrown over the armrest, as if someone has been searching for something.
+    Warm daylight, shallow depth of field. No people, no text, no screens.
+  motion: >-
+    Slow gentle push-in toward the sofa. Soft light stays steady. Nothing else moves. No people, no text.
+- id: shot3
+  product_photo: assets/products/apple-airtag-4-pack.jpg
+  still: >-
+    Photorealistic vertical close-up photo of a bunch of house keys on a key ring with a small round white and
+    silver tag attached, lying on a wooden table next to a smartphone lying face down. The tag is @product, round
+    and flat with a polished silver face. Soft warm light, shallow depth of field. The tag keeps exactly the shape,
+    color and look of @product. No people, no hands, no text, screens dark.
+  motion: >-
+    Slow steady push-in toward the keys and tag on the table. Soft light stays steady. Nothing else moves. The tag
+    keeps exactly the same shape and look. No people, no hands, no text.
+- id: shot4
+  product_photo: assets/products/apple-airtag-4-pack.jpg
+  still: >-
+    Photorealistic vertical photo of house keys with a small round white and silver tag from @product, hanging on
+    a wall hook in a tidy bright entryway beside a tote bag and a jacket, warm morning light, calm and organized.
+    The tag keeps exactly the shape and look of @product. No people, no hands, no text.
+  motion: >-
+    Slow gentle push-in toward the hanging keys. Warm light glows softly. Nothing else moves. The tag keeps exactly
+    the same shape and look. No people, no hands, no text.
