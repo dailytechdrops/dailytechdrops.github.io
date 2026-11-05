@@ -1,0 +1,28 @@
+# People test, phone-filmed look (Nov 5 2026): "Can't focus with the noise?" with Soundcore Q20i headphones.
+# Test only, not in the posting queue. No hands in frame, person seated, almost no motion.
+# Stills first (5 credits each), then 2 clips (25 each). Cap 60.
+name: headphones-focus
+budget_credits: 60
+product_photo: assets/products/soundcore-q20i.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Vertical photo that looks filmed on an iPhone, handheld, natural indoor light with slight grain: a young woman
+    seen from the side seated at a busy campus cafe table with an open laptop and a notebook, rubbing her temple with
+    a tired look, blurred students talking in the background. Ordinary everyday clothes, natural skin, hands out of
+    frame or resting down, slightly imperfect framing like a real phone video. No text, no brand logos.
+  motion: >-
+    Handheld phone feel with a very slight natural sway. The woman stays seated and only blinks and breathes. Blurred
+    background people stay soft. Nothing else moves. No text.
+- id: shot2
+  product_photo: assets/products/soundcore-q20i.jpg
+  person_from: shot1
+  still: >-
+    Vertical photo that looks filmed on an iPhone, handheld, natural indoor light with slight grain: the same woman
+    from @person seated at the same cafe table, now wearing @product, white over-ear headphones, calm and focused,
+    eyes on the laptop, side view, hands out of frame, background crowd blurred. The headphones keep exactly the
+    shape, color and logo of @product. Slightly imperfect framing like a real phone video. No text.
+  motion: >-
+    Handheld phone feel with a very slight natural sway. She stays seated, calm, only blinks and breathes. The
+    headphones keep exactly the same shape, color and logo. Nothing else moves. No text.
