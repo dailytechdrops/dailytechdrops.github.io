@@ -42,3 +42,13 @@ shots:
   motion: >-
     Slow gentle push-in toward the glowing lamp and sofa. The warm light glows softly and steadily. Nothing else
     moves. No people, no hands, no text.
+# How the reel is assembled (tools/product_reel.py): first-person voiceover, no on-screen text except the end card.
+reel:
+  name: Kasa Smart Plug Mini
+  product_photo: assets/products/kasa-smart-plug-mini.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, voiceover: "I always forget the lights."}
+  - {shot: shot2, kind: clip, voiceover: "A lamp on all night, nobody home."}
+  - {shot: shot3, kind: clip, voiceover: "Then I plugged in this smart plug."}
+  - {shot: shot4, kind: clip, voiceover: "Now my lights run on a schedule."}

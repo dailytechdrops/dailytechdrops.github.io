@@ -47,7 +47,7 @@ def main() -> None:
     for i, beat in enumerate(reel["beats"]):
         seg = work / f"seg_{i}.mp4"
         voice = None if a.no_voice else tts(cfg, beat["voiceover"], work / f"voice_{i}.mp3")
-        length = (max(duration(voice) + 0.3, 1.6) if voice else base) + FADE
+        length = (max(duration(voice) + 0.15, 1.5) if voice else base) + FADE
         if i == 0:
             length += 0.15   # a beat before the first word lands
         overlay = None
@@ -67,7 +67,7 @@ def main() -> None:
     frame, seg = work / "end.png", work / "seg_end.mp4"
     end_card(cfg, ROOT / reel["product_photo"], reel["name"], frame, contain=True)
     voice = None if a.no_voice else tts(cfg, reel["end_voiceover"], work / "voice_end.mp3")
-    end_len = (max(duration(voice) + 0.5, LIST_END) if voice else LIST_END) + FADE
+    end_len = (max(duration(voice) + 0.3, 2.2) if voice else LIST_END) + FADE
     _segment(rc, None, None, voice, end_len, seg, frame, motion=len(segments), brand=brand, endcard=True)
     segments.append(seg)
     lengths.append(end_len)
