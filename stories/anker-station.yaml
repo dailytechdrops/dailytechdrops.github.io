@@ -2,7 +2,7 @@
 # 5 beats ~2s: hook (AI clip) / pain (photo scene) / discovery (photo scene) / transformation (AI clip) / end card.
 # No people, no hands, slow camera only, so nothing morphs.
 name: anker-station
-budget_credits: 80
+budget_credits: 150
 product_photo: assets/products/anker-525-charging-station.jpg
 shots:
 - id: shot1
@@ -21,9 +21,9 @@ shots:
     Photorealistic vertical close-up photo of a wall outlet behind a desk, overloaded with a bulky power strip and
     four chunky wall chargers jammed in, cables knotted and hanging down. Warm soft light, shallow depth of field.
     No people, no text, no brand logos, US two-prong plugs, only plain generic chargers.
-  still_only: true   # photo scene: Ken Burns in the renderer, no clip credits
   motion: >-
-    Static camera. No motion.
+    Slow steady push-in toward the overloaded outlet. The dangling cables hang still. Warm light stays soft.
+    Nothing else moves. No people, no hands, no text.
 - id: shot3
   product_photo: assets/products/anker-525-charging-station.jpg
   still: >-
@@ -31,9 +31,10 @@ shots:
     a bright airy home office. A smartphone and a laptop charge from it through two neat cables. A plant and a coffee
     mug beside it. Soft morning window light, shallow depth of field. The charging station keeps exactly the shape,
     color, logo and port layout of @product. No people, no text, screens dark.
-  still_only: true   # photo scene: Ken Burns in the renderer, no clip credits
   motion: >-
-    Static camera. No motion.
+    Slow gentle sideways camera drift to the right across the desk, the charging station staying centered in
+    frame. Soft morning light. Nothing else moves. The charging station keeps exactly the same shape, color and
+    logo. No people, no hands, no text.
 - id: shot4
   product_photo: assets/products/anker-525-charging-station.jpg
   still: >-
