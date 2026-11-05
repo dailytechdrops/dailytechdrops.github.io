@@ -1,0 +1,49 @@
+# Nov 4 2026, 10pm ET: extra test reel Kevin asked for (single-product Runway video, stories/airtag.yaml). Approved by Kevin.
+- slot: 2026-11-04 22:00
+  asin: B0D54JZTHY
+  name: Apple AirTag 4 Pack
+  lane: everyday carry and security gadgets
+  hook_style: question
+  angle: Keys gone again? An AirTag on the key ring finds them in the Find My app.
+  key_facts:
+  - Apple AirTag 4 pack
+  - Find keys, bags and luggage in the Find My app
+  broll:
+  - keys
+  content:
+    product_photo: assets/products/apple-airtag-4-pack.jpg
+    reel_file: assets/reels/airtag.mp4   # AI video approved by Kevin Nov 5 2026
+    beats:
+    - on_screen: Keys gone again?
+      voiceover: ''
+    - on_screen: Tearing the house apart?
+      voiceover: ''
+    - on_screen: An AirTag finds them
+      voiceover: ''
+    - on_screen: Find your keys in seconds
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Keys gone again?
+      body: Put an AirTag on them.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Keys gone again? 🔑
+
+      Clip an Apple AirTag to your key ring, bag or luggage and find it in the Find My app. The 4 pack covers keys, backpack and more.
+
+      AI-generated video.
+
+      Comment SHOP and I will DM you the Amazon link, or tap the link in bio.
+    hashtags:
+    - airtag
+    - apple
+    - everydaycarry
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Apple AirTag 4 Pack: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
