@@ -95,13 +95,16 @@ def main(name: str) -> None:
     for shot in spec["shots"]:
         still, clip = out / f"{shot['id']}.jpg", out / f"{shot['id']}.mp4"
         if not still.exists():
-            refs = [{"uri": data_uri(Path(shot.get("product_photo") or default_photo)), "tag": "product"}]
+            # no_product_ref: scenes without the product (e.g. the "problem" hook) must not see its photo, or it leaks in.
+            refs = [] if shot.get("no_product_ref") else [{"uri": data_uri(Path(shot.get("product_photo") or default_photo)), "tag": "product"}]
             if shot.get("person_from"):
                 # Keeps the same person across shots: an earlier still is a second reference, tagged @person.
                 refs.append({"uri": data_uri(out / f"{shot['person_from']}.jpg"), "tag": "person"})
             charge(COST_STILL)
-            url = run("text_to_image", {"model": "gen4_image", "ratio": "720:1280", "promptText": prompts(shot)[0],
-                                        "referenceImages": refs})
+            body = {"model": "gen4_image", "ratio": "720:1280", "promptText": prompts(shot)[0]}
+            if refs:
+                body["referenceImages"] = refs
+            url = run("text_to_image", body)
             still.write_bytes(requests.get(url, timeout=120).content)
             print(f"{shot['id']}: still made ({spent}/{cap} credits)")
         if not clip.exists() and not stills_only and not shot.get("still_only"):
