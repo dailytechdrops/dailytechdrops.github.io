@@ -7,17 +7,17 @@ shots:
   no_product_ref: true
   still: >-
     Photorealistic vertical photo of a tidy home entryway in the morning: a wooden console table by the front door
-    with a small empty ceramic dish, a few envelopes and a plant, a jacket hanging on a wall hook, soft daylight
-    from a side window. The dish is empty, nothing in it. No people, no text, no keys.
+    with a plant and a few envelopes, a jacket hanging on a wall hook, soft daylight from a side window.
+    A quiet, slightly worried mood. No people, no text.
   motion: >-
-    Slow steady push-in toward the empty dish on the console table. Soft daylight shifts gently. Nothing else
+    Slow steady push-in toward the console table. Soft daylight shifts gently. Nothing else
     moves. No people, no text.
 - id: shot2
   no_product_ref: true
   still: >-
     Photorealistic vertical photo of a living room sofa with the cushions pulled off and stacked beside it,
-    a crumpled blanket and a coat thrown over the armrest, as if someone has been searching for something.
-    Warm daylight, shallow depth of field. No people, no text, no screens.
+    a crumpled blanket and a coat thrown over the armrest, in a messy living room.
+    Warm daylight, shallow depth of field. Only fabric and furniture in the frame. No people, no text, no screens.
   motion: >-
     Slow gentle push-in toward the sofa. Soft light stays steady. Nothing else moves. No people, no text.
 - id: shot3
