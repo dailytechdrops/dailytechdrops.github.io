@@ -1,0 +1,58 @@
+name: Voice reel
+
+# Manual: builds a single-product reel with first-person voiceover (free Kokoro voice, config.yaml voice:) from the
+# Runway shots of stories/<name>.yaml (media branch runway/<name>/) and saves it to the media branch as
+# voice/<name>.mp4. The `reel:` section of the story file lists the beats and voiceover lines.
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Story file name in stories/, e.g. anker-station"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Install Kokoro and ffmpeg
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install kokoro soundfile "preshed<3.0.14"
+          python -c "from kokoro import KPipeline; KPipeline(lang_code='a')"
+      - name: Fetch the Runway shots
+        run: |
+          git fetch origin media --depth 1
+          mkdir -p "out/${{ inputs.name }}"
+          git archive origin/media "runway/${{ inputs.name }}" | tar -x -C out --strip-components=1
+      - name: Build the reel
+        run: python tools/product_reel.py "${{ inputs.name }}" --out "out/${{ inputs.name }}-voiced.mp4"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-${{ inputs.name }}
+          path: out/${{ inputs.name }}-voiced.mp4
+          retention-days: 14
+      - name: Save to media branch
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git worktree add -B media /tmp/media origin/media
+          mkdir -p /tmp/media/voice
+          cp "out/${{ inputs.name }}-voiced.mp4" "/tmp/media/voice/${{ inputs.name }}.mp4"
+          cd /tmp/media
+          git add voice
+          git commit -m "Voiced reel for ${{ inputs.name }}"
+          for i in 1 2 3 4; do git push origin media && exit 0; sleep 5; git pull --rebase origin media || true; done
+          exit 1
