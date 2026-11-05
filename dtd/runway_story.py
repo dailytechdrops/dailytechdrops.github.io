@@ -104,7 +104,7 @@ def main(name: str) -> None:
                                         "referenceImages": refs})
             still.write_bytes(requests.get(url, timeout=120).content)
             print(f"{shot['id']}: still made ({spent}/{cap} credits)")
-        if not clip.exists() and not stills_only:
+        if not clip.exists() and not stills_only and not shot.get("still_only"):
             charge(COST_CLIP)
             url = run("image_to_video", {"model": "gen4_turbo", "ratio": "720:1280", "duration": 5,
                                          "promptImage": data_uri(still), "promptText": prompts(shot)[1]})

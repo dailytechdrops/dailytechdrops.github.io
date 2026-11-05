@@ -19,6 +19,7 @@ shots:
     Photorealistic vertical close-up photo of a wall outlet behind a desk, overloaded with a bulky power strip and
     four chunky wall chargers jammed in, cables knotted and hanging down. Warm soft light, shallow depth of field.
     No people, no text, no brand logos.
+  still_only: true   # photo scene: Ken Burns in the renderer, no clip credits
   motion: >-
     Static camera. No motion.
 - id: shot3
@@ -28,6 +29,7 @@ shots:
     a bright airy home office. A smartphone and a laptop charge from it through two neat cables. A plant and a coffee
     mug beside it. Soft morning window light, shallow depth of field. The charging station keeps exactly the shape,
     color, logo and port layout of @product. No people, no text, screens dark.
+  still_only: true   # photo scene: Ken Burns in the renderer, no clip credits
   motion: >-
     Static camera. No motion.
 - id: shot4
