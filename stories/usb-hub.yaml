@@ -10,8 +10,11 @@ shots:
     Slow steady push-in toward the laptop and the loose cables. Soft light shifts gently. Nothing else moves. No people, no hands, no text.
 - id: shot2
   product_photo: assets/products/anker-332-usb-c-hub.jpg
+  must:
+  - The hub is white with the ANKER logo, one short attached white cable ending in a USB-C plug, two blue USB-A ports, USB-C ports and one HDMI port on its long edges.
+  - Nothing is plugged into the hub except its own cable; no ethernet port, no extra cables.
   still: >-
-    Photorealistic vertical photo of @product, a slim grey USB-C hub, plugged into the side of a silver laptop on a tidy light oak desk, with an HDMI cable and a flash drive connected, soft window light. It keeps exactly the shape, color and port layout of @product. No people, no hands, no text, no brand logos, screens dark.
+    Photorealistic vertical photo of @product, a slim white USB-C hub with a short attached cable, lying alone on a light oak desk in soft window light, a closed silver laptop blurred behind it. It keeps exactly the shape, color, logo and port layout of @product. No people, no hands, no text, screens dark.
   motion: >-
     Slow steady push-in. Nothing else moves. No people, no hands, no text.
   still_only: true
