@@ -35,4 +35,4 @@ reel:
   beats:
   - {shot: shot1, kind: clip, start: 0.3, voiceover: "I looked blurry on every video call."}
   - {shot: shot2, kind: photo, voiceover: "Then I clipped this Logitech webcam on."}
-  - {shot: shot3, kind: photo, voiceover: "Sharp 1080p, and I finally look professional."}
+  - {shot: shot2, kind: photo, voiceover: "Sharp 1080p, and I finally look professional."}
