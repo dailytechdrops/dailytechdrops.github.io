@@ -1,0 +1,26 @@
+name: mx-master
+budget_credits: 50
+product_photo: assets/products/logitech-mx-master-3s.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical close-up photo of a cheap plain worn-out computer mouse on a cluttered office desk next to a laptop and a notepad, late afternoon light, tired mood, shot at desk level. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the old mouse. Afternoon light shifts gently. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/logitech-mx-master-3s.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, a graphite grey ergonomic wireless mouse, resting on a tidy light oak desk beside a laptop, soft window light. It keeps exactly the shape, color, logo and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Logitech MX Master 3S
+  product_photo: assets/products/logitech-mx-master-3s.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "My wrist aches by three every day."}
+  - {shot: shot1, kind: clip, start: 2.4, voiceover: "This cheap mouse was the problem."}
+  - {shot: shot2, kind: photo, voiceover: "Then I switched to this Logitech MX Master."}
+  - {shot: shot2, kind: photo, voiceover: "Shaped for my hand, and the scroll is smooth."}

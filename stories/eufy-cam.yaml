@@ -1,0 +1,26 @@
+name: eufy-cam
+budget_credits: 50
+product_photo: assets/products/eufy-indoor-cam-e220.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a dim quiet living room at dusk seen from the front hall, an empty sofa, a dog bed on the floor and the front door slightly out of frame, calm and a little uneasy mood, shot from doorway height. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the empty living room. Dusk light shifts gently. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/eufy-indoor-cam-e220.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, a small white indoor security camera on a stand, sitting on a bookshelf in a calm living room at dusk, soft lamp light. It keeps exactly the shape, color, logo and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: eufy indoor cam
+  product_photo: assets/products/eufy-indoor-cam-e220.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "I am at work. Who is home right now?"}
+  - {shot: shot1, kind: clip, start: 2.4, voiceover: "I could not check on my dog."}
+  - {shot: shot2, kind: photo, voiceover: "So I set up this eufy indoor camera."}
+  - {shot: shot2, kind: photo, voiceover: "Now I check the living room from my phone."}

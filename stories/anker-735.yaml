@@ -1,0 +1,12 @@
+name: anker-735
+budget_credits: 0
+product_photo: assets/products/anker-735-nano-ii-65w.jpg
+reel:
+  name: Anker 735 charger
+  product_photo: assets/products/anker-735-nano-ii-65w.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {kind: photo, photo: assets/products/anker-735-nano-ii-65w.jpg, voiceover: "I carry two chargers everywhere."}
+  - {kind: photo, photo: assets/products/anker-735-nano-ii-65w.jpg, voiceover: "One for my phone, one for my laptop."}
+  - {kind: photo, photo: assets/products/anker-735-nano-ii-65w.jpg, voiceover: "Then I found this Anker 65 watt charger."}
+  - {kind: photo, photo: assets/products/anker-735-nano-ii-65w.jpg, voiceover: "Three ports, and it folds flat in my bag."}
