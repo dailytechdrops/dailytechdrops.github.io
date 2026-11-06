@@ -1,0 +1,296 @@
+# Nov 6 to 8 2026: new single-product reels with voiceover for the 3-a-day slots (15:30 added; Kevin approved the lineup Nov 5).
+# Photos are the Amazon listing main images pulled Nov 5; ASINs checked on amazon.com. Never a price.
+
+- slot: 2026-11-06 15:30
+  asin: B09C5RG6KV
+  name: "Anker 735 Charger (Nano II 65W)"
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  gift_guide: traveler
+  angle: "Two chargers in the bag?"
+  key_facts:
+  - "Anker 735 Charger (Nano II 65W)"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/anker-735-nano-ii-65w.jpg
+    reel_file: assets/reels/anker-735.mp4
+    beats:
+    - on_screen: "Two chargers in the bag?"
+      voiceover: ''
+    - on_screen: "Phone and laptop, two bricks"
+      voiceover: ''
+    - on_screen: "One small charger does both"
+      voiceover: ''
+    - on_screen: "One plug, three ports"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Two chargers in the bag?"
+      body: "One small charger does both."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Two chargers in the bag? 🔌
+
+      The Anker 735 charger is a compact 65W charger with three ports for a laptop, phone and tablet, a good gift for anyone who travels. See more in the traveler gift guide.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - anker735
+    - chargers
+    - travelgear
+    - techgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker 735 Charger (Nano II 65W): {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-07 15:30
+  asin: B0D7YR2ZDG
+  name: "ESR 3-in-1 MagSafe Charger Stand"
+  lane: phone, travel and charging gadgets
+  hook_style: callout
+  gift_guide: everything
+  angle: "Three chargers on the nightstand?"
+  key_facts:
+  - "ESR 3-in-1 MagSafe Charger Stand"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+    reel_file: assets/reels/esr-stand.mp4
+    beats:
+    - on_screen: "Three chargers on the nightstand?"
+      voiceover: ''
+    - on_screen: "Phone, watch and earbuds, three cords"
+      voiceover: ''
+    - on_screen: "One stand charges all three"
+      voiceover: ''
+    - on_screen: "Phone, watch and earbuds in one spot"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Three chargers on the nightstand?"
+      body: "One stand charges all three."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Three chargers on the nightstand? 📱
+
+      The ESR 3-in-1 MagSafe stand charges an iPhone, Apple Watch and AirPods in one spot, a good gift for the Apple fan. See more in our gift guides.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - magsafe
+    - chargingstand
+    - nightstand
+    - applewatch
+    - amazonfinds
+    dm_message: |-
+      Here is the ESR 3-in-1 MagSafe Charger Stand: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-07 19:30
+  asin: B0856W45VL
+  name: "eufy Security Indoor Cam E220"
+  lane: smart home upgrades
+  hook_style: curiosity
+  gift_guide: home
+  angle: "Who is home right now?"
+  key_facts:
+  - "eufy Security Indoor Cam E220"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/eufy-indoor-cam-e220.jpg
+    reel_file: assets/reels/eufy-cam.mp4
+    beats:
+    - on_screen: "Who is home right now?"
+      voiceover: ''
+    - on_screen: "Cannot check on the dog from work"
+      voiceover: ''
+    - on_screen: "So I set up this camera"
+      voiceover: ''
+    - on_screen: "Check the living room from your phone"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Who is home right now?"
+      body: "So I set up this camera."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Who is home right now? 🐶
+
+      The eufy indoor cam E220 is a 2K pan and tilt indoor camera with pet and human alerts, a good gift for a new pet owner. See more in the home gift guide.
+
+      AI-generated video.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - eufy
+    - securitycamera
+    - petcam
+    - smarthome
+    - amazonfinds
+    dm_message: |-
+      Here is the eufy Security Indoor Cam E220: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-08 11:30
+  asin: B0CH9JPNZM
+  name: "Anker 332 USB-C Hub"
+  lane: desk and productivity setup
+  hook_style: callout
+  gift_guide: desk
+  angle: "Laptop with one port?"
+  key_facts:
+  - "Anker 332 USB-C Hub"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/anker-332-usb-c-hub.jpg
+    reel_file: assets/reels/usb-hub.mp4
+    beats:
+    - on_screen: "Laptop with one port?"
+      voiceover: ''
+    - on_screen: "HDMI, drive and card all need a port"
+      voiceover: ''
+    - on_screen: "This Anker hub fixes it"
+      voiceover: ''
+    - on_screen: "Everything connects from one port"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Laptop with one port?"
+      body: "This Anker hub fixes it."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Laptop with one port? 💻
+
+      The Anker 332 USB-C hub adds HDMI and extra USB ports to a laptop, a good gift for the remote worker. See more in the desk gift guide.
+
+      AI-generated video.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - anker
+    - usbchub
+    - laptopaccessories
+    - deskaccessories
+    - amazonfinds
+    dm_message: |-
+      Here is the Anker 332 USB-C Hub: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-08 15:30
+  asin: B006JH8T3S
+  name: "Logitech HD Pro Webcam C920"
+  lane: desk and productivity setup
+  hook_style: question
+  gift_guide: desk
+  angle: "Blurry on every video call?"
+  key_facts:
+  - "Logitech HD Pro Webcam C920"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/logitech-c920.jpg
+    reel_file: assets/reels/c920.mp4
+    beats:
+    - on_screen: "Blurry on every video call?"
+      voiceover: ''
+    - on_screen: "The laptop camera makes you look pixelated"
+      voiceover: ''
+    - on_screen: "This Logitech webcam is sharp 1080p"
+      voiceover: ''
+    - on_screen: "Plug it in and look clear"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Blurry on every video call?"
+      body: "This Logitech webcam is sharp 1080p."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Blurry on every video call? 🎥
+
+      The Logitech C920 is a 1080p USB webcam for calls and recording, a good gift for the remote worker. See more in the desk gift guide.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - logitech
+    - webcam
+    - workfromhome
+    - deskaccessories
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech HD Pro Webcam C920: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
+
+- slot: 2026-11-08 19:30
+  asin: B09HM94VDS
+  name: "Logitech MX Master 3S Wireless Mouse"
+  lane: desk and productivity setup
+  hook_style: curiosity
+  gift_guide: desk
+  angle: "Wrist aching by 3pm? "
+  key_facts:
+  - "Logitech MX Master 3S Wireless Mouse"
+  broll:
+  - gift ideas
+  content:
+    label: Gift idea
+    product_photo: assets/products/logitech-mx-master-3s.jpg
+    reel_file: assets/reels/mx-master.mp4
+    beats:
+    - on_screen: "Wrist aching by 3pm?"
+      voiceover: ''
+    - on_screen: "A cheap mouse is the problem"
+      voiceover: ''
+    - on_screen: "Switch to the MX Master"
+      voiceover: ''
+    - on_screen: "Shaped for your hand, smooth scrolling"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Wrist aching by 3pm?"
+      body: "Switch to the MX Master."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Wrist aching by 3pm? 🖱️
+
+      The Logitech MX Master 3S is an ergonomic wireless mouse with quiet clicks and a smooth scroll wheel, a good gift for the desk worker. See more in the desk gift guide.
+
+      AI-generated video.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - logitech
+    - mxmaster
+    - ergonomic
+    - deskaccessories
+    - amazonfinds
+    dm_message: |-
+      Here is the Logitech MX Master 3S: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.
