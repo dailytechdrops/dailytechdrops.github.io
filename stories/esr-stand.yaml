@@ -7,5 +7,5 @@ reel:
   end_voiceover: "Comment SHOP and I will send you the link."
   beats:
   - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Three chargers on my nightstand."}
-  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Now one ESR stand charges everything."}
-  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Phone, watch and earbuds, one spot."}
+  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Now one stand charges everything."}
+  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "My phone, watch and earbuds, together."}
