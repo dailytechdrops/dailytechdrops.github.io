@@ -1,0 +1,36 @@
+name: usb-hub
+budget_credits: 70
+product_photo: assets/products/anker-332-usb-c-hub.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a light oak desk with a closed silver laptop and, laid out unconnected beside it, an HDMI cable, a USB flash drive, an SD card and a phone cable, soft window light, shot at desk level. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the laptop and the loose cables. Soft light shifts gently. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/anker-332-usb-c-hub.jpg
+  must:
+  - The hub is white with the ANKER logo, one short attached white cable ending in a USB-C plug, two blue USB-A ports, USB-C ports and one HDMI port on its long edges.
+  - Nothing is plugged into the hub except its own cable; no ethernet port, no extra cables.
+  still: >-
+    Photorealistic vertical photo of @product, a slim white USB-C hub with a short attached cable, lying alone on a light oak desk in soft window light, a closed silver laptop blurred behind it. It keeps exactly the shape, color, logo and port layout of @product. No people, no hands, no text, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+- id: shot3
+  product_photo: assets/products/anker-332-usb-c-hub.jpg
+  still: >-
+    Photorealistic vertical wide photo of a clean bright home office desk with a laptop and @product, a slim grey USB-C hub, connected to it, a monitor and a plant, warm morning light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+reel:
+  name: Anker 332 USB-C hub
+  product_photo: assets/products/anker-332-usb-c-hub.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "My laptop has one port."}
+  - {shot: shot1, kind: clip, start: 2.4, voiceover: "And I need an HDMI, a drive and a card."}
+  - {shot: shot3, kind: photo, voiceover: "Then I plugged in this Anker USB-C hub."}
+  - {shot: shot3, kind: photo, voiceover: "Now everything connects from one port."}

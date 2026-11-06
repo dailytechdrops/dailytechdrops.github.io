@@ -1,0 +1,33 @@
+name: wyze-cam
+budget_credits: 70
+product_photo: assets/products/wyze-cam-v4.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a quiet front porch at dusk with a closed wooden front door, a welcome mat and a cardboard package on the mat, warm porch light, shallow depth of field, shot from the walkway. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the door and the package. Warm porch light glows softly. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/wyze-cam-v4.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a small white indoor security camera, sitting on a wooden shelf by a window looking toward the front door of a calm living room, soft evening light. It keeps exactly the shape, color and lens of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+- id: shot3
+  product_photo: assets/products/wyze-cam-v4.jpg
+  still: >-
+    Photorealistic vertical wide photo of a tidy entryway at dusk with @product, a small white security camera, on a shelf facing the door, warm lamp light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+reel:
+  name: Wyze Cam v4
+  product_photo: assets/products/wyze-cam-v4.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "Who is at my door?"}
+  - {shot: shot1, kind: clip, start: 2.4, voiceover: "A package showed up and I did not see anyone."}
+  - {shot: shot2, kind: photo, voiceover: "So I set up this Wyze camera."}
+  - {shot: shot3, kind: photo, voiceover: "Now I can check the door from my phone."}

@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from dtd.config import ROOT, load_config  # noqa: E402
 from dtd.media_sources import duration, tts  # noqa: E402
-from dtd.reel import FADE, LIST_END, _finish, _segment, brand_overlay, caption_overlay, end_card  # noqa: E402
+from dtd.reel import FADE, LIST_END, _finish, _segment, brand_overlay, caption_overlay, end_card, studio_frame  # noqa: E402
 
 
 def main() -> None:
@@ -61,7 +61,13 @@ def main() -> None:
                             "-crf", "14", str(clip)], check=True)
             _segment(rc, clip, overlay, voice, length, seg, brand=brand)
         else:
-            _segment(rc, None, overlay, voice, length, seg, photo=shots / f"{beat['shot']}.jpg", motion=i, brand=brand)
+            if beat.get("photo"):
+                # The real product photo set on a warm drawn background (studio look), never a bare catalog shot.
+                photo = work / f"studio_{i}.png"
+                studio_frame(cfg, ROOT / beat["photo"], photo, variant=i, seed=f"{a.name}|{i}")
+            else:
+                photo = shots / f"{beat['shot']}.jpg"
+            _segment(rc, None, overlay, voice, length, seg, photo=photo, motion=i, brand=brand)
         segments.append(seg)
         lengths.append(length)
     frame, seg = work / "end.png", work / "seg_end.mp4"

@@ -1,0 +1,11 @@
+name: esr-stand
+budget_credits: 0
+product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+reel:
+  name: ESR 3-in-1 charging stand
+  product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Three chargers on my nightstand."}
+  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "Now one stand charges everything."}
+  - {kind: photo, photo: assets/products/esr-3in1-magsafe-stand.jpg, voiceover: "My phone, watch and earbuds, together."}

@@ -1,0 +1,11 @@
+name: c920
+budget_credits: 0
+product_photo: assets/products/logitech-c920.jpg
+reel:
+  name: Logitech C920 webcam
+  product_photo: assets/products/logitech-c920.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {kind: photo, photo: assets/products/logitech-c920.jpg, voiceover: "Blurry on every video call."}
+  - {kind: photo, photo: assets/products/logitech-c920.jpg, voiceover: "This Logitech webcam is sharp 1080p."}
+  - {kind: photo, photo: assets/products/logitech-c920.jpg, voiceover: "Plug it in and look clear."}

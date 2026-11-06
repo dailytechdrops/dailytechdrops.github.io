@@ -39,3 +39,12 @@ shots:
   motion: >-
     Slow gentle push-in toward the hanging keys. Warm light glows softly. Nothing else moves. The tag keeps exactly
     the same shape and look. No people, no hands, no text.
+reel:
+  name: Apple AirTag 4 pack
+  product_photo: assets/products/apple-airtag-4-pack.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, voiceover: "I could not find my keys."}
+  - {shot: shot2, kind: clip, voiceover: "I tore the whole house apart."}
+  - {shot: shot3, kind: clip, voiceover: "Now they have an Apple AirTag on them."}
+  - {shot: shot4, kind: clip, voiceover: "I find them in the Find My app."}
