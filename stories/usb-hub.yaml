@@ -32,5 +32,5 @@ reel:
   beats:
   - {shot: shot1, kind: clip, start: 0.3, voiceover: "My laptop has one port."}
   - {shot: shot1, kind: clip, start: 2.4, voiceover: "And I need an HDMI, a drive and a card."}
-  - {shot: shot2, kind: photo, voiceover: "Then I plugged in this Anker USB-C hub."}
+  - {shot: shot3, kind: photo, voiceover: "Then I plugged in this Anker USB-C hub."}
   - {shot: shot3, kind: photo, voiceover: "Now everything connects from one port."}
