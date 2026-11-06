@@ -28,5 +28,5 @@ reel:
   end_voiceover: "Comment SHOP and I will send you the link."
   beats:
   - {shot: shot1, kind: clip, start: 0.3, voiceover: "Three chargers on my nightstand, every night."}
-  - {shot: shot2, kind: photo, voiceover: "So I got this ESR charging stand."}
+  - {shot: shot3, kind: photo, voiceover: "So I got this ESR charging stand."}
   - {shot: shot3, kind: photo, voiceover: "Phone, watch and earbuds, all in one spot."}
