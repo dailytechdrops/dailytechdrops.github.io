@@ -1,0 +1,38 @@
+name: c920-scene
+budget_credits: 50
+product_photo: assets/products/logitech-c920.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of an open laptop on a home office desk in dim evening light, the laptop's tiny built-in camera above the dark screen, a mug and a lamp beside it, shallow depth of field, shot at desk level. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the laptop. Evening light shifts gently. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/logitech-c920.jpg
+  must:
+  - Exactly one webcam in the whole picture, never two. It is a wide, flat black rectangular webcam with one round lens in the center-left and a small mic grille at the right, sitting on a folding clip base on top of the monitor bezel.
+  - No flaps, boxes or extra attachments, and no text on the camera.
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, a black webcam clipped on top of a monitor in a bright tidy home office with a plant and a mug, soft window light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/logitech-c920.jpg
+  must:
+  - Exactly one webcam in the whole picture, never two. It is a wide, flat black rectangular webcam with one round lens in the center-left and a small mic grille at the right, sitting on a folding clip base on top of the monitor bezel.
+  - No flaps, boxes or extra attachments, and no text on the camera.
+  still_only: true
+  still: >-
+    Photorealistic vertical wide photo of a bright professional home office desk with a monitor, @product, a black webcam, clipped on top of it, a keyboard and a plant, warm morning light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Logitech C920 webcam
+  product_photo: assets/products/logitech-c920.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "I looked blurry on every video call."}
+  - {shot: shot2, kind: photo, voiceover: "Then I clipped this Logitech webcam on."}
+  - {shot: shot2, kind: photo, voiceover: "Sharp 1080p, and I finally look professional."}

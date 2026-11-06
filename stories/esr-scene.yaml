@@ -1,0 +1,32 @@
+name: esr-scene
+budget_credits: 50
+product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a bedside table at night with a warm lamp, a glass of water and a tangle of three thin white charging cables lying across it, cozy and slightly cluttered, shallow depth of field, shot at table height. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the tangle of cables. Warm lamp light glows softly. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, a white foldable 3-in-1 wireless charging stand, on a tidy wooden bedside table next to a warm lamp and a book, soft evening light, calm and uncluttered. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical wide photo of a calm cozy bedroom at night with @product, a white foldable charging stand, on the bedside table beside a lamp, soft warm light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: ESR 3-in-1 charging stand
+  product_photo: assets/products/esr-3in1-magsafe-stand.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "Three chargers on my nightstand, every night."}
+  - {shot: shot3, kind: photo, voiceover: "So I got this ESR charging stand."}
+  - {shot: shot3, kind: photo, voiceover: "Phone, watch and earbuds, all in one spot."}
