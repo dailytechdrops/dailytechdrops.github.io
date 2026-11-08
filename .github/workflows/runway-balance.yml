@@ -1,0 +1,15 @@
+name: Runway balance
+
+# Manual only: shows the Runway credit balance (read only, spends nothing) as a run annotation.
+on:
+  workflow_dispatch:
+
+jobs:
+  balance:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+        run: |
+          out=$(curl -sS https://api.dev.runwayml.com/v1/organization -H "Authorization: Bearer $RUNWAY_API_KEY" -H "X-Runway-Version: 2024-11-06")
+          echo "::notice title=Runway balance::$(echo "$out" | python3 -c 'import sys,json; d=json.load(sys.stdin); print("creditBalance", d.get("creditBalance"), "| tier", d.get("tier",{}).get("maxMonthlyCreditSpend"), "| usage", d.get("usage"))' 2>&1 | head -c 400)"
