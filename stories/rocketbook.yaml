@@ -23,15 +23,6 @@ shots:
   motion: >-
     Slow steady push-in. Nothing else moves. No people, no hands, no text.
   still_only: true
-- id: shot3
-  product_photo: assets/products/rocketbook-fusion.jpg
-  still: >-
-    Photorealistic vertical wide photo of a calm tidy home office desk with @product, a single black notebook, open
-    flat beside a laptop and a plant, soft warm light, nothing else on the desk. The notebook keeps exactly the shape
-    and color of @product. No people, no hands, no readable text, screens dark.
-  motion: >-
-    Slow steady push-in. Nothing else moves. No people, no hands, no text.
-  still_only: true
 reel:
   name: Rocketbook Fusion notebook
   product_photo: assets/products/rocketbook-fusion.jpg
@@ -39,4 +30,4 @@ reel:
   beats:
   - {shot: shot1, kind: clip, start: 0.3, caption: "Drowning in notebooks?", voiceover: "My desk was buried in notebooks."}
   - {shot: shot2, kind: photo, voiceover: "How many do you own? Tell me below."}
-  - {shot: shot3, kind: photo, voiceover: "Now I use one. This Rocketbook wipes clean."}
+  - {shot: shot2, kind: photo, voiceover: "Now I use one. This Rocketbook wipes clean."}
