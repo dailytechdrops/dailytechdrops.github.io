@@ -33,5 +33,34 @@
         "watch_s": 4.4
       }
     }
+  },
+  {
+    "date": "2026-11-08",
+    "styles": {
+      "callout": {
+        "reach": 72,
+        "reels": 3,
+        "saves_shares": 2,
+        "watch_s": 2.7
+      },
+      "curiosity": {
+        "reach": 8,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 4.5
+      },
+      "number": {
+        "reach": 46,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 2.9
+      },
+      "question": {
+        "reach": 44,
+        "reels": 9,
+        "saves_shares": 1,
+        "watch_s": 2.8
+      }
+    }
   }
 ]
