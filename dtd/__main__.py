@@ -9,6 +9,7 @@
   python -m dtd reply                                  DM the link to anyone who commented the keyword
   python -m dtd engage                                 reply to comments and nudge people to comment SHOP
   python -m dtd report                                 write the weekly performance report to reports/
+  python -m dtd facebook-repost                        post FB_ITEM (a reel whose Facebook post failed) to the Page
   python -m dtd youtube-due                            upload the newest posted reel as a YouTube Short
   python -m dtd tiktok-due                             post the newest posted reel to TikTok (through Buffer)
   python -m dtd pinterest-due                          pin the newest posted reel to Pinterest
@@ -262,6 +263,34 @@ def _publish(cfg: dict, item_id: str, history: list) -> None:
     print(f"Published {item_id}: reel {reel_id}, carousel {carousel_id}, story {story_id}, threads {threads_id}")
 
 
+def facebook_repost(cfg: dict) -> int:
+    """Posts one already-published reel (FB_ITEM) to the Facebook Page when its first Facebook attempt failed.
+    Skips it if Facebook already has it, so it can never double post."""
+    item_id = env("FB_ITEM")
+    history = read_state("history", [])
+    entry = next((h for h in history if h["id"] == item_id), None)
+    if not item_id or not entry or entry.get("skipped"):
+        print(f"::error title=Facebook repost::{item_id!r} is not a posted reel in the history")
+        return 1
+    if entry.get("facebook_id"):
+        print(f"{item_id} is already on Facebook ({entry['facebook_id']}); nothing to do.")
+        return 0
+    if not facebook.configured():
+        print("::error title=Facebook repost::Facebook secrets are not set")
+        return 1
+    out = _media(item_id)
+    draft = _load_draft(cfg, out / "draft.json")
+    draft["caption"] = disclosure_last(cfg, draft["caption"])
+    try:
+        entry["facebook_id"] = facebook.publish_reel(out / "reel.mp4", facebook.caption_for_facebook(draft["caption"], channel_link(cfg, draft["link"], "facebook")))
+    except facebook.FacebookError as e:
+        print(f"::error title=Facebook repost failed::{item_id}: {str(e)[:500]}")
+        raise
+    write_state("history", history)
+    print(f"Posted {item_id} to Facebook: {entry['facebook_id']}")
+    return 0
+
+
 def youtube_due(cfg: dict) -> int:
     """Uploads reels already posted to Instagram as Shorts, one per run, newest first.
     Runs on its own schedule so a YouTube problem can never hold up Instagram."""
@@ -448,7 +477,7 @@ def _public_reply_text(cfg: dict, comment_id: str, user: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(prog="dtd")
-    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "tiktok-due", "pinterest-due", "pinterest-connect", "report", "winners", "targets", "refresh-token", "refresh-threads-token"])
+    parser.add_argument("command", choices=["render", "preview", "site-prep", "shop-images", "gift-pins", "health", "post-due", "wait-next", "reply", "engage", "youtube-due", "tiktok-due", "pinterest-due", "facebook-repost", "pinterest-connect", "report", "winners", "targets", "refresh-token", "refresh-threads-token"])
     parser.add_argument("--week", type=Path)
     parser.add_argument("--base", default="", help="media URL base for preview links")
     args = parser.parse_args()
@@ -480,6 +509,8 @@ def main() -> int:
     if args.command == "engage":
         from . import engage
         return engage.run(cfg)
+    if args.command == "facebook-repost":
+        return facebook_repost(cfg)
     if args.command == "youtube-due":
         return youtube_due(cfg)
     if args.command == "tiktok-due":
