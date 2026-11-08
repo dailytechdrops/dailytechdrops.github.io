@@ -1,0 +1,51 @@
+name: Facebook repost
+
+# Posts one reel that is already on Instagram to the Facebook Page, for a post whose first Facebook attempt failed.
+# Does nothing if Facebook already has it. Run by hand with the reel id (for example 2026-11-08-1130-B0CH9JPNZM).
+
+on:
+  workflow_dispatch:
+    inputs:
+      item:
+        description: Reel id from state/history.json
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: state-writes
+  cancel-in-progress: false
+
+jobs:
+  repost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: git fetch origin media || true
+      - name: Post it to Facebook
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FB_ITEM: ${{ inputs.item }}
+        run: python -m dtd facebook-repost
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/
+          git diff --cached --quiet && exit 0
+          git commit -m "Record Facebook repost"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push
