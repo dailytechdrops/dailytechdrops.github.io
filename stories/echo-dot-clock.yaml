@@ -22,12 +22,11 @@ shots:
   motion: >-
     Slow steady push-in. Nothing else moves. No people, no hands, no text.
   still_only: true
+# Pilot v2 (Nov 8 2026): about 10s. Opens on the glowing clock with hook text (Kevin approved the test), a mid-reel question, then the SHOP end card.
 reel:
   name: Echo Dot with Clock
   product_photo: assets/products/echo-dot-clock.jpg
   end_voiceover: "Comment SHOP and I will send you the link."
   beats:
-  - {shot: shot1, kind: clip, start: 0.3, voiceover: "I overslept again."}
-  - {shot: shot1, kind: clip, start: 2.4, voiceover: "Sun was already up and so was everyone else."}
-  - {shot: shot2, kind: photo, voiceover: "Then I put this Echo Dot with a clock next to my bed."}
-  - {shot: shot3, kind: photo, voiceover: "Now an alarm wakes me and the time is right there."}
+  - {shot: shot2, kind: photo, caption: "Overslept again?", voiceover: "I kept oversleeping."}
+  - {shot: shot3, kind: photo, voiceover: "How many alarms do you set? I just use this Echo Dot."}

@@ -1,0 +1,50 @@
+# Nov 8 2026: test reels in the new format Kevin approved (hook text in the first frame, mid-reel question, about 10s).
+# Judge after 6 reels on comments and watch time. Never a price.
+
+- slot: 2026-11-09 15:30
+  asin: B09B8VN8YQ
+  name: "Amazon Echo Dot with Clock (5th Gen)"
+  lane: robots, clocks and fun tech
+  hook_style: question
+  gift_guide: everything
+  angle: "Overslept again? A glowing clock and alarm on the nightstand."
+  key_facts:
+  - "Smart speaker with Alexa and an LED display that shows the time"
+  broll:
+  - bedroom morning
+  content:
+    label: Gift idea
+    product_photo: assets/products/echo-dot-clock.jpg
+    reel_file: assets/reels/echo-dot-clock.mp4   # test reel approved by Kevin Nov 8 2026
+    beats:
+    - on_screen: "Overslept again?"
+      voiceover: ''
+    - on_screen: "How many alarms do you set?"
+      voiceover: ''
+    - on_screen: "A clock that glows"
+      voiceover: ''
+    - on_screen: "Comment SHOP"
+      voiceover: ''
+    carousel:
+    - title: "Overslept again?"
+      body: "A glowing clock and alarm."
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: |-
+      Overslept again? A gift idea for the heavy sleeper. ⏰
+
+      The Echo Dot with Clock has Alexa built in and an LED display that shows the time, so it works as both alarm and nightstand clock. How many alarms do you set? Tell me below.
+
+      AI-generated video.
+
+      Comment SHOP and I will send you the link.
+    hashtags:
+    - giftideas
+    - echodot
+    - alexa
+    - bedroomgadgets
+    - amazonfinds
+    dm_message: |-
+      Here is the Echo Dot with Clock: {link}
+
+      As an Amazon Associate I earn from qualifying purchases.

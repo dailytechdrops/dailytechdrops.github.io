@@ -1,0 +1,42 @@
+# Nov 8 2026 test reel (new "wow" product): Rocketbook Fusion reusable notebook, "Drowning in notebooks?".
+# Same format as the Echo Dot pilot: opens on a catchy visual with hook text, mid-reel question, ~10s.
+# No people, no hands, slow camera only (the wipe-clean demo needs hands, so the story is the paper pile vs one notebook).
+name: rocketbook
+budget_credits: 60
+product_photo: assets/products/rocketbook-fusion.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a wooden desk buried under tall teetering stacks of used spiral notebooks and
+    loose scribbled paper pages, a coffee mug and a pen lost among them, bright morning window light, shot from desk
+    level, shallow depth of field. No people, no hands, no readable text, no brand logos, screens dark.
+  motion: >-
+    Slow steady push-in toward the tall stack of notebooks. Soft window light shifts gently. The stack stays still.
+    Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/rocketbook-fusion.jpg
+  still: >-
+    Photorealistic vertical photo of @product, a single black notebook, lying closed on a clean bright light oak desk
+    next to a laptop, a coffee mug and a pen, soft morning window light, shallow depth of field. The notebook keeps
+    exactly the shape, color and cover design of @product. No people, no hands, no text, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+- id: shot3
+  product_photo: assets/products/rocketbook-fusion.jpg
+  still: >-
+    Photorealistic vertical wide photo of a calm tidy home office desk with @product, a single black notebook, open
+    flat beside a laptop and a plant, soft warm light, nothing else on the desk. The notebook keeps exactly the shape
+    and color of @product. No people, no hands, no readable text, screens dark.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+  still_only: true
+reel:
+  name: Rocketbook Fusion notebook
+  product_photo: assets/products/rocketbook-fusion.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, caption: "Drowning in notebooks?", voiceover: "My desk was buried in notebooks."}
+  - {shot: shot2, kind: photo, voiceover: "How many do you own? Tell me below."}
+  - {shot: shot3, kind: photo, voiceover: "Now I use one. This Rocketbook wipes clean."}
