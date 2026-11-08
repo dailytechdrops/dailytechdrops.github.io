@@ -3,6 +3,9 @@ name: Runway balance
 # Manual only: shows the Runway credit balance (read only, spends nothing) as a run annotation.
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/week-2026-11-14]
+    paths: [.github/workflows/runway-balance.yml]
 
 jobs:
   balance:
