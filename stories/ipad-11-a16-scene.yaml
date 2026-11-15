@@ -1,0 +1,33 @@
+name: ipad-11-a16-scene
+budget_credits: 20
+product_photo: assets/products/ipad-11-a16.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/ipad-11-a16.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a blue 11 inch tablet with a thin bezel, on a clean wooden desk beside a mug and a notebook, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/ipad-11-a16.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a blue 11 inch tablet with a thin bezel, on a cozy couch beside a blanket, warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/ipad-11-a16.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a blue 11 inch tablet with a thin bezel, on a kitchen table beside a window, morning light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Apple iPad 11-inch (A16)
+  product_photo: assets/products/ipad-11-a16.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted one device for everything.
+  - shot: shot2
+    kind: photo
+    voiceover: The iPad has the A16 chip and an eleven inch display.
+  - shot: shot3
+    kind: photo
+    voiceover: It makes a great gift.

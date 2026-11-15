@@ -1,0 +1,33 @@
+name: beats-solo-4-scene
+budget_credits: 20
+product_photo: assets/products/beats-solo-4.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/beats-solo-4.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of matte black on-ear wireless headphones, on a wooden desk beside a laptop, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/beats-solo-4.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of matte black on-ear wireless headphones, on a train seat by a window, passing daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/beats-solo-4.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of matte black on-ear wireless headphones, on a bedside table with a lamp, warm evening light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Beats Solo 4 On-Ear Headphones
+  product_photo: assets/products/beats-solo-4.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted headphones that last all week.
+  - shot: shot2
+    kind: photo
+    voiceover: The Beats Solo 4 gets up to fifty hours.
+  - shot: shot3
+    kind: photo
+    voiceover: They are light, and a great gift.

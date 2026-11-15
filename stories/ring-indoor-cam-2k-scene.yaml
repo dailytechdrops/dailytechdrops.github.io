@@ -1,0 +1,33 @@
+name: ring-indoor-cam-2k-scene
+budget_credits: 20
+product_photo: assets/products/ring-indoor-cam-2k.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/ring-indoor-cam-2k.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor security camera on a round base, on a bookshelf in a bright living room, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/ring-indoor-cam-2k.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor security camera on a round base, on a kitchen counter shelf in the morning, warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/ring-indoor-cam-2k.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor security camera on a round base, on a hallway table in the evening, warm lamp light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Ring Indoor Cam 2K
+  product_photo: assets/products/ring-indoor-cam-2k.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: Wondering what is happening at home?
+  - shot: shot2
+    kind: photo
+    voiceover: This Ring camera records in sharp 2K video.
+  - shot: shot3
+    kind: photo
+    voiceover: It is small enough to sit on a shelf.
