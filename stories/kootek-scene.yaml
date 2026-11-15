@@ -30,4 +30,4 @@ reel:
   beats:
   - {shot: shot2, kind: photo, voiceover: "My laptop fan was screaming every night."}
   - {shot: shot1, kind: photo, voiceover: "This cooling pad keeps it quiet and cool."}
-  - {shot: shot3, kind: photo, voiceover: "Five fans, and it fits most laptops."}
+  - {shot: shot3, kind: photo, voiceover: "Big quiet fans, and it fits most laptops."}
