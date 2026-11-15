@@ -1,0 +1,32 @@
+name: olcorife-scene
+budget_credits: 55
+product_photo: assets/products/olcorife-power-strip.jpg
+shots:
+- id: shot1
+  no_product_ref: true
+  still: >-
+    Photorealistic vertical photo of a cluttered wall outlet behind a desk with a tangle of bulky chargers and cables crowded around one overloaded outlet, warm window light, shot at desk level. No people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in toward the tangle of plugs. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  no_product_ref: true
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of a tidy modern desk with a laptop, a lamp and a plant, every cable neatly routed and hidden, a clean wall behind it, soft morning window light. No power strip visible, no people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  no_product_ref: true
+  still_only: true
+  still: >-
+    Photorealistic vertical wide photo of a calm organized home office corner with a desk, a monitor, a lamp and a charging phone on a stand, no cables on the floor, warm evening light. No power strip visible, no people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Olcorife flat-plug power strip
+  product_photo: assets/products/olcorife-power-strip.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: clip, start: 0.3, voiceover: "One outlet, way too many chargers."}
+  - {shot: shot2, kind: photo, voiceover: "This flat plug strip fixed it."}
+  - {shot: shot3, kind: photo, voiceover: "Eight outlets, and it sits flat on the wall."}
