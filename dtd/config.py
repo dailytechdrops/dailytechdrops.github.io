@@ -31,7 +31,9 @@ def load_week(path: Path) -> list[dict]:
     # Multi-product list reels never post, whoever queued them.
     kept = []
     for item in items:
-        if (item.get("content") or {}).get("format") == "list":
+        when = datetime.strptime(str(item["slot"]), "%Y-%m-%d %H:%M").replace(tzinfo=EASTERN)
+        # Only upcoming slots: already-posted list reels stay in the record for reports.
+        if when >= datetime.now(EASTERN) and (item.get("content") or {}).get("format") == "list":
             print(f"::error title=List reel blocked::{path.name} {item.get('slot')}: list (multi-product) reels are banned; use one product in a real scene")
             continue
         kept.append(item)
