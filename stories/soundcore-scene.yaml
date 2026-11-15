@@ -1,0 +1,33 @@
+name: soundcore-scene
+budget_credits: 20
+product_photo: assets/products/soundcore-p30i.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/soundcore-p30i.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, a pair of earbuds in a charging case, resting on a cafe table beside a latte and a notebook, soft window light, shallow depth of field. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/soundcore-p30i.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical photo of @product, earbuds and charging case, on a tidy desk beside a laptop and a plant, calm morning light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/soundcore-p30i.jpg
+  still_only: true
+  still: >-
+    Photorealistic vertical wide photo of a quiet train window seat with @product earbuds case on the tray table, soft passing daylight. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos.
+  motion: >-
+    Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: soundcore P30i earbuds
+  product_photo: assets/products/soundcore-p30i.jpg
+  end_voiceover: "Comment SHOP and I will send you the link."
+  beats:
+  - {shot: shot1, kind: photo, voiceover: "Earbuds that actually stay in."}
+  - {shot: shot2, kind: photo, voiceover: "Strong noise cancelling, long battery."}
+  - {shot: shot3, kind: photo, voiceover: "This soundcore pair is my pick for the commute."}
