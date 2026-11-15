@@ -28,5 +28,5 @@ reel:
   end_voiceover: "Comment SHOP and I will send you the link."
   beats:
   - {shot: shot1, kind: clip, start: 0.3, voiceover: "One outlet, way too many chargers."}
-  - {shot: shot3, kind: photo, voiceover: "This flat plug strip fixed it."}
+  - {shot: shot2, kind: photo, voiceover: "This flat plug strip fixed it."}
   - {shot: shot3, kind: photo, voiceover: "Eight outlets, and it sits flat on the wall."}
