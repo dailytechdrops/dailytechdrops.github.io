@@ -27,6 +27,15 @@ def load_config() -> dict:
 def load_week(path: Path) -> list[dict]:
     """One week's products, each with an id and a timezone-aware posting time."""
     items = yaml.safe_load(path.read_text()) or []
+    # Kevin's standing rule (Nov 5 2026, restated Nov 15): ONE product per reel, in a real scene.
+    # Multi-product list reels never post, whoever queued them.
+    kept = []
+    for item in items:
+        if (item.get("content") or {}).get("format") == "list":
+            print(f"::error title=List reel blocked::{path.name} {item.get('slot')}: list (multi-product) reels are banned; use one product in a real scene")
+            continue
+        kept.append(item)
+    items = kept
     for item in items:
         when = datetime.strptime(str(item["slot"]), "%Y-%m-%d %H:%M").replace(tzinfo=EASTERN)
         item["when"] = when

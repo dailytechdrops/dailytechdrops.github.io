@@ -173,7 +173,7 @@ background drawn for each reel and beat (seeded by the product, so no two reels 
 caption up top and the end card as before. Every new entry needs `product_photo`; `clip_ids` and
 `photo_ids` are ignored for the reel. Never reuse a product's visuals in a second reel.
 
-**List reels (Nov 2 2026).** `content.format: list` makes a fast reel of 3 products: hook frame with all of them,
+**List reels (Nov 2 2026) are BANNED since Nov 5 2026: `load_week` in dtd/config.py drops any entry with `format: list`. One product per reel only.** Old notes: `content.format: list` makes a fast reel of 3 products: hook frame with all of them,
 one ~2 second beat per product (each beat sets its own `product_photo`, tagged "1 of 3"), end card with all three,
 music only, about 10 seconds, so it is watched through and loops. `content.label` names the set on the hook and end
 card. The DM lists every product with `{link:ASIN}` placeholders (campaign links still apply). Keep the entry's
