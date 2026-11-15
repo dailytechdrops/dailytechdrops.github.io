@@ -62,5 +62,40 @@
         "watch_s": 2.8
       }
     }
+  },
+  {
+    "date": "2026-11-15",
+    "styles": {
+      "callout": {
+        "reach": 70,
+        "reels": 3,
+        "saves_shares": 0,
+        "watch_s": 2.0
+      },
+      "curiosity": {
+        "reach": 44,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 1.4
+      },
+      "demo": {
+        "reach": 38,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 1.7
+      },
+      "number": {
+        "reach": 47,
+        "reels": 3,
+        "saves_shares": 0,
+        "watch_s": 1.8
+      },
+      "question": {
+        "reach": 46,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 2.0
+      }
+    }
   }
 ]
