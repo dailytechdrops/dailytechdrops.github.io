@@ -9,17 +9,17 @@ shots:
   motion: >-
     Slow steady push-in toward the tangle of plugs. Nothing else moves. No people, no hands, no text.
 - id: shot2
-  product_photo: assets/products/olcorife-power-strip.jpg
+  no_product_ref: true
   still_only: true
   still: >-
-    Photorealistic vertical photo of @product, a flat-plug multi-outlet power strip, mounted neatly on the wall behind a tidy desk with cables organized, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos.
+    Photorealistic vertical photo of a tidy modern desk with a laptop, a lamp and a plant, every cable neatly routed and hidden, a clean wall behind it, soft morning window light. No power strip visible, no people, no hands, no text, no brand logos.
   motion: >-
     Slow steady push-in. Nothing else moves. No people, no hands, no text.
 - id: shot3
-  product_photo: assets/products/olcorife-power-strip.jpg
+  no_product_ref: true
   still_only: true
   still: >-
-    Photorealistic vertical wide photo of a calm modern home office with @product on the wall behind the desk, laptop and lamp, soft light. It keeps exactly the shape and look of @product. No people, no hands, no text, no brand logos.
+    Photorealistic vertical wide photo of a calm organized home office corner with a desk, a monitor, a lamp and a charging phone on a stand, no cables on the floor, warm evening light. No power strip visible, no people, no hands, no text, no brand logos.
   motion: >-
     Slow steady push-in. Nothing else moves. No people, no hands, no text.
 reel:
