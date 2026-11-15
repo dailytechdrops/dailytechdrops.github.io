@@ -1,0 +1,33 @@
+name: airpods-5-scene
+budget_credits: 20
+product_photo: assets/products/airpods-5.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/airpods-5.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds in a small white charging case, on a desk beside a notebook, bright daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/airpods-5.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds in a small white charging case, on a gym bench beside a towel, morning light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/airpods-5.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds in a small white charging case, on a kitchen counter beside a mug, soft light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Apple AirPods 5
+  product_photo: assets/products/airpods-5.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: Simple earbuds for every day.
+  - shot: shot2
+    kind: photo
+    voiceover: AirPods 5 have active noise cancellation.
+  - shot: shot3
+    kind: photo
+    voiceover: Pop them in and go.

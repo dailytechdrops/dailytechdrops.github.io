@@ -1,0 +1,33 @@
+name: logitech-pebble-2-combo-scene
+budget_credits: 20
+product_photo: assets/products/logitech-pebble-2-combo.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/logitech-pebble-2-combo.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim black compact wireless keyboard and a matching low-profile mouse, on a clean wooden desk beside a laptop, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/logitech-pebble-2-combo.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim black compact wireless keyboard and a matching low-profile mouse, on a cozy home desk with a plant and mug, warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/logitech-pebble-2-combo.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim black compact wireless keyboard and a matching low-profile mouse, on a dark desk in the evening with a lamp. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Logitech Pebble 2 Keyboard and Mouse Combo
+  product_photo: assets/products/logitech-pebble-2-combo.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted a quiet desk setup.
+  - shot: shot2
+    kind: photo
+    voiceover: This Logitech combo is silent and compact.
+  - shot: shot3
+    kind: photo
+    voiceover: It makes a great gift for anyone working from home.

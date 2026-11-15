@@ -1,0 +1,33 @@
+name: huanuo-monitor-arm-laptop-tray-scene
+budget_credits: 20
+product_photo: assets/products/huanuo-monitor-arm-laptop-tray.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/huanuo-monitor-arm-laptop-tray.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black adjustable single monitor arm with a small laptop tray clamped to a desk, clamped to a wooden desk holding a monitor with a laptop on the tray, bright office. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/huanuo-monitor-arm-laptop-tray.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black adjustable single monitor arm with a small laptop tray clamped to a desk, on a tidy home desk with a plant and lamp, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/huanuo-monitor-arm-laptop-tray.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black adjustable single monitor arm with a small laptop tray clamped to a desk, on a dark minimal desk setup in the evening, warm lamp glow. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: HUANUO Monitor Arm with Laptop Tray
+  product_photo: assets/products/huanuo-monitor-arm-laptop-tray.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: My desk had no room, so I went vertical.
+  - shot: shot2
+    kind: photo
+    voiceover: This arm holds a monitor and a laptop tray.
+  - shot: shot3
+    kind: photo
+    voiceover: It frees up the whole desk.

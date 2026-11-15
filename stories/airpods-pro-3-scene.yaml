@@ -1,0 +1,33 @@
+name: airpods-pro-3-scene
+budget_credits: 20
+product_photo: assets/products/airpods-pro-3.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/airpods-pro-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds with a white charging case, on a marble cafe table beside a coffee, soft window light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/airpods-pro-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds with a white charging case, on a desk beside a laptop, bright daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/airpods-pro-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a pair of white wireless earbuds with a white charging case, on a train tray table by a window, passing light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Apple AirPods Pro 3
+  product_photo: assets/products/airpods-pro-3.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted silence on my commute.
+  - shot: shot2
+    kind: photo
+    voiceover: AirPods Pro 3 have active noise cancellation.
+  - shot: shot3
+    kind: photo
+    voiceover: They are an easy gift for anyone.

@@ -1,0 +1,33 @@
+name: tapo-c100-scene
+budget_credits: 20
+product_photo: assets/products/tapo-c100.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/tapo-c100.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor Wi-Fi camera on a round stand, on a living room shelf near a dog bed, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/tapo-c100.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor Wi-Fi camera on a round stand, on a nursery dresser, calm morning light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/tapo-c100.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small white indoor Wi-Fi camera on a round stand, on a bookshelf in a cozy room, warm lamp light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Tapo C100 Indoor Security Camera
+  product_photo: assets/products/tapo-c100.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted to check on my dog.
+  - shot: shot2
+    kind: photo
+    voiceover: This Tapo camera streams 1080p to my phone.
+  - shot: shot3
+    kind: photo
+    voiceover: It is wired and easy to set up.
