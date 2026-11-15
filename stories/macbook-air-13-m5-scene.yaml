@@ -15,7 +15,7 @@ shots:
 - id: shot3
   product_photo: assets/products/macbook-air-13-m5.jpg
   still_only: true
-  still: Photorealistic vertical photo of @product, a thin midnight-blue 13 inch laptop closed on a desk, on a tidy home desk in the evening with a lamp. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  still: Photorealistic vertical photo of @product, a thin dark midnight-blue laptop, open with its screen glowing, on a tidy home desk in the evening with a lamp, warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
   motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
 reel:
   name: Apple MacBook Air 13-inch (M5)

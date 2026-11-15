@@ -10,12 +10,12 @@ shots:
 - id: shot2
   product_photo: assets/products/anker-8in1-dual-dock.jpg
   still_only: true
-  still: Photorealistic vertical photo of @product, a slim gray 8-in-1 USB-C docking hub with a cable, on a tidy home desk with a lamp, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  still: Photorealistic vertical photo of @product, a long flat slim gray USB-C docking hub with a cable, lying flat on a tidy wooden desk in front of a laptop and two monitors, soft daylight, seen from above at an angle. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
   motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
 - id: shot3
   product_photo: assets/products/anker-8in1-dual-dock.jpg
   still_only: true
-  still: Photorealistic vertical photo of @product, a slim gray 8-in-1 USB-C docking hub with a cable, on a dark desk setup in the evening, warm glow. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  still: Photorealistic vertical photo of @product, a long flat slim gray USB-C docking hub with a cable, lying flat on a dark desk beside a laptop and monitor in the evening, warm lamp glow, seen from above at an angle. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
   motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
 reel:
   name: Anker 8-in-1 Dual Monitor USB-C Dock
