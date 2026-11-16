@@ -1,0 +1,33 @@
+name: anker-7in1-hub-scene
+budget_credits: 20
+product_photo: assets/products/anker-7in1-hub.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/anker-7in1-hub.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim gray 7-in-1 USB-C hub with a short cable, on a clean desk beside a closed laptop, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/anker-7in1-hub.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim gray 7-in-1 USB-C hub with a short cable, on a cafe table beside a latte, window light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/anker-7in1-hub.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a slim gray 7-in-1 USB-C hub with a short cable, on a tidy desk in the evening with a lamp. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Anker 7-in-1 USB-C Hub
+  product_photo: assets/products/anker-7in1-hub.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: Seven ports from one tiny hub.
+  - shot: shot2
+    kind: photo
+    voiceover: It has 4K HDMI and two USB-A ports.
+  - shot: shot3
+    kind: photo
+    voiceover: It slips right into my bag.

@@ -1,0 +1,33 @@
+name: roku-stick-hd-scene
+budget_credits: 30
+product_photo: assets/products/roku-stick-hd.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/roku-stick-hd.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small streaming stick with a purple voice remote, on a TV stand beside a television, warm living room light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/roku-stick-hd.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small black streaming stick next to a purple voice remote on a wooden TV stand in front of a television, warm living room light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no letters, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/roku-stick-hd.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small black streaming stick and a purple voice remote resting on a couch armrest beside a blanket, evening light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no letters, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Roku Streaming Stick HD
+  product_photo: assets/products/roku-stick-hd.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: My old TV had no streaming.
+  - shot: shot2
+    kind: photo
+    voiceover: This Roku stick plugs right into HDMI.
+  - shot: shot3
+    kind: photo
+    voiceover: The voice remote does the searching.

@@ -1,0 +1,33 @@
+name: dji-osmo-pocket-3-scene
+budget_credits: 20
+product_photo: assets/products/dji-osmo-pocket-3.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/dji-osmo-pocket-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small handheld camera with a gimbal and a rotating touch screen, on a wooden table beside a backpack, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/dji-osmo-pocket-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small handheld camera with a gimbal and a rotating touch screen, on a cafe table beside a latte, window light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/dji-osmo-pocket-3.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a small handheld camera with a gimbal and a rotating touch screen, on a desk beside a laptop, bright light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: DJI Osmo Pocket 3
+  product_photo: assets/products/dji-osmo-pocket-3.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted smooth video without a big camera.
+  - shot: shot2
+    kind: photo
+    voiceover: The Osmo Pocket 3 has a one inch sensor.
+  - shot: shot3
+    kind: photo
+    voiceover: It stabilizes on three axes.

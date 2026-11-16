@@ -1,0 +1,33 @@
+name: kindle-colorsoft-scene
+budget_credits: 20
+product_photo: assets/products/kindle-colorsoft.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/kindle-colorsoft.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black e-reader with a color screen showing a book cover, on a cozy couch beside a blanket and a mug, warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/kindle-colorsoft.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black e-reader with a color screen showing a book cover, on a bedside table with a lamp, evening light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/kindle-colorsoft.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black e-reader with a color screen showing a book cover, on a wooden desk beside a plant, soft daylight. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Kindle Colorsoft
+  product_photo: assets/products/kindle-colorsoft.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted my books in color.
+  - shot: shot2
+    kind: photo
+    voiceover: The Kindle Colorsoft has a seven inch color screen.
+  - shot: shot3
+    kind: photo
+    voiceover: You can highlight in five colors.

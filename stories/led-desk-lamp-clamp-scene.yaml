@@ -1,0 +1,33 @@
+name: led-desk-lamp-clamp-scene
+budget_credits: 20
+product_photo: assets/products/led-desk-lamp-clamp.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/led-desk-lamp-clamp.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black clamp-on LED desk lamp with a flexible gooseneck arm, clamped to a wooden desk beside a laptop, bright warm light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/led-desk-lamp-clamp.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black clamp-on LED desk lamp with a flexible gooseneck arm, clamped to a home desk beside a notebook, evening glow. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/led-desk-lamp-clamp.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black clamp-on LED desk lamp with a flexible gooseneck arm, clamped to a dark desk beside a monitor, soft white light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: LED Clamp Desk Lamp
+  product_photo: assets/products/led-desk-lamp-clamp.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: My desk lamp took up half my desk.
+  - shot: shot2
+    kind: photo
+    voiceover: This one clamps on and dims all the way.
+  - shot: shot3
+    kind: photo
+    voiceover: It bends wherever I need the light.

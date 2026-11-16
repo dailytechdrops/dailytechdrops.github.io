@@ -1,0 +1,33 @@
+name: switch-2-pro-controller-scene
+budget_credits: 20
+product_photo: assets/products/switch-2-pro-controller.jpg
+shots:
+- id: shot1
+  product_photo: assets/products/switch-2-pro-controller.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black wireless game controller with two thumbsticks, on a coffee table beside a TV, warm living room light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot2
+  product_photo: assets/products/switch-2-pro-controller.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black wireless game controller with two thumbsticks, on a couch beside a blanket, evening light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+- id: shot3
+  product_photo: assets/products/switch-2-pro-controller.jpg
+  still_only: true
+  still: Photorealistic vertical photo of @product, a black wireless game controller with two thumbsticks, on a wooden shelf beside a game console, soft light. It keeps exactly the shape, color and look of @product. No people, no hands, no text, no brand logos added.
+  motion: Slow steady push-in. Nothing else moves. No people, no hands, no text.
+reel:
+  name: Nintendo Switch 2 Pro Controller
+  product_photo: assets/products/switch-2-pro-controller.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted a real controller for the couch.
+  - shot: shot2
+    kind: photo
+    voiceover: The Switch 2 Pro Controller has HD Rumble 2.
+  - shot: shot3
+    kind: photo
+    voiceover: It is an easy gift for any gamer.
