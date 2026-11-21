@@ -1,0 +1,16 @@
+# 8s credit-free cut of roku-stick-hd-scene
+name: roku-stick-hd-short
+shots_from: roku-stick-hd-scene
+reel:
+  name: Roku Streaming Stick HD
+  product_photo: assets/products/roku-stick-hd.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: My old TV had no streaming.
+    caption: Old TV, no streaming?
+  - shot: shot2
+    kind: photo
+    voiceover: This Roku stick plugs right into HDMI.

@@ -1,0 +1,16 @@
+# 8s credit-free cut of switch-2-pro-controller-scene
+name: switch-2-pro-controller-short
+shots_from: switch-2-pro-controller-scene
+reel:
+  name: Nintendo Switch 2 Pro Controller
+  product_photo: assets/products/switch-2-pro-controller.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted a real controller for the couch.
+    caption: Gift for a Switch 2 gamer?
+  - shot: shot2
+    kind: photo
+    voiceover: The Switch 2 Pro Controller has HD Rumble 2.

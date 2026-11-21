@@ -1,0 +1,16 @@
+# 8s credit-free cut of apple-watch-se-3-scene
+name: apple-watch-se-3-short
+shots_from: apple-watch-se-3-scene
+reel:
+  name: Apple Watch SE 3
+  product_photo: assets/products/apple-watch-se-3.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted a watch that tracks my workouts.
+    caption: A smartwatch gift idea?
+  - shot: shot2
+    kind: photo
+    voiceover: The Apple Watch SE 3 also senses temperature.

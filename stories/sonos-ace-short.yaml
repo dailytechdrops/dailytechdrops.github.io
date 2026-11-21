@@ -1,0 +1,16 @@
+# 8s credit-free cut of sonos-ace-scene
+name: sonos-ace-short
+shots_from: sonos-ace-scene
+reel:
+  name: Sonos Ace Headphones
+  product_photo: assets/products/sonos-ace.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted headphones that feel like a theater.
+    caption: Gift for someone who loves music?
+  - shot: shot2
+    kind: photo
+    voiceover: Sonos Ace has noise cancelling and spatial audio.
