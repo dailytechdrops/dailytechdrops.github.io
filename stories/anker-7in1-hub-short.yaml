@@ -1,0 +1,16 @@
+name: anker-7in1-hub-short
+# 8-second credit-free cut of anker-7in1-hub-scene: same existing shots, burned-in hook, 2 short beats, short end card.
+shots_from: anker-7in1-hub-scene
+reel:
+  name: Anker 7-in-1 USB-C Hub
+  product_photo: assets/products/anker-7in1-hub.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    caption: Out of ports again?
+    voiceover: Seven ports, one hub.
+  - shot: shot2
+    kind: photo
+    voiceover: 4K HDMI, two USB-A.

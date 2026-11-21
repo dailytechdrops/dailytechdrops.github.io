@@ -170,7 +170,7 @@
   - desk setup
   content:
     product_photo: assets/products/anker-7in1-hub.jpg
-    reel_file: assets/reels/anker-7in1-hub-scene.mp4
+    reel_file: assets/reels/anker-7in1-hub-short.mp4
     beats:
     - on_screen: Need more ports fast?
       voiceover: ''
