@@ -6,6 +6,7 @@ instagram_business_manage_messages and (for the weekly report)
 instagram_business_manage_insights.
 """
 
+import json
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -36,14 +37,16 @@ def _call(method: str, url: str, **kwargs) -> dict:
     return r.json()
 
 
-def publish_reel(video: Path, caption: str, video_url: str | None = None) -> str:
+def publish_reel(video: Path, caption: str, video_url: str | None = None, trial: str | None = None) -> str:
     """Uploads the local file directly (resumable upload); if Instagram refuses that,
-    falls back to letting it fetch the file from a public URL."""
+    falls back to letting it fetch the file from a public URL. trial (MANUAL or SS_PERFORMANCE)
+    posts it as a Trial Reel, shown to non-followers first."""
     user, token = _creds()
+    extra = {"trial_params": json.dumps({"graduation_strategy": trial})} if trial else {}
     try:
         container = _call("POST", f"{API}/{user}/media", params={
             "media_type": "REELS", "upload_type": "resumable", "caption": caption,
-            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token, **extra,
         })
         size = video.stat().st_size
         _call("POST", container["uri"], headers={
@@ -55,7 +58,7 @@ def publish_reel(video: Path, caption: str, video_url: str | None = None) -> str
         print(f"Resumable upload refused ({e}); using the public URL instead", file=sys.stderr)
         container = _call("POST", f"{API}/{user}/media", params={
             "media_type": "REELS", "video_url": video_url, "caption": caption,
-            "share_to_feed": "true", "thumb_offset": "500", "access_token": token,
+            "share_to_feed": "true", "thumb_offset": "500", "access_token": token, **extra,
         })
     _wait_ready(container["id"], token)
     return _publish(user, token, container["id"])

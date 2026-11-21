@@ -61,6 +61,10 @@ pinterest:
 instagram:
   comment_keyword: SHOP          # Viewers comment this word to get the link by DM
   comment_aliases: [LINK]        # Also answered, since people guess these
+  # Trial Reels (Nov 21 2026): shown to non-followers first; SS_PERFORMANCE graduates to followers if it performs.
+  # A/B: the 15:30 and 19:30 reels post as trials, 11:30 stays a normal reel as the control.
+  trial_strategy: SS_PERFORMANCE
+  trial_reel_times: ["15:30", "19:30"]
   hashtags_per_post: 5           # Instagram now counts at most 5; extra tags are wasted
   # Separate carousels reached 1 to 8 people while reels reached about 100 (report, Oct 25 2026),
   # so Kevin chose a third reel a day instead (Oct 26 2026). Slides still render for the Story and shop page.
