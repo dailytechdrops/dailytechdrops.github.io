@@ -1,0 +1,16 @@
+# 8s credit-free cut of kindle-colorsoft-scene
+name: kindle-colorsoft-short
+shots_from: kindle-colorsoft-scene
+reel:
+  name: Kindle Colorsoft
+  product_photo: assets/products/kindle-colorsoft.jpg
+  end_voiceover: Comment SHOP for the link.
+  beat_seconds: 1.8
+  beats:
+  - shot: shot1
+    kind: photo
+    voiceover: I wanted my books in color.
+    caption: A reader gift in color?
+  - shot: shot2
+    kind: photo
+    voiceover: The Kindle Colorsoft has a seven inch color screen.
