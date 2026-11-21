@@ -216,7 +216,16 @@ def _publish(cfg: dict, item_id: str, history: list) -> None:
     # Drafts rendered before Oct 25 2026 have the disclosure first; move it to the end.
     draft["caption"] = disclosure_last(cfg, draft["caption"])
     base = _media_base()
-    reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
+    ig = cfg["instagram"]
+    hhmm = f"{item_id[11:13]}:{item_id[13:15]}" if len(item_id) > 15 else ""
+    trial = ig.get("trial_strategy") if hhmm in ig.get("trial_reel_times", []) else None
+    try:
+        reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4", trial=trial)
+    except instagram.InstagramError as e:
+        if not trial:
+            raise
+        print(f"::warning title=Trial reel refused::{e}; posting as a normal reel")
+        reel_id = instagram.publish_reel(out / "reel.mp4", draft["caption"], f"{base}/{item_id}/reel.mp4")
     carousel_id = None
     if cfg["instagram"].get("post_carousel", True):
         try:
