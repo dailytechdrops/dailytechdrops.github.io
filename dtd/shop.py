@@ -41,8 +41,48 @@ def fetch_images() -> int:
     return 0
 
 
+_PHOTOS: dict[str, str] | None = None
+
+
+def _product_photos() -> dict[str, str]:
+    """Post id -> the real product photo (content.product_photo) named in the week files."""
+    global _PHOTOS
+    if _PHOTOS is None:
+        # Older posts whose week entry predates content.product_photo: their real product photos, by ASIN.
+        _PHOTOS = {"B09B2SBHQK": "assets/products/echo-show-5.jpg", "B0BWWZXWPL": "assets/products/blink-mini-2.jpg",
+                   "B071FXZBMV": "assets/photos/cable-clips/1.jpg", "B01M7U6F8T": "assets/photos/phone-stand/1.jpg",
+                   "B0H1HF44BC": "assets/photos/usb-flash-drive/1.jpg", "B08CVKRZW9": "assets/photos/webcam-cover/1.jpg"}
+        for item in load_all_weeks():
+            photo = (item.get("content") or {}).get("product_photo")
+            if photo and item.get("id"):
+                _PHOTOS[item["id"]] = photo
+                _PHOTOS.setdefault(item["asin"], photo)
+    return _PHOTOS
+
+
+def _ensure_thumb(item_id: str) -> bool:
+    """Writes docs/img/<id>.jpg from the real product photo (fit on a white 4:5 card) so the shop card
+    shows the product, not the text-only first slide. Nov 21 2026 (Kevin): every card needs a product photo."""
+    target = IMG_DIR / f"{item_id}.jpg"
+    if target.exists():
+        return True
+    photos = _product_photos()
+    src = photos.get(item_id) or photos.get(item_id.rsplit("-", 1)[-1])
+    if not src or not (ROOT / src).exists():
+        return False
+    from PIL import Image
+    IMG_DIR.mkdir(parents=True, exist_ok=True)
+    im = Image.open(ROOT / src).convert("RGB")
+    W, H = 480, 600
+    im.thumbnail((int(W * 0.88), int(H * 0.88)))
+    card = Image.new("RGB", (W, H), (255, 255, 255))
+    card.paste(im, ((W - im.width) // 2, (H - im.height) // 2))
+    card.save(target, quality=84)
+    return True
+
+
 def _img_for_card(item_id: str, base: str) -> str:
-    return f"img/{item_id}.jpg" if (IMG_DIR / f"{item_id}.jpg").exists() else f"{base}/{item_id}/slide_1.jpg"
+    return f"img/{item_id}.jpg" if _ensure_thumb(item_id) else f"{base}/{item_id}/slide_1.jpg"
 
 
 def _track(event: str, name: str) -> str:
@@ -185,7 +225,7 @@ p.disclose {{ color:var(--muted); font-size:12.5px; line-height:1.45; margin:0 0
 h2 {{ font:600 13px/1.3 Inter, system-ui, sans-serif; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:30px 0 12px; }}
 .item {{ background:var(--card); border-radius:18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(59,47,39,.05), 0 6px 18px rgba(59,47,39,.06); overflow:hidden; }}
 .card {{ display:flex; gap:14px; align-items:center; padding:12px; text-decoration:none; color:inherit; }}
-.card img {{ width:96px; height:120px; object-fit:cover; border-radius:12px; flex:none; background:var(--line); }}
+.card img {{ width:96px; height:120px; object-fit:contain; background:#fff; border-radius:12px; flex:none; background:var(--line); }}
 .meta {{ display:flex; flex-direction:column; gap:4px; min-width:0; }}
 .meta strong {{ font-weight:600; font-size:16px; line-height:1.3; }}
 .date {{ color:var(--muted); font-size:13px; }}
