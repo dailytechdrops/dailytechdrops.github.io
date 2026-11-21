@@ -35,8 +35,11 @@ jobs:
       - name: Fetch the Runway shots
         run: |
           git fetch origin media --depth 1
+          SRC=$(python -c "import yaml,sys;print(yaml.safe_load(open('stories/${{ inputs.name }}.yaml')).get('shots_from','${{ inputs.name }}'))")
           mkdir -p "out/${{ inputs.name }}"
-          git archive origin/media "runway/${{ inputs.name }}" 2>/dev/null | tar -x -C out --strip-components=1 || true
+          rm -rf /tmp/shots && mkdir /tmp/shots
+          git archive origin/media "runway/$SRC" 2>/dev/null | tar -x -C /tmp/shots --strip-components=1 || true
+          cp -r "/tmp/shots/$SRC/." "out/${{ inputs.name }}/" 2>/dev/null || true
       - name: Build the reel
         run: python tools/product_reel.py "${{ inputs.name }}" --out "out/${{ inputs.name }}-voiced.mp4"
       - uses: actions/upload-artifact@v4
