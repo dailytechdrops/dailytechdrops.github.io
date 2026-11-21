@@ -19,7 +19,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from dtd.config import ROOT, load_config  # noqa: E402
-from dtd.media_sources import duration, tts  # noqa: E402
+from dtd.media_sources import duration, pinned_clip, tts  # noqa: E402
 from dtd.reel import FADE, LIST_END, _finish, _segment, brand_overlay, caption_overlay, end_card, studio_frame  # noqa: E402
 
 
@@ -54,7 +54,17 @@ def main() -> None:
         if beat.get("caption"):
             overlay = work / f"overlay_{i}.png"
             caption_overlay(cfg, beat["caption"], overlay, hook=(i == 0), centre=0.30)
-        if beat.get("kind", "clip") == "clip":
+        if beat.get("pixabay"):
+            # Real stock footage by Pixabay video id (free, needs PIXABAY_API_KEY): cut to this beat's length.
+            src = pinned_clip(int(beat["pixabay"]), work / f"pixabay_{i}.mp4")
+            if not src:
+                sys.exit(f"Pixabay video {beat['pixabay']} could not be downloaded")
+            clip = work / f"clip_{i}.mp4"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(beat.get("start", 0.5)), "-i", str(src), "-an",
+                            "-t", f"{length + 0.2:.2f}", "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
+                            "-c:v", "libx264", "-crf", "16", str(clip)], check=True)
+            _segment(rc, clip, overlay, voice, length, seg, brand=brand)
+        elif beat.get("kind", "clip") == "clip":
             clip = work / f"clip_{i}.mp4"
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(beat.get("start", 0.3)), "-i",
                             str(shots / f"{beat['shot']}.mp4"), "-an", "-t", f"{length + 0.2:.2f}", "-c:v", "libx264",
