@@ -1,41 +1,4 @@
 - slot: 2026-11-21 19:30
-  asin: B08BRCT4JH
-  name: BESIGN Aluminum Laptop Stand
-  lane: desk and home office gadgets
-  hook_style: callout
-  angle: Neck hurting from your laptop?
-  key_facts:
-  - BESIGN Aluminum Laptop Stand
-  broll:
-  - desk setup
-  content:
-    product_photo: assets/products/besign-laptop-stand.jpg
-    reel_file: assets/reels/besign-laptop-stand-scene.mp4
-    beats:
-    - on_screen: Neck hurting from your laptop?
-      voiceover: ''
-    - on_screen: Comment SHOP
-      voiceover: ''
-    carousel:
-    - title: Neck hurting from your laptop?
-      body: Details in the shop.
-    - title: Comment SHOP
-      body: I will DM you the Amazon link.
-    caption: 'Neck hurting from your laptop? The BESIGN aluminum laptop stand lifts a 10 to 15.6 inch laptop up to 6 inches and holds up to 8.8 lb. AI-generated video.
-
-
-      Comment SHOP and I will send you the link.'
-    hashtags:
-    - laptopstand
-    - ergonomics
-    - deskSetup
-    - homeoffice
-    - techgadgets
-    dm_message: 'Here is the BESIGN Aluminum Laptop Stand: {link}
-
-
-      As an Amazon Associate I earn from qualifying purchases.'
-- slot: 2026-11-22 11:30
   asin: B0HJ9ZNRKT
   name: Apple Watch SE 3
   lane: gadgets for everyone
@@ -74,44 +37,44 @@
       As an Amazon Associate I earn from qualifying purchases.'
     label: Gift idea
   gift_guide: everything
-- slot: 2026-11-22 15:30
-  asin: B0DXJQT19B
-  name: Anker 7-in-1 USB-C Hub
+- slot: 2026-11-22 11:30
+  asin: B08BRCT4JH
+  name: BESIGN Aluminum Laptop Stand
   lane: desk and home office gadgets
-  hook_style: number
-  angle: Need more ports fast?
+  hook_style: callout
+  angle: Neck hurting from your laptop?
   key_facts:
-  - Anker 7-in-1 USB-C Hub
+  - BESIGN Aluminum Laptop Stand
   broll:
   - desk setup
   content:
-    product_photo: assets/products/anker-7in1-hub.jpg
-    reel_file: assets/reels/anker-7in1-hub-scene.mp4
+    product_photo: assets/products/besign-laptop-stand.jpg
+    reel_file: assets/reels/besign-laptop-stand-scene.mp4
     beats:
-    - on_screen: Need more ports fast?
+    - on_screen: Neck hurting from your laptop?
       voiceover: ''
     - on_screen: Comment SHOP
       voiceover: ''
     carousel:
-    - title: Need more ports fast?
+    - title: Neck hurting from your laptop?
       body: Details in the shop.
     - title: Comment SHOP
       body: I will DM you the Amazon link.
-    caption: 'Need more ports fast? The Anker 7-in-1 USB-C hub has HDMI 4K at 60Hz, two USB-A 3.0 ports and USB-C data at 5Gbps. AI-generated video.
+    caption: 'Neck hurting from your laptop? The BESIGN aluminum laptop stand lifts a 10 to 15.6 inch laptop up to 6 inches and holds up to 8.8 lb. AI-generated video.
 
 
       Comment SHOP and I will send you the link.'
     hashtags:
-    - anker
-    - usbc
-    - hub
-    - laptop
+    - laptopstand
+    - ergonomics
+    - deskSetup
+    - homeoffice
     - techgadgets
-    dm_message: 'Here is the Anker 7-in-1 USB-C Hub: {link}
+    dm_message: 'Here is the BESIGN Aluminum Laptop Stand: {link}
 
 
       As an Amazon Associate I earn from qualifying purchases.'
-- slot: 2026-11-22 19:30
+- slot: 2026-11-22 15:30
   asin: B0CYHGTMNH
   name: Sonos Ace Headphones
   lane: audio and headphones
@@ -150,7 +113,7 @@
       As an Amazon Associate I earn from qualifying purchases.'
     label: Gift idea
   gift_guide: traveler
-- slot: 2026-11-23 11:30
+- slot: 2026-11-22 19:30
   asin: B0CT3SGHXL
   name: Garmin Forerunner 165
   lane: gadgets for everyone
@@ -189,44 +152,44 @@
       As an Amazon Associate I earn from qualifying purchases.'
     label: Gift idea
   gift_guide: everything
-- slot: 2026-11-23 15:30
-  asin: B0C4JTPPYY
-  name: LED Clamp Desk Lamp
+- slot: 2026-11-23 11:30
+  asin: B0DXJQT19B
+  name: Anker 7-in-1 USB-C Hub
   lane: desk and home office gadgets
-  hook_style: question
-  angle: Desk lamp in the way?
+  hook_style: number
+  angle: Need more ports fast?
   key_facts:
-  - LED Clamp Desk Lamp
+  - Anker 7-in-1 USB-C Hub
   broll:
   - desk setup
   content:
-    product_photo: assets/products/led-desk-lamp-clamp.jpg
-    reel_file: assets/reels/led-desk-lamp-clamp-scene.mp4
+    product_photo: assets/products/anker-7in1-hub.jpg
+    reel_file: assets/reels/anker-7in1-hub-scene.mp4
     beats:
-    - on_screen: Desk lamp in the way?
+    - on_screen: Need more ports fast?
       voiceover: ''
     - on_screen: Comment SHOP
       voiceover: ''
     carousel:
-    - title: Desk lamp in the way?
+    - title: Need more ports fast?
       body: Details in the shop.
     - title: Comment SHOP
       body: I will DM you the Amazon link.
-    caption: 'Desk lamp in the way? The 17 inch LED clamp desk lamp has stepless dimming from 2700K to 6500K and a 360 degree gooseneck. AI-generated video.
+    caption: 'Need more ports fast? The Anker 7-in-1 USB-C hub has HDMI 4K at 60Hz, two USB-A 3.0 ports and USB-C data at 5Gbps. AI-generated video.
 
 
       Comment SHOP and I will send you the link.'
     hashtags:
-    - desklamp
-    - homeoffice
-    - deskSetup
+    - anker
+    - usbc
+    - hub
+    - laptop
     - techgadgets
-    - amazonfinds
-    dm_message: 'Here is the LED Clamp Desk Lamp: {link}
+    dm_message: 'Here is the Anker 7-in-1 USB-C Hub: {link}
 
 
       As an Amazon Associate I earn from qualifying purchases.'
-- slot: 2026-11-23 19:30
+- slot: 2026-11-23 15:30
   asin: B0CGVSKR1G
   name: Kindle Colorsoft
   lane: gadgets for everyone
@@ -265,7 +228,7 @@
       As an Amazon Associate I earn from qualifying purchases.'
     label: Gift idea
   gift_guide: everything
-- slot: 2026-11-24 11:30
+- slot: 2026-11-23 19:30
   asin: B0DCQVQDQ7
   name: GoPro HERO13 Black
   lane: gadgets for everyone
@@ -304,6 +267,43 @@
       As an Amazon Associate I earn from qualifying purchases.'
     label: Gift idea
   gift_guide: traveler
+- slot: 2026-11-24 11:30
+  asin: B0C4JTPPYY
+  name: LED Clamp Desk Lamp
+  lane: desk and home office gadgets
+  hook_style: question
+  angle: Desk lamp in the way?
+  key_facts:
+  - LED Clamp Desk Lamp
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/led-desk-lamp-clamp.jpg
+    reel_file: assets/reels/led-desk-lamp-clamp-scene.mp4
+    beats:
+    - on_screen: Desk lamp in the way?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Desk lamp in the way?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Desk lamp in the way? The 17 inch LED clamp desk lamp has stepless dimming from 2700K to 6500K and a 360 degree gooseneck. AI-generated video.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - desklamp
+    - homeoffice
+    - deskSetup
+    - techgadgets
+    - amazonfinds
+    dm_message: 'Here is the LED Clamp Desk Lamp: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
 - slot: 2026-11-24 15:30
   asin: B0DXXYS4BJ
   name: Roku Streaming Stick HD
