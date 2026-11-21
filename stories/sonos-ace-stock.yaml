@@ -1,0 +1,14 @@
+name: sonos-ace-stock
+# 8s test: real stock footage hook (Pixabay 30870, airport window), then the existing Sonos scene still.
+shots_from: sonos-ace-scene
+reel:
+  name: Sonos Ace Headphones
+  product_photo: assets/products/sonos-ace.jpg
+  end_voiceover: Comment SHOP for the link.
+  beats:
+  - pixabay: 30870
+    caption: Long flight, loud cabin?
+    voiceover: Long flight and a loud cabin?
+  - shot: shot1
+    kind: photo
+    voiceover: These shut the noise out.

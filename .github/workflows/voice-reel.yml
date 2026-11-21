@@ -41,6 +41,8 @@ jobs:
           git archive origin/media "runway/$SRC" 2>/dev/null | tar -x -C /tmp/shots --strip-components=1 || true
           cp -r "/tmp/shots/$SRC/." "out/${{ inputs.name }}/" 2>/dev/null || true
       - name: Build the reel
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python tools/product_reel.py "${{ inputs.name }}" --out "out/${{ inputs.name }}-voiced.mp4"
       - uses: actions/upload-artifact@v4
         with:

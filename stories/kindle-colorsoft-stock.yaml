@@ -1,0 +1,14 @@
+name: kindle-colorsoft-stock
+# 8s test: real stock footage hook (Pixabay 215474, reading on a sofa), then the existing Kindle scene still.
+shots_from: kindle-colorsoft-scene
+reel:
+  name: Kindle Colorsoft
+  product_photo: assets/products/kindle-colorsoft.jpg
+  end_voiceover: Comment SHOP for the link.
+  beats:
+  - pixabay: 215474
+    caption: Still reading in black and white?
+    voiceover: Still reading in black and white?
+  - shot: shot1
+    kind: photo
+    voiceover: This Kindle shows color.
