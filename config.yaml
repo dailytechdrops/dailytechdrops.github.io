@@ -189,10 +189,14 @@ writer:
 # Niche lanes rotated so the feed stays varied, best performers first.
 # Lighting and room decor was dropped in Oct 2026: it drew the fewest views.
 lanes:
-  - desk and productivity setup (stands, monitor bars, cable management)
-  - phone, travel and charging gadgets
-  - home security and safety gadgets (trackers, detectors, locks)
-  - robots, clocks and fun tech
+  # Nov 21 2026 (Kevin): any cool tech is in scope, not only desk and charging.
+  # Data (30 days): utility gadgets reach ~100, big-brand gift items 10-40, so keep novel finds in the mix.
+  - cool gadgets and everyday tech finds
+  - computers, laptops and accessories
+  - phones, tablets and wearables
+  - smart home, cameras and security
+  - audio, gaming and entertainment tech
+  - desk, charging and travel gadgets
 
 # Set to true to hold ALL posts (Instagram, Facebook, Threads, TikTok, YouTube, Pinterest).
 # Held Nov 2-4 2026 while the closed Amazon store ID was replaced; Kevin resumed Nov 4.
