@@ -88,7 +88,7 @@
   - desk setup
   content:
     product_photo: assets/products/sonos-ace.jpg
-    reel_file: assets/reels/sonos-ace-short.mp4
+    reel_file: assets/reels/sonos-ace-stock.mp4
     beats:
     - on_screen: Gift for someone who loves music?
       voiceover: ''
@@ -207,7 +207,7 @@
   - desk setup
   content:
     product_photo: assets/products/kindle-colorsoft.jpg
-    reel_file: assets/reels/kindle-colorsoft-short.mp4
+    reel_file: assets/reels/kindle-colorsoft-stock.mp4
     beats:
     - on_screen: A reader gift in color?
       voiceover: ''
