@@ -10,7 +10,7 @@
   - desk setup
   content:
     product_photo: assets/products/apple-watch-se-3.jpg
-    reel_file: assets/reels/apple-watch-se-3-scene.mp4
+    reel_file: assets/reels/apple-watch-se-3-short.mp4
     beats:
     - on_screen: A smartwatch gift idea?
       voiceover: ''
@@ -88,7 +88,7 @@
   - desk setup
   content:
     product_photo: assets/products/sonos-ace.jpg
-    reel_file: assets/reels/sonos-ace-scene.mp4
+    reel_file: assets/reels/sonos-ace-short.mp4
     beats:
     - on_screen: Gift for someone who loves music?
       voiceover: ''
@@ -129,7 +129,7 @@
   - desk setup
   content:
     product_photo: assets/products/garmin-forerunner-165.jpg
-    reel_file: assets/reels/garmin-forerunner-165-scene.mp4
+    reel_file: assets/reels/garmin-forerunner-165-short.mp4
     beats:
     - on_screen: A running gift idea?
       voiceover: ''
@@ -207,7 +207,7 @@
   - desk setup
   content:
     product_photo: assets/products/kindle-colorsoft.jpg
-    reel_file: assets/reels/kindle-colorsoft-scene.mp4
+    reel_file: assets/reels/kindle-colorsoft-short.mp4
     beats:
     - on_screen: A reader gift in color?
       voiceover: ''
@@ -246,7 +246,7 @@
   - desk setup
   content:
     product_photo: assets/products/gopro-hero13.jpg
-    reel_file: assets/reels/gopro-hero13-scene.mp4
+    reel_file: assets/reels/gopro-hero13-short.mp4
     beats:
     - on_screen: Capture the whole trip?
       voiceover: ''
@@ -324,7 +324,7 @@
   - desk setup
   content:
     product_photo: assets/products/roku-stick-hd.jpg
-    reel_file: assets/reels/roku-stick-hd-scene.mp4
+    reel_file: assets/reels/roku-stick-hd-short.mp4
     beats:
     - on_screen: Old TV, no streaming?
       voiceover: ''
@@ -363,7 +363,7 @@
   - desk setup
   content:
     product_photo: assets/products/switch-2-pro-controller.jpg
-    reel_file: assets/reels/switch-2-pro-controller-scene.mp4
+    reel_file: assets/reels/switch-2-pro-controller-short.mp4
     beats:
     - on_screen: Gift for a Switch 2 gamer?
       voiceover: ''
@@ -404,7 +404,7 @@
   - desk setup
   content:
     product_photo: assets/products/dji-osmo-pocket-3.jpg
-    reel_file: assets/reels/dji-osmo-pocket-3-scene.mp4
+    reel_file: assets/reels/dji-osmo-pocket-3-short.mp4
     beats:
     - on_screen: Smooth video from your pocket?
       voiceover: ''
