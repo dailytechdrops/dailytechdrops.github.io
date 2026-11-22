@@ -4,8 +4,8 @@ reel:
   product_photo: assets/products/etekcity-food-scale.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: bakery bread oven
-    caption: Guessing your measurements?
+  - caption: Guessing your measurements?
     voiceover: I was done guessing my baking measurements.
-  - query: fresh bread loaf baking
-    voiceover: This Etekcity scale reads in five units.
+    pixabay: 267
+  - voiceover: This Etekcity scale reads in five units.
+    pixabay: 149665

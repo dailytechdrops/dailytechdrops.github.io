@@ -4,8 +4,8 @@ reel:
   product_photo: assets/products/beats-studio-pro.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: subway train station platform
-    caption: Loud commute every day?
+  - caption: Loud commute every day?
     voiceover: My commute used to be so loud.
-  - query: city street at night
-    voiceover: Beats Studio Pro has noise cancelling and a transparency mode.
+    pixabay: 9831
+  - voiceover: Beats Studio Pro has noise cancelling and a transparency mode.
+    pixabay: 170887

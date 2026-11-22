@@ -4,8 +4,8 @@ reel:
   product_photo: assets/products/tapo-pan-tilt-2k.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: dog waiting at door home
-    caption: Worried about your pet?
+  - caption: Worried about your pet?
     voiceover: I hate leaving my dog home alone.
-  - query: dog sleeping on couch
-    voiceover: This Tapo camera pans and tilts in 2K.
+    pixabay: 14869
+  - voiceover: This Tapo camera pans and tilts in 2K.
+    pixabay: 5631
