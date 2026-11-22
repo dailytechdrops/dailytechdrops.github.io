@@ -1,0 +1,11 @@
+name: tapo-pan-tilt-2k-stock
+reel:
+  name: Tapo 2K Pan/Tilt Security Camera
+  product_photo: assets/products/tapo-pan-tilt-2k.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: dog waiting at door home
+    caption: Worried about your pet?
+    voiceover: I hate leaving my dog home alone.
+  - query: cozy living room interior
+    voiceover: This Tapo camera pans and tilts in 2K.

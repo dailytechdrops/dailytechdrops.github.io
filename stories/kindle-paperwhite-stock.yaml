@@ -1,0 +1,11 @@
+name: kindle-paperwhite-stock
+reel:
+  name: Kindle Paperwhite
+  product_photo: assets/products/kindle-paperwhite.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: open book cozy window
+    caption: Still carrying heavy books?
+    voiceover: I wanted my whole library in one slim reader.
+  - query: sunny beach vacation
+    voiceover: The Paperwhite screen stays glare free.

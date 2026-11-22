@@ -1,0 +1,11 @@
+name: mini-photo-printer-stock
+reel:
+  name: Mini Sticker Photo Printer
+  product_photo: assets/products/mini-photo-printer.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: photo wall memories pictures
+    caption: Photos stuck on your phone?
+    voiceover: My best photos were stuck on my phone.
+  - query: pictures scrapbook desk
+    voiceover: This tiny printer makes inkless stickers from an app.

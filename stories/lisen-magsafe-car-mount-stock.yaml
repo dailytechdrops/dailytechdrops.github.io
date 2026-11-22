@@ -1,0 +1,11 @@
+name: lisen-magsafe-car-mount-stock
+reel:
+  name: LISEN MagSafe Car Mount
+  product_photo: assets/products/lisen-magsafe-car-mount.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: car dashboard driving road
+    caption: Phone sliding around your car?
+    voiceover: My phone kept sliding around the car.
+  - query: highway sunset driving
+    voiceover: This LISEN mount holds with strong suction and magnets.

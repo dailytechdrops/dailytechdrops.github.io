@@ -1,0 +1,11 @@
+name: beats-studio-pro-stock
+reel:
+  name: Beats Studio Pro
+  product_photo: assets/products/beats-studio-pro.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: city subway commute
+    caption: Loud commute every day?
+    voiceover: My commute used to be so loud.
+  - query: city street at night
+    voiceover: Beats Studio Pro has noise cancelling and a transparency mode.

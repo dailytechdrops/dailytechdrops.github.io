@@ -1,0 +1,491 @@
+- slot: 2026-11-25 15:30
+  asin: B09Y8TLP25
+  name: Tapo 2K Pan/Tilt Security Camera
+  lane: smart home and security
+  hook_style: question
+  angle: Worried about your pet at home?
+  key_facts:
+  - Tapo 2K Pan/Tilt Security Camera
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/tapo-pan-tilt-2k.jpg
+    reel_file: assets/reels/tapo-pan-tilt-2k-stock.mp4
+    beats:
+    - on_screen: Worried about your pet at home?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Worried about your pet at home?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Worried about your pet at home? The Tapo 2K Pan/Tilt camera has 2K video and microSD storage up to 512GB with no subscription needed.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - tapo
+    - petcamera
+    - homesecurity
+    - smarthome
+    - techgadgets
+    dm_message: 'Here is the Tapo 2K Pan/Tilt Security Camera: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-25 19:30
+  asin: B0CFPJYX7P
+  name: Kindle Paperwhite
+  lane: gadgets for everyone
+  hook_style: callout
+  angle: A reader gift for book lovers?
+  key_facts:
+  - Kindle Paperwhite
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/kindle-paperwhite.jpg
+    reel_file: assets/reels/kindle-paperwhite-stock.mp4
+    beats:
+    - on_screen: A reader gift for book lovers?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: A reader gift for book lovers?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'A reader gift for book lovers? 🎁 A gift idea: The Kindle Paperwhite has a 7 inch glare-free display and an ultra-thin design for travel, a good gift for readers. See the gift guide.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - kindle
+    - paperwhite
+    - giftideas
+    - books
+    - techgadgets
+    dm_message: 'Here is the Kindle Paperwhite: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    label: Gift idea
+  gift_guide: everything
+- slot: 2026-11-26 11:30
+  asin: B0DN2ZCZX6
+  name: JBL Charge 6 Portable Speaker
+  lane: audio and headphones
+  hook_style: number
+  angle: A speaker gift that survives the pool?
+  key_facts:
+  - JBL Charge 6 Portable Speaker
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/jbl-charge-6.jpg
+    reel_file: assets/reels/jbl-charge-6-stock.mp4
+    beats:
+    - on_screen: A speaker gift that survives the pool?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: A speaker gift that survives the pool?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'A speaker gift that survives the pool? 🎁 A gift idea: The JBL Charge 6 has JBL Pro Sound, is waterproof and dustproof, and plays up to 28 hours. A good gift for music fans. See the gift guide.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - jbl
+    - speaker
+    - giftideas
+    - music
+    - techgadgets
+    dm_message: 'Here is the JBL Charge 6 Portable Speaker: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    label: Gift idea
+  gift_guide: everything
+- slot: 2026-11-26 15:30
+  asin: B07XXSYLL8
+  name: ThermoPro TP19H Instant-Read Thermometer
+  lane: kitchen and home gadgets
+  hook_style: question
+  angle: Is the steak done yet?
+  key_facts:
+  - ThermoPro TP19H Instant-Read Thermometer
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/thermopro-tp19h.jpg
+    reel_file: assets/reels/thermopro-tp19h-stock.mp4
+    beats:
+    - on_screen: Is the steak done yet?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Is the steak done yet?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Is the steak done yet? The ThermoPro TP19H gives 1-second readings with a backlit auto-rotating display.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - thermopro
+    - cooking
+    - kitchengadgets
+    - grilling
+    - amazonfinds
+    dm_message: 'Here is the ThermoPro TP19H Instant-Read Thermometer: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-26 19:30
+  asin: B0C8PR4W22
+  name: Beats Studio Pro
+  lane: audio and headphones
+  hook_style: curiosity
+  angle: Gift for a loud commute?
+  key_facts:
+  - Beats Studio Pro
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/beats-studio-pro.jpg
+    reel_file: assets/reels/beats-studio-pro-stock.mp4
+    beats:
+    - on_screen: Gift for a loud commute?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Gift for a loud commute?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Gift for a loud commute? 🎁 A gift idea: The Beats Studio Pro has active noise cancelling, a transparency mode and USB-C lossless audio, a big gift for music lovers. See the traveler gift guide.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - beats
+    - headphones
+    - giftideas
+    - noisecancelling
+    - techgadgets
+    dm_message: 'Here is the Beats Studio Pro: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    label: Gift idea
+  gift_guide: traveler
+- slot: 2026-11-27 11:30
+  asin: B0F2GYMC8H
+  name: Meta Quest 3S
+  lane: gadgets for everyone
+  hook_style: callout
+  angle: A gift that fills the whole weekend?
+  key_facts:
+  - Meta Quest 3S
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/meta-quest-3s.jpg
+    reel_file: assets/reels/meta-quest-3s-stock.mp4
+    beats:
+    - on_screen: A gift that fills the whole weekend?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: A gift that fills the whole weekend?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'A gift that fills the whole weekend? 🎁 A gift idea: The Meta Quest 3S 128GB VR headset comes with GOLF+ and access to the Meta Horizon library, a big gift for gamers. See the gift guide.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - metaquest
+    - vr
+    - giftideas
+    - gaming
+    - techgadgets
+    dm_message: 'Here is the Meta Quest 3S: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    label: Gift idea
+  gift_guide: everything
+- slot: 2026-11-27 15:30
+  asin: B0F66NH2ZX
+  name: Anker Prime Power Bank 20,100mAh
+  lane: phone, travel and charging gadgets
+  hook_style: number
+  angle: Power for the whole trip?
+  key_facts:
+  - Anker Prime Power Bank 20,100mAh
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/anker-prime-power-bank.jpg
+    reel_file: assets/reels/anker-prime-power-bank-stock.mp4
+    beats:
+    - on_screen: Power for the whole trip?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Power for the whole trip?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Power for the whole trip? The Anker Prime Power Bank has 20,100mAh, 220W total output from 3 ports and is TSA approved.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - anker
+    - powerbank
+    - travelgear
+    - chargers
+    - techgadgets
+    dm_message: 'Here is the Anker Prime Power Bank 20,100mAh: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-27 19:30
+  asin: B0CHW11C8H
+  name: NEBULA Capsule 3 Projector
+  lane: gadgets for everyone
+  hook_style: demo
+  angle: A gift for movie night anywhere?
+  key_facts:
+  - NEBULA Capsule 3 Projector
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/nebula-projector.jpg
+    reel_file: assets/reels/nebula-projector-stock.mp4
+    beats:
+    - on_screen: A gift for movie night anywhere?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: A gift for movie night anywhere?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'A gift for movie night anywhere? 🎁 A gift idea: The NEBULA Capsule 3 is an ultra-portable projector that throws a big screen from a small body, a fun gift. See the gift guide.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - nebula
+    - projector
+    - giftideas
+    - movienight
+    - techgadgets
+    dm_message: 'Here is the NEBULA Capsule 3 Projector: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+    label: Gift idea
+  gift_guide: everything
+- slot: 2026-11-28 11:30
+  asin: B0CG2VS5FD
+  name: Ring Pan-Tilt Indoor Cam
+  lane: smart home and security
+  hook_style: curiosity
+  angle: See every angle at home?
+  key_facts:
+  - Ring Pan-Tilt Indoor Cam
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/ring-pan-tilt-indoor.jpg
+    reel_file: assets/reels/ring-pan-tilt-indoor-stock.mp4
+    beats:
+    - on_screen: See every angle at home?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: See every angle at home?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'See every angle at home? The Ring Pan-Tilt Indoor Cam pans 360 degrees and tilts from the app, with live view and two-way talk.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - ring
+    - homesecurity
+    - smarthome
+    - petcamera
+    - techgadgets
+    dm_message: 'Here is the Ring Pan-Tilt Indoor Cam: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-28 15:30
+  asin: B0113UZJE2
+  name: Etekcity Digital Kitchen Scale
+  lane: kitchen and home gadgets
+  hook_style: callout
+  angle: Baking by guess?
+  key_facts:
+  - Etekcity Digital Kitchen Scale
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/etekcity-food-scale.jpg
+    reel_file: assets/reels/etekcity-food-scale-stock.mp4
+    beats:
+    - on_screen: Baking by guess?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Baking by guess?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Baking by guess? The Etekcity digital kitchen scale reads in ounces, pounds, fluid ounces, grams and milliliters.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - etekcity
+    - kitchenscale
+    - baking
+    - kitchengadgets
+    - amazonfinds
+    dm_message: 'Here is the Etekcity Digital Kitchen Scale: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-28 19:30
+  asin: B0F6D28F7R
+  name: LISEN MagSafe Car Mount
+  lane: phone, travel and charging gadgets
+  hook_style: question
+  angle: Phone slides in the car?
+  key_facts:
+  - LISEN MagSafe Car Mount
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/lisen-magsafe-car-mount.jpg
+    reel_file: assets/reels/lisen-magsafe-car-mount-stock.mp4
+    beats:
+    - on_screen: Phone slides in the car?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Phone slides in the car?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Phone slides in the car? The LISEN MagSafe car mount uses strong suction plus nano adhesive and a 3800gf magnetic hold.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - lisen
+    - carmount
+    - magsafe
+    - cartech
+    - techgadgets
+    dm_message: 'Here is the LISEN MagSafe Car Mount: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-29 11:30
+  asin: B088D8JG3L
+  name: KYY 15.6 Inch Portable Monitor
+  lane: desk and home office gadgets
+  hook_style: demo
+  angle: A second screen anywhere?
+  key_facts:
+  - KYY 15.6 Inch Portable Monitor
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/kyy-portable-monitor.jpg
+    reel_file: assets/reels/kyy-portable-monitor-stock.mp4
+    beats:
+    - on_screen: A second screen anywhere?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: A second screen anywhere?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'A second screen anywhere? The KYY 15.6 inch portable monitor has a 1080P IPS panel and two full-function ports for wide compatibility.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - portablemonitor
+    - dualscreen
+    - remotework
+    - homeoffice
+    - techgadgets
+    dm_message: 'Here is the KYY 15.6 Inch Portable Monitor: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
+- slot: 2026-11-29 15:30
+  asin: B0CHZ74442
+  name: Mini Sticker Photo Printer
+  lane: gadgets for everyone
+  hook_style: question
+  angle: Photos stuck on your phone?
+  key_facts:
+  - Mini Sticker Photo Printer
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/mini-photo-printer.jpg
+    reel_file: assets/reels/mini-photo-printer-stock.mp4
+    beats:
+    - on_screen: Photos stuck on your phone?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Photos stuck on your phone?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Photos stuck on your phone? The mini sticker printer is inkless, works with a free app and comes with 8 rolls of thermal paper.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - photoprinter
+    - stickers
+    - giftideas
+    - crafts
+    - amazonfinds
+    dm_message: 'Here is the Mini Sticker Photo Printer: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
