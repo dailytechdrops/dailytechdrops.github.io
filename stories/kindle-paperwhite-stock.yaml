@@ -4,8 +4,8 @@ reel:
   product_photo: assets/products/kindle-paperwhite.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: open book cozy window
+  - query: library bookshelves
     caption: Still carrying heavy books?
     voiceover: I wanted my whole library in one slim reader.
-  - query: sunny beach vacation
+  - query: cozy reading nook sofa lamp
     voiceover: The Paperwhite screen stays glare free.

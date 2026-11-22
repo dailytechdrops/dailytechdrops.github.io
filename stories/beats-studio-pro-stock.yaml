@@ -4,7 +4,7 @@ reel:
   product_photo: assets/products/beats-studio-pro.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: city subway commute
+  - query: subway train station platform
     caption: Loud commute every day?
     voiceover: My commute used to be so loud.
   - query: city street at night

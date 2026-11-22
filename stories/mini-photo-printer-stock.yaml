@@ -4,8 +4,8 @@ reel:
   product_photo: assets/products/mini-photo-printer.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: photo wall memories pictures
+  - query: polaroid photos memories
     caption: Photos stuck on your phone?
     voiceover: My best photos were stuck on my phone.
-  - query: pictures scrapbook desk
+  - query: photo album vintage pictures
     voiceover: This tiny printer makes inkless stickers from an app.
