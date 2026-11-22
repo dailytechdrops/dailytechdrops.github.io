@@ -21,7 +21,12 @@ jobs:
               q = q.strip()
               if not q: continue
               url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": os.environ["PIXABAY_API_KEY"], "q": q, "per_page": 12, "safesearch": "true", "video_type": "film"})
-              hits = json.load(urllib.request.urlopen(url)).get("hits", [])
+              import time
+              try:
+                  hits = json.load(urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}))).get("hits", [])
+              except Exception as e:
+                  print("== ERR", q, e); time.sleep(20); continue
+              time.sleep(2)
               print("==", q)
               for h in hits:
                   v = h["videos"].get("large") or h["videos"].get("medium") or {}
