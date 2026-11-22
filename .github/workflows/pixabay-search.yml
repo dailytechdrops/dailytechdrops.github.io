@@ -2,25 +2,24 @@ name: Pixabay search
 
 # Manual: prints the top Pixabay video hits (id, size, seconds, tags) for a list of queries (one per line).
 on:
-  workflow_dispatch:
-    inputs:
-      queries:
-        description: "Search queries, separated by |"
-        required: true
+  push:
+    branches: [claude/week-2026-11-25]
+    paths: [tools/pixabay_queries.txt]
 
 jobs:
   search:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Search
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          QUERIES: ${{ inputs.queries }}
         run: |
           python3 - <<'PY'
           import os, json, urllib.request, urllib.parse
-          for q in os.environ["QUERIES"].split("|"):
+          for q in open("tools/pixabay_queries.txt").read().splitlines():
               q = q.strip()
+              if not q: continue
               url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": os.environ["PIXABAY_API_KEY"], "q": q, "per_page": 12, "safesearch": "true", "video_type": "film"})
               hits = json.load(urllib.request.urlopen(url)).get("hits", [])
               print("==", q)
