@@ -1,48 +1,59 @@
-## Weekly report: Nov 08 to Nov 15
+## Weekly report: Nov 15 to Nov 22
 
 **Instagram followers:** 15 (+0 this week)  
-**Posts:** 12  ·  **Link DMs sent:** 0  
-**Accounts reached:** 597  ·  **Views:** 677  ·  **Engaged:** 2  ·  **Bio link taps:** 0
+**Posts:** 18  ·  **Link DMs sent:** 0  
+**Accounts reached:** 676  ·  **Views:** 879  ·  **Engaged:** 3  ·  **Bio link taps:** 0
 
 ### Followers
 
 | Page | Followers | Change since last report |
 | --- | ---: | ---: |
 | Instagram | 15 | +0 |
-| Facebook | 9 | +5 |
+| Facebook | 13 | +4 |
 | Threads | 0 | +0 |
 | TikTok | n/a | Buffer's API does not share TikTok follower counts |
 | YouTube | 0 | +0 |
 | Pinterest | 0 | +0 |
-| **All pages** | **24** | |
+| **All pages** | **28** | |
 
 No count for: TikTok. The reason is in each row.
 
 ### What to repeat (last 30 days, from the winners dashboard)
 
-- Top reels: **Three devices. One tiny brick. Zero wait...** (score 75, reach 154, watch 4.6s, number hook); **Golden hour, on demand. 🌅** (score 73, reach 113, watch 4.1s, statement hook); **Your desk setup is missing the vibe. 🌈** (score 71, reach 109, watch 3.6s, callout hook).
-- Lane: no clear winner yet (home security and safety gadgets 53 vs robots, clocks and fun tech 43).
-- Hook style: repeat **statement** (avg score 55); use less **curiosity** (42).
-- Time of day: repeat **morning (before 11)** (avg score 58); use less **evening (after 6)** (46).
-- First post or remix: no clear winner yet (remix 53 vs first post 50).
+- Top reels: **KOOTEK Laptop Cooling Pad** (score 76, reach 111, watch 8.4s, curiosity hook); **Ultra-Thin Webcam Cover Slide (6 pack)** (score 70, reach 133, watch 3.0s, question hook); **Anker 332 USB-C Hub** (score 68, reach 111, watch 2.9s, callout hook).
+- Lane: repeat **desk and home office gadgets** (avg score 60); use less **smart home** (42).
+- Hook style: no clear winner yet (callout 53 vs number 45).
+- Time of day: no clear winner yet (afternoon (2 to 6) 57 vs evening (after 6) 48).
+- First post or remix: no clear winner yet (remix 54 vs first post 50).
 - Most tapped on the shop page: **Lamicall Aluminum Adjustable Phone Stand** (1), **Anker 525 Charging Station (7-in-1)** (1), **Apple AirTag 4 Pack** (1). Remix these first and pick similar products.
-- Weakest reel: **Anker Nano Power Bank (10K, 45W, retractable cable)** (score 32). Avoid repeating its angle.
+- Weakest reel: **Anker Nano Power Bank (10K, 45W, retractable cable)** (score 33). Avoid repeating its angle.
 
 Full ranking: https://dailytechdrops.github.io/winners.html
 
 ### Shop page
 
-**Visits:** 3  ·  **Taps to Amazon:** 0  ·  **Reel plays:** 0
+**Visits:** 16  ·  **Taps to Amazon:** 8  ·  **Reel plays:** 0
 
-Came from: www.facebook.com 1, Yandex 1
+Came from: direct or app 15, dailytechdrops.github.io 3, ig 2, paragon-na.amazon.com 1, www.pinterest.com 1
+
+| Product tapped | Taps |
+| --- | ---: |
+| Anker 332 USB-C Hub | 1 |
+| Logitech Pebble 2 Keyboard and Mouse Combo | 1 |
+| Scandinavian Hub Under-Desk Cable Management Trays (set of 2) | 1 |
+| KOOTEK Laptop Cooling Pad | 1 |
+| UGREEN 5-in-1 USB-C Hub | 1 |
+| Anker Nano Power Bank (10K, 30W, built-in USB-C cable) | 1 |
+| Logitech Pebble 2 Keyboard and Mouse Combo | 1 |
+| FosPower NOAA Weather Radio with Hand Crank | 1 |
 
 #### Gift guides
 
 | Guide | Visits | Opened from shop | Taps to Amazon | Pinterest saves |
 | --- | ---: | ---: | ---: | ---: |
-| Gifts for the desk worker | 0 | 0 | 0 | 0 |
-| Gifts for the traveler | 0 | 0 | 0 | 0 |
-| Gifts for a safer home | 0 | 0 | 0 | 0 |
+| Gifts for the desk worker | 1 | 1 | 2 | 0 |
+| Gifts for the traveler | 1 | 1 | 1 | 0 |
+| Gifts for a safer home | 1 | 1 | 0 | 0 |
 | Gifts for the person who has everything | 0 | 0 | 0 | 0 |
 | Tech stocking stuffers | 0 | 0 | 0 | 0 |
 
@@ -50,45 +61,50 @@ Came from: www.facebook.com 1, Yandex 1
 
 | Post | Type | Reach | Views | Saves | Shares | Eng. | Watch | Link DMs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [Olcorife Flat Plug Power Strip, 8 Outlets](https://www.instagram.com/reel/DfxVbHQjDP4/) Sun 12:38PM | Reel | 96 | 108 | 0 | 0 | 1.0% | 2.6s | 0 |
-| [Anker Nano Power Bank (10K, 30W, built-in USB-C cable)](https://www.instagram.com/reel/DfsEXBCDxqO/) Fri 11:33AM | Reel | 81 | 83 | 0 | 0 | 1.2% | 1.7s | 0 |
-| [Kasa Smart Plug Mini (2-pack)](https://www.instagram.com/reel/Dfs7SvDkV5V/) Fri 7:33PM | Reel | 74 | 85 | 0 | 0 | 2.7% | 1.3s | 0 |
-| [Soundcore by Anker Q20i Noise Cancelling Headphones](https://www.instagram.com/reel/Dfpfp2JDdaI/) Thu 11:33AM | Reel | 70 | 70 | 0 | 0 | 1.4% | 1.7s | 0 |
-| [Scandinavian Hub Under-Desk Cable Management Trays (set of 2)](https://www.instagram.com/reel/DfqWf1UE5Yc/) Thu 7:33PM | Reel | 67 | 71 | 0 | 0 | 1.5% | 1.7s | 0 |
-| [Amazon Fire TV Stick 4K Max](https://www.instagram.com/reel/Dfm6zAAFBPq/) Wed 11:33AM | Reel | 64 | 73 | 0 | 0 | 1.6% | 1.6s | 0 |
-| [Anker Soundcore 2 Bluetooth Speaker](https://www.instagram.com/reel/Dfnxs_HJTEz/) Wed 7:33PM | Reel | 62 | 65 | 0 | 0 | 1.6% | 1.6s | 0 |
-| [Wyze Cam v4](https://www.instagram.com/reel/DfkV-i1gDeZ/) Tue 11:33AM | Reel | 45 | 46 | 0 | 0 | 2.2% | 1.5s | 0 |
-| [Logitech MX Master 3S Wireless Mouse](https://www.instagram.com/reel/DfgDUaejyQy/) Sun 7:33PM | Reel | 27 | 30 | 0 | 0 | 3.7% | 1.3s | 0 |
-| [Amazon Echo Dot with Clock (5th Gen)](https://www.instagram.com/reel/DfimUkAFSLq/) Mon 7:17PM | Reel | 10 | 10 | 0 | 0 | 10.0% | 2.4s | 0 |
-| [Anker Nano Power Bank (10K, 45W, retractable cable)](https://www.instagram.com/reel/DflM6h9gmG_/) Tue 7:33PM | Reel | 8 | 8 | 0 | 0 | 12.5% | 1.6s | 0 |
-| [ShSiXin 3-in-1 Apple Watch Charging Cable](https://www.instagram.com/reel/DfhxLkKDYRU/) Mon 11:33AM | Reel | 2 | 2 | 0 | 0 | 50.0% | 2.5s | 0 |
+| [Apple MacBook Air 13-inch (M5)](https://www.instagram.com/reel/DgBLmSqChBM/) Sat 4:20PM | Reel | 141 | 157 | 0 | 0 | 1.4% | 3.0s | 0 |
+| [Anker 100W 3-Port GaN Charger with Smart Display](https://www.instagram.com/reel/Df0JMtfE1_S/) Mon 2:49PM | Reel | 112 | 120 | 0 | 0 | 1.8% | 2.8s | 0 |
+| [KOOTEK Laptop Cooling Pad](https://www.instagram.com/reel/Dfx0PhSiFbh/) Sun 5:07PM | Reel | 111 | 124 | 0 | 0 | 0.9% | 8.4s | 0 |
+| [BESIGN Aluminum Laptop Stand](https://www.instagram.com/reel/DgDZR21jAKM/) Sun 12:58PM | Reel | 103 | 114 | 0 | 0 | 1.0% | 2.5s | 0 |
+| [UGREEN 5-in-1 USB-C Hub](https://www.instagram.com/reel/Df2vFW0CAxg/) Tue 2:58PM | Reel | 98 | 109 | 0 | 0 | 1.0% | 2.6s | 0 |
+| [soundcore P30i Noise Cancelling Earbuds](https://www.instagram.com/reel/DfyPEsdDr0L/) Sun 9:02PM | Reel | 70 | 94 | 0 | 0 | 2.9% | 2.1s | 0 |
+| [Apple AirPods 5](https://www.instagram.com/reel/DgAypxWk9iE/) Sat 12:42PM | Reel | 48 | 53 | 0 | 0 | 2.1% | 1.4s | 0 |
+| [Apple AirPods Pro 3](https://www.instagram.com/reel/Df8zMEpDyxt/) Thu 11:30PM | Reel | 39 | 43 | 0 | 0 | 2.6% | 1.7s | 0 |
+| [Ring Outdoor Cam 2K](https://www.instagram.com/reel/Df8TthTgWEi/) Thu 6:55PM | Reel | 36 | 49 | 0 | 0 | 2.8% | 4.2s | 0 |
+| [Logitech Pebble 2 Keyboard and Mouse Combo](https://www.instagram.com/reel/Df5MkCtmVnd/) Wed 1:54PM | Reel | 27 | 29 | 0 | 0 | 3.7% | 1.4s | 0 |
+| [Apple Watch SE 3](https://www.instagram.com/reel/DgBnHKiCEJ8/) Sat 8:20PM | Reel | 21 | 28 | 0 | 0 | 4.8% | 2.7s | 0 |
+| [Apple iPad 11-inch (A16)](https://www.instagram.com/reel/Df_MU3qAlJG/) Fri 9:48PM | Reel | 15 | 16 | 0 | 0 | 6.7% | 3.0s | 0 |
+| [FosPower NOAA Weather Radio with Hand Crank](https://www.instagram.com/reel/Df52pLwjhXQ/) Wed 8:02PM | Reel | 15 | 19 | 0 | 0 | 6.7% | 3.6s | 0 |
+| [Ring Indoor Cam 2K](https://www.instagram.com/reel/Df04nBijhVz/) Mon 9:43PM | Reel | 13 | 17 | 0 | 0 | 7.7% | 5.1s | 0 |
+| [Beats Solo 4 On-Ear Headphones](https://www.instagram.com/reel/Df7pSeZAnSQ/) Thu 12:44PM | Reel | 12 | 10 | 0 | 0 | 8.3% | 1.7s | 0 |
+| [Tapo C100 Indoor Security Camera](https://www.instagram.com/reel/Df3Z_SujwZF/) Tue 9:13PM | Reel | 12 | 15 | 0 | 0 | 8.3% | 3.1s | 0 |
+| [Amazon eero 6+ Mesh Wi-Fi 3-Pack](https://www.instagram.com/reel/Df-oQf5jot0/) Fri 4:33PM | Reel | 11 | 12 | 0 | 0 | 9.1% | 1.6s | 0 |
+| [Amazon Fire HD 10 Tablet](https://www.instagram.com/reel/Df-F7dsDrir/) Fri 11:33AM | Reel | 10 | 16 | 0 | 0 | 10.0% | 4.2s | 0 |
 
 ### By lane
 
 | Lane | Posts | Avg reach | Avg eng. | Link DMs |
 | --- | ---: | ---: | ---: | ---: |
-| desk and home office gadgets | 1 | 96 | 1.0% | 0 |
-| smart home | 2 | 69 | 2.2% | 0 |
-| other | 1 | 62 | 1.6% | 0 |
-| desk and productivity setup | 3 | 55 | 1.8% | 0 |
-| home security and safety gadgets | 1 | 45 | 2.2% | 0 |
-| phone, travel and charging gadgets | 3 | 30 | 3.3% | 0 |
-| robots, clocks and fun tech | 1 | 10 | 10.0% | 0 |
+| desk and home office gadgets | 4 | 85 | 1.2% | 0 |
+| phone, travel and charging gadgets | 2 | 64 | 2.4% | 0 |
+| gadgets for everyone | 4 | 47 | 2.7% | 0 |
+| audio and headphones | 4 | 42 | 3.0% | 0 |
+| smart home and security | 4 | 18 | 5.6% | 0 |
 
 ### Experiments (reels only)
 
 | Hook style | Reels | Avg reach | Avg watch | Saves + shares | Link DMs |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| callout | 3 | 70 | 2.0s | 0 | 0 |
-| number | 3 | 47 | 1.8s | 0 | 0 |
-| question | 2 | 46 | 2.0s | 0 | 0 |
-| curiosity | 2 | 44 | 1.4s | 0 | 0 |
-| demo | 2 | 38 | 1.7s | 0 | 0 |
+| number | 2 | 76 | 2.4s | 0 | 0 |
+| callout | 4 | 56 | 2.5s | 0 | 0 |
+| demo | 1 | 48 | 1.4s | 0 | 0 |
+| question | 6 | 46 | 2.5s | 0 | 0 |
+| curiosity | 5 | 38 | 4.9s | 0 | 0 |
 
 | Time of day | Reels | Avg reach | Avg watch | Saves + shares | Link DMs |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| midday (11 to 2) | 6 | 60 | 1.9s | 0 | 0 |
-| evening (after 6) | 6 | 41 | 1.6s | 0 | 0 |
+| afternoon (2 to 6) | 5 | 95 | 3.7s | 0 | 0 |
+| midday (11 to 2) | 5 | 40 | 2.2s | 0 | 0 |
+| evening (after 6) | 8 | 28 | 3.2s | 0 | 0 |
 
 Small samples swing a lot; trust a pattern only once it holds for two or three weeks.
 
@@ -97,18 +113,18 @@ Small samples swing a lot; trust a pattern only once it holds for two or three w
 
 Each cell is avg reach / avg watch (reels). A style wins once it leads on reach for two or three weeks running.
 
-| Hook style | Week to 11-01 | Week to 11-08 | Week to 11-15 |
-| --- | ---: | ---: | ---: |
-| callout | 4 / 4.6s (1) | 72 / 2.7s (3) | 70 / 2.0s (3) |
-| number | 47 / 2.9s (3) | 46 / 2.9s (2) | 47 / 1.8s (3) |
-| question | 39 / 3.9s (5) | 44 / 2.8s (9) | 46 / 2.0s (2) |
-| statement | 42 / 4.4s (6) |  |  |
-| curiosity |  | 8 / 4.5s (2) | 44 / 1.4s (2) |
-| demo | 10 / 2.9s (5) |  | 38 / 1.7s (2) |
+| Hook style | Week to 11-01 | Week to 11-08 | Week to 11-15 | Week to 11-22 |
+| --- | ---: | ---: | ---: | ---: |
+| number | 47 / 2.9s (3) | 46 / 2.9s (2) | 47 / 1.8s (3) | 76 / 2.4s (2) |
+| callout | 4 / 4.6s (1) | 72 / 2.7s (3) | 70 / 2.0s (3) | 56 / 2.5s (4) |
+| question | 39 / 3.9s (5) | 44 / 2.8s (9) | 46 / 2.0s (2) | 46 / 2.5s (6) |
+| statement | 42 / 4.4s (6) |  |  |  |
+| demo | 10 / 2.9s (5) |  | 38 / 1.7s (2) | 48 / 1.4s (1) |
+| curiosity |  | 8 / 4.5s (2) | 44 / 1.4s (2) | 38 / 4.9s (5) |
 
 
 ### For next week's picks
 
-- Best post: **Olcorife Flat Plug Power Strip, 8 Outlets** (desk and home office gadgets).
-- Weakest post: **ShSiXin 3-in-1 Apple Watch Charging Cable** (phone, travel and charging gadgets).
+- Best post: **Apple MacBook Air 13-inch (M5)** (gadgets for everyone).
+- Weakest post: **Amazon Fire HD 10 Tablet** (gadgets for everyone).
 - Strongest lane: **desk and home office gadgets**. Lean into it next week while keeping the mix varied.

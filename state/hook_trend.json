@@ -97,5 +97,40 @@
         "watch_s": 2.0
       }
     }
+  },
+  {
+    "date": "2026-11-22",
+    "styles": {
+      "callout": {
+        "reach": 56,
+        "reels": 4,
+        "saves_shares": 0,
+        "watch_s": 2.5
+      },
+      "curiosity": {
+        "reach": 38,
+        "reels": 5,
+        "saves_shares": 0,
+        "watch_s": 4.9
+      },
+      "demo": {
+        "reach": 48,
+        "reels": 1,
+        "saves_shares": 0,
+        "watch_s": 1.4
+      },
+      "number": {
+        "reach": 76,
+        "reels": 2,
+        "saves_shares": 0,
+        "watch_s": 2.4
+      },
+      "question": {
+        "reach": 46,
+        "reels": 6,
+        "saves_shares": 0,
+        "watch_s": 2.5
+      }
+    }
   }
 ]
