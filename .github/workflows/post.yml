@@ -18,7 +18,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 340   # room to wait up to 5 hours for the next post (see wait-next)
+    timeout-minutes: 660   # room to wait up to 5 hours for the next post, twice (see wait-next and the second pass)
     steps:
       # Check out the branch tip, not the commit that queued this run, so a run that waited
       # behind another sees its post history (Nov 1 2026 a stale run posted a reel twice).
@@ -84,6 +84,42 @@ jobs:
         run: |
           git config user.name "daily-tech-drops-bot"
           git config user.email "actions@users.noreply.github.com"
+          git add state/ docs/
+          git diff --cached --quiet && exit 0
+          git commit -m "Update post history"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push
+
+      # A run that posts a late slot used to stop there, so the slot after it waited on a
+      # scheduled run that GitHub may never start (Nov 22 2026 the 7:30pm reel was missed).
+      # Wait for the next slot within 5 hours and post it from this same run.
+      - name: Second pass, wait for and post the next slot
+        if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+        run: |
+          git config user.name "daily-tech-drops-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin "${{ github.ref_name }}" || true
+          python -m dtd wait-next
+          git pull --rebase origin "${{ github.ref_name }}" || true
+          GITHUB_OUTPUT=/dev/null python -m dtd site-prep
+          git add docs/
+          if ! git diff --cached --quiet; then
+            git commit -m "Shop page: add the next product before its reel posts"
+            git pull --rebase origin "${{ github.ref_name }}"
+            git push
+            sleep 120
+          fi
+          python -m dtd post-due
           git add state/ docs/
           git diff --cached --quiet && exit 0
           git commit -m "Update post history"
