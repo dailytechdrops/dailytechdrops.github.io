@@ -1,0 +1,11 @@
+name: thermopro-tp19h-stock
+reel:
+  name: ThermoPro TP19H Instant-Read Thermometer
+  product_photo: assets/products/thermopro-tp19h.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: steak grilling barbecue
+    caption: Is your steak done yet?
+    voiceover: I was tired of guessing if the meat was done.
+  - query: grill flames barbecue fire
+    voiceover: This ThermoPro reads the temperature in one second.

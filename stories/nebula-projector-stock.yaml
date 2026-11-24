@@ -1,0 +1,11 @@
+name: nebula-projector-stock
+reel:
+  name: NEBULA Capsule 3 Projector
+  product_photo: assets/products/nebula-projector.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: camping tent night
+    caption: Movie night anywhere?
+    voiceover: I wanted movie night without a TV.
+  - query: starry night sky
+    voiceover: The NEBULA Capsule 3 is a portable projector small enough to carry.

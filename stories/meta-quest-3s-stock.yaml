@@ -1,0 +1,11 @@
+name: meta-quest-3s-stock
+reel:
+  name: Meta Quest 3S
+  product_photo: assets/products/meta-quest-3s.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: rain window gray day
+    caption: Rainy weekend, nothing to do?
+    voiceover: I needed something fun for a rainy weekend.
+  - query: colorful galaxy space abstract
+    voiceover: The Meta Quest 3S puts a whole game library on your head.

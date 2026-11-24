@@ -1,0 +1,11 @@
+name: etekcity-food-scale-stock
+reel:
+  name: Etekcity Digital Kitchen Scale
+  product_photo: assets/products/etekcity-food-scale.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - caption: Guessing your measurements?
+    voiceover: I was done guessing my baking measurements.
+    pixabay: 267
+  - pixabay: 213748
+    voiceover: This Etekcity scale reads in five units.

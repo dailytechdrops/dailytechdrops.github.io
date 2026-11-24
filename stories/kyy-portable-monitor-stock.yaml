@@ -1,0 +1,11 @@
+name: kyy-portable-monitor-stock
+reel:
+  name: KYY 15.6 Inch Portable Monitor
+  product_photo: assets/products/kyy-portable-monitor.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: modern office desk monitors
+    caption: One small laptop screen?
+    voiceover: One small laptop screen was slowing me down.
+  - query: mountain lake cabin scenery
+    voiceover: This KYY monitor adds a 15.6 inch 1080P screen anywhere.

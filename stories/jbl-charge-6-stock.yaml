@@ -1,0 +1,11 @@
+name: jbl-charge-6-stock
+reel:
+  name: JBL Charge 6 Portable Speaker
+  product_photo: assets/products/jbl-charge-6.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: swimming pool summer water
+    caption: Need a speaker that survives water?
+    voiceover: I wanted a speaker that can take a splash.
+  - query: backyard summer party
+    voiceover: The JBL Charge 6 is waterproof and lasts up to 28 hours.

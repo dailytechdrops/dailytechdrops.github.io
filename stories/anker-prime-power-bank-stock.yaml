@@ -1,0 +1,11 @@
+name: anker-prime-power-bank-stock
+reel:
+  name: Anker Prime Power Bank 20,100mAh
+  product_photo: assets/products/anker-prime-power-bank.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: airport terminal travel
+    caption: Phone and laptop both at ten percent?
+    voiceover: My phone and laptop always die on trips.
+  - query: airplane window clouds
+    voiceover: This Anker Prime power bank puts out 220 watts from three ports.
