@@ -1,0 +1,12 @@
+name: retro-phone-handset-stock
+reel:
+  name: Retro Phone Handset
+  product_photo: assets/products/retro-phone-handset.jpg
+  end_voiceover: Comment SHOP and I will send you the link.
+  beats:
+  - query: woman talking on phone
+    caption: Remember real phone calls?
+    voiceover: Remember when a phone call felt like a real call?
+  - query: vintage telephone
+    voiceover: This handset plugs into a Type-C phone and works like a receiver.
+# stock footage, no listing images
