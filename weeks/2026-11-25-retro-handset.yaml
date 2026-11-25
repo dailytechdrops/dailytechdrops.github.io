@@ -1,0 +1,37 @@
+- slot: 2026-11-25 19:30
+  asin: B0HNW3MPXY
+  name: Retro Phone Handset (Type-C)
+  lane: gadgets for everyone
+  hook_style: question
+  angle: Remember real phone calls?
+  key_facts:
+  - Retro Phone Handset (Type-C)
+  broll:
+  - desk setup
+  content:
+    product_photo: assets/products/retro-phone-handset.jpg
+    reel_file: assets/reels/retro-phone-handset-stock.mp4
+    beats:
+    - on_screen: Remember real phone calls?
+      voiceover: ''
+    - on_screen: Comment SHOP
+      voiceover: ''
+    carousel:
+    - title: Remember real phone calls?
+      body: Details in the shop.
+    - title: Comment SHOP
+      body: I will DM you the Amazon link.
+    caption: 'Remember real phone calls? This retro handset plugs into a Type-C phone and works as a receiver for calls and video meetings. It comes in black, blue, pink and white.
+
+
+      Comment SHOP and I will send you the link.'
+    hashtags:
+    - retrophone
+    - phoneaccessories
+    - techgadgets
+    - desksetup
+    - amazonfinds
+    dm_message: 'Here is the Retro Phone Handset: {link}
+
+
+      As an Amazon Associate I earn from qualifying purchases.'
