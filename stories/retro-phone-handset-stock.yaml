@@ -4,7 +4,7 @@ reel:
   product_photo: assets/products/retro-phone-handset.jpg
   end_voiceover: Comment SHOP and I will send you the link.
   beats:
-  - query: woman talking on phone at desk home office
+  - query: woman talking on phone
     caption: Remember real phone calls?
     voiceover: Remember when a phone call felt like a real call?
   - query: vintage telephone
