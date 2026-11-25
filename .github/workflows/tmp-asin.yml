@@ -1,0 +1,21 @@
+name: tmp asin
+on:
+  workflow_dispatch:
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          curl -sL -A "$UA" -H 'Accept-Language: en-US,en;q=0.9' 'https://www.amazon.com/s?k=cyaneagle+retro+phone+handset+type-c' -o s.html
+          wc -c s.html
+          grep -o 'data-asin="[A-Z0-9]\{10\}"' s.html | sort -u | head -30
+          grep -io 'cyaneagle' s.html | wc -l
+          python3 - <<'EOF'
+          import re
+          h=open('s.html',errors='ignore').read()
+          for m in re.finditer(r'data-asin="([A-Z0-9]{10})"(.{0,3000}?)</h2>',h,re.S):
+              t=re.sub(r'<[^>]+>',' ',m.group(2))
+              t=re.sub(r'\s+',' ',t)[-200:]
+              print(m.group(1),t)
+          EOF
