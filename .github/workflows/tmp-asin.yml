@@ -1,5 +1,8 @@
 name: tmp asin
 on:
+  push:
+    branches: [claude/project-thread-9fp61h]
+    paths: ['.github/workflows/tmp-asin.yml']
   workflow_dispatch:
 jobs:
   go:
