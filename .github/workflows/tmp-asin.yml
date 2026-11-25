@@ -3,22 +3,17 @@ on:
   push:
     branches: [claude/project-thread-9fp61h]
     paths: ['.github/workflows/tmp-asin.yml']
-  workflow_dispatch:
 jobs:
   go:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          curl -sL -A "$UA" -H 'Accept-Language: en-US,en;q=0.9' 'https://www.amazon.com/s?k=cyaneagle+retro+phone+handset+type-c' -o s.html
-          wc -c s.html
-          grep -o 'data-asin="[A-Z0-9]\{10\}"' s.html | sort -u | head -30
-          grep -io 'cyaneagle' s.html | wc -l
-          python3 - <<'EOF'
-          import re
-          h=open('s.html',errors='ignore').read()
-          for m in re.finditer(r'data-asin="([A-Z0-9]{10})"(.{0,3000}?)</h2>',h,re.S):
-              t=re.sub(r'<[^>]+>',' ',m.group(2))
-              t=re.sub(r'\s+',' ',t)[-200:]
-              print(m.group(1),t)
-          EOF
+          UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1'
+          for q in 'cyaneagle+retro+phone+handset' 'retro+phone+handset+type-c+cyaneagle+blue'; do
+            curl -sL -A "$UA" -H 'Accept-Language: en-US,en;q=0.9' "https://www.amazon.com/s?k=$q" -o s.html
+            echo "== $q"; wc -c s.html; grep -o '<title>[^<]*' s.html
+            grep -io 'captcha' s.html | head -1
+            grep -o '/dp/[A-Z0-9]\{10\}' s.html | sort -u | head -20
+            grep -o 'data-asin=.\{0,14\}' s.html | head -5
+            grep -io '[^>]\{0,80\}cyaneagle[^<]\{0,80\}' s.html | head -5
+          done
